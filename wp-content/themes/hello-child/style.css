@@ -475,13 +475,17 @@ div.file_filelist_file_div_with_remove {
   text-align: right;
   display: inline-flex;
   justify-content: flex-end;
-  margin: 8px 0 5px 0px !important;
-  font-weight: bold;
-  font-size: 15px !important;
+  margin: 6px 0 5px 0px !important;
+  font-weight: normal;
+  font-size: 14px !important;
 }
 
 #userdata_1_field_7 {
   width: 100px !important;
+}
+
+#userdata_1_fieldwrapper_8 {
+  margin: -2px 0 0 0 !important;
 }
 
 /* *******************************************
