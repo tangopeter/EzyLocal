@@ -154,13 +154,13 @@ if (!function_exists('wfu_before_file_check_handler')) {
     $this_file_path = wfu_basedir($changable_data['file_path']);
     $orderNumber = get_option('ORDER_NUMBER');
     $date = $changable_data['user_data'][1]['value'];
-    $price = $changable_data['user_data'][4]['value'];
-    $total_price = $changable_data['user_data'][5]['value'];
+    $price = $changable_data['user_data'][5]['value'];
+    $total_price = $changable_data['user_data'][6]['value'];
 
-    $size = $changable_data['user_data'][6]['value'];
-    $finish = $changable_data['user_data'][7]['value'];
+    $size = $changable_data['user_data'][7]['value'];
+    $finish = $changable_data['user_data'][8]['value'];
     $quantity = $changable_data['user_data'][2]['value'];
-    $reSize = $changable_data['user_data'][3]['value'];
+    $reSize = $changable_data['user_data'][4]['value'];
 
     $filename = wfu_basename($changable_data['file_path']);
     $filepath = wfu_basedir($changable_data['file_path']);
