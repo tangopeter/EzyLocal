@@ -38,7 +38,7 @@
 		<?php drawOrderTable($ORDER_NUMBER); ?>
 
 		<div class="myDiv2">
-			<input type=button onClick="location.href='https://ezylocal:8890/?page_id=2782'" value='Complete Order'>
+			<input type=button class="completeOrder" onClick="location.href='https://ezylocal:8890/?page_id=2782'" value='Complete Order'>
 		</div>
 </main>
 </div>

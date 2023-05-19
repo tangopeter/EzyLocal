@@ -31,13 +31,13 @@ get_header();
                 <?php showUserDetails(); ?>
 
             </div>
-            <div class="completeTheOrder">
-                <h3>Delivery:</h3>
-                <?php showDeliveryDetails(); ?>
+            <!-- <div class="completeTheOrder">
+                <!-- <h3>Delivery:</h3>
+                <?php showDeliveryDetails(); ?> -->
 
 
-            </div>
-        </div>
+        </div> -->
+    </div>
     </div>
     <h2>Completed Orders:</h2>
     <?php
