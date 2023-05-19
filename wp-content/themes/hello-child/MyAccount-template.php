@@ -31,17 +31,18 @@ get_header();
                 <?php showUserDetails(); ?>
 
             </div>
-            <!-- <div class="completeTheOrder">
-                <!-- <h3>Delivery:</h3>
-                <?php showDeliveryDetails(); ?> -->
+        </div>
+        <?php completeTheOrder($ORDER_NUMBER) ?> // ezycompleteFunctions.php
 
-
-        </div> -->
+        <div class="details">
+            <h2>Completed Orders:</h2>
+        </div>
+        <?php
+        drawAccountOrderTable($ORDER_NUMBER); // ezycompleteFunctions.php
+        ?>
     </div>
     </div>
-    <h2>Completed Orders:</h2>
-    <?php
-    drawAccountOrderTable($ORDER_NUMBER);
-    ?>
+    </div>
+    </div>
     </div>
     <?php get_footer(); ?>

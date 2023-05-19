@@ -10,9 +10,87 @@ function finalizeButton()
 }
 
 
+function completeTheOrder($ORDER_NUMBER)
+{
+  $current_user = wp_get_current_user();
+
+  global $wpdb;
+
+  $orders = $wpdb->get_results(
+    $wpdb->prepare(
+      "SELECT ID,order_number,userID,uploads
+    FROM wp_ezyUploads
+    WHERE order_number = %s",
+      $ORDER_NUMBER
+    )
+  );
+
+  $items = [];
+
+  foreach ($orders as $order) {
+    $uppy = json_decode($order->uploads);
+    $items[] = $uppy;
+  }
+
+  $upload3 = json_encode($items, JSON_PRETTY_PRINT);
+
+  $thisUser = array(
+    'first_name' => get_field('first_name', $current_user),
+    'last_name' => get_field('last_name', $current_user),
+    'email' => get_field('email', $current_user),
+    'address' => get_field('address', $current_user),
+    'suburb' => get_field('suburb', $current_user),
+    'city' => get_field('city', $current_user),
+    'postcode' => get_field('postcode', $current_user),
+    'phone' => get_field('phone', $current_user),
+
+    'delivery_details' => get_field('delivery_method_and_details', $current_user),
+    'rural_delivery' => get_field('rural_delivery', $current_user),
+    'saturday_delivery' => get_field('saturday_delivery', $current_user),
+    'deliver_to_postal_address' => get_field('deliver_to_postal_address', $current_user),
+    'postal_address' => get_field('postal_address', $current_user),
+    'additional_instructions' => get_field('additional_instructions', $current_user)
+
+  );
+  $upload = json_encode($thisUser, JSON_PRETTY_PRINT);
+  $costs = array(
+    'print_cost' => get_field('print_cost', $current_user),
+    'delivery_cost' => get_field('delivery_cost', $current_user),
+    'subtotal' => get_field('subtotal', $current_user),
+    'gst' => get_field('gst', $current_user),
+    'total' => get_field('total', $current_user)
+  );
+  $upload1 = json_encode($costs, JSON_PRETTY_PRINT);
+
+  $wpdb->insert(
+    $wpdb->prefix . 'ezy_orders', // name of the table
+    array( // 'key' => 'value'
+      'order_number' => $ORDER_NUMBER,
+      'user' => get_current_user_id(),
+      'date' => date('Y-m-d H:i:s'),
+      'order_status' => "tba2",
+      'costs' => $upload1,
+      'user_details' => $upload,
+      'items' => $upload3
+    ),
+    array(
+      "%d", // $ORDER_NUMBER,
+      '%d', // 'userID',
+      '%s', // 'status'
+      '%s', // 'costs'
+      '%s', // 'user details'
+      '%s' // 'items'
+    )
+  );
+  // $ORDER_NUMBER = get_option('ORDER_NUMBER');
+  // $ORDER_NUMBER++;
+  // update_option('ORDER_NUMBER', $ORDER_NUMBER);
+}
+
+
 function drawAccountOrderTable($ORDER_NUMBER)
 {
-  echo '<div class="mydiv1">';
+  echo '<div class="completedTable">';
 
   $USER = get_current_user_id();
   echo '<h5>User#: ', $USER . '</h5>';
@@ -29,20 +107,26 @@ function drawAccountOrderTable($ORDER_NUMBER)
     )
   );
   echo '<div class="myData3">';
+  $i = 0;
+  $len = count($users);
+  echo $i . " ", $len;
 
   foreach ($users as $user) :
+
+    // echo "users: ", $user;
     $uppy = json_decode($user->items);
 
-    echo '<pre>' . var_dump($user) . '</pre>';
 
     $costs = $user->costs;
     $costs = json_decode($user->costs);
+    // echo $users;
 
-    echo 'Print Cost: ' . $costs->print_cost . '<br/>';
-    echo 'Delivery Cost: ' . $costs->delivery_cost . '<br/>';
-    echo 'Subtotal: ' . $costs->subtotal . '<br/>';
-    echo '+ GST: ' .  $costs->gst . '<br/>';
-    echo 'Total: ' .  $costs->total . '<br/>';
+    // echo '<pre>' . var_dump($user) . '</pre>';
+    // echo 'Print Cost: ' . $costs->print_cost . '<br/>';
+    // echo 'Delivery Cost: ' . $costs->delivery_cost . '<br/>';
+    // echo 'Subtotal: ' . $costs->subtotal . '<br/>';
+    // echo '+ GST: ' .  $costs->gst . '<br/>';
+    // echo 'Total: ' .  $costs->total . '<br/>';
 
 
 

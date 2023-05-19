@@ -1,12 +1,9 @@
-console.log("js  +", document.title  );
-
-
-
+// console.log("js  +", document.title  );
 import { orderPage, getDeliveryMethod , checkRuralDelivery , checkSatDelivery , getOrderSize , UpdateOrderTotals } from './orderPage.js';
-// import { testy2 } from './testy.js';
 import { orderPage2 } from './orderPage2.js';
 import { completeMyOrder } from './completeOrder.js';
 import { completeThisOrder } from './accountPage.js';
+// import { testy2 } from './testy.js';
 
 // console.log("js " + document.title);
 // jQuery(document).ready(function ($) {
@@ -40,16 +37,3 @@ switch (document.title)
 
   }
 
-// }
-// else if (document.title = 'Complete Order – Ezy Prints') {
-//   console.log("7 " + document.title);
-//   completeMyOrder();
-// }
-// else if (document.title = 'My account – Ezy Prints') {
-//   console.log("8 " + document.title);
-//   completeThisOrder();
-// }
-
-// else {  
-//      console.log("10 "+ document.title);
-// }
