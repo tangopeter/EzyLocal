@@ -9,6 +9,25 @@ function finalizeButton()
 <?php
 }
 
+function existingOrder($ORDER_NUMBER)
+{
+  global $wpdb;
+  $wpdb->show_errors();
+  // echo $ORDER_NUMBER;
+  $orderExists = $wpdb->get_col(
+    "SELECT order_number
+      FROM wp_ezy_orders
+      WHERE order_number = $ORDER_NUMBER"
+  );
+  // echo   '<br>' . count($orderExists);
+  // echo   '<br>' . $orderExists[0];
+  if ($ORDER_NUMBER != $orderExists[0]) {
+    completeTheOrder($ORDER_NUMBER);
+  } else {
+    echo
+    $orderExists[0] . " exists";
+  }
+}
 
 function completeTheOrder($ORDER_NUMBER)
 {
@@ -25,11 +44,17 @@ function completeTheOrder($ORDER_NUMBER)
     )
   );
 
+
+
+
+
+
   $items = [];
 
   foreach ($orders as $order) {
     $uppy = json_decode($order->uploads);
     $items[] = $uppy;
+    // echo '<pre>' . $order->uploads . '</pre>';
   }
 
   $upload3 = json_encode($items, JSON_PRETTY_PRINT);
@@ -116,7 +141,6 @@ function drawAccountOrderTable($ORDER_NUMBER)
     // echo "users: ", $user;
     $uppy = json_decode($user->items);
 
-
     $costs = $user->costs;
     $costs = json_decode($user->costs);
     // echo $users;
@@ -127,10 +151,6 @@ function drawAccountOrderTable($ORDER_NUMBER)
     // echo 'Subtotal: ' . $costs->subtotal . '<br/>';
     // echo '+ GST: ' .  $costs->gst . '<br/>';
     // echo 'Total: ' .  $costs->total . '<br/>';
-
-
-
-
 
 
 
@@ -160,7 +180,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
 
 
     echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-1">' . $user->user_details . '</td>';
-    echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-1">' . $user->delivery_details . '</td>';
+    // echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-1">' . $user->delivery_details . '</td>';
     echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-1">' . $user->items . '</td>';
     echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' .
       'Print Cost: $<strong>' . $costs->print_cost . '</strong><br/>' .
@@ -172,7 +192,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' . '<a href="#">' . 'edit' . '</a>' . '</td>';
     // echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' . '</td>';
     echo '</tr>';
-    $totalPrice = $totalPrice + $uppy->total_price;
+    // $totalPrice = $totalPrice + $uppy->total_price;
 
     echo '</tbody>';
     echo '<tfoot>';

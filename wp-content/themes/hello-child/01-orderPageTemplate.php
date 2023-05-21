@@ -41,6 +41,7 @@
 			<input type=button class="completeOrder" onClick="location.href='https://ezylocal:8890/?page_id=2782'" value='Complete Order'>
 		</div>
 </main>
+</main>
 </div>
 <div class="myFooter">
 	<?php get_footer(); ?>

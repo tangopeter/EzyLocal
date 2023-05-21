@@ -32,7 +32,9 @@ get_header();
 
             </div>
         </div>
-        <?php completeTheOrder($ORDER_NUMBER) ?> // ezycompleteFunctions.php
+
+        <?php existingOrder($ORDER_NUMBER) ?>
+
 
         <div class="details">
             <h2>Completed Orders:</h2>
