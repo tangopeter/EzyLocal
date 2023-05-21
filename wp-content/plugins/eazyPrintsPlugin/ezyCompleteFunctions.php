@@ -13,19 +13,15 @@ function existingOrder($ORDER_NUMBER)
 {
   global $wpdb;
   $wpdb->show_errors();
-  // echo $ORDER_NUMBER;
   $orderExists = $wpdb->get_col(
     "SELECT order_number
       FROM wp_ezy_orders
       WHERE order_number = $ORDER_NUMBER"
   );
-  // echo   '<br>' . count($orderExists);
-  // echo   '<br>' . $orderExists[0];
   if ($ORDER_NUMBER != $orderExists[0]) {
     completeTheOrder($ORDER_NUMBER);
   } else {
-    echo
-    $orderExists[0] . " exists";
+    echo  $orderExists[0] . " exists";
   }
 }
 
@@ -44,17 +40,11 @@ function completeTheOrder($ORDER_NUMBER)
     )
   );
 
-
-
-
-
-
   $items = [];
 
   foreach ($orders as $order) {
     $uppy = json_decode($order->uploads);
     $items[] = $uppy;
-    // echo '<pre>' . $order->uploads . '</pre>';
   }
 
   $upload3 = json_encode($items, JSON_PRETTY_PRINT);
@@ -107,9 +97,6 @@ function completeTheOrder($ORDER_NUMBER)
       '%s' // 'items'
     )
   );
-  // $ORDER_NUMBER = get_option('ORDER_NUMBER');
-  // $ORDER_NUMBER++;
-  // update_option('ORDER_NUMBER', $ORDER_NUMBER);
 }
 
 
@@ -118,7 +105,6 @@ function drawAccountOrderTable($ORDER_NUMBER)
   echo '<div class="completedTable">';
 
   $USER = get_current_user_id();
-  echo '<h5>User#: ', $USER . '</h5>';
   global $wpdb;
   $wpdb->show_errors();
   $totalPrice = 0;
@@ -132,29 +118,14 @@ function drawAccountOrderTable($ORDER_NUMBER)
     )
   );
   echo '<div class="myData3">';
-  $i = 0;
-  $len = count($users);
-  echo $i . " ", $len;
-
   foreach ($users as $user) :
-
-    // echo "users: ", $user;
     $uppy = json_decode($user->items);
+    $totalPrice = 0;
 
     $costs = $user->costs;
     $costs = json_decode($user->costs);
-    // echo $users;
-
-    // echo '<pre>' . var_dump($user) . '</pre>';
-    // echo 'Print Cost: ' . $costs->print_cost . '<br/>';
-    // echo 'Delivery Cost: ' . $costs->delivery_cost . '<br/>';
-    // echo 'Subtotal: ' . $costs->subtotal . '<br/>';
-    // echo '+ GST: ' .  $costs->gst . '<br/>';
-    // echo 'Total: ' .  $costs->total . '<br/>';
-
-
-
-    echo '<div class="mydata2">';
+    $thisUser = $user->user_details;
+    $thisUser = json_decode($user->user_details);
 
     echo '<table>';
     echo '<thead>';
@@ -176,11 +147,29 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '<td class="wfu_browser_td wfu_col-2 wfu_browser-1">' . $user->ID . '</td>';
     echo '<td class="wfu_browser_td wfu_col-2 wfu_browser-1">' . $user->order_number . '</td>';
     echo '<td class="wfu_browser_td wfu_col-3 wfu_browser-1">' . $user->date . '</td>';
-    echo '<td class="wfu_browser_td wfu_col-3 wfu_browser-1">' . $user->order_status . '</td>';
+    echo '<td class="wfu_browser_td wfu_col-3 wfu_browser-1">' .
+
+      $user->order_status . '</td>';
 
 
-    echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-1">' . $user->user_details . '</td>';
-    // echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-1">' . $user->delivery_details . '</td>';
+    echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-1">' .
+      'User: <strong>' . $thisUser->first_name . " " . $thisUser->last_name . '</strong><br/>' .
+      'email: <strong>' . $thisUser->email . '</strong><br/>' .
+      'Address: <strong>' . $thisUser->address . '</strong><br/>' .
+      'Suburb: <strong>' . $thisUser->suburb . '</strong><br/>' .
+      'City: <strong>' . $thisUser->city . ' ' . $thisUser->postcode . '</strong><br/>' .
+      'Phone: <strong>' . $thisUser->phone . '<br/>' .
+
+      '</td>';
+    echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-1">' .
+      'Delivery: <strong>' . $thisUser->delivery_details . '</strong><br/>' .
+      'Rural: <strong>' . $thisUser->rural_delivery . '</strong><br/>' .
+      'Saturday: <strong>' . $thisUser->saturday_delivery . '</strong><br/>' .
+      // 'Postal: <strong>' . $thisUser->deliver_to_postal_address . '</strong><br/>' .
+      'Postal address: <strong>' . '<br/>' . $thisUser->postal_address . '</strong><br/>' .
+      'Additional Instructions:  <strong>' . '<br/>' . $thisUser->additional_instructions . '</strong><br/>' .
+      '</td>';
+
     echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-1">' . $user->items . '</td>';
     echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' .
       'Print Cost: $<strong>' . $costs->print_cost . '</strong><br/>' .
@@ -192,7 +181,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' . '<a href="#">' . 'edit' . '</a>' . '</td>';
     // echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' . '</td>';
     echo '</tr>';
-    // $totalPrice = $totalPrice + $uppy->total_price;
+    $totalPrice = $totalPrice + $costs->total;
 
     echo '</tbody>';
     echo '<tfoot>';
@@ -204,8 +193,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-1">' . '</td>';
     echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-1">' . '</td>';
     echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-1">' . '</td>';
-    echo '<td class="wfu_browser_td wfu_col-8 wfu_browser-1">' . '</td>';
-    echo '<td id="totalPrintPrice" class="wfu_browser_td wfu_col-9 wfu_browser-1">' . number_format((float)$totalPrice, 2, '.', '') . '</td>';
+    echo '<td id="totalPrintPrice2" class="wfu_browser_td wfu_col-9 wfu_browser-1">' . number_format((float)$totalPrice, 2, '.', '') . '</td>';
     echo '<td class="wfu_browser_td wfu_col-8 wfu_browser-1">' . '</td>';
     // echo '<td class="wfu_browser_td wfu_col-10 wfu_browser-1">' . '</td>';
     // echo '<td class="wfu_browser_td wfu_col-11 wfu_browser-1">' . '</td>';
@@ -217,4 +205,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '</div>';
     echo '</div>';
   endforeach;
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
 }

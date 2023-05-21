@@ -43,8 +43,7 @@ get_header();
         drawAccountOrderTable($ORDER_NUMBER); // ezycompleteFunctions.php
         ?>
     </div>
+
+    <div class="myFooter">
+        <?php get_footer(); ?>
     </div>
-    </div>
-    </div>
-    </div>
-    <?php get_footer(); ?>

@@ -660,6 +660,10 @@ tfoot .wfu_browser_td.wfu_col-9.wfu_browser-1 {
   font-weight: 700;
 }
 
+#totalPrintPrice2 {
+  text-align: right;
+}
+
 /* /* #userdata_2_1 {
   display: none;
 } */
@@ -819,7 +823,7 @@ tfoot .wfu_browser_td.wfu_col-9.wfu_browser-1 {
 }
 
 .myData3 {
-  background: rgb(207, 247, 179);
+  /* background: rgb(207, 247, 179); */
   min-height: 100px;
   max-width: 1200px;
   margin: 0 auto;
