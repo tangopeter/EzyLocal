@@ -4,7 +4,7 @@
  * Plugin Name: Eazy Prints Plugin
  * Description: This plugin contains Eazy Prints custom code
  * Author: Peter Williamson
- * Version: 0.16
+ * Version: 0.2
  **/
 ?>
 <?php
@@ -151,8 +151,11 @@ if (!function_exists('wfu_before_file_check_handler')) {
   {
     $user = get_current_user_id();
 
-    $this_file_path = wfu_basedir($changable_data['file_path']);
     $orderNumber = get_option('ORDER_NUMBER');
+
+    // $changable_data['user_data'][1]['value'] = $orderNumber;
+
+    // $this_file_path = wfu_basedir($changable_data['file_path']);
     $date = $changable_data['user_data'][1]['value'];
     $price = $changable_data['user_data'][5]['value'];
     $total_price = $changable_data['user_data'][6]['value'];
@@ -164,10 +167,11 @@ if (!function_exists('wfu_before_file_check_handler')) {
 
     $filename = wfu_basename($changable_data['file_path']);
     $filepath = wfu_basedir($changable_data['file_path']);
+
     $fileext = wfu_fileext($changable_data['file_path'], true);
 
     $changable_data['file_path'] =
-      $filepath .
+      $filepath . '/' .
       $orderNumber . '/' .
       $size . '_' .
       $quantity . '_' .
@@ -188,8 +192,9 @@ if (!function_exists('wfu_before_file_check_handler')) {
     $orderArray[] = $total_price;
     $orderArray[] = date('Y-m-d H:i:s');
 
-    // addToOrderTable($orderArray);
     addNewRow($orderArray);
+
+
     return $changable_data;
   }
   add_filter('wfu_before_file_check', 'wfu_before_file_check_handler', 10, 2);
@@ -201,94 +206,3 @@ if (!function_exists('wfu_before_file_check_handler')) {
 // Files:
 // /volume1/web/www.ezyprints.co.nz/orders/1505/10x12_1_Lustre_no-resize_NB/Emma Rouse multisheet 187.jpg
 // /volume1/web/www.ezyprints.co.nz/orders/1505/10x12_1_Lustre_no-resize_NB/Emma Rouse multisheet 190.jpg
-
-/*
-This filter runs after the upload completely finishes, in order to perform any
-final custom server actions.
-! Note: Scope should be set to "Everywhere" for this filter to work properly.
-*/
-if (!function_exists('wfu_after_upload_handler')) {
-  /** Function syntax
-   * The function takes two parameters, $changable_data and $additional_data.
-   * - $changable_data is an array that can be modified by the filter and
-   * contains the items:
-   * > js_script: javascript code to be executed on the client's browser
-   * right after the filter; the script can check upload_status variable
-   * for checking if upload has succeeded or not and mode variable for
-   * checking if it was an AJAX or classic upload.
-   * - $additional_data is an array with additional data to be used by the
-   * filter (but cannot be modified) as follows:
-   * > sid: this is the id of the plugin, as set using uploadid attribute;
-   * it can be used to apply this filter only to a specific instance of
-   * the plugin (if it is used in more than one pages or posts)
-   * > unique_id: this id is unique for each individual upload attempt
-   * and can be used to identify each separate upload
-   * > files: holds an array with final data about the files that have been
-   * uploaded (or failed); every item of the array is another array with
-   * the following items:
-   * >> file_unique_id: a unique id identifying every individual file
-   * >> original_filename: the original filename of the file
-   * >> filepath: the final path of the file (including the filename)
-   * >> filesize: the size of the file
-   * >> user_data: an array of user data values, if userdata are
-   * activated, having the following structure:
-   * >>> label: the label of the user data field
-   * >>> value: the value of the user data fields entered by user
-   * >> upload_result: it is the result of the upload process, taking
-   * the following values:
-   * success: the upload was successful
-   * warning: the upload was successful but with warning messages
-   * error: the upload failed
-   * >> error_message: contains warning or error messages generated
-   * during the upload process
-   * >> admin_messages: contains detailed error messages for
-   * administrators generated during the upload process
-   * The function must return the final $changable_data. */
-  function wfu_after_upload_handler($changable_data, $additional_data)
-  {
-    return $changable_data;
-  }
-}
-add_filter('wfu_after_upload', 'wfu_after_upload_handler', 10, 2);
-
-
-/* **************************************************************/
-
-/*
-This filter runs after every individual file has completely loaded on server.
-It provides the opportunity to perform custom checks on its contents and
-reject or accept it.
-*/
-if (!function_exists('wfu_after_file_loaded_handler')) {
-  /** Function syntax
-   * The function takes two parameters, $changable_data and $additional_data.
-   * - $changable_data is an array that can be modified by the filter and
-   * contains the items:
-   * > error_message: initially it is set to an empty value, if the handler
-   * sets a non-empty value then upload of the file will be cancelled
-   * showing this error message
-   * > admin_message: initially it is set to an empty value, if the handler
-   * sets a non-empty value then this value will be shown to
-   * administrators if adminmessages attribute has been activated,
-   * provided that error_message is also set. You can use it to display
-   * more information about the error, visible only to admins.
-   * - $additional_data is an array with additional data to be used by the
-   * filter (but cannot be modified) as follows:
-   * > file_unique_id: this id is unique for each individual file upload
-   * and can be used to identify each separate upload
-   * > file_path: the full path of the uploaded file
-   * > shortcode_id: this is the id of the plugin, as set using uploadid
-   * attribute; it can be used to apply this filter only to a specific
-   * instance of the plugin (if it is used in more than one pages or
-   * posts)
-   * The function must return the final $changable_data. */
-  function wfu_after_file_loaded_handler($changable_data, $additional_data)
-  {
-    return $changable_data;
-  }
-  add_filter('wfu_after_file_loaded', 'wfu_after_file_loaded_handler', 10, 2);
-}
-
-
-/* **************************************************************/
-/* **************************************************************/
