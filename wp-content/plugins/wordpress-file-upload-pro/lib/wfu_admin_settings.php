@@ -131,6 +131,11 @@ function wfu_manage_settings($message = '') {
 	$siteurl = site_url();
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	
+	// correctly escape text settings to avoid XSS
+	$plugin_options['basedir'] = esc_attr($plugin_options['basedir']);
+	$plugin_options['captcha_sitekey'] = esc_attr($plugin_options['captcha_sitekey']);
+	$plugin_options['captcha_secretkey'] = esc_attr($plugin_options['captcha_secretkey']);
+	
 	$echo_str = '<div class="wrap">';
 	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
 	$echo_str .= "\n\t".'<div style="margin-top:20px;">';
@@ -597,10 +602,10 @@ function wfu_update_settings() {
 			$new_plugin_options['version'] = '1.0';
 			$new_plugin_options['shortcode'] = $plugin_options['shortcode'];
 			$new_plugin_options['hashfiles'] = $hashfiles;
-			$new_plugin_options['basedir'] = sanitize_text_field($_POST['wfu_basedir']);
+			$new_plugin_options['basedir'] = sanitize_url($_POST['wfu_basedir']);
 			$new_plugin_options['personaldata'] = $personaldata;
-			$new_plugin_options['postmethod'] = sanitize_text_field($_POST['wfu_postmethod']);
-			$new_plugin_options['userstatehandler'] = sanitize_text_field($_POST['wfu_userstatehandler']);
+			$new_plugin_options['postmethod'] = sanitize_key($_POST['wfu_postmethod']);
+			$new_plugin_options['userstatehandler'] = sanitize_key($_POST['wfu_userstatehandler']);
 			$new_plugin_options['relaxcss'] = $relaxcss;
 			$new_plugin_options['admindomain'] = sanitize_text_field($_POST['wfu_admindomain']);
 			$new_plugin_options['mediacustom'] = $mediacustom;

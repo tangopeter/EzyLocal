@@ -7348,9 +7348,8 @@ function wfu_parse_userdata_attribute($value){
 		$default["format"] = "".substr($def["format"], 5);
 		$defaults[$def["type"]] = $default;
 	}
-//	$fields_arr = explode("/", $value);
 	$value = str_replace("/", "[/]", $value);
-	$value = preg_replace_callback("/\(.*\)/", "wfu_preg_replace_callback_func", $value);
+	$value = preg_replace_callback("/\(.*?\)/", "wfu_preg_replace_callback_func", $value);
 	$fields_arr = explode("[/]", $value);
 	//parse shortcode attribute to $fields
 	foreach ( $fields_arr as $field_raw ) {

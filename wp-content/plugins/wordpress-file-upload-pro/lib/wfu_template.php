@@ -411,7 +411,7 @@ this.attachHandlers = function(handlers) {
 		if (e.preventDefault) { e.preventDefault(); }
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
 		if (item.className != "file_drag_target_over") item.className = "file_drag_target_over";
-		if (handlers.dragenter != null && !item.classList.contains("file_drag_target_off")) handlers.dragenter();
+		if (!(handlers.dragenter == null || item.classList.contains("file_drag_target_off"))) handlers.dragenter();
 		return false;
 	});
 	//upload form dragover handler
@@ -420,7 +420,7 @@ this.attachHandlers = function(handlers) {
 		if (e.preventDefault) { e.preventDefault(); }
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
 		if (item.className != "file_drag_target_over") item.className = "file_drag_target_over";
-		if (handlers.dragover != null && !item.classList.contains("file_drag_target_off")) handlers.dragover();
+		if (!(handlers.dragover == null || item.classList.contains("file_drag_target_off"))) handlers.dragover();
 		return false;
 	});
 	//upload form dragleave handler
@@ -429,7 +429,7 @@ this.attachHandlers = function(handlers) {
 		if (e.preventDefault) { e.preventDefault(); }
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
 		item.className = "file_drag_target";
-		if (handlers.dragleave != null && !item.classList.contains("file_drag_target_off")) handlers.dragleave();
+		if (!(handlers.dragleave == null || item.classList.contains("file_drag_target_off"))) handlers.dragleave();
 	});
 	//upload form drop handler
 	wfu_addEventHandler(target, 'drop', function(e) {
@@ -443,7 +443,7 @@ this.attachHandlers = function(handlers) {
 							resolve(file);
 						});
 					}
-					else if (item.isDirectory && allowdir) {
+					else if (!(!item.isDirectory || !allowdir)) {
 						let dirReader = item.createReader();
 						dirReader.readEntries(entries => {
 							let entriesPromises = [];
@@ -470,7 +470,7 @@ this.attachHandlers = function(handlers) {
 		}
 		var allowdir = <?php echo ( $params["multiple"] == "true" && $params["allowdir"] == "true" ? "true" : "false" ); ?>;
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
-		if (handlers.drop != null && !item.classList.contains("file_drag_target_off")) {
+		if (!(handlers.drop == null || item.classList.contains("file_drag_target_off"))) {
 			e = e || window.event; // get window.event if e argument missing (in IE)
 			if (e.preventDefault) { e.preventDefault(); }
 			var dt = e.dataTransfer;
@@ -499,7 +499,7 @@ this.attachHandlers = function(handlers) {
 	//window dragover handler
 	wfu_addEventHandler(window, 'dragover', function(e) {
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
-		if (handlers.windowdragover != null && !item.classList.contains("file_drag_target_off")) {
+		if (!(handlers.windowdragover == null || item.classList.contains("file_drag_target_off"))) {
 			e = e || window.event; // get window.event if e argument missing (in IE)
 			if (e.preventDefault) { e.preventDefault(); }
 			handlers.windowdragover();
@@ -510,8 +510,8 @@ this.attachHandlers = function(handlers) {
 		e = e || window.event; // get window.event if e argument missing (in IE)
 		if (e.preventDefault) { e.preventDefault(); }
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
-		if (e.x == 0 && e.y == 0) item.style.display = "none";
-		if (handlers.windowdragleave != null && !item.classList.contains("file_drag_target_off")) handlers.windowdragleave();
+		if (!(e.x != 0 || e.y != 0)) item.style.display = "none";
+		if (!(handlers.windowdragleave == null || item.classList.contains("file_drag_target_off"))) handlers.windowdragleave();
 	});
 	//window drop handler
 	wfu_addEventHandler(window, 'drop', function(e) {
@@ -519,7 +519,7 @@ this.attachHandlers = function(handlers) {
 		if (e.preventDefault) { e.preventDefault(); }
 		var item = document.getElementById('wordpress_file_upload_drag_$ID');
 		item.style.display = "none";
-		if (handlers.windowdrop != null && !item.classList.contains("file_drag_target_off")) handlers.windowdrop();
+		if (!(handlers.windowdrop == null || item.classList.contains("file_drag_target_off"))) handlers.windowdrop();
 	});
 }
 
@@ -738,7 +738,7 @@ this.dettachCancelHandler = function() {
  */
 this.update = function(action, filenames) {
 	var textbox = document.getElementById('fileName_$ID');
-	if (action == "init" && textbox.className == "file_input_textbox_nofile") {
+	if (!(action != "init" || textbox.className != "file_input_textbox_nofile")) {
 		textbox.value = "";
 		textbox.className = "file_input_textbox";
 	}
@@ -1636,7 +1636,7 @@ this.updateList = function(files, is_formupload) {
 		var html = "";
 		var html_total = "";
 		var ii = 0;
-		if (is_formupload && files.length > 0) {
+		if (!(!is_formupload || files.length <= 0)) {
 			document.getElementById("filelist_$ID_totalprogress").className = "file_filelist_totalprogress_div_with_remove";
 			document.getElementById("filelist_$ID_totalprogress_arrow").className = "file_filelist_totalprogress_arrow_with_remove";
 			document.getElementById("filelist_$ID_totalprogress_removeall").style.display = "block";
@@ -1770,7 +1770,7 @@ this.disableEditing = function(is_formupload) {
 this.afterUploadStart = function(effect, is_formupload) {
 	var bar = document.getElementById('filelist_$ID_totalprogress_animation');
 	var barsafe = document.getElementById('filelist_$ID_totalprogress_imagesafe');
-	if (wfu_BrowserCaps.supportsAnimation && effect == "progressive") {
+	if (!(!wfu_BrowserCaps.supportsAnimation || effect != "progressive")) {
 		bar.style.width = "0%";
 		bar.className = "file_filelist_totalprogress_progressive";
 		barsafe.style.display = "none";
@@ -2263,7 +2263,7 @@ select.subfolder_autoplus_dropdown option, select.subfolder_autoplus_dropdown_pr
  */
 this.check = function() {
 	//synchronize editbox with selected value
-	if (this._editable && this._sel.selectedIndex > 0) {
+	if (!(!this._editable || this._sel.selectedIndex <= 0)) {
 		this._editbox.value = this._sel.value.replace(/^\s+/,"");
 		this._set_editbox_status("match");
 		this._editbox_changed();
@@ -2272,7 +2272,7 @@ this.check = function() {
 	if (this._editable) this.update_handler(this._editbox.value);
 	else this.update_handler(this._sel.selectedIndex);
 	
-	if ((!this._editable && this._sel.selectedIndex == 0) || (this._editable && (this._editbox.value == '' || this._get_editbox_status() == "empty"))) {
+	if (!(this._editable || this._sel.selectedIndex != 0) || !(!this._editable || !(this._editbox.value == '' || this._get_editbox_status() == "empty"))) {
 		if (this._editable) this._editbox.value = "";
 		this._set_select_status("prompt");
 		return false;
@@ -2529,6 +2529,8 @@ function wfu_uploadform_template($data) {?>
  *  @var $multiple bool true if multiple files can be selected for upload
  *  @var $allowdir bool true if directories can be selected for upload
  *  @var $label string the title of the select button element
+ *  @var $labeldir string the title of the select button element when selecting
+ *       a directory
  *  @var $filename string the name that the selected file must have when
  *       submitted for upload by the form; it must be passed to the 'name'
  *       attribute of the form's input element of 'file' type
@@ -2751,6 +2753,7 @@ this.attachActions = function(clickaction, changeaction) {
 		if (dirEnabled != WFUUF._dirEnabled) {
 			WFUUF._dirEnabled = dirEnabled;
 			document.getElementById("input_$ID").classList.toggle("directory_upload", dirEnabled);
+			document.getElementById("input_$ID").value = dirEnabled ? '<?php echo $labeldir; ?>' : '<?php echo $label; ?>';
 		}
 	};
 	WFUUF.allowdir = <?php echo ( $multiple && $allowdir ? "true" : "false" ); ?>;
@@ -2808,6 +2811,32 @@ this.attachActions = function(clickaction, changeaction) {
 	document.getElementById("upfile_$ID").onclick = function() { clickaction(); GlobalData.WFU[$ID].uploadform._fileDialogOpen = true; };
 	document.getElementById("upfile_$ID").onchange = function() { changeaction(document.getElementById("upfile_$ID").value != ""); };
 	document.getElementById("input_$ID").onclick = function() { GlobalData.WFU[$ID].uploadform.selectClickAction(); };
+}
+
+/**
+ *  returns the value of a form's stored hidden field
+ *  
+ *  This function returns the value of a hidden field of the upload form
+ *  element.
+ *  
+ *  @param id the id of the hidden field
+ *
+ *  @return string the value of the hidden field
+ */
+this.getStoreddata = function(id) {
+	return document.getElementById(id).value;
+}
+
+/**
+ *  sets the value of a form's stored hidden field
+ *  
+ *  This function sets the value of a hidden field of the upload form element.
+ *  
+ *  @param id the id of the hidden field
+ *  @param value the new value
+ */
+this.setStoreddata = function(id, value) {
+	document.getElementById(id).value = value;
 }
 
 /**
@@ -2920,6 +2949,10 @@ this.unlock = function() {
  */
 this.changeFileName = function(new_filename) {
 	document.getElementById("upfile_$ID").name = new_filename;
+	var new_filename_prefix = new_filename;
+	if (new_filename_prefix.endsWith('[]')) new_filename_prefix = new_filename_prefix.substr(0, new_filename_prefix.length - 2);
+	document.getElementById('uploadedfile_$ID_name').name = new_filename_prefix + '_name';
+	document.getElementById('uploadedfile_$ID_size').name = new_filename_prefix + '_size';
 }
 
 /**
@@ -3566,7 +3599,7 @@ this.updateStatus = function(status, param) {
 			captcha_error_label.title = GlobalData.consts.captchamessage_empty;
 			captcha_empty_overlay.parentNode.className = "file_captcha_inner file_captcha_inner_empty";
 		}
-		else if (status == "error" && arguments.length > 1) {
+		else if (!(status != "error" || arguments.length <= 1)) {
 			var param = arguments[1];
 			captcha_error_label.innerHTML = param;
 			captcha_error_label.title = param;
@@ -3597,7 +3630,7 @@ this.updateStatus = function(status, param) {
 			captcha_error_label.title = GlobalData.consts.captchamessage_empty;
 			captcha_empty_overlay.parentNode.className = "file_captcha_inner_v2 file_captcha_inner_v2_empty";
 		}
-		else if (status == "error" && arguments.length > 1) {
+		else if (!(status != "error" || arguments.length <= 1)) {
 			var param = arguments[1];
 			captcha_error_label.innerHTML = param;
 			captcha_error_label.title = param;
@@ -4062,9 +4095,7 @@ this.initCallback = function() {
  *  @return void
  */
 this.initButtons = function(mode) {
-	if (typeof SVGInjector == "undefined") {
-		!function(t,e){"use strict";function r(t){t=t.split(" ");for(var e={},r=t.length,n=[];r--;)e.hasOwnProperty(t[r])||(e[t[r]]=1,n.unshift(t[r]));return n.join(" ")}var n="file:"===t.location.protocol,i=e.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure","1.1"),o=Array.prototype.forEach||function(t,e){if(void 0===this||null===this||"function"!=typeof t)throw new TypeError;var r,n=this.length>>>0;for(r=0;n>r;++r)r in this&&t.call(e,this[r],r,this)},a={},l=0,s=[],u=[],c={},f=function(t){return t.cloneNode(!0)},p=function(t,e){u[t]=u[t]||[],u[t].push(e)},d=function(t){for(var e=0,r=u[t].length;r>e;e++)!function(e){setTimeout(function(){u[t][e](f(a[t]))},0)}(e)},v=function(e,r){if(void 0!==a[e])a[e]instanceof SVGSVGElement?r(f(a[e])):p(e,r);else{if(!t.XMLHttpRequest)return r("Browser does not support XMLHttpRequest"),!1;a[e]={},p(e,r);var i=new XMLHttpRequest;i.onreadystatechange=function(){if(4===i.readyState){if(404===i.status||null===i.responseXML)return r("Unable to load SVG file: "+e),n&&r("Note: SVG injection ajax calls do not work locally without adjusting security setting in your browser. Or consider using a local webserver."),r(),!1;if(!(200===i.status||n&&0===i.status))return r("There was a problem injecting the SVG: "+i.status+" "+i.statusText),!1;if(i.responseXML instanceof Document)a[e]=i.responseXML.documentElement;else if(DOMParser&&DOMParser instanceof Function){var t;try{var o=new DOMParser;t=o.parseFromString(i.responseText,"text/xml")}catch(l){t=void 0}if(!t||t.getElementsByTagName("parsererror").length)return r("Unable to parse SVG file: "+e),!1;a[e]=t.documentElement}d(e)}},i.open("GET",e),i.overrideMimeType&&i.overrideMimeType("text/xml"),i.send()}},h=function(e,n,a,u){var f=e.getAttribute("data-src")||e.getAttribute("src");if(!/\.svg/i.test(f))return void u("Attempted to inject a file with a non-svg extension: "+f);if(!i){var p=e.getAttribute("data-fallback")||e.getAttribute("data-png");return void(p?(e.setAttribute("src",p),u(null)):a?(e.setAttribute("src",a+"/"+f.split("/").pop().replace(".svg",".png")),u(null)):u("This browser does not support SVG and no PNG fallback was defined."))}-1===s.indexOf(e)&&(s.push(e),e.setAttribute("src",""),v(f,function(i){if("undefined"==typeof i||"string"==typeof i)return u(i),!1;var a=e.getAttribute("id");a&&i.setAttribute("id",a);var p=e.getAttribute("title");p&&i.setAttribute("title",p);var d=[].concat(i.getAttribute("class")||[],"injected-svg",e.getAttribute("class")||[]).join(" ");i.setAttribute("class",r(d));var v=e.getAttribute("style");v&&i.setAttribute("style",v);var h=[].filter.call(e.attributes,function(t){return/^data-\w[\w\-]*$/.test(t.name)});o.call(h,function(t){t.name&&t.value&&i.setAttribute(t.name,t.value)});var g,m,b,y,A,w={clipPath:["clip-path"],"color-profile":["color-profile"],cursor:["cursor"],filter:["filter"],linearGradient:["fill","stroke"],marker:["marker","marker-start","marker-mid","marker-end"],mask:["mask"],pattern:["fill","stroke"],radialGradient:["fill","stroke"]};Object.keys(w).forEach(function(t){g=t,b=w[t],m=i.querySelectorAll("defs "+g+"[id]");for(var e=0,r=m.length;r>e;e++){y=m[e].id,A=y+"-"+l;var n;o.call(b,function(t){n=i.querySelectorAll("["+t+'*="'+y+'"]');for(var e=0,r=n.length;r>e;e++)n[e].setAttribute(t,"url(#"+A+")")}),m[e].id=A}}),i.removeAttribute("xmlns:a");for(var x,S,k=i.querySelectorAll("script"),j=[],G=0,T=k.length;T>G;G++)S=k[G].getAttribute("type"),S&&"application/ecmascript"!==S&&"application/javascript"!==S||(x=k[G].innerText||k[G].textContent,j.push(x),i.removeChild(k[G]));if(j.length>0&&("always"===n||"once"===n&&!c[f])){for(var M=0,V=j.length;V>M;M++)new Function(j[M])(t);c[f]=!0}var E=i.querySelectorAll("style");o.call(E,function(t){t.textContent+=""}),e.parentNode.replaceChild(i,e),delete s[s.indexOf(e)],e=null,l++,u(i)}))},g=function(t,e,r){e=e||{};var n=e.evalScripts||"always",i=e.pngFallback||!1,a=e.each;if(void 0!==t.length){var l=0;o.call(t,function(e){h(e,n,i,function(e){a&&"function"==typeof a&&a(e),r&&t.length===++l&&r(l)})})}else t?h(t,n,i,function(e){a&&"function"==typeof a&&a(e),r&&r(1),t=null}):r&&r(0)};"object"==typeof module&&"object"==typeof module.exports?module.exports=exports=g:"function"==typeof define&&define.amd?define(function(){return g}):"object"==typeof t&&(t.SVGInjector=g)}(window,document);
-	}
+	wfu_webcam_init_svginjector();
 	if (document.getElementById("webcam_$ID_btns_converted").value != "1") {
 		SVGInjector(document.getElementById("webcam_$ID_btns"));
 		document.getElementById("webcam_$ID_btns_converted").value = "1";
@@ -4393,8 +4424,7 @@ this.screenshot = function(savefunc, image_type) {
 		//the following commands will initialize toBlob function in case that it
 		//does not exist; initialization will be executed only once
 		if (!window["wfu_toBlob_function_initialized"]) {
-			!function(t){"use strict";var e=t.HTMLCanvasElement&&t.HTMLCanvasElement.prototype,o=t.Blob&&function(){try{return Boolean(new Blob)}catch(t){return!1}}(),n=o&&t.Uint8Array&&function(){try{return 100===new Blob([new Uint8Array(100)]).size}catch(t){return!1}}(),r=t.BlobBuilder||t.WebKitBlobBuilder||t.MozBlobBuilder||t.MSBlobBuilder,a=/^data:((.*?)(;charset=.*?)?)(;base64)?,/,i=(o||r)&&t.atob&&t.ArrayBuffer&&t.Uint8Array&&function(t){var e,i,l,u,b,c,d,B,f;if(e=t.match(a),!e)throw new Error("invalid data URI");for(i=e[2]?e[1]:"text/plain"+(e[3]||";charset=US-ASCII"),l=!!e[4],u=t.slice(e[0].length),b=l?atob(u):decodeURIComponent(u),c=new ArrayBuffer(b.length),d=new Uint8Array(c),B=0;B<b.length;B+=1)d[B]=b.charCodeAt(B);return o?new Blob([n?d:c],{type:i}):(f=new r,f.append(c),f.getBlob(i))};t.HTMLCanvasElement&&!e.toBlob&&(e.mozGetAsFile?e.toBlob=function(t,o,n){t(n&&e.toDataURL&&i?i(this.toDataURL(o,n)):this.mozGetAsFile("blob",o))}:e.toDataURL&&i&&(e.toBlob=function(t,e,o){t(i(this.toDataURL(e,o)))})),"function"==typeof define&&define.amd?define(function(){return i}):"object"==typeof module&&module.exports?module.exports=i:t.dataURLtoBlob=i}(window);
-			window["wfu_toBlob_function_initialized"] = true;
+			wfu_webcam_initialize_toBlob();
 		}
 		if (canvas.toBlob) {
 			//convert the captured screenshot into an image file
@@ -5075,7 +5105,7 @@ this._get_file_ids = function() {
 	var prefix = 'wfu_messageblock_$ID_';
 	var file_ids = [];
 	while (next_block != null) {
-		if (next_block.nodeType === 1 && next_block.id.substr(0, prefix.length) == prefix)
+		if (!(next_block.nodeType !== 1 || next_block.id.substr(0, prefix.length) != prefix))
 			file_ids.push(next_block.id.substr(next_block.id.lastIndexOf("_") + 1));
 		next_block = next_block.nextSibling;
 	}
@@ -5755,19 +5785,19 @@ this.initField = function(props) {
 			f2.style.display = "inline-block";
 			l2.style.display = "inline-block";
 			f2.checked = (props.default == f2.value);
-			if (i > 0 && or == "vertical") p.appendChild(document.createElement("BR"));
+			if (!(i <= 0 || or != "vertical")) p.appendChild(document.createElement("BR"));
 			p.appendChild(w); 
 		}
 	}
 	else if (props.type == "date") {
 		jQuery(function() {
 			format = props.format.trim();
-			if (format.substr(0, 1) == "(" && format.substr(format.length - 1, 1) == ")")
+			if (!(format.substr(0, 1) != "(" || format.substr(format.length - 1, 1) != ")"))
 				format = format.substr(1, format.length - 2);
 			else format = "";
 			if (format == "") format = "yy-mm-dd";
 			def = props.default.trim();
-			if (def.substr(0, 1) == "(" && def.substr(def.length - 1, 1) == ")")
+			if (!(def.substr(0, 1) != "(" || def.substr(def.length - 1, 1) != ")"))
 				def = def.substr(1, def.length - 2);
 			else def = "";
 			jQuery(field).datepicker({dateFormat: format, showButtonPanel: true}).datepicker("setDate", def);
@@ -5776,12 +5806,12 @@ this.initField = function(props) {
 	else if (props.type == "time") {
 		jQuery(function() {
 			format = props.format.trim();
-			if (format.substr(0, 1) == "(" && format.substr(format.length - 1, 1) == ")")
+			if (!(format.substr(0, 1) != "(" || format.substr(format.length - 1, 1) != ")"))
 				format = format.substr(1, format.length - 2);
 			else format = "";
 			if (format == "") format = "HH:mm";
 			def = props.default.trim();
-			if (def.substr(0, 1) == "(" && def.substr(def.length - 1, 1) == ")")
+			if (!(def.substr(0, 1) != "(" || def.substr(def.length - 1, 1) != ")"))
 				def = def.substr(1, def.length - 2);
 			else def = "";
 			jQuery(field).timepicker({timeFormat: format}).datepicker("setTime", def);
@@ -5798,7 +5828,7 @@ this.initField = function(props) {
 				else if (f[1] == "time") timeformat = f[2];
 			}
 			def = props.default.trim();
-			if (def.substr(0, 1) == "(" && def.substr(def.length - 1, 1) == ")")
+			if (!(def.substr(0, 1) != "(" || def.substr(def.length - 1, 1) != ")"))
 				def = def.substr(1, def.length - 2);
 			else def = "";
 			jQuery(field).datetimepicker({dateFormat: dateformat, timeFormat: timeformat}).datetimepicker("setDate", def);
@@ -6117,7 +6147,7 @@ this._focused = function(obj) {
 		<?php elseif ( $p["type"] == "confirmpassword" ): ?>
 				<input type="password" id="userdata_$ID_field_<?php echo $p["key"]; ?>" class="file_userdata_message" value="<?php echo esc_html($p["default"]); ?>" autocomplete="<?php echo ( $p["donotautocomplete"] ? 'off' : 'on' ); ?>" form="dummy_$ID" onfocus="GlobalData.WFU[$ID].userdata._focused(this);"<?php echo ( $p["labelposition"] == "placeholder" ? ' placeholder="'.esc_html($p["label"]).'"' : '' ); ?> />
 		<?php elseif ( $p["type"] == "checkbox" ): ?>
-				<input type="checkbox" id="userdata_$ID_field_<?php echo $p["key"]; ?>" class="file_userdata_checkbox" autocomplete="<?php echo ( $p["donotautocomplete"] ? 'off' : 'on' ); ?>" form="dummy_$ID" style="display:none;" onfocus="GlobalData.WFU[$ID].userdata._focused(this);" />
+				<input type="checkbox" id="userdata_$ID_field_<?php echo $p["key"]; ?>" class="file_userdata_checkbox"<?php echo ( $p["default"] == "true" ? ' checked="true"' : '' ); ?> autocomplete="<?php echo ( $p["donotautocomplete"] ? 'off' : 'on' ); ?>" form="dummy_$ID" style="display:none;" onfocus="GlobalData.WFU[$ID].userdata._focused(this);" />
 				<label id="userdata_$ID_checklabel_<?php echo $p["key"]; ?>" class="file_userdata_checkbox_description" for="userdata_$ID_field_<?php echo $p["key"]; ?>" style="display:none;"><?php echo esc_html($p["data"]); ?></label>
 		<?php elseif ( $p["type"] == "radiobutton" ): ?>
 				<input type="radio" id="userdata_$ID_field_<?php echo $p["key"]; ?>" class="file_userdata_radiobutton" name="userdata_$ID_radiogroup_<?php echo esc_html($p["group"]); ?>" autocomplete="<?php echo ( $p["donotautocomplete"] ? 'off' : 'on' ); ?>" form="dummy_$ID" style="display:none;" onfocus="GlobalData.WFU[$ID].userdata._focused(document.getElementById('userdata_$ID_field_<?php echo $p["key"]; ?>'));" />
@@ -6254,7 +6284,7 @@ this.attachActions = function(completeaction) {
 	else {
 		var radioyes = document.querySelector('#consent_$ID .file_consent_radio_yes');
 		var radiono = document.querySelector('#consent_$ID .file_consent_radio_no');
-		if (radioyes && radiono) {
+		if (!(!radioyes || !radiono)) {
 			radioyes.onchange = function() { completeaction((radioyes.checked ? "yes" : (radiono.checked ? "no" : ""))); };
 			radiono.onchange = function() { completeaction((radioyes.checked ? "yes" : (radiono.checked ? "no" : ""))); };
 		}
@@ -6276,7 +6306,7 @@ this.consentCompleted = function() {
 	else {
 		var radioyes = document.querySelector('#consent_$ID .file_consent_radio_yes');
 		var radiono = document.querySelector('#consent_$ID .file_consent_radio_no');
-		if (radioyes && radiono) return (radioyes.checked || radiono.checked);
+		if (!(!radioyes || !radiono)) return (radioyes.checked || radiono.checked);
 	}
 	return true;
 }
@@ -6303,7 +6333,7 @@ this.update = function(action) {
 			if (presel) box.checked = (presel.value == "1");
 			box.onchange();
 		}
-		else if (radioyes && radiono) {
+		else if (!(!radioyes || !radiono)) {
 			radioyes.checked = false;
 			radiono.checked = false;
 			if (presel) {
@@ -6315,14 +6345,14 @@ this.update = function(action) {
 	}
 	else if (action == "lock") {
 		if (box) box.disabled = true;
-		else if (radioyes && radiono) {
+		else if (!(!radioyes || !radiono)) {
 			radioyes.disabled = true;
 			radiono.disabled = true;
 		}
 	}
 	else if (action == "unlock") {
 		if (box) box.disabled = false;
-		else if (radioyes && radiono) {
+		else if (!(!radioyes || !radiono)) {
 			radioyes.disabled = false;
 			radiono.disabled = false;
 		}

@@ -9,7 +9,7 @@ function showStuff($ORDER_NUMBER)
   // \\ </div>';
 }
 
-function addNewRow($orderArray)
+function addNewRowToUploads($orderArray)
 {
   global $wpdb;
   $orderNumber = $orderArray[0];

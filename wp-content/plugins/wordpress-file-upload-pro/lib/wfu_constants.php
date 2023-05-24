@@ -27,6 +27,7 @@ function wfu_initialize_i18n_strings() {
 	//plugin default values
 	DEFINE("WFU_UPLOADTITLE", __('Upload files', 'wp-file-upload'));
 	DEFINE("WFU_SELECTBUTTON", __('Select File/Select Files', 'wp-file-upload'));
+	DEFINE("WFU_SELECTBUTTONDIR", __('Select Directory', 'wp-file-upload'));
 	DEFINE("WFU_UPLOADBUTTON", __('Upload File/Upload Files', 'wp-file-upload'));
 	DEFINE("WFU_NOTIFYSUBJECT", __('File Upload Notification', 'wp-file-upload'));
 	DEFINE("WFU_NOTIFYMESSAGE", __("Dear Recipient,%n%%n%   This is an automatic delivery message to notify you that a new file has been uploaded.%n%%n%Best Regards", 'wp-file-upload'));
@@ -293,7 +294,7 @@ $GLOBALS["WFU_GLOBALS"] = array(
 	"WFU_REDIRECT" => array( "Default Redirection State", "string", "false", "The default redirection state of the uploader shortcode. It can be 'true' or 'false'." ),
 	"WFU_REDIRECTLINK" => array( "Default Redirect URL", "string", "", "The default redirect URL of the uploader shortcode." ),
 	"WFU_ADMINMESSAGES" => array( "Default State for Admin Messages", "string", "false", "The default state of displaying or not admin messages of the uploader shortcode. It can be 'true' or 'false'." ),
-	"WFU_BLOCKCOMPATIBILITY" => array( "Default Block Themes Compatibility Mode", "string", "auto", "The default state of block themes compatibility mode. It can be 'auto', 'on' or 'off'." ),
+	"WFU_BLOCKCOMPATIBILITY" => array( "Default Block Themes Compatibility Mode", "string", "off", "The default state of block themes compatibility mode. It can be 'auto', 'on' or 'off'." ),
 	"WFU_SUCCESSMESSAGECOLORS" => array( "Default Colors for Success Message", "string", "#006600,#EEFFEE,#006666", "The default color triplet (text, background and border colors) of success message of the uploader shortcode." ),
 	"WFU_WARNINGMESSAGECOLORS" => array( "Default Colors for Warning Message", "string", "#F88017,#FEF2E7,#633309", "The default color triplet (text, background and border colors) of warning message of the uploader shortcode." ),
 	"WFU_FAILMESSAGECOLORS" => array( "Default Colors for Fail Message", "string", "#660000,#FFEEEE,#666600", "The default color triplet (text, background and border colors) of fail message of the uploader shortcode." ),

@@ -209,7 +209,7 @@ function wfu_prepare_subfolders_block($params, $additional_params, $occurrence_i
 		$subfolders_item += wfu_read_template_output("subfolders", $data);
 		//initialize subfolders object properties
 		$subfolders_item["js"] = "GlobalData.WFU[".$data["ID"]."].subfolders = { ".
-			"update_handler: function(new_value) { document.getElementById('hiddeninput_".$data["ID"]."').value = new_value; }, ".
+			"update_handler: function(new_value) { wfu_set_stored_formdata('".$data["ID"]."', 'hiddeninput_".$data["ID"]."', new_value); }, ".
 			"check: function() { return true; }, ".
 			"index: function() { return -1; }, ".
 			"reset: function() {}, ".
@@ -345,6 +345,7 @@ function wfu_prepare_uploadform_block($params, $additional_params, $occurrence_i
 	$data["responsive"] = ( $params["fitmode"] == "responsive" );
 	$data["testmode"] = ( $params["testmode"] == "true" );
 	$data["label"] = $params["selectbutton"];
+	$data["labeldir"] = $params["selectbuttondir"];
 	$data["filename"] = "uploadedfile_".$data["ID"].( $params["multiple"] == "true" ? "[]" : "" );
 	$data["hidden_elements"] = array(
 		array( "id" => "wfu_uploader_nonce_".$data["ID"], "name" => "wfu_uploader_nonce", "value" => wp_create_nonce("wfu-uploader-nonce") ),
@@ -389,6 +390,8 @@ function wfu_prepare_uploadform_block($params, $additional_params, $occurrence_i
 	//initialize uploadform object properties
 	$uploadform_item["js"] = "GlobalData.WFU[".$data["ID"]."].uploadform = { ".
 		"attachActions: function(clickaction, changeaction) {}, ".
+		"getStoreddata: function(id) { return ''; }, ".
+		"setStoreddata: function(id, value) {}, ".
 		"reset: function() {}, ".
 		"resetDummy: function() {}, ".
 		"submit: function() {}, ".
@@ -771,6 +774,7 @@ function wfu_prepare_progressbar_block($params, $additional_params, $occurrence_
 
 	$progressbar_item["title"] = 'wordpress_file_upload_progressbar_'.$data["ID"];
 	$progressbar_item["hidden"] = ( $params["testmode"] != "true" );
+	$progressbar_item["hidden"] = ( $progressbar_item["hidden"] && $params["materialui"] != "true" );
 	$progressbar_item["width"] = "";
 	$progressbar_item["object"] = "GlobalData.WFU[".$data["ID"]."].progressbar";
 	//for responsive plugin adjust container's parent width if a % width has been defined
@@ -1026,8 +1030,8 @@ function wfu_prepare_userdata_block($params, $additional_params, $occurrence_ind
 			//generate javascript code
 			$userdata_init .= "\n\t\t".'WFU.userdata.codes['.$userdata_field["key"].'] = {};';
 			$userdata_init .= "\n\t\t".'WFU.userdata.props['.$userdata_field["key"].'] = '.wfu_PHP_array_to_JS_object($userdata_field).';';
-			$userdata_init .= "\n\t\t".'WFU.userdata.props['.$userdata_field["key"].'].store = function() { document.getElementById("hiddeninput_'.$data["ID"].'_userdata_'.$userdata_field["key"].'").value = WFU.userdata.codes['.$userdata_field["key"].'].value(); };';
-			$userdata_init .= "\n\t\t".'WFU.userdata.props['.$userdata_field["key"].'].getstored = function() { return document.getElementById("hiddeninput_'.$data["ID"].'_userdata_'.$userdata_field["key"].'").value; };';
+			$userdata_init .= "\n\t\t".'WFU.userdata.props['.$userdata_field["key"].'].store = function() { wfu_set_stored_formdata("'.$data["ID"].'", "hiddeninput_'.$data["ID"].'_userdata_'.$userdata_field["key"].'", WFU.userdata.codes['.$userdata_field["key"].'].value()); };';
+			$userdata_init .= "\n\t\t".'WFU.userdata.props['.$userdata_field["key"].'].getstored = function() { return wfu_get_stored_formdata("'.$data["ID"].'", "hiddeninput_'.$data["ID"].'_userdata_'.$userdata_field["key"].'"); };';
 			$userdata_init .= "\n\t\t".'wfu_init_userdata_handlers('.$data["ID"].', '.$userdata_field["key"].');';
 		}
 	} 

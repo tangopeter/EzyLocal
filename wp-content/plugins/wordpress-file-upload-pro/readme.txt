@@ -3,7 +3,7 @@ Contributors: nickboss
 Donate link: http://www.iptanus.com/support/wordpress-file-upload
 Tags: file, upload, ajax, form, page, post, sidebar, responsive, widget, webcam, ftp
 Requires at least: 2.9.2
-Tested up to: 6.2
+Tested up to: 6.2.2
 Stable tag: "trunk"
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -144,6 +144,11 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 8. A screenshot of the file browser.
 
 == Changelog ==
+
+= 4.19.2 =
+* codes improvements in plugin settings to protect against XSS attacks
+* code improvements in backend file browser to avoid directory traversal attacks
+* permanent fix for compatibility with block themes
 
 = 4.19.1 =
 * updated vendor libraries to their latest version
@@ -1054,6 +1059,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.19.2 =
+Urgent update to fix some security issues.
 
 = 4.19.1 =
 Regular update to fix some bugs and introduce some code improvements.

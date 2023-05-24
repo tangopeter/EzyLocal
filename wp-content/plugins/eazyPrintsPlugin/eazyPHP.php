@@ -9,10 +9,13 @@
 ?>
 <?php
 
+include_once 'orderPageFunctions.php';
+include_once 'myAcountPageFunctions.php';
+
 include_once 'ezyPluginFunctions.php';
 include_once 'ezyDBfunctions.php';
-include_once 'ezyDBfunctions.php';
 include_once 'ezyCompleteFunctions.php';
+
 
 // Custom script with no dependencies, enqueued in the header 
 // https://developer.wordpress.org/reference/functions/plugin_dir_url/
@@ -192,7 +195,7 @@ if (!function_exists('wfu_before_file_check_handler')) {
     $orderArray[] = $total_price;
     $orderArray[] = date('Y-m-d H:i:s');
 
-    addNewRow($orderArray);
+    addNewRowToUploads($orderArray);
 
 
     return $changable_data;

@@ -857,3 +857,25 @@ input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+
+
+.wfu_browser_td.wfu_col-3.wfu_browser-2 {
+  width: 100px;
+}
+
+.wfu_browser_td.wfu_col-4.wfu_browser-2 {
+  width: 75px;
+}
+
+.wfu_browser_td.wfu_col-5.wfu_browser-2 {
+  width: 210px;
+}
+
+.wfu_browser_td.wfu_col-6.wfu_browser-2,
+.wfu_browser_td.wfu_col-7.wfu_browser-2 {
+  width: 150px;
+}
+
+.wfu_browser_td.wfu_col-8.wfu_browser-2 {
+  width: 170px;
+}

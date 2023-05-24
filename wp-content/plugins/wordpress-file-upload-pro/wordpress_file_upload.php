@@ -3,7 +3,7 @@
 /*
 Plugin URI: https://www.iptanus.com/support/wordpress-file-upload
 Description: Simple interface to upload files from a page.
-Version: 4.19.1
+Version: 4.19.2
 Author: Nickolas Bossinas
 Author URI: https://www.iptanus.com/nickolas
 Text Domain: wp-file-upload

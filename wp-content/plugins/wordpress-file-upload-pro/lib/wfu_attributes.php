@@ -1335,6 +1335,21 @@ function wfu_attribute_definitions() {
 			"help"		=> "The caption of the button that selects the files for upload."." It uses plural form in case of multiple file uploads (commercial version)."
 		),
 		array(
+			"name"		=> "Select Button Caption for Directory",
+			"attribute"	=> "selectbuttondir",
+			"type"		=> "text",
+			"validator"	=> "text",
+			"listitems"	=> null,
+			"value"		=> WFU_SELECTBUTTONDIR,
+			"mode"		=> "commercial",
+			"category"	=> "labels",
+			"subcategory"	=> "Buttons",
+			"parent"	=> "",
+			"dependencies"	=> null,
+			"variables"	=> null,
+			"help"		=> "The caption of the select button when selecting a directory."
+		),
+		array(
 			"name"		=> "Upload Button Caption",
 			"attribute"	=> "uploadbutton",
 			"type"		=> "p"."text",

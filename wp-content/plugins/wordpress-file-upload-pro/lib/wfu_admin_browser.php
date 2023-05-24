@@ -926,6 +926,8 @@ function wfu_move_file($file_code) {
 	$is_admin = current_user_can( 'manage_options' );
 	//check if user is allowed to view file details
 	if ( !$is_admin ) return;
+	
+	if ( isset($_POST['submitBtn']) && $_POST['submitBtn'] == "Cancel" ) return true;
 
 	if ( !is_array($file_code) ) $file_code = array( $file_code );
 	$dec_files = array();
@@ -948,12 +950,15 @@ function wfu_move_file($file_code) {
 		$newpath = preg_replace($regex, "", $_POST['wfu_newpath']);
 		if ( substr($newpath, 0, 1) != '/' ) $newpath = '/'.$newpath;
 		$newpath = realpath(wfu_path_rel2abs($newpath));
-		if ( substr($newpath, -1) != '/' ) $newpath = $newpath.'/';
+		if ( $newpath !== false && substr($newpath, -1) != '/' ) $newpath = $newpath.'/';
 		$replacefiles = ( $_POST['wfu_replace'] == 'yes' ? 'yes' : ( $_POST['wfu_replace'] == 'no' ? 'no' : '' ) );
 		if ( trim($_POST['wfu_newpath']) == "" ) $error = 'Error: Destination path cannot be empty!';
 		elseif ( $newpath == $oldpath ) $error = 'Error: Destination path is the same as source path!';
 		elseif ( preg_match($regex, $_POST['wfu_newpath']) ) $error = 'Error: path contained invalid characters that were stripped off! Please try again.';
-		elseif ( !wfu_file_exists($newpath, "wfu_move_file:1") ) $error = 'Error: Destination folder <strong>'.$_POST['wfu_newpath'].'</strong> does not exist!';
+		elseif ( $newpath === false || !wfu_file_exists($newpath, "wfu_move_file:1") ) $error = 'Error: Destination folder does not exist!';
+		// added check to forbid moving of files outside root and avoid
+		// directory traversal attacks
+		elseif ( substr($newpath, 0, strlen(ABSPATH)) != ABSPATH ) $error = 'Error: Destination folder cannot be outside the root of the website!';
 		elseif ( $replacefiles == "" ) $error = 'Error: Invalid selection about replacing files with same filename at destination!';
 		else {
 			foreach ( $dec_files as $dec_file ) {
@@ -973,7 +978,7 @@ function wfu_move_file($file_code) {
 	}
 	if ( $error != "" ) {
 		WFU_USVAR_store('wfu_move_file_error', $error);
-		$move_file = WFU_USVAR('wfu_move_file');
+		$move_file = ( WFU_USVAR_exists('wfu_move_file') && is_array(WFU_USVAR('wfu_move_file')) ? WFU_USVAR('wfu_move_file') : array() );
 		$move_file['newpath'] = preg_replace($regex, "", $_POST['wfu_newpath']);
 		$move_file['replacefiles'] = $replacefiles;
 		WFU_USVAR_store('wfu_move_file', $move_file);

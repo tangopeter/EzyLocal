@@ -234,6 +234,15 @@ function wfu_enqueue_frontpage_scripts() {
 		wp_enqueue_script('jquery-ui-slider');
 		wp_enqueue_script('jquery-ui-timepicker-addon-js', WPFILEUPLOAD_DIR.'vendor/jquery/jquery-ui-timepicker-addon.min.js', array("jquery-ui-datepicker"));
 	}
+	/**
+	 * Execute Custom Actions After Loading Frontpage Scripts.
+	 *
+	 * This filter allows to execute custom actions after the plugin's frontpage
+	 * styles and scripts have been loaded.
+	 *
+	 * @since 4.19.2
+	*/
+	do_action('wfu_after_frontpage_scripts');
 }
 
 /**
@@ -719,6 +728,18 @@ function wordpress_file_upload_function($incomingfromhandler) {
 	$init_params["resetmode"] = $params["resetmode"];
 	$init_params["multiple"] = ( $params["multiple"] == "true" );
 	if ( $params["resetmode"] == "onsuccess" && $params["resetonpartial"] == "false" ) $init_params["resetmode"] = "onfullsuccess";
+	/**
+	 * Filter To Customise Initialization Params.
+	 *
+	 * This filter allowed to customize the list of initialization params passed
+	 * to the frontend.
+	 *
+	 * @since 4.20.0
+	 *
+	 * @param array $init_params The list of initialization params.
+	 * @param array $params An associative array with shortcode attributes.
+	 */
+	$init_params = apply_filters('_wfu_uploadform_init_params', $init_params, $params);
 
 	//add custom styles from css attribute
 	if ( $params['css'] != '' ) {
