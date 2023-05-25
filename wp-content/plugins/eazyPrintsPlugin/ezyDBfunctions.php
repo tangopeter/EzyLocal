@@ -47,3 +47,10 @@ function addtoRow($orderNumber)
 {
   showStuff($orderNumber);
 }
+
+function increaseOrderNumber()
+{
+  $orderNumber = get_option('ORDER_NUMBER');
+  $orderNumber++;
+  update_option('ORDER_NUMBER', $orderNumber);
+}

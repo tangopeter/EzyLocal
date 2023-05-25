@@ -33,7 +33,8 @@ get_header();
             </div>
         </div>
 
-        <?php existingOrder($ORDER_NUMBER) ?>
+        <!-- <?php existingOrder($ORDER_NUMBER) ?> -->
+        <?php completeTheOrder($ORDER_NUMBER) ?>
 
 
         <div class="details">
@@ -42,8 +43,13 @@ get_header();
         <?php
         drawAccountOrderTable($ORDER_NUMBER); // ezycompleteFunctions.php
         ?>
-    </div>
 
-    <div class="myFooter">
-        <?php get_footer(); ?>
-    </div>
+        <div class="myDiv2">
+            <input type="button" name="btn-newOrder" id="btn-newOrder" value='New order'>
+        </div>
+
+        <?php echo get_option('ORDER_NUMBER'); ?>
+
+        <div class=" myFooter">
+            <?php get_footer(); ?>
+        </div>

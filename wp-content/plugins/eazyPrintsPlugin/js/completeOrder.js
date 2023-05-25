@@ -5,25 +5,11 @@
 //     console.log('ACF is defined', acf);
 //   }
 // });
-
+// const newOrder = document.getElementById("btn-newOrder");
+// newOrder.addEventListener('click', createNewOrder);
 
 
 export function completeMyOrder() {
-// console.log(acf);
-// var field = acf.get('field_640d5fdec5c14');
-
-// console.log(field);
-// console.log("js " + document.title);
-// jQuery(document).ready(function ($) {
-  
-//   if (typeof acf !== 'undefined') {
-//     console.log('ACF is defined  vv', acf);
-//   }
-//   else {
-//     console.log('ACF not defined', acf);
-//   }
-// });
-
   let dm = (Number(4.50)).toFixed(2);
   let rp = (Number(0.00)).toFixed(2);
   let sd = (Number(0.00)).toFixed(2);
@@ -33,6 +19,7 @@ export function completeMyOrder() {
   const rural = document.getElementById("acf-field_640d61d5084ec");
   const saturday = document.getElementById("acf-field_640d61d508503");
   const toPostal = document.getElementById("acf-field_640d61d50850d");
+
 
   deliveryMethod.addEventListener('change', getDeliveryMethod);
   rural.addEventListener('change', checkRuralDelivery);
@@ -198,3 +185,8 @@ function completeThisOrder() {
 
 
 }
+
+// function createNewOrder() {
+//   console.log("newOrder");
+
+// }

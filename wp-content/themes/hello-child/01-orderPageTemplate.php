@@ -31,6 +31,7 @@
 		echo '<li>' . 'Click "Complete order" to confirm your details' . '</li>';
 		echo '</ul>';
 
+
 		$ORDER_NUMBER = get_option('ORDER_NUMBER');
 		?>
 

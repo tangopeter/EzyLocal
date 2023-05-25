@@ -30,7 +30,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     $items = json_decode($user->items);
 
 
-    echo '<pre> User:' . $thisUser  . '</pre>';
+    // echo '<pre> Userss:' . $thisUser  . '</pre>';
     // $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
 
     echo '<table>';
