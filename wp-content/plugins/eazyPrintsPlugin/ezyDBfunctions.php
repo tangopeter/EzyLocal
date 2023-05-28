@@ -54,3 +54,9 @@ function increaseOrderNumber()
   $orderNumber++;
   update_option('ORDER_NUMBER', $orderNumber);
 }
+function decreaseOrderNumber()
+{
+  $orderNumber = get_option('ORDER_NUMBER');
+  $orderNumber--;
+  update_option('ORDER_NUMBER', $orderNumber);
+}

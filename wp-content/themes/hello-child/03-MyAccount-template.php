@@ -44,12 +44,31 @@ get_header();
         drawAccountOrderTable($ORDER_NUMBER); // ezycompleteFunctions.php
         ?>
 
-        <div class="myDiv2">
+        <!-- <div class="myDiv2">
             <input type="button" name="btn-newOrder" id="btn-newOrder" value='New order'>
-        </div>
+        </div> -->
 
         <?php echo get_option('ORDER_NUMBER'); ?>
 
+        <?php
+
+        if (isset($_POST['button1'])) {
+            increaseOrderNumber();
+            // wp_redirect('https://ezylocal:8890/?page_id=54');
+            echo get_option('ORDER_NUMBER');
+            exit;
+        }
+        if (isset($_POST['button2'])) {
+            decreaseOrderNumber();
+            echo get_option('ORDER_NUMBER');
+        }
+        ?>
+        <div class="myDiv2">
+            <form method="post">
+                <input type="submit" name="button1" value="New Order" />
+
+                <input type="submit" name="button2" value="Previous Order">
+        </div>
         <div class=" myFooter">
             <?php get_footer(); ?>
         </div>
