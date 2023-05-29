@@ -692,6 +692,61 @@ function wordpress_file_upload_manage_dashboard() {
 	elseif ( $action == 'plugin_settings' ) {
 		$echo_str = wfu_manage_settings();	
 	}
+	elseif ( $action == 'plugin_notifications' ) {
+		$sort = wfu_sanitize_xcode($sort);
+		$page = wfu_sanitize_int($page);
+		$filter = wfu_sanitize_jsonarray($filter);
+		$echo_str = wfu_manage_notifications($sort, $page, false, $filter);
+	}
+	elseif ( $action == 'mark_notification_read' && $key != "" ) {
+		$key = wfu_sanitize_int($key);
+		$sort = wfu_sanitize_xcode($sort);
+		$page = wfu_sanitize_int($page);
+		$filter = wfu_sanitize_jsonarray($filter);
+		wfu_mark_notifications(array( $key ), 'read');
+		wfu_reset_unread_admin_notification_stats();
+		$echo_str = wfu_manage_notifications($sort, $page, false, $filter);
+	}
+	elseif ( $action == 'mark_notification_unread' && $key != "" ) {
+		$key = wfu_sanitize_int($key);
+		$sort = wfu_sanitize_xcode($sort);
+		$page = wfu_sanitize_int($page);
+		$filter = wfu_sanitize_jsonarray($filter);
+		wfu_mark_notifications(array( $key ), 'unread');
+		wfu_reset_unread_admin_notification_stats();
+		$echo_str = wfu_manage_notifications($sort, $page, false, $filter);
+	}
+	elseif ( $action == 'delete_notification' && $key != "" ) {
+		$key = wfu_sanitize_int($key);
+		$sort = wfu_sanitize_xcode($sort);
+		$page = wfu_sanitize_int($page);
+		$filter = wfu_sanitize_jsonarray($filter);
+		wfu_delete_notifications(array( $key ));
+		wfu_reset_unread_admin_notification_stats();
+		$echo_str = wfu_manage_notifications($sort, $page, false, $filter);
+	}
+	elseif ( ( $action == 'mark_notifications_read' || $action == 'mark_notifications_unread' || $action == 'delete_notifications' ) && $key != "" && $nonce != "" ) {
+		$keys_raw = explode(",", substr($key, 5));
+		$keys = array();
+		foreach ( $keys_raw as $ikey ) {
+			$k = wfu_sanitize_int($ikey);
+			if ( $k === $ikey ) array_push($keys, $k);
+		}
+		if ( count($keys) > 0 ) {
+			if ( $action == 'mark_notifications_read' ) wfu_mark_notifications($keys, 'read');
+			elseif ( $action == 'mark_notifications_unread' ) wfu_mark_notifications($keys, 'unread');
+			else wfu_delete_notifications($keys);
+		}
+		$referer_url = wfu_flatten_path(wfu_get_filepath_from_safe(wfu_sanitize_code($referer)));
+		if ( $referer_url === false ) $referer_url = "";
+		$match = array();
+		preg_match("/\&sort=([^&]*)&pageid=([^&]*)&filter=(.*)/", $referer_url, $match);
+		$sort = ( isset($match[1]) ? $match[1] : "" );
+		$page = ( isset($match[2]) ? $match[2] : 1 );
+		$filter = ( isset($match[3]) ? $match[3] : "all" );
+		wfu_reset_unread_admin_notification_stats();
+		$echo_str = wfu_manage_notifications($sort, $page, false, $filter);
+	}
 	elseif ( $action == 'add_shortcode' && $postid != "" && $nonce != "" && $tag != "" ) {
 		if ( WFU_USVAR('wfu_add_shortcode_ticket_for_'.$tag) != $nonce ) $echo_str = wfu_manage_mainmenu();
 		elseif ( wfu_add_shortcode($postid, $tag) ) $echo_str = wfu_manage_mainmenu();
@@ -773,7 +828,7 @@ function wordpress_file_upload_manage_dashboard() {
 	}
 	elseif ( $action == 'remote_files' ) {
 		//sanitize parameters
-		$sort = wfu_sanitize_code($sort);
+		$sort = wfu_sanitize_xcode($sort);
 		$page = wfu_sanitize_int($page);
 		$filter = wfu_sanitize_jsonarray($filter);
 		$echo_str = wfu_manage_remote_files($sort, $page, false, $filter);
@@ -883,7 +938,7 @@ function wfu_manage_mainmenu($message = '') {
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	
 	$echo_str = '<div class="wrap wfumain">';
-	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+	$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 	if ( $message != '' ) {
 		$echo_str .= "\n\t".'<div class="updated">';
 		$echo_str .= "\n\t\t".'<p>'.$message.'</p>';
@@ -1043,9 +1098,20 @@ function wfu_generate_dashboard_menu($dlp, $active) {
 	$siteurl = site_url();
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	
-	$echo_str = $dlp.'<h2 class="nav-tab-wrapper" style="margin-bottom:40px;">';
+	$echo_str = $dlp.'<h2 class="nav-tab-wrapper wfu-nav-tab-wrapper" style="margin-bottom:40px;">';
 	$echo_str .= $dlp."\t".'<a href="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload" class="nav-tab'.( $active == "Main" ? ' nav-tab-active' : '' ).'" title="Main">Main</a>';
 	$echo_str .= $dlp."\t".'<a href="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&amp;action=plugin_settings" class="nav-tab'.( $active == "Settings" ? ' nav-tab-active' : '' ).'" title="Settings">Settings</a>';
+	
+	$unread_admin_notification_stats = wfu_get_unread_admin_notification_stats();
+	$notf_count = $unread_admin_notification_stats['all'];
+	$mark = 'info';
+	if ( $unread_admin_notification_stats['error'] > 0 ) $mark = 'error';
+	elseif ( $unread_admin_notification_stats['warning'] > 0 ) $mark = 'warning';
+	if ( $unread_admin_notification_stats['all'] > 99 ) $notf_count = "99+";
+	$hint = 'You have '.$unread_admin_notification_stats['all'].' unread notification'.( $unread_admin_notification_stats['all'] > 1 ? 's' : '' );
+	$notf_title = 'Notifications <span class="with-count with-count-'.$mark.' count-'.$unread_admin_notification_stats['all'].'" title="'.$hint.'"><span class="item-count">'.$notf_count.'</span></span>';
+	
+	$echo_str .= $dlp."\t".'<a href="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&amp;action=plugin_notifications" class="nav-tab'.( $active == "Notifications" ? ' nav-tab-active' : '' ).'" title="Notifications">'.$notf_title.'</a>';
 	$echo_str .= $dlp."\t".'<a href="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&amp;action=file_browser" class="nav-tab'.( $active == "File Browser" ? ' nav-tab-active' : '' ).'" title="File browser">File Browser</a>';
 	$echo_str .= $dlp."\t".'<a href="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&amp;action=view_log" class="nav-tab'.( $active == "View Log" ? ' nav-tab-active' : '' ).'" title="View log">View Log</a>';
 	if ( $plugin_options["personaldata"] == "1" )
@@ -1060,6 +1126,56 @@ function wfu_generate_dashboard_menu($dlp, $active) {
 	$echo_str .= $dlp.'</h2>';
 	
 	return $echo_str;
+}
+
+/**
+ * Main Dashboard Page Title.
+ *
+ * This function generates the title of the plugin's main area in Dashboard.
+ *
+ * @since 4.20.0
+ *
+ * @redeclarable
+ *
+ * @param string $dlp Identation string before the beginning of each HTML line.
+ *
+ * @return string The HTML output of the title.
+ */
+function wfu_generate_dashboard_menu_title($dlp) {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	$siteurl = site_url();
+	$mark = '';
+	$mark_html = '';
+	$title = '';
+	$unread_admin_notification_stats = wfu_get_unread_admin_notification_stats();
+	if ( $unread_admin_notification_stats['single'] != null ) {
+		$mark = $unread_admin_notification_stats['single']['category'];
+		$description = $unread_admin_notification_stats['single']['brief'];
+		if ( $description == '' ) $description = $unread_admin_notification_stats['single']['content'];
+		$title = $description . ' Click to review it.';
+	}
+	else {
+		if ( $unread_admin_notification_stats['error'] > 0 ) $mark = 'error';
+		elseif ( $unread_admin_notification_stats['warning'] > 0 ) $mark = 'warning';
+		$title = 'You have unread '.$mark.' notifications. Click to review them.';
+	}
+	if ( $mark != '' ) {
+		$notfs_page = $siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&action=plugin_notifications';
+		$mark_html = '
+			<a class="wfu-mark-link" href="'.$notfs_page.'">
+				<span class="wfu-mark wfu-mark-'.$mark.' dashicons dashicons-warning" title="'.$title.'"></span>
+			</a>
+		';
+	}
+	
+	return $dlp.'
+		<h2 class="wfu-dashmenu-title-container">
+			<div class="wfu-inner">
+				<span class="wfu-title">Wordpress File Upload Control Panel</span>
+				'.$mark_html.'
+			</div>
+		</h2>
+	';
 }
 
 /**

@@ -20,7 +20,7 @@ function wfu_gdrive_manage_settings($echo_str) {
 
 	$echo_str .= "\n\t\t\t\t\t".'<tr>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="row">';
-	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3>Google Drive Settings</h3>';
+	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3 id="wfu_gdrive_settings">Google Drive Settings</h3>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<td>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</td>';
@@ -34,10 +34,21 @@ function wfu_gdrive_manage_settings($echo_str) {
 	$min_version = "5.4.0";
 	$ret = wfu_compare_versions($php_version, $min_version);
 	$unsupported = ( $ret['status'] && $ret['result'] == 'lower' );
-	if ( $unsupported ) $echo_str .= "\n\t\t\t\t\t\t\t".'<label style="font-weight:bold;">Not supported!</label><label style="margin-left:6px;">Your PHP version does not support the Google Drive API. If you want to enable Google Drive uploads, you need to install a PHP version newer than '.$min_version.'.</label>';
+	if ( $unsupported ) $echo_str .= "\n\t\t\t\t\t\t\t".'
+		<label style="font-weight:bold;">Not supported!</label>
+		<label style="margin-left:6px;">Your PHP version does not support the Google Drive API. If you want to enable Google Drive uploads, you need to install a PHP version newer than '.$min_version.'.</label>
+	';
 	else {
 		$gdrive_nonce = wp_create_nonce( "wfu-gdrive-authorize-app" );
-		if ( $plugin_options['gdrive_accesstoken'] == "" ) $echo_str .= "\n\t\t\t\t\t\t\t".'<input type="hidden" id="wfu_gdrive_nonce" value="'.$gdrive_nonce.'" /><label style="font-weight:bold; color:darkred;">Not activated!</label><button type="button" style="margin-left:6px;" onclick="wfu_gdrive_authorize_app_start();">Press here</button><label style="margin-left:6px;">to enable Google Drive uploads.<br/><span style="display:inline-block; font-style:italic; margin-top:8px;">A new window will show up with a request to allow Wordpress File Upload Plugin. If you are not already logged in your Google Drive account, login will also be requested.<br/>Press <strong>Allow</strong> button to accept the plugin and then wait until the window closes.</span>';
+		if ( $plugin_options['gdrive_accesstoken'] == "" ) $echo_str .= "\n\t\t\t\t\t\t\t".'
+			<input type="hidden" id="wfu_gdrive_nonce" value="'.$gdrive_nonce.'" />
+			<label style="font-weight:bold; color:darkred;">Not activated!</label>
+			<button type="button" style="margin-left:6px;" onclick="wfu_gdrive_authorize_app_start();">Press here</button>
+			<label style="margin-left:6px;">to enable Google Drive uploads.</label>
+			<label class="wfu-gdrive-completing-activation" style="margin-left: 6px; display: inline-flex; align-items: center; gap: 6px; color: darkred; font-style: italic; display: none;">...completing activation<img src="'.WFU_IMAGE_OVERLAY_LOADING.'" /></label>
+			<label class="wfu-gdrive-repeat-activation" style="margin-left: 6px; font-weight:bold; color:darkred; display: none;">There was an error during Google Drive Activation (collision with a previous authorization). Please repeat activation again.</label>
+			<br/>
+			<span style="display:inline-block; font-style:italic; margin-top:8px;">A new window will show up with a request to allow Wordpress File Upload Plugin. If you are not already logged in your Google Drive account, login will also be requested.<br/>Press <strong>Allow</strong> button to accept the plugin and then wait until the window closes.</span>';
 		else $echo_str .= "\n\t\t\t\t\t\t\t".'<input type="hidden" id="wfu_gdrive_nonce" value="'.$gdrive_nonce.'" /><label style="font-weight:bold; color:green;">Activated!</label><label style="margin-left:6px;">To reset Google Drive activation</label><button type="button" style="margin-left:6px;" onclick="wfu_gdrive_authorize_app_reset();">press here</button>';
 	}
 	$echo_str .= "\n\t\t\t\t\t\t".'</td>';

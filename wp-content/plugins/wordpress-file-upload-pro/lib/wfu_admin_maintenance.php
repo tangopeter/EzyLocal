@@ -32,7 +32,7 @@ function wfu_maintenance_actions($message = '') {
 	$siteurl = site_url();
 	
 	$echo_str = '<div class="wrap">';
-	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+	$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 	if ( $message != '' ) {
 		$echo_str .= "\n\t".'<div class="updated">';
 		$echo_str .= "\n\t\t".'<p>'.$message.'</p>';
@@ -520,7 +520,7 @@ function wfu_purge_data_prompt($nonce) {
  *
  * This function deletes all plugin data from the website. It drops the tables
  * of the plugin from the database, it deletes all plugin options and all plugin
- * data stored in session.
+ * data stored in session and removes all notifications from comments db.
  *
  * @since 4.9.1
  *
@@ -563,6 +563,9 @@ function wfu_purge_data() {
 		$wpdb->query( "DROP TABLE IF EXISTS ".$wpdb->prefix."wfu_log" );
 		$wpdb->query( "DROP TABLE IF EXISTS ".$wpdb->prefix."wfu_userdata" );
 		$wpdb->query( "DROP TABLE IF EXISTS ".$wpdb->prefix."wfu_dbxqueue" );
+		//then delete all notifications
+		$wpdb->query( "DELETE FROM ".$wpdb->prefix."commentmeta WHERE comment_id IN (SELECT comment_ID FROM ".$wpdb->prefix."comments WHERE comment_type = 'wfunotification')" );
+		$wpdb->query( "DELETE FROM ".$wpdb->prefix."comments WHERE comment_type = 'wfunotification'" );
 		//then deactivate the plugin
 		deactivate_plugins( plugin_basename( WPFILEUPLOAD_PLUGINFILE ) );
 	}

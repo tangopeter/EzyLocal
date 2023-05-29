@@ -54,6 +54,8 @@ if ( !is_admin() ) {
 }
 //add admin bar menu item of new uploaded files
 add_action( 'wp_before_admin_bar_render', 'wfu_admin_toolbar_new_uploads', 999 );
+//add admin bar menu item of admin notifications
+add_action( 'wp_before_admin_bar_render', 'wfu_admin_toolbar_admin_notifications', 999 );
 //general ajax actions
 add_action('wp_ajax_wfu_ajax_action', 'wfu_ajax_action_callback');
 add_action('wp_ajax_nopriv_wfu_ajax_action', 'wfu_ajax_action_callback');

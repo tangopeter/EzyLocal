@@ -774,7 +774,6 @@ function wfu_prepare_progressbar_block($params, $additional_params, $occurrence_
 
 	$progressbar_item["title"] = 'wordpress_file_upload_progressbar_'.$data["ID"];
 	$progressbar_item["hidden"] = ( $params["testmode"] != "true" );
-	$progressbar_item["hidden"] = ( $progressbar_item["hidden"] && $params["materialui"] != "true" );
 	$progressbar_item["width"] = "";
 	$progressbar_item["object"] = "GlobalData.WFU[".$data["ID"]."].progressbar";
 	//for responsive plugin adjust container's parent width if a % width has been defined

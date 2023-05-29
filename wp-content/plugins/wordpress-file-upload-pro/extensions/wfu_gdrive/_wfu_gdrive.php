@@ -9,21 +9,42 @@ function wfu_gdrive_authorize_app_start() {
 	$GClient = wfu_gdrive_getGClient_basic($state);
 	$authorizeUrl = $GClient->createAuthUrl();
 
-	//WFU_USVAR_store('wfu_GDrive_Client', serialize($GClient));
 	die("wfu_gdrive_authorize_app_start:success:".wfu_plugin_encode_string($authorizeUrl));
 }
 
 function wfu_gdrive_authorize_app_finish($state, $authCode) {
-	//if ( WFU_USVAR('wfu_GDrive_Client') == null ) die();
-	
-	//$GClient = unserialize(WFU_USVAR('wfu_GDrive_Client'));
+	wfu_tf_LOG("wfu_gdrive_authorize_app_finish_start:");
 	$GClient = wfu_gdrive_getGClient_basic($state);
 	wfu_gdrive_add_proxy_support($GClient);
 	$authCode = trim($authCode);
 	$accessToken = $GClient->fetchAccessTokenWithAuthCode($authCode);
+	$refreshToken = $GClient->getRefreshToken();
+	if ( $refreshToken == null ) {
+		wfu_gdrive_revoke_authorization($accessToken);
+		wfu_update_setting('gdrive_accesstoken', '');
+		wfu_tf_LOG("wfu_gdrive_authorize_app_finish:refreshtoken_null");
+		die("wfu_gdrive_authorize_app_finish:repeat:");
+	}
+	else {
+		wfu_update_setting('gdrive_accesstoken', json_encode($accessToken));
+		// reset any unread admin notifications related to GDrive activation
+		wfu_reset_gdriveactivation_notification();
+		wfu_tf_LOG("wfu_gdrive_authorize_app_finish:new_accesstoken_ok");
+		die("wfu_gdrive_authorize_app_finish:success:");
+	}
+}
 
-	wfu_update_setting('gdrive_accesstoken', json_encode($accessToken));
-	die("wfu_gdrive_authorize_app_finish:success:");
+function wfu_gdrive_revoke_authorization($accessToken = null) {
+	wfu_tf_LOG("gdrive_revoke_start:");
+	$state = wfu_create_random_string(16);
+	$GClient = wfu_gdrive_getGClient_basic($state);
+	if ( $accessToken == null ) {
+		$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
+		$accessToken = json_decode($plugin_options['gdrive_accesstoken'], true);
+	}
+	$GClient->revokeToken($accessToken);
+	wfu_update_setting('gdrive_accesstoken', "");
+	wfu_tf_LOG("gdrive_revoke_end:");
 }
 
 function wfu_gdrive_upload_file($filepath, $destination, $params) {
@@ -48,6 +69,9 @@ function wfu_gdrive_upload_file($filepath, $destination, $params) {
 	}
 	catch (Exception $ex) {
 		wfu_tf_LOG("gdrive_transfer_file_end:destination_fail");
+		// check whether Google activation needs to be revoked because the
+		// credentials are no longer valid
+		wfu_revoke_if_auth_error($ex);
 		wfu_set_transfer_result($fileid, $jobid, "gdrive", false, $ex->getMessage(), "");
 		return false;
 	}
@@ -131,6 +155,7 @@ function wfu_gdrive_add_proxy_support(&$GClient) {
 }
 
 function wfu_gdrive_getGClient() {
+	wfu_tf_LOG("wfu_gdrive_getGClient_start:");
 	$state = wfu_create_random_string(16);
 	$GClient = wfu_gdrive_getGClient_basic($state);
 	wfu_gdrive_add_proxy_support($GClient);
@@ -138,10 +163,21 @@ function wfu_gdrive_getGClient() {
 	$accessToken = json_decode($plugin_options['gdrive_accesstoken'], true);
 	$GClient->setAccessToken($accessToken);
 	if ($GClient->isAccessTokenExpired()) {
-		$GClient->fetchAccessTokenWithRefreshToken($GClient->getRefreshToken());
-		wfu_update_setting('gdrive_accesstoken', json_encode($GClient->getAccessToken()));
+		wfu_tf_LOG("wfu_gdrive_getGClient:refresh_token");
+		$refreshTokenSaved = $GClient->getRefreshToken();
+		if ( $refreshTokenSaved == null ) {
+			wfu_gdrive_revoke_authorization();
+			wfu_tf_LOG("wfu_gdrive_getGClient_end:null");
+			return null;
+		}
+		$GClient->fetchAccessTokenWithRefreshToken($refreshTokenSaved);
+		$accessTokenUpdated = $GClient->getAccessToken();
+		$accessTokenUpdated['refresh_token'] = $refreshTokenSaved;
+		$GClient->setAccessToken($accessTokenUpdated);
+		wfu_update_setting('gdrive_accesstoken', json_encode($accessTokenUpdated));
 	}
 	
+	wfu_tf_LOG("wfu_gdrive_getGClient_end:ok");
 	return $GClient;
 }
 
@@ -159,4 +195,38 @@ function wfu_get_gdrive_secret($state) {
 	if ( preg_match("/wfuca_gdrive_secret:(.*)$/", $result, $matches) != 1 ) return false;
 	if ( !isset($matches[1]) || $matches[1] == "" ) return false;
 	return wfu_plugin_decode_string($matches[1]);
+}
+
+function wfu_revoke_if_auth_error($error) {
+	wfu_tf_LOG("reset_if_auth_error_start:");
+	$code = $error->getCode();
+	$err = $error->getMessage();
+	if ( $code == 401 || ( $code == 400 && strpos($err, "invalid_grant") !== false ) ) {
+		wfu_gdrive_revoke_authorization();
+		// notify admin about the revocation
+		wfu_add_gdriveactivation_notification();
+		wfu_tf_LOG("reset_if_auth_error:activation_reset");
+	}
+	wfu_tf_LOG("reset_if_auth_error_end:");
+}
+
+function wfu_add_gdriveactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_add_gdriveactivation_notification_start:");
+	$action = array(
+		'title' => 'Google Drive Activation',
+		'link' => site_url().'/wp-admin/options-general.php?page=wordpress_file_upload&action=plugin_settings#wfu_gdrive_settings'
+	);
+	wfu_add_nr_admin_notification('Google Drive is disconnected from Wordpress File Upload plugin, however there are pending transfers to Google Drive. You need to activate it.', 'warning', 'google_activation', 'Google Drive requires activation.', $action);
+	wfu_tf_LOG("wfu_add_gdriveactivation_notification_end:");
+}
+
+function wfu_reset_gdriveactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_reset_gdriveactivation_notification_start:");
+	$notfs = wfu_get_admin_notifications('unread', null, 'google_activation');
+	$keys = array();
+	foreach ( $notfs as $notf ) array_push($keys, $notf['id']);
+	wfu_mark_notifications($keys, 'read');
+	wfu_tf_LOG("wfu_reset_gdriveactivation_notification_end:");
 }

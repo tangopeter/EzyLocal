@@ -1,9 +1,11 @@
-// console.log("js  +", document.title  );
 import { orderPage, getDeliveryMethod , checkRuralDelivery , checkSatDelivery , getOrderSize , UpdateOrderTotals } from './orderPage.js';
 import { orderPage2 } from './orderPage2.js';
 import { completeMyOrder } from './completeOrder.js';
 import { completeThisOrder } from './accountPage.js';
-// import { testy2 } from './testy.js';
+// import { goToCompleteOrder } from './ezyFunctions.js';
+
+
+// console.log("js  +", document.title  );
 
 // console.log("js " + document.title);
 // jQuery(document).ready(function ($) {
@@ -18,7 +20,7 @@ import { completeThisOrder } from './accountPage.js';
 switch (document.title)
 {
   case 'Order Prints – Ezy Prints':
-    console.log("4 " + document.title);
+    // console.log("4 " + document.title);
     orderPage2();
     break;
   case 'testy – Ezy Prints':

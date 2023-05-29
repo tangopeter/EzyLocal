@@ -444,6 +444,22 @@ function wfu_sanitize_code($code) {
 }
 
 /**
+ * Sanitize an Extended Code.
+ *
+ * This function sanitizes an extended code. An extended code must only contain
+ * latin letters, numbers or minus (-) symbol.
+ *
+ * @since 4.20.0
+ *
+ * @param string $code The code to sanitize.
+ *
+ * @return string The sanitized code.
+ */
+function wfu_sanitize_xcode($code) {
+	return preg_replace("/[^A-Za-z0-9\-]/", "", $code);
+}
+
+/**
  * Sanitize a Filter.
  *
  * This function sanitizes a filter. A filter must only contain latin letters,
@@ -6265,7 +6281,7 @@ function wfu_add_multifilter_header($dlp, $code, $filters, $is_first) {
 		$i++;
 	}
 	$echo_str .= $dlp."\t".'</ul>';
-	$echo_str .= $dlp."\t".'<input type="button" class="button action" value="Apply" onclick="wfu_apply_'.$code.'_filter();" />';
+	$echo_str .= $dlp."\t".'<input type="button" class="button action" value="Apply" onclick="wfu_apply_'.$code.'_filter();"'.( count($filters) == 0 ? ' style="display: none;"' : '' ).' />';
 	$echo_str .= $dlp.'</div>';
 	
 	return $echo_str;
@@ -8257,6 +8273,229 @@ function wfu_get_browser_params_from_safe($code) {
 function wfu_theme_is_block_based() {
 	if ( function_exists("wp_is_block_theme") ) return wp_is_block_theme();
 	else return false;
+}
+
+//************************* Notification Functions *****************************
+
+/**
+ * Add an Admin Notification.
+ *
+ * This function adds an admin notification.
+ *
+ * @since 4.20.0
+ *
+ * @redeclarable
+ *
+ * @param string $description The description of the notification.
+ * @param string $category Optional. The category of the notification. It can be
+ *                'info', 'warning' or 'error'.
+ * @param string $descriptor Optional. A string characterizing the secondary
+ *               type of message.
+ * @param string $brief Optional. A brief description of the notification.
+ * @param array $action Optional. A proposed action to take for this
+ *              notification. It is an array with 2 items, 'title' and 'link'.
+ */
+function wfu_add_admin_notification($description, $category = 'info', $descriptor = '', $brief = '', $action = null) {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	$cat = 'info';
+	switch ($category) {
+		case 'error': $cat = 'error'; break;
+		case 'warning': $cat = 'warning'; break;
+	}
+	$data = array(
+		'comment_content'	=> $description,
+		'comment_type'		=> 'wfunotification',
+		'comment_meta'         => array(
+			'status' => 'unread',
+			'category' => $cat,
+			'descriptor' => $descriptor,
+			'brief' => $brief,
+			'action' => $action,
+			'last_update' => 0
+		)
+	);
+	$comment_id = wp_insert_comment( $data );
+}
+
+/**
+ * Add a Non-Reapeating Admin Notification.
+ *
+ * This function adds a non-repeating admin notification. It will first check if
+ * a notification with the same descriptor already exists. If it is exists and
+ * it is unread, it will not add it. If it exists and it is read, it will add it
+ * only if a certain amount of time has passed (so that it does not flood the
+ * website with repeating notifications). If a descriptor is not provided then
+ * it will normally add the notification.
+ *
+ * @since 4.20.0
+ *
+ * @redeclarable
+ *
+ * @param string $description The description of the notification.
+ * @param string $category Optional. The category of the notification. It can be
+ *                'info', 'warning' or 'error'.
+ * @param string $descriptor Optional. A string characterizing the secondary
+ *               type of message.
+ * @param string $brief Optional. A brief description of the notification.
+ * @param array $action Optional. A proposed action to take for this
+ *              notification. It is an array with 2 items, 'title' and 'link'.
+ */
+function wfu_add_nr_admin_notification($description, $category = 'info', $descriptor = '', $brief = '', $action = null) {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	if ( trim($descriptor) == '' ) {
+		wfu_add_admin_notification($description, $category, $descriptor, $brief, $action);
+		return;
+	}
+	$notfs = wfu_get_admin_notifications(null, null, $descriptor);
+	$has_unread = false;
+	$latest_date = null;
+	foreach ( $notfs as $notf ) {
+		if ( $notf['status'] == 'unread' ) {
+			$has_unread = true;
+			break;
+		}
+		$dt = $notf['last_update'];
+		if ( $dt == 0 ) $dt = strtotime($notf['date']);
+		if ( $latest_date == null || $dt > $latest_date )
+			$latest_date = $dt;
+	}
+	if ( $has_unread ) return;
+	$thres = (int)WFU_VAR("WFU_NOTIFICATIONS_NR_THRESHOLD");
+	if ( $latest_date + $thres > time() ) return;
+	wfu_add_admin_notification($description, $category, $descriptor, $brief, $action);
+}
+
+/**
+ * Get the Number of Admin Notifications.
+ *
+ * This function returns the number of all, or unread, admin notifications.
+ *
+ * @since 4.20.0
+ *
+ * @param bool $unread Optional. If true return all the unread notifications.
+ * @param string $category Optional. Return all notifications of this category.
+ * @return int The number of notifications.
+ */
+function wfu_get_admin_notifications_count($unread = false, $category = null) {
+	return wfu_get_admin_notifications(( $unread ? 'unread' : null ), $category, null, true);
+}
+
+/**
+ * Get the Number of Admin Notifications.
+ *
+ * This function returns all, or certain notifications or the number of them.
+ *
+ * @since 4.20.0
+ *
+ * @param string $status Optional. Notifications must match this status.
+ * @param string $category Optional. Notifications must match this category.
+ * @param string $descriptor Optional. Notifications must match this descriptor.
+ * @param bool $getCount Optional. Return only number of matched notifications.
+ * @return array|int The list of notifications or the number of them.
+ */
+function wfu_get_admin_notifications($status = null, $category = null, $descriptor = null, $getCount = false) {
+	$args = array(
+		'type'  => 'wfunotification',
+		'status'  => 'approve',
+		'meta_query' => array()
+	);
+	if ( $getCount ) $args['count'] = true;
+	$metaqueries = 0;
+	if ( $status != null ) {
+		$args['meta_query']['status_clause'] = array(
+			'key' => 'status',
+			'value' => $status,
+		);
+		$metaqueries++;
+	}
+	if ( $category != null ) {
+		$args['meta_query']['category_clause'] = array(
+			'key' => 'category',
+			'value' => $category,
+		);
+		$metaqueries++;
+	}
+	if ( $descriptor != null ) {
+		$args['meta_query']['descriptor_clause'] = array(
+			'key' => 'descriptor',
+			'value' => $descriptor,
+		);
+		$metaqueries++;
+	}
+	if ( $metaqueries > 1 )
+		$args['meta_query']['relation'] = 'AND';
+	if ( $metaqueries == 0 ) unset($args['meta_query']);
+	
+	$comments = get_comments($args);
+	if ( $getCount ) return $comments;
+	
+	$notfs = array();
+	foreach ( $comments as $comment ) {
+		$notf = array(
+			'id' => $comment->comment_ID,
+			'content' => $comment->comment_content,
+			'date' => $comment->comment_date
+		);
+		$meta = get_comment_meta($comment->comment_ID);
+		$notf['status'] = ( isset($meta['status']) ? $meta['status'][0] : '' );
+		$notf['category'] = ( isset($meta['category']) ? $meta['category'][0] : '' );
+		$notf['descriptor'] = ( isset($meta['descriptor']) ? $meta['descriptor'][0] : '' );
+		$notf['brief'] = ( isset($meta['brief']) ? $meta['brief'][0] : '' );
+		$notf['action'] = ( isset($meta['action']) ? $meta['action'][0] : null );
+		$notf['last_update'] = ( isset($meta['last_update']) ? $meta['last_update'][0] : 0 );
+		array_push($notfs, $notf);
+	}
+	
+	return $notfs;
+}
+
+/**
+ * Get Statistics of Unread Admin Notifications.
+ *
+ * This function stores all the unread, unread error, unread warning and unread
+ * info notifications in a global variable. The purpose is to use this variable
+ * (which is calculated only once) when a function wants this info, instead of
+ * performing the db queries every time.
+ *
+ * @since 4.20.0
+ *
+ * @return array The number of unread admin notifications as an array,
+ *         containing all unread, unread error, unread warning and unread info.
+ */
+function wfu_get_unread_admin_notification_stats() {
+	global $wfu_unread_admin_notifications;
+	if ( !isset($wfu_unread_admin_notifications) || $wfu_unread_admin_notifications == null ) {
+		$wfu_unread_admin_notifications = array(
+			'all' => wfu_get_admin_notifications_count(true),
+			'error' => wfu_get_admin_notifications_count(true, 'error'),
+			'warning' => wfu_get_admin_notifications_count(true, 'warning')
+		);
+		$wfu_unread_admin_notifications['info'] = $wfu_unread_admin_notifications['all'] - $wfu_unread_admin_notifications['error'] - $wfu_unread_admin_notifications['warning'];
+	}
+	$wfu_unread_admin_notifications['single'] = null;
+	$notfs = array();
+	if ( $wfu_unread_admin_notifications['error'] == 1 )
+		$notfs = wfu_get_admin_notifications('unread', 'error');
+	elseif ( $wfu_unread_admin_notifications['error'] == 0 && $wfu_unread_admin_notifications['warning'] == 1 )
+		$notfs = wfu_get_admin_notifications('unread', 'warning');
+	if ( count($notfs) > 0 ) $wfu_unread_admin_notifications['single'] = $notfs[0];
+
+	return $wfu_unread_admin_notifications;
+}
+
+/**
+ * Reset Statistics of Unread Admin Notifications.
+ *
+ * This function resets the global variable that stores all the unread, unread
+ * error, unread warning and unread info notifications. We use it when the 
+ * variable needs to be recalculated due to a change in notifications.
+ *
+ * @since 4.20.0
+ */
+function wfu_reset_unread_admin_notification_stats() {
+	global $wfu_unread_admin_notifications;
+	if ( !isset($wfu_unread_admin_notifications) ) return;
+	$wfu_unread_admin_notifications = null;
 }
 
 //********************* POST/GET Requests Functions ****************************

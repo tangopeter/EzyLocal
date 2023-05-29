@@ -43,7 +43,9 @@ function wfu_ajax_action_gdrive_authorize_app_reset() {
 	
 	check_ajax_referer( 'wfu-gdrive-authorize-app', 'token' );
 	
-	wfu_update_setting('gdrive_accesstoken', "");
+	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	wfu_gdrive_revoke_authorization();
+
 	die("wfu_gdrive_authorize_app_reset:success:");
 }
 

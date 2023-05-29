@@ -4,7 +4,12 @@ add_action('_wfu_schedule_file_transfer', 'wfu_gdrive_schedule_file_transfer', 1
 add_filter('_wfu_filetransfer_services', 'wfu_gdrive_filetransfer_service', 10, 1);
 
 function wfu_gdrive_schedule_file_transfer($fileid, $target_path, $userdata_fields, $params) {
-	if ( $params["gdrive"] == "true" && wfu_gdrive_service_active() ) {
+	if ( $params["gdrive"] == "true" ) {
+		// notify admin if Google Drive is not activated
+		if ( !wfu_gdrive_service_active() ) {
+			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php';
+			wfu_add_gdriveactivation_notification();
+		}
 		$user = wp_get_current_user();
 		if ( 0 == $user->ID ) {
 			$user_id = 0;

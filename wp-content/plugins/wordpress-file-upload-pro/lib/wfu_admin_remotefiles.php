@@ -160,7 +160,7 @@ function wfu_manage_remote_files($sort, $page = 1, $only_table_rows = false, $fi
 	
 	if ( !$only_table_rows ) {
 		$echo_str .= "\n".'<div class="wrap">';
-		$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+		$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 		$echo_str .= "\n\t".'<div style="margin-top:20px;">';
 		$echo_str .= wfu_generate_dashboard_menu("\n\t\t", "Remote");
 		$echo_str .= "\n\t".'<h3 style="margin-bottom: 10px;">Remote Files</h3>';

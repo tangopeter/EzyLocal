@@ -4,7 +4,12 @@ add_action('_wfu_schedule_file_transfer', 'wfu_amazons3_schedule_file_transfer',
 add_filter('_wfu_filetransfer_services', 'wfu_amazons3_filetransfer_service', 10, 1);
 
 function wfu_amazons3_schedule_file_transfer($fileid, $target_path, $userdata_fields, $params) {
-	if ( $params["amazons3"] == "true" && wfu_amazons3_service_active() ) {
+	if ( $params["amazons3"] == "true" ) {
+		// notify admin if Amazon S3 is not activated
+		if ( !wfu_amazons3_service_active() ) {
+			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_amazons3/_wfu_amazons3.php';
+			wfu_add_amazons3activation_notification();
+		}
 		$user = wp_get_current_user();
 		if ( 0 == $user->ID ) {
 			$user_id = 0;

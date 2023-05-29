@@ -33,7 +33,7 @@ function wfu_advanced_actions($message = '') {
 	$siteurl = site_url();
 	
 	$echo_str = '<div class="wrap">';
-	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+	$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 	if ( $message != '' ) {
 		$echo_str .= "\n\t".'<div class="updated">';
 		$echo_str .= "\n\t\t".'<p>'.$message.'</p>';

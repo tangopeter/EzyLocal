@@ -122,6 +122,7 @@ function wfu_initialize_i18n_strings() {
 	DEFINE("WFU_ERROR_USERDATACHECKBOX_NOTCHECKED", __("checkbox unchecked!", "wp-file-upload"));
 	DEFINE("WFU_ERROR_USERDATARADIO_NOTSELECTED", __("no option selected!", "wp-file-upload"));
 	DEFINE("WFU_ERROR_USERDATALIST_NOITEMSELECTED", __("no item selected!", "wp-file-upload"));
+	DEFINE("WFU_ERROR_SUBFOLDER_NOTSELECTED", __("No subfolder selected!", "wp-file-upload"));
 	DEFINE("WFU_ERROR_SAME_PLUGINID", __("There are more than one instances of the plugin in this page with the same id. Please change it.", "wp-file-upload"));
 	DEFINE("WFU_ERROR_PAGE_OBSOLETE", __("Cannot edit the shortcode because the page has been modified. Please reload the page.", "wp-file-upload"));
 	DEFINE("WFU_ERROR_WEBCAM_NOTSUPPORTED", __("Your browser does not support webcam capture!", "wp-file-upload"));
@@ -474,6 +475,9 @@ $GLOBALS["WFU_GLOBALS"] += array(
 	"WFU_REMOTEFILEGETCONTENTS_DEFVALUE" => array( "Default Value of File Get Contents for Remote Paths", "string", "empty", "Defines the default value that will be returned when file_get_contents() function is executed on a remote path. It can be '*empty', '*calc' or 'empty'. If it starts with asterisk (*) then this variable takes precedence over the more general WFU_FILEOPERATION_IGNOREREMOTE." ),
 	"WFU_REMOTEMD5FILE_DEFVALUE" => array( "Default Value of MD5 File for Remote Paths", "string", "empty", "Defines the default value that will be returned when md5_file() function is executed on a remote (cloud) path. It can be '*empty', '*calc' or 'empty'. If it starts with asterisk (*) then this variable takes precedence over the more general WFU_FILEOPERATION_IGNOREREMOTE." ),
 	"WFU_REMOTEUNLINK_DEFVALUE" => array( "Default Value of Unlink for Remote Paths", "string", "empty", "Defines the default value that will be returned when unlink() function is executed on a remote (cloud) path. It can be '*empty', '*calc' or 'empty'. If it starts with asterisk (*) then this variable takes precedence over the more general WFU_FILEOPERATION_IGNOREREMOTE." ),
+	"WFU_ADMINNOTIFICATIONS_TABLE_MAXROWS" => array( "Admin Notifications Rows Per Page", "integer", 25, "The number of rows per page of the admin notifications. A value equal to zero or less denotes no pagination." ),
+	"WFU_NOTIFICATIONS_BARMENU" => array( "Notifications Toolbar Menu State", "string", "true", "Defines whether the Notifications Toolbar (Admin Bar) menu item will be shown or not. It can be 'true' or 'false'." ),
+	"WFU_NOTIFICATIONS_NR_THRESHOLD" => array( "Notifications Non-Repeating Threshold", "integer", 3600, "Defines the time in seconds, after which a non-repeating notification can be added again." ),
 );
 //additional other plugin values
 $GLOBALS["WFU_GLOBALS"] += array(

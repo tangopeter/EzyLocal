@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Essential Addons for Elementor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-22 12:23:01+0000\n"
+"PO-Revision-Date: 2023-05-28 22:14:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,136 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.4\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Essential Addons for Elementor - Stable (latest release)\n"
+
+#: includes/Elements/Woo_Product_Gallery.php:444
+msgid "Product Tags"
+msgstr "Etiquetas de producto"
+
+#: includes/Elements/Woo_Product_Gallery.php:277
+msgid "Display thumbnail if a term (Category/Tag) has a thumbnail."
+msgstr "Mostrar miniatura si un término (categoría/etiqueta) tiene una miniatura."
+
+#: includes/Elements/Woo_Product_Gallery.php:271
+msgid "Show Terms Thumbnail"
+msgstr "Mostrar la miniatura de términos"
+
+#: includes/Elements/Woo_Cart.php:917
+msgid "Clear Cart"
+msgstr "Vaciar el carrito"
+
+#: includes/Elements/Woo_Cart.php:903
+msgid "Cart Clear Button"
+msgstr "Botón de vaciar carrito"
+
+#: includes/Elements/Sticky_Video.php:439
+msgid "Play icon appears on top of overlay image."
+msgstr "El icono de reproducción aparece sobre la imagen superpuesta."
+
+#: includes/Elements/Progress_Bar.php:802
+msgid "Inner Title Color"
+msgstr "Color del título interno"
+
+#: includes/Elements/Progress_Bar.php:158
+#: includes/Elements/Progress_Bar.php:171
+#: includes/Elements/Progress_Bar.php:793
+msgid "Inner Title"
+msgstr "Título interno"
+
+#: includes/Elements/Filterable_Gallery.php:2615
+msgid "Not found text"
+msgstr "Texto de no encontrado"
+
+#: includes/Elements/Filterable_Gallery.php:2246
+msgid "Search Form"
+msgstr "Formulario de búsqueda"
+
+#: includes/Elements/Filterable_Gallery.php:2140
+msgid "Ratings"
+msgstr "Valoraciones"
+
+#: includes/Elements/Filterable_Gallery.php:1873
+msgid "Icons"
+msgstr "Iconos"
+
+#: includes/Elements/Filterable_Gallery.php:1661
+msgid "Item Card"
+msgstr "Tarjeta de artículo"
+
+#: includes/Elements/Filterable_Gallery.php:1608
+msgid "Video Content Width"
+msgstr "Anchura del contenido de vídeo"
+
+#: includes/Elements/Filterable_Gallery.php:1594
+msgid "Custom Width"
+msgstr "Ancho personalizado"
+
+#: includes/Elements/Filterable_Gallery.php:1499
+msgid "Mouseover Effects"
+msgstr "Efectos al pasar por encima"
+
+#: includes/Elements/Filterable_Gallery.php:1266
+#: includes/Elements/Filterable_Gallery.php:1462
+msgid "These controls will be in effect when the mouse hovers over the items."
+msgstr "Estos controles se activarán cuando el ratón pase por encima de los elementos."
+
+#: includes/Elements/Filterable_Gallery.php:1256
+#: includes/Elements/Filterable_Gallery.php:1452
+msgid "Mouseover Effect"
+msgstr "Texto al pasar el cursor"
+
+#: includes/Elements/Filterable_Gallery.php:997
+msgid "Control"
+msgstr "Control"
+
+#: includes/Elements/Filterable_Gallery.php:296
+#: includes/Traits/Controls.php:1076
+msgid "Image Clickable"
+msgstr "Imagen clicable"
+
+#: includes/Elements/Filterable_Gallery.php:284
+msgid "Title Clickable"
+msgstr "Título clicable"
+
+#: includes/Elements/Filterable_Gallery.php:215
+msgid "No Items Found"
+msgstr "No se han encontrado elementos"
+
+#: includes/Elements/Filterable_Gallery.php:213
+#: includes/Elements/Filterable_Gallery.php:216
+msgid "Not Found Text"
+msgstr "Texto de no encontrado"
+
+#: includes/Elements/Filterable_Gallery.php:201
+msgid "Enabling this will load all prior items up to the one you searched for."
+msgstr "Si activas esta opción, se cargarán todos los artículos anteriores al que has buscado."
+
+#: includes/Elements/Filterable_Gallery.php:184
+msgid "Search Full Gallery ?"
+msgstr "¿Buscar en toda la galería?"
+
+#: includes/Elements/Event_Calendar.php:1545
+msgid "More Event Text"
+msgstr "Texto de más eventos"
+
+#: includes/Elements/Event_Calendar.php:558
+msgid "Custom Date"
+msgstr "Fecha personalizada"
+
+#: includes/Elements/Event_Calendar.php:557
+msgid "Current Date"
+msgstr "Fecha actual"
+
+#: includes/Elements/Event_Calendar.php:554
+msgid "Default Start Date"
+msgstr "Fecha de inicio por defecto"
+
+#: includes/Elements/Event_Calendar.php:539
+msgid "Default View"
+msgstr "Vista por defecto"
+
+#: includes/Elements/Business_Reviews.php:170
+msgid "Local Business Schema"
+msgstr "Schema de negocio local"
 
 #: includes/Elements/Login_Register.php:4085
 msgid "Checkbox Margin"

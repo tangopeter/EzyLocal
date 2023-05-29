@@ -4,7 +4,12 @@ add_action('_wfu_schedule_file_transfer', 'wfu_dropbox_schedule_file_transfer', 
 add_filter('_wfu_filetransfer_services', 'wfu_dropbox_filetransfer_service', 10, 1);
 
 function wfu_dropbox_schedule_file_transfer($fileid, $target_path, $userdata_fields, $params) {
-	if ( $params["dropbox"] == "true" && wfu_dropbox_service_active() ) {
+	if ( $params["dropbox"] == "true" ) {
+		// notify admin if Dropbox is not activated
+		if ( !wfu_dropbox_service_active() ) {
+			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php';
+			wfu_add_dropboxactivation_notification();
+		}
 		$user = wp_get_current_user();
 		if ( 0 == $user->ID ) {
 			$user_id = 0;

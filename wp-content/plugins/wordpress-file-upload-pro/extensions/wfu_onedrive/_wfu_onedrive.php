@@ -28,6 +28,7 @@ function wfu_onedrive_authorize_app_finish($authCode) {
 		die("wfu_onedrive_authorize_app_finish:error:".$accessToken['error']);
 	}
 
+	wfu_reset_onedriveactivation_notification();
 	wfu_tf_LOG("onedrive_authorize_app_finish_end:success:");
 	die("wfu_onedrive_authorize_app_finish:success:");
 }
@@ -188,4 +189,25 @@ function wfu_get_onedrive_secret() {
 	if ( preg_match("/wfuca_onedrive_secret:(.*)$/", $result, $matches) != 1 ) return false;
 	if ( !isset($matches[1]) || $matches[1] == "" ) return false;
 	return wfu_plugin_decode_string($matches[1]);
+}
+
+function wfu_add_onedriveactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_add_onedriveactivation_notification_start:");
+	$action = array(
+		'title' => 'Microsoft OneDrive Activation',
+		'link' => site_url().'/wp-admin/options-general.php?page=wordpress_file_upload&action=plugin_settings#wfu_onedrive_settings'
+	);
+	wfu_add_nr_admin_notification('Microsoft OneDrive is disconnected from Wordpress File Upload plugin, however there are pending transfers to OneDrive. You need to activate it.', 'warning', 'onedrive_activation', 'Microsoft OneDrive requires activation.', $action);
+	wfu_tf_LOG("wfu_add_onedriveactivation_notification_end:");
+}
+
+function wfu_reset_onedriveactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_reset_onedriveactivation_notification_start:");
+	$notfs = wfu_get_admin_notifications('unread', null, 'onedrive_activation');
+	$keys = array();
+	foreach ( $notfs as $notf ) array_push($keys, $notf['id']);
+	wfu_mark_notifications($keys, 'read');
+	wfu_tf_LOG("wfu_reset_onedriveactivation_notification_end:");
 }

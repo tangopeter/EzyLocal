@@ -18,7 +18,7 @@ function wfu_amazons3_manage_settings($echo_str) {
 
 	$echo_str .= "\n\t\t\t\t\t".'<tr>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="row">';
-	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3>Amazon S3 Settings</h3>';
+	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3 id="wfu_amazons3_settings">Amazon S3 Settings</h3>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<td>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</td>';

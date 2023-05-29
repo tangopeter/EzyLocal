@@ -1,4 +1,4 @@
-/*! elementor - v3.13.3 - 22-05-2023 */
+/*! elementor - v3.13.3 - 28-05-2023 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -7370,12 +7370,13 @@ function useKit() {
               }
               _context2.next = 14;
               return runRequest(ajaxConfig).catch(function (error) {
+                var _error$responseJSON;
                 stopIterations = true;
+                var response = 408 === error.status ? 'timeout' : (_error$responseJSON = error.responseJSON) === null || _error$responseJSON === void 0 ? void 0 : _error$responseJSON.data;
                 setKitState(function (prevState) {
-                  var _error$responseJSON;
                   return _objectSpread(_objectSpread({}, prevState), {
                     status: KIT_STATUS_MAP.ERROR,
-                    data: ((_error$responseJSON = error.responseJSON) === null || _error$responseJSON === void 0 ? void 0 : _error$responseJSON.data) || {}
+                    data: response || {}
                   });
                 });
               });

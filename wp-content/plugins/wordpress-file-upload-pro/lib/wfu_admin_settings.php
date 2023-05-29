@@ -137,7 +137,7 @@ function wfu_manage_settings($message = '') {
 	$plugin_options['captcha_secretkey'] = esc_attr($plugin_options['captcha_secretkey']);
 	
 	$echo_str = '<div class="wrap">';
-	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+	$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 	$echo_str .= "\n\t".'<div style="margin-top:20px;">';
 	$echo_str .= wfu_generate_dashboard_menu("\n\t\t", "Settings");
 	$echo_str .= "\n\t\t".'<form enctype="multipart/form-data" name="editsettings" id="editsettings" method="post" action="'.$siteurl.'/wp-admin/options-general.php?page=wordpress_file_upload&amp;action=edit_settings" class="validate">';

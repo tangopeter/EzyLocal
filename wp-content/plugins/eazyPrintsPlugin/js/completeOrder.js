@@ -171,20 +171,20 @@ function updateNumberWFUField2(fieldName, newValue) {
   // console.log("updateNumberWFUField: ", fieldName,  newValue, fieldName.textContent);
 }
 
-function completeThisOrder() {
-  console.log("completeThisOrder");
+// function completeThisOrder() {
+//   console.log("completeThisOrder");
 
 
-  console.log("1/ update all the uploaded files ");
+//   console.log("1/ update all the uploaded files ");
 
-  console.log("2/ collect all the user & delivery data");
+//   console.log("2/ collect all the user & delivery data");
 
-  console.log("3/ Write to new entry in completed orders table");
-
-
+//   console.log("3/ Write to new entry in completed orders table");
 
 
-}
+
+
+// }
 
 // function createNewOrder() {
 //   console.log("newOrder");

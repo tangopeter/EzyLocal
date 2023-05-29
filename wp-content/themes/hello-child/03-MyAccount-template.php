@@ -23,6 +23,7 @@ get_header();
     <?php endif; ?>
 
     <div class="page-content">
+        <?php echo '<p> Order number: ' . get_option('ORDER_NUMBER'); ?>
         <div class="details">
             <?php // https://www.advancedcustomfields.com/resources/acf_form/  
             ?>
@@ -54,13 +55,16 @@ get_header();
 
         if (isset($_POST['button1'])) {
             increaseOrderNumber();
-            // wp_redirect('https://ezylocal:8890/?page_id=54');
             echo get_option('ORDER_NUMBER');
+            // wp_redirect('https://ezylocal:8890/?page_id=54');
+            unset($_POST['button2']);
             exit;
         }
         if (isset($_POST['button2'])) {
             decreaseOrderNumber();
-            echo get_option('ORDER_NUMBER');
+            // echo get_option('ORDER_NUMBER');
+            unset($_POST['button2']);
+            exit;
         }
         ?>
         <div class="myDiv2">

@@ -4,7 +4,12 @@ add_action('_wfu_schedule_file_transfer', 'wfu_onedrive_schedule_file_transfer',
 add_filter('_wfu_filetransfer_services', 'wfu_onedrive_filetransfer_service', 10, 1);
 
 function wfu_onedrive_schedule_file_transfer($fileid, $target_path, $userdata_fields, $params) {
-	if ( $params["onedrive"] == "true" && wfu_onedrive_service_active() ) {
+	if ( $params["onedrive"] == "true" ) {
+		// notify admin if Microsoft OneDrive is not activated
+		if ( !wfu_onedrive_service_active() ) {
+			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php';
+			wfu_add_onedriveactivation_notification();
+		}
 		$user = wp_get_current_user();
 		if ( 0 == $user->ID ) {
 			$user_id = 0;

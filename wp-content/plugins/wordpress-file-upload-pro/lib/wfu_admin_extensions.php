@@ -37,7 +37,7 @@ function wfu_manage_extensions($error_message = "") {
 
 	$echo_str = "";
 	$echo_str .= "\n".'<div class="wrap">';
-	$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+	$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 	if ( $error_message != "" ) {
 		$echo_str .= "\n\t".'<div class="error">';
 		$echo_str .= "\n\t\t".'<p>'.$error_message.'</p>';

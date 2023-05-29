@@ -99,21 +99,35 @@ function existingOrder($ORDER_NUMBER)
 function completeTheOrder($ORDER_NUMBER)
 {
   $current_user = wp_get_current_user();
-
+  $thisItem1 = array();
   global $wpdb;
   $wpdb->show_errors();
 
   $orders = $wpdb->get_results(
     $wpdb->prepare(
       "SELECT ID,order_number,userID,uploads
-FROM wp_ezyUploads
-WHERE order_number = %s",
+        FROM wp_ezyUploads
+        WHERE order_number = %s",
       $ORDER_NUMBER
     )
   );
 
   foreach ($orders as $order) {
+    // Items
+    $uploads = json_decode($order->uploads);
 
+    $thisItem = array(
+      'file_name' => $uploads->file_name,
+      'qty' => $uploads->qty,
+      'size' => $uploads->size,
+      'finish' => $uploads->finish,
+      'print_cost' => $uploads->total_price
+    );
+
+    array_push($thisItem1, $thisItem);
+
+
+    echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
     // User and Delivery details
     $thisUser = array(
       'first_name' => get_field('first_name', $current_user),
@@ -137,7 +151,6 @@ WHERE order_number = %s",
 
     // Costs
     $costs = array(
-      'print_cost' => get_field('print_price', $current_user),
       'delivery_cost' => get_field('delivery_cost', $current_user),
       'subtotal' => get_field('subtotal', $current_user),
       'gst' => get_field('gst', $current_user),
@@ -146,18 +159,11 @@ WHERE order_number = %s",
     $upload1 = json_encode($costs, JSON_PRETTY_PRINT);
     echo '<pre> Costs:' . $upload1 . '</pre>';
 
-    // Items
-    $uploads = json_decode($order->uploads);
-
-    $thisItem = array(
-      'file_name' => $uploads->file_name,
-      'qty' => $uploads->qty,
-      'size' => $uploads->size,
-      'finish' => $uploads->finish
-    );
-    $thisItem = json_encode($thisItem, JSON_PRETTY_PRINT);
-    echo '<pre> This Item: ' . $thisItem . '</pre>';
-  }
+    if ($order === end($orders)) {
+      $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
+      break;
+    }
+  };
   // Add all to DB
   $wpdb->insert(
     $wpdb->prefix . 'ezy_orders', // name of the table
@@ -168,7 +174,7 @@ WHERE order_number = %s",
       'order_status' => "tbp",
       'user_details' => $thisUser,
       'costs' => $upload1,
-      'items' => $thisItem
+      // 'items' => $thisItem1
     ),
     array(
       "%d", // $ORDER_NUMBER,

@@ -53,7 +53,7 @@ function wfu_view_log($page = 1, $only_table_rows = false, $located_rec = -1) {
 	$echo_str = "";
 	if ( !$only_table_rows ) {
 		$echo_str .= "\n".'<div class="wrap">';
-		$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+		$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 		$echo_str .= "\n\t".'<div style="margin-top:20px;">';
 		$echo_str .= wfu_generate_dashboard_menu("\n\t\t", "View Log");
 		$echo_str .= "\n\t".'<div style="position:relative;">';

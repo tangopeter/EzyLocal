@@ -56,6 +56,7 @@ function wfu_dropbox_authorize_app_finish($authCode, $use_old_API = false) {
 		$AuthHelper = $dropbox->getAuthHelper();
 		$accessTokenObj = $AuthHelper->getAccessToken($authCode);
 		$accessToken = $accessTokenObj->getToken();
+		wfu_reset_dropboxactivation_notification();
 	}
 	wfu_update_setting('dropbox_accesstoken', $accessToken);
 	die("wfu_dropbox_authorize_app_finish:success:");
@@ -168,4 +169,25 @@ function wfu_dropbox_check_upload($fileid, $jobid, $use_old_API = false) {
 			wfu_set_transfer_result($fileid, $jobid, "dropbox", false, $e->getMessage(), "");
 		}		
 	}
+}
+
+function wfu_add_dropboxactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_add_dropboxactivation_notification_start:");
+	$action = array(
+		'title' => 'Dropbox Activation',
+		'link' => site_url().'/wp-admin/options-general.php?page=wordpress_file_upload&action=plugin_settings#wfu_dropbox_settings'
+	);
+	wfu_add_nr_admin_notification('Dropbox is disconnected from Wordpress File Upload plugin, however there are pending transfers to Dropbox. You need to activate it.', 'warning', 'dropbox_activation', 'Dropbox requires activation.', $action);
+	wfu_tf_LOG("wfu_add_dropboxactivation_notification_end:");
+}
+
+function wfu_reset_dropboxactivation_notification() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	wfu_tf_LOG("wfu_reset_dropboxactivation_notification_start:");
+	$notfs = wfu_get_admin_notifications('unread', null, 'dropbox_activation');
+	$keys = array();
+	foreach ( $notfs as $notf ) array_push($keys, $notf['id']);
+	wfu_mark_notifications($keys, 'read');
+	wfu_tf_LOG("wfu_reset_dropboxactivation_notification_end:");
 }

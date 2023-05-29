@@ -25,6 +25,8 @@ $ORDER_NUMBER = get_option('ORDER_NUMBER');
 
 
   <div class="page-content">
+    <?php echo '<p> Order number: ' . get_option('ORDER_NUMBER') . '</p>' ?>
+
     <div class="details">
       <div class="completeTheOrder completeTheOrder1">
         <h3>Costs:</h3>
@@ -47,9 +49,17 @@ $ORDER_NUMBER = get_option('ORDER_NUMBER');
   <div class="page-content">
     <?php drawOrderTable($ORDER_NUMBER); ?>
   </div>
-  <div class="myDiv2">
-    <input type=button onClick="location.href='https://ezylocal:8890/?page_id=2572'" value='Finalize the Order'>
-  </div>
+  <?php
+  echo '<div class="myDiv2">';
+  echo "<input type='button' class='completeOrder' value='Finalize the Order' onclick='finalizeOrder()'>";
+
+  echo "<script>
+      function finalizeOrder() {
+        window.location.href = 'https://ezylocal:8890/?page_id=2572';
+      }
+    </script>";
+  echo '</div>';
+  ?>
   <div class="myFooter">
     <?php get_footer(); ?>
   </div>

@@ -321,7 +321,7 @@ function wfu_browse_files($basedir_code, $page = -1, $only_table_rows = false) {
 	$echo_str = "";
 	if ( !$only_table_rows ) {
 		$echo_str .= "\n".'<div class="wrap">';
-		$echo_str .= "\n\t".'<h2>Wordpress File Upload Control Panel</h2>';
+		$echo_str .= wfu_generate_dashboard_menu_title("\n\t");
 		$echo_str .= "\n\t".'<div style="margin-top:20px;">';
 		$echo_str .= wfu_generate_dashboard_menu("\n\t\t", "File Browser");
 		$echo_str .= "\n\t".'<div>';

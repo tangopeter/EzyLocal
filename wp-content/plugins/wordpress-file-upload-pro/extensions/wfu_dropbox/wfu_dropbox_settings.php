@@ -18,7 +18,7 @@ function wfu_dropbox_manage_settings($echo_str) {
 
 	$echo_str .= "\n\t\t\t\t\t".'<tr>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="row">';
-	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3>Dropbox Settings</h3>';
+	$echo_str .= "\n\t\t\t\t\t\t\t".'<h3 id="wfu_dropbox_settings">Dropbox Settings</h3>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<td>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</td>';

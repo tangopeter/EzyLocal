@@ -19,6 +19,7 @@
 	<?php endif; ?>
 	<div class="page-content">
 
+		<?php echo '<p> Order number: ' . get_option('ORDER_NUMBER') . '</p>' ?>
 		<h1>Select your files to upload</h1>
 		<?php
 		$current_user = wp_get_current_user();
@@ -37,10 +38,18 @@
 
 		<?php the_content(); ?>
 		<?php drawOrderTable($ORDER_NUMBER); ?>
+		<?php
+		echo '<div class="myDiv2">';
+		echo "<input type='button' class='completeOrder' value='Complete Order' onclick='completeOrder()'>";
 
-		<div class="myDiv2">
-			<input type=button class="completeOrder" onClick="location.href='https://ezylocal:8890/?page_id=2782'" value='Complete Order'>
-		</div>
+		echo "<script>
+			function completeOrder() {
+				window.location.href = 'https://ezylocal:8890/?page_id=2782';
+			}
+		</script>";
+
+		?>
+	</div>
 </main>
 </main>
 </div>

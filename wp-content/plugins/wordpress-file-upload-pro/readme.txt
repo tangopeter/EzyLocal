@@ -145,6 +145,12 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
+= 4.20.0 =
+* added Notifications tab in Dashboard area of the plugin
+* fixed bug with refresh token in Google Drive
+* improved Google Drive, Microsoft OneDrive, Dropbox and Amazon S3 functionalities so that admin is notified if there is something wrong with their activation
+* fixed bug in upload form when captcha is added
+
 = 4.19.2 =
 * codes improvements in plugin settings to protect against XSS attacks
 * code improvements in backend file browser to avoid directory traversal attacks
@@ -1059,6 +1065,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.20.0 =
+Regular update to introduce some new features and fix some bugs.
 
 = 4.19.2 =
 Urgent update to fix some security issues.
