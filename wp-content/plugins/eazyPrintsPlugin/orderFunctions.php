@@ -117,7 +117,7 @@ function completeTheOrder($ORDER_NUMBER)
 
   );
 
-  foreach ($orders as $order) {
+  foreach ($orders as $key => $order) {
     // Items
     $uploads = json_decode($order->uploads);
 

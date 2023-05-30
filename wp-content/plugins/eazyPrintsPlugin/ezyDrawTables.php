@@ -86,6 +86,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
   global $wpdb;
   $wpdb->show_errors();
   $totalPrice = 0;
+  $i = 0;
 
   $users = $wpdb->get_results(
     $wpdb->prepare(
@@ -96,9 +97,11 @@ function drawAccountOrderTable($ORDER_NUMBER)
     )
   );
   echo '<div class="myData3">';
+  // foreach ($orderExists as $key => $order) {
+  //   if ($ORDER_NUMBER == $order) {
+  //     echo $key . " : " . $order . "<br>";
+  foreach ($users as $key => $user) :
 
-  foreach ($users as $user) :
-    $items = json_decode($user->items);
     $totalPrice = 0;
 
     $costs = $user->costs;
@@ -106,18 +109,22 @@ function drawAccountOrderTable($ORDER_NUMBER)
     $thisUser = $user->user_details;
     $thisUser = json_decode($user->user_details);
     $items = $user->items;
-    $items = json_decode($user->items);
+    // $items = json_decode($user->items);
 
 
-
-
-
-
+    // foreach ($items as $item) :
+    //   'File: <strong>' . $item->file_name . '</strong><br/>' .
+    //     'Qty: <strong>' . $item->qty . '</strong><br/>' .
+    //     'Size: <strong>' . $item->size . '</strong><br/>' .
+    //     'Finish: <strong>' . $item->finish . '</strong><br/>' .
+    //     'Cost: <strong>' . $item->print_cost . '</strong><br/>';
+    // endforeach;
+    // $items = json_decode($items);
 
 
     // echo '<pre> User:' . $thisUser  . '</pre>';
     // $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
-    echo '<h5>Order#: ', $user->order_number . '</h5>';
+    echo '<h5>Order#: ', $user->order_number . ' ' . $key . '</h5>';
     echo '<table>';
     echo '<thead>';
     echo '<tr class="wfu_browser_tr wfu_included wfu_visible wfu_row-1 wfu_browser-2">';
@@ -159,10 +166,12 @@ function drawAccountOrderTable($ORDER_NUMBER)
       '</td>';
 
     echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-2">' .
-      'File: <strong>' . $items->file_name . '</strong><br/>' .
-      'Qty: <strong>' . $items->qty . '</strong><br/>' .
-      'Size: <strong>' . $items->size . '</strong><br/>' .
-      'Finish: <strong> ' . $items->finish . '</strong><br/>' .
+      // 'File: <strong>' . $items->file_name . '</strong><br/>' .
+      // 'Qty: <strong>' . $items->qty . '</strong><br/>' .
+      // 'Size: <strong>' . $items->size . '</strong><br/>' .
+      // 'Finish: <strong> ' . $items->finish . '</strong><br/>' .
+      // 'Cost: <strong>' . $items->print_cost . '</strong><br/>' .
+      $items .
       '<br/>' . '</td>';
 
     echo '<td class="wfu_browser_td wfu_col-8 wfu_browser-2">' .
@@ -196,8 +205,9 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '</tfoot>';
     echo '</table';
     echo '</div>';
-  // echo '</div>';
-  // echo '</div>';
+    // echo '</div>';
+    // echo '</div>';
+    $i++;
   endforeach;
   echo '</div>';
   // echo '</div>';
