@@ -1,6 +1,6 @@
 <?php
 
-function drawOrderTable($ORDER_NUMBER)
+function drawOrderTable1($ORDER_NUMBER)
 {
   global $wpdb;
   $wpdb->show_errors();
@@ -80,8 +80,8 @@ function drawOrderTable($ORDER_NUMBER)
 
 function drawAccountOrderTable($ORDER_NUMBER)
 {
-  echo '<div class="completedTable">';
-
+  echo "completedTable++++++++++++++++++++++++++++++++++++++++++++";
+  echo '<div class="completedxxTable">';
   $USER = get_current_user_id();
   global $wpdb;
   $wpdb->show_errors();
@@ -96,6 +96,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     )
   );
   echo '<div class="myData3">';
+
   foreach ($users as $user) :
     $items = json_decode($user->items);
     $totalPrice = 0;
@@ -107,9 +108,16 @@ function drawAccountOrderTable($ORDER_NUMBER)
     $items = $user->items;
     $items = json_decode($user->items);
 
+
+
+
+
+
+
+
     // echo '<pre> User:' . $thisUser  . '</pre>';
     // $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
-
+    echo '<h5>Order#: ', $user->order_number . '</h5>';
     echo '<table>';
     echo '<thead>';
     echo '<tr class="wfu_browser_tr wfu_included wfu_visible wfu_row-1 wfu_browser-2">';
@@ -125,14 +133,12 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '</tr>';
     echo '</thead>';
     echo '<tbody>';
-    echo '<h5>Order#: ', $user->order_number . '</h5>';
+
     echo '<tr class="wfu_browser_tr wfu_included wfu_visible wfu_row-1 wfu_browser-2">';
     echo '<td class="wfu_browser_td wfu_col-1 wfu_browser-2">' . $user->ID . '</td>';
     echo '<td class="wfu_browser_td wfu_col-2 wfu_browser-2">' . $user->order_number . '</td>';
     echo '<td class="wfu_browser_td wfu_col-3 wfu_browser-2">' . $user->date . '</td>';
-    echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-2">' .
-
-      $user->order_status . '</td>';
+    echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-2">' . $user->order_status . '</td>';
 
     echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-2">' .
       'User: <strong>' . $thisUser->first_name . " " . $thisUser->last_name . '</strong><br/>' .
@@ -190,10 +196,10 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '</tfoot>';
     echo '</table';
     echo '</div>';
-    echo '</div>';
-    echo '</div>';
+  // echo '</div>';
+  // echo '</div>';
   endforeach;
   echo '</div>';
-  echo '</div>';
-  echo '</div>';
+  // echo '</div>';
+  // echo '</div>';
 }
