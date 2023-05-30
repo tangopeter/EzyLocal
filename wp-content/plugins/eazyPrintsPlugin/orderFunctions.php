@@ -84,14 +84,18 @@ function existingOrder($ORDER_NUMBER)
   $orderExists = $wpdb->get_col(
     "SELECT order_number
   FROM wp_ezy_orders"
-
   );
-  echo json_encode($orderExists);
-
-  if ($ORDER_NUMBER != $orderExists[0]) {
-    completeTheOrder($ORDER_NUMBER);
-  } else {
-    echo '<p>' . 'Order number ' . $orderExists[0] . ' allready exists' . '</p>';
+  $existing = false;
+  foreach ($orderExists as $key => $order) {
+    if ($ORDER_NUMBER == $order) {
+      echo $key . " : " . $order . "<br>";
+      $existing = true;
+    } else {
+      echo '<p>' . 'Order number ' . $order . ' already exists' . '</p>';
+    }
+    if (!$existing) {
+      completeTheOrder($ORDER_NUMBER);
+    }
   }
 }
 
@@ -110,6 +114,7 @@ function completeTheOrder($ORDER_NUMBER)
         WHERE order_number = %s",
       $ORDER_NUMBER
     )
+
   );
 
   foreach ($orders as $order) {
@@ -123,44 +128,44 @@ function completeTheOrder($ORDER_NUMBER)
       'finish' => $uploads->finish,
       'print_cost' => $uploads->total_price
     );
-
+    // $thisItem = json_encode($thisItem, JSON_PRETTY_PRINT);
     array_push($thisItem1, $thisItem);
 
-
-    echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
-    // User and Delivery details
-    $thisUser = array(
-      'first_name' => get_field('first_name', $current_user),
-      'last_name' => get_field('last_name', $current_user),
-      'email' => get_field('email', $current_user),
-      'address' => get_field('address', $current_user),
-      'suburb' => get_field('suburb', $current_user),
-      'city' => get_field('city', $current_user),
-      'postcode' => get_field('postcode', $current_user),
-      'phone' => get_field('phone', $current_user),
-
-      'delivery_details' => get_field('delivery_method_and_details', $current_user),
-      'rural_delivery' => get_field('rural_delivery', $current_user),
-      'saturday_delivery' => get_field('saturday_delivery', $current_user),
-      'deliver_to_postal_address' => get_field('deliver_to_postal_address', $current_user),
-      'postal_address' => get_field('postal_address', $current_user),
-      'additional_instructions' => get_field('additional_instructions', $current_user)
-    );
-    $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
-    // echo '<pre> User:' . $thisUser  . '</pre>';
-
-    // Costs
-    $costs = array(
-      'delivery_cost' => get_field('delivery_cost', $current_user),
-      'subtotal' => get_field('subtotal', $current_user),
-      'gst' => get_field('gst', $current_user),
-      'total' => get_field('total', $current_user)
-    );
-    $upload1 = json_encode($costs, JSON_PRETTY_PRINT);
-    echo '<pre> Costs:' . $upload1 . '</pre>';
-
     if ($order === end($orders)) {
-      $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
+      // echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
+      // User and Delivery details
+      $thisUser = array(
+        'first_name' => get_field('first_name', $current_user),
+        'last_name' => get_field('last_name', $current_user),
+        'email' => get_field('email', $current_user),
+        'address' => get_field('address', $current_user),
+        'suburb' => get_field('suburb', $current_user),
+        'city' => get_field('city', $current_user),
+        'postcode' => get_field('postcode', $current_user),
+        'phone' => get_field('phone', $current_user),
+
+        'delivery_details' => get_field('delivery_method_and_details', $current_user),
+        'rural_delivery' => get_field('rural_delivery', $current_user),
+        'saturday_delivery' => get_field('saturday_delivery', $current_user),
+        'deliver_to_postal_address' => get_field('deliver_to_postal_address', $current_user),
+        'postal_address' => get_field('postal_address', $current_user),
+        'additional_instructions' => get_field('additional_instructions', $current_user)
+      );
+      $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
+      // echo '<pre> User:' . $thisUser  . '</pre>';
+
+      // Costs
+      $costs = array(
+        'delivery_cost' => get_field('delivery_cost', $current_user),
+        'subtotal' => get_field('subtotal', $current_user),
+        'gst' => get_field('gst', $current_user),
+        'total' => get_field('total', $current_user)
+      );
+      $upload1 = json_encode($costs, JSON_PRETTY_PRINT);
+      // echo '<pre> Costs:' . $upload1 . '</pre>';
+    }
+    if ($order === end($orders)) {
+      // $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
       break;
     }
   };
@@ -174,7 +179,7 @@ function completeTheOrder($ORDER_NUMBER)
       'order_status' => "tbp",
       'user_details' => $thisUser,
       'costs' => $upload1,
-      // 'items' => $thisItem1
+      'items' => $thisItem1
     ),
     array(
       "%d", // $ORDER_NUMBER,

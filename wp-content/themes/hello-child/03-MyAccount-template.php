@@ -34,15 +34,15 @@ get_header();
             </div>
         </div>
 
-        <!-- <?php existingOrder($ORDER_NUMBER) ?> -->
-        <?php completeTheOrder($ORDER_NUMBER) ?>
+        <?php existingOrder($ORDER_NUMBER) ?>
+
 
 
         <div class="details">
             <h2>Completed Orders:</h2>
         </div>
         <?php
-        drawAccountOrderTable($ORDER_NUMBER); // ezycompleteFunctions.php
+        drawAccountOrderTable($ORDER_NUMBER);
         ?>
 
         <!-- <div class="myDiv2">

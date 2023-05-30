@@ -9,9 +9,9 @@
 ?>
 <?php
 
-include_once 'orderPageFunctions.php';
+include_once 'orderFunctions.php';
 include_once 'myAcountPageFunctions.php';
-
+include_once 'ezyDrawTables.php';
 include_once 'ezyPluginFunctions.php';
 include_once 'ezyDBfunctions.php';
 include_once 'ezyCompleteFunctions.php';
