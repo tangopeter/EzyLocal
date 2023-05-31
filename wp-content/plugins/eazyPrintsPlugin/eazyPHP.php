@@ -8,14 +8,12 @@
  **/
 ?>
 <?php
-
+include_once 'ezyUpdateDB.php';
 include_once 'orderFunctions.php';
-include_once 'myAcountPageFunctions.php';
 include_once 'ezyDrawTables.php';
 include_once 'ezyPluginFunctions.php';
 include_once 'ezyDBfunctions.php';
-include_once 'ezyCompleteFunctions.php';
-
+include_once 'ajax.php';
 
 // Custom script with no dependencies, enqueued in the header 
 // https://developer.wordpress.org/reference/functions/plugin_dir_url/

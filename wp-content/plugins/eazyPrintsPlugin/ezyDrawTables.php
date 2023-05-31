@@ -1,6 +1,6 @@
 <?php
 
-function drawOrderTable1($ORDER_NUMBER)
+function drawOrderTable($ORDER_NUMBER)
 {
   global $wpdb;
   $wpdb->show_errors();
@@ -77,16 +77,14 @@ function drawOrderTable1($ORDER_NUMBER)
   echo '</table';
 }
 
-
 function drawAccountOrderTable($ORDER_NUMBER)
 {
   echo "completedTable++++++++++++++++++++++++++++++++++++++++++++";
-  echo '<div class="completedxxTable">';
+  echo '<div class="completedTable">';
   $USER = get_current_user_id();
   global $wpdb;
   $wpdb->show_errors();
   $totalPrice = 0;
-  $i = 0;
 
   $users = $wpdb->get_results(
     $wpdb->prepare(
@@ -125,6 +123,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     // echo '<pre> User:' . $thisUser  . '</pre>';
     // $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
     echo '<h5>Order#: ', $user->order_number . ' ' . $key . '</h5>';
+
     echo '<table>';
     echo '<thead>';
     echo '<tr class="wfu_browser_tr wfu_included wfu_visible wfu_row-1 wfu_browser-2">';
@@ -205,9 +204,9 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '</tfoot>';
     echo '</table';
     echo '</div>';
-    // echo '</div>';
-    // echo '</div>';
-    $i++;
+  // echo '</div>';
+  // echo '</div>';
+
   endforeach;
   echo '</div>';
   // echo '</div>';
