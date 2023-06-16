@@ -894,6 +894,11 @@ function wfu_shortcode_composer($data = '', $shortcode_tag = 'wordpress_file_upl
 			$val = str_replace(array( "%n%", "%dq%", "%brl%", "%brr%" ), array( "\n", "&quot;", "[", "]" ), $def['value']);
 			$echo_str .= $dlp."\t\t".'<input id="wfu_attribute_'.$attr.'" type="text" name="wfu_text_elements" class="wfu_color_field" value="'.$val.'" />';
 		}
+		elseif ( $def['type'] == "coloralpha" ) {
+			$val = str_replace(array( "%n%", "%dq%", "%brl%", "%brr%" ), array( "\n", "&quot;", "[", "]" ), $def['value']);
+			$echo_str .= $dlp."\t\t".'<input id="wfu_attribute_'.$attr.'" type="text" name="wfu_text_elements" class="wfu_color_field" value="'.$val.'" data-alpha-enabled="true" />';
+			$echo_str .= $dlp."\t\t".'<input id="wfu_attribute_'.$attr.'_default" type="hidden" value="'.$def['default'].'" />';
+		}
 		elseif ( $def['type'] == "color-triplet" ) {
 			$triplet = explode(",", $def['value']);
 			foreach ( $triplet as $key => $item ) $triplet[$key] = trim($item);
@@ -907,6 +912,15 @@ function wfu_shortcode_composer($data = '', $shortcode_tag = 'wordpress_file_upl
 		elseif ( $def['type'] == "csseditor" ) {
 			$val = str_replace(array( "%n%", "%dq%", "%brl%", "%brr%" ), array( "\n", "&quot;", "[", "]" ), $def['value']);
 			$echo_str .= $dlp."\t\t".'<textarea id="wfu_attribute_'.$attr.'" name="wfu_csseditor_elements">'.$val.'</textarea>';
+		}
+		elseif ( $def['type'] == "customactionbutton" ) {
+			$echo_str .= $dlp."\t\t".'<div class="wfu_customactionbutton_wrapper">';
+			$ii = 1;
+			foreach ( $def['listitems'] as $item ) {
+				$echo_str .= '<input id="wfu_attribute_'.$attr.'" type="button" class="wfu_customactionbutton" value="'.$item.'" onclick="wfu_runcustomaction(\''.$def['attribute'].'_'.$ii.'\')" />';
+				$ii++;
+			}
+			$echo_str .= $dlp."\t\t".'</div>';
 		}
 		else {
 			$echo_str .= $dlp."\t\t".'<input id="wfu_attribute_'.$attr.'" type="text" name="wfu_text_elements" value="'.$def['value'].'" />';

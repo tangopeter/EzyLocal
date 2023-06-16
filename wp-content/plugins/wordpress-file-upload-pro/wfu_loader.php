@@ -51,6 +51,7 @@ add_action('admin_menu', 'wordpress_file_upload_add_admin_pages');
 //load styles and scripts for front pages
 if ( !is_admin() ) {
 	add_action( 'wp_enqueue_scripts', 'wfu_enqueue_frontpage_scripts' );
+	add_action( 'wp_enqueue_scripts', 'wfu_enqueue_materialui_frontpage_scripts', 9999999999 );
 }
 //add admin bar menu item of new uploaded files
 add_action( 'wp_before_admin_bar_render', 'wfu_admin_toolbar_new_uploads', 999 );
@@ -245,6 +246,84 @@ function wfu_enqueue_frontpage_scripts() {
 	 * @since 4.19.2
 	*/
 	do_action('wfu_after_frontpage_scripts');
+}
+
+/**
+ * Enqueue Material UI Frontpage Styles and Scripts.
+ *
+ * It enqueues all necessary frontpage styles and scripts of the plugin, when
+ * Material UI theme is activated. It loads only if this is a page or post that
+ * contains the upload form of the plugin and Material UI theme is activated.
+ *
+ * @since 4.21.0
+ *
+ * @redeclarable
+ */
+function wfu_enqueue_materialui_frontpage_scripts() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	global $post;
+	global $wp_styles;
+	if ( is_object($post) ) {
+		// check whether the post has a shortcode with materialui=true, in order
+		// to determine if Material UI libraries need to be loaded
+		$shortcodes = wfu_get_content_shortcodes($post, 'wordpress_file_upload');
+		$hasMaterialUi = false;
+		$shortcodeAtts = null;
+		if ( is_array($shortcodes) && count($shortcodes) > 0 ) {
+			foreach ( $shortcodes as $shortcode ) {
+				$shortcode = trim(substr($shortcode['shortcode'], strlen('[wordpress_file_upload'), -1));
+				$atts = wfu_shortcode_string_to_array($shortcode);
+				if ( isset($atts['materialui']) && $atts['materialui'] == "true" ) {
+					$hasMaterialUi = true;
+					$shortcodeAtts = $atts;
+					$atts_indexed = wfu_shortcode_attribute_definitions_adjusted($shortcodeAtts);
+					$shortcodeAtts = shortcode_atts($atts_indexed, $shortcodeAtts);
+					break;
+				}
+			}
+		}
+		if ( $hasMaterialUi ) {
+			// If muioverridecssmethod is 'layers', then we need to load all
+			// page's styles in 'normal-styles' layer. This way, the React's
+			// styles, which are in a later layer, will have higher precendence
+			// over any other 'normal-styles' layer styles.
+			// We do this first by changing the src of each enqueued css file to
+			// an empty one, so that no styles are loaded. Then we add an inline
+			// style so that the original css file is loaded with an @import
+			// rule, and this way we can assign the css file to a layer.
+			if ( $shortcodeAtts['muioverridecssmethod'] == 'layers' ) {
+				$styles = $wp_styles->registered;
+				foreach ( $styles as $key => $style ) {
+					if ( substr($styles[$key]->src, -4) == '.css' ) {
+						// notice that we do not close the layer block so that
+						// any other styles added by the theme can be included
+						$code = '@layer normal-styles, react-reset-styles, react-styles; @import url("'.$style->src.'") layer(normal-styles); @layer normal-styles { ';
+						$after = $wp_styles->get_data( $style->handle, 'after' );
+						if ( ! $after ) $after = array();
+						array_unshift($after , $code);
+						//array_push($after , ' } @layer normal-styles { ');
+						$wp_styles->add_data( $style->handle, 'after', $after );
+						$styles[$key]->src = WPFILEUPLOAD_DIR.'css/wordpress_file_upload_reset.css';
+					}
+					else {
+						$code = '@layer normal-styles, react-reset-styles, react-styles; @layer normal-styles { ';
+						$after = $wp_styles->get_data( $style->handle, 'after' );
+						if ( ! $after ) $after = array();
+						array_unshift($after , $code);
+						//array_push($after , ' }');
+						$wp_styles->add_data( $style->handle, 'after', $after );
+					}
+				}
+			}
+			// load React and Material UI libraries
+			wp_enqueue_style('wfu_mui-fonts-style', '//fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+			wp_enqueue_style('wfu-fileiconsjs-style', WPFILEUPLOAD_DIR.'vendor/file-icons-js/src/style.css');
+
+			$muiJsFile = WPFILEUPLOAD_DIR.'js/react/materialui/index.js';
+			wp_enqueue_script('wfu-reactapp-functions', $muiJsFile, ['wp-element'], rand(), true);
+			wp_localize_script( 'wfu-reactapp-functions', 'WFUReactParams', array("htmlFontSize" => WFU_VAR("WFU_MUIHTMLFONTSIZE")) );
+		}
+	}
 }
 
 /**
@@ -635,7 +714,9 @@ function wordpress_file_upload_function($incomingfromhandler) {
 
 	/* set the template that will be used, default is empty (the original) */
 	$params["uploadertemplate"] = "";
-//	$params["uploadertemplate"] = "Custom1";
+	if ( $params["materialui"] == "true" ) {
+		$params["uploadertemplate"] = "MaterialUI";
+	}
 	/**
 	 * Filter To Define Custom Uploader Template.
 	 *
@@ -728,6 +809,7 @@ function wordpress_file_upload_function($incomingfromhandler) {
 	$init_params["is_formupload"] = ( $params['forceclassic'] == "true" );
 	$init_params["singlebutton"] = ( $params["singlebutton"] == "true" );
 	$init_params["resetmode"] = $params["resetmode"];
+	$init_params["materialui"] = ( $params["materialui"] == "true" );
 	$init_params["multiple"] = ( $params["multiple"] == "true" );
 	if ( $params["resetmode"] == "onsuccess" && $params["resetonpartial"] == "false" ) $init_params["resetmode"] = "onfullsuccess";
 	/**
@@ -747,11 +829,12 @@ function wordpress_file_upload_function($incomingfromhandler) {
 	if ( $params['css'] != '' ) {
 		$css .= ( $css == "" ? "" : "\n" ).str_replace(array( '%dq%', '%brl%', '%brr%', '%n%' ), array( '"', '[', ']', "\n" ), $params['css']);
 	}
+	$wordpress_file_upload_output_inner = '';
 	//output css styling rules
 	if ( $css != "" ) {
 		//relax css rules if this option is enabled
 		if ( $plugin_options['relaxcss'] == '1' ) $css = preg_replace('#.*?/\*relax\*/\s*#', '', $css);
-		$wordpress_file_upload_output .= wfu_css_to_HTML($css);
+		$wordpress_file_upload_output_inner .= wfu_css_to_HTML($css);
 	}
 	//output javascript code
 	if ( $js != "" ) {
@@ -769,16 +852,16 @@ function wordpress_file_upload_function($incomingfromhandler) {
 			$WFU_BLOCK_INLINE_JS[$instanceid] = $wfu_js_html;
 			$wfu_js_html = '[wfu_block_inline_js instanceid="'.$instanceid.'"]';
 		}
-		$wordpress_file_upload_output .= "\n".$wfu_js_html;
+		$wordpress_file_upload_output_inner .= "\n".$wfu_js_html;
 	}
 	//add drag-drop overlay element
-	$wordpress_file_upload_output .= wfu_template_to_HTML("dragdrop", $params, array(), 0);
+	$wordpress_file_upload_output_inner .= wfu_template_to_HTML("dragdrop", $params, array(), 0);
 	//add visual editor overlay if the current user is administrator
 	if ( $can_open_composer ) {
-		$wordpress_file_upload_output .= wfu_add_visual_editor_button($shortcode_tag, $params);
+		$wordpress_file_upload_output_inner .= wfu_add_visual_editor_button($shortcode_tag, $params);
 	}
 	//add components' html output
-	$wordpress_file_upload_output .= $component_output;
+	$wordpress_file_upload_output_inner .= $component_output;
 
 	/* Pass constants to javascript and run plugin post-load actions */
 	$consts = wfu_set_javascript_constants();
@@ -802,11 +885,11 @@ function wordpress_file_upload_function($incomingfromhandler) {
 		$handler = 'function() { wfu_Attach_DragDrop_Events('.$sid.'); }';
 		$wfu_js .= "\n".'wfu_addLoadHandler('.$handler.');';
 	}
-	$wordpress_file_upload_output .= "\n".wfu_js_to_HTML($wfu_js);
+	$wordpress_file_upload_output_inner .= "\n".wfu_js_to_HTML($wfu_js);
+	//post process upload form onner HTML before sent to output
+	$wordpress_file_upload_output_inner = wfu_template_to_HTML("contents", $params, array( "contents" => $wordpress_file_upload_output_inner ), 0);
+	$wordpress_file_upload_output .= $wordpress_file_upload_output_inner;
 	$wordpress_file_upload_output .= '</div>';
-//	$wordpress_file_upload_output .= '<div>';
-//	$wordpress_file_upload_output .= wfu_test_admin();
-//	$wordpress_file_upload_output .= '</div>';
 
 //	The plugin uses sessions in order to detect if the page was loaded due to file upload or
 //	because the user pressed the Refresh button (or F5) of the page.

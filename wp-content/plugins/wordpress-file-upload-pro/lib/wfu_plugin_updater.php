@@ -220,10 +220,22 @@ class wfu_plugin_auto_updater {
 	 * @return array The modified $transient structure.
 	 */
 	public function check_update($transient) {
-		if ( empty($transient->checked) || !isset($transient->checked[$this->plugin_slug]) ) {
+		$current_version = null;
+		if ( !isset($transient->checked) || !isset($transient->checked[$this->plugin_slug]) ) {
+			if ( ! function_exists( 'get_plugins' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+			$plugins = get_plugins();
+			if ( isset($plugins[$this->plugin_slug]) && isset($plugins[$this->plugin_slug]["Version"]) ) {
+				$current_version = $plugins[$this->plugin_slug]["Version"];
+			}
+		}
+		else {
+			$current_version = $transient->checked[$this->plugin_slug];
+		}
+		if ( $current_version == null ) {
 			return $transient;
 		}
-		$current_version = $transient->checked[$this->plugin_slug];
 		if( false == $remote = get_transient( $this->transient_prefix . '_upgrade_' . $this->slug ) ) {
 			$remote = wp_remote_post($this->update_path, array(
 				'timeout' => 10,
@@ -232,9 +244,9 @@ class wfu_plugin_auto_updater {
 				),
 				'body' => $this->request_params['update']
 			));
-			if ( !is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && !empty( $remote['body'] ) )
+			if ( !is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && !empty( $remote['body'] ) ) {
 				set_transient( $this->transient_prefix . '_upgrade_' . $this->slug, $remote, 43200 );
-
+			}
 		}
 		if ( !is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && !empty( $remote['body'] ) ) {
 			$remote = json_decode( $remote['body'] );
@@ -244,7 +256,16 @@ class wfu_plugin_auto_updater {
 				$obj->plugin = $this->plugin_slug;
 				$obj->new_version = $remote->version;
 				$obj->package = $remote->url;
-				$transient->response[$this->plugin_slug] = $obj;
+				$transient->response[ $this->plugin_slug ] = $obj;
+				unset( $transient->no_update[ $this->plugin_slug ] );
+			}
+			else {
+				$obj = new stdClass();
+				$obj->slug = $this->slug;
+				$obj->plugin = $this->plugin_slug;
+				$obj->new_version = $current_version;
+				$transient->no_update[ $this->plugin_slug ] = $obj;
+				unset( $transient->response[ $this->plugin_slug ] );
 			}
 		}
 		return $transient;

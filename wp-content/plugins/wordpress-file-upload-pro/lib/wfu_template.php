@@ -51,6 +51,25 @@ var dummy = 0;
                             end of HTML output 
 *****************************************************************************/ }
 
+function wfu_contents_template($data) {?>
+<?php /*************************************************************************
+          the following lines contain initialization of PHP variables
+*******************************************************************************/
+/*
+ *  The following variables are available for use:
+ *  
+ *  @var $ID int the upload ID
+ *  @var $contents the inner HTML of the upload form's container element
+ *  @var $params array all plugin's attributes defined through the shortcode
+ *  
+ *  It is noted that $ID can also be used inside CSS, Javascript and HTML code.
+ */
+	// $data["contents"] contains the HTML code of the upload form, before it
+	// is sent to the browser; we do not want to do any processing on it (like
+	// splitting css and js code), so we first echo <!--RAW--> tag
+	echo "<!--RAW-->".$data["contents"];
+/****************************************************************************/ }
+
 function wfu_row_container_template($data) {?>
 <?php /*************************************************************************
           the following lines contain initialization of PHP variables
@@ -4329,6 +4348,10 @@ this.updateButtonStatus = function(status) {
  *  @return void
  */
 this.updateTimer = function(time) {
+	if (!time) {
+		var video = document.getElementById("webcam_$ID_box");
+		time = video.currentTime;
+	}
 	var hours = Math.floor(time / 3600);
 	time -= hours * 3600;
 	var minutes = Math.floor(time / 60);

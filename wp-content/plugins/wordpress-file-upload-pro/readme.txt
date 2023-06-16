@@ -15,6 +15,7 @@ Simple yet very powerful plugin to allow users to upload files to your website f
 Wordpress File Upload Pro is a **[GDPR](https://www.gdpr.eu/) compliant** plugin that enables you, or other users, to upload files to your WordPress website from any page easily and securely by using shortcodes. The characteristics of the plugin are:
 
 * It enables uploads of files from a **page**, **post** or **sidebar** (as a widget).
+* It provides a nice upload form using **Material UI** React components.
 * It captures **video**/**screenshots** from the **webcam** and uploads it.
 * It is **responsive** and uses the latest HTML5 technology, however it will also work with old browsers and mobile phones.
 * It supports additional **form fields** (like checkboxes, text fields, email fields, dropdown lists etc).
@@ -35,7 +36,7 @@ Wordpress File Upload Pro is a **[GDPR](https://www.gdpr.eu/) compliant** plugin
 * It includes an **Admin Bar** item that displays the number of new uploaded files.
 * It includes an **Uploaded Files** top-level menu item in the Dashboard, from where admins can view the uploaded files.
 * It includes a **File Browser** in the Dashboard for administrators to manage the files.
-*  It supports localization and **multilingual** character sets.
+* It supports localization and **multilingual** character sets.
 * Uploaded files can be added to **Media**, or be attached to the current page.
 * Uploaded files can be added to a **NextGEN** gallery.
 * It is highly **customizable** with many (more than 50) options.
@@ -43,11 +44,11 @@ Wordpress File Upload Pro is a **[GDPR](https://www.gdpr.eu/) compliant** plugin
 * It supports **redirection** to another url after successful upload.
 * It supports **filters** and **actions** so that programmers can extend the plugin.
 * It supports **logging** of upload events or management of files, which can be viewed by admins through the Dashboard.
-*  You can create you shortcode very easily by using the included Shortcode Composer in the plugin's settings inside Dashboard.
+* You can create you shortcode very easily by using the included Shortcode Composer in the plugin's settings inside Dashboard.
 * It supports the new **Gutenberg** editor and includes custom **blocks** so that it can be easily added in posts and pages.
-*  It includes a **css editor** to better style the plugin using custom css.
-*  It supports code **hooks** so that filters and actions can be implemented easily.
-*  It comes with **full technical support**.
+* It includes a **css editor** to better style the plugin using custom css.
+* It supports code **hooks** so that filters and actions can be implemented easily.
+* It comes with **full technical support**.
 
 The plugin is translated in the following languages:
 
@@ -144,6 +145,14 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 8. A screenshot of the file browser.
 
 == Changelog ==
+
+= 4.21.0 =
+* added Themes tab in upload form visual editor to select a theme
+* added MaterialUI theme in upload form
+* added upload form attributes to define basic colors and dark mode in Material UI theme
+* added color picker with transparency in plugin's visual editor
+* fixed small bug with time indication in webcam feature of the upload form
+* improvements in plugin auto-update feature
 
 = 4.20.0 =
 * added Notifications tab in Dashboard area of the plugin
@@ -1065,6 +1074,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.21.0 =
+Important update to introduce some new features.
 
 = 4.20.0 =
 Regular update to introduce some new features and fix some bugs.

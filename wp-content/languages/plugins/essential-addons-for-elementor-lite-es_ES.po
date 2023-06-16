@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Essential Addons for Elementor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-28 22:14:09+0000\n"
+"PO-Revision-Date: 2023-06-14 12:13:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,42 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.4\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Essential Addons for Elementor - Stable (latest release)\n"
+
+#: includes/templates/admin/extensions.php:88
+msgid "Wrapper Link"
+msgstr "Enlace de envoltura"
+
+#: includes/Extensions/Wrapper_Link.php:37
+msgid "Enable Wrapper Link"
+msgstr "Activar enlace de envoltura"
+
+#: includes/Extensions/Wrapper_Link.php:29
+msgid "<i class=\"eaicon-logo\"></i> Wrapper Link"
+msgstr "<i class=\"eaicon-logo\"></i> Enlace de envoltura"
+
+#: includes/Elements/Product_Grid.php:327
+msgid "Show Badge ?"
+msgstr "¿Mostrar insignia?"
+
+#: includes/Elements/Product_Grid.php:456
+msgid "Select Products"
+msgstr "Seleccionar productos"
+
+#: includes/Elements/Adv_Tabs.php:157
+msgid "Enables tab to expand and collapse."
+msgstr "Activa la pestaña para que se expanda o cierre"
+
+#: includes/Elements/Adv_Tabs.php:155
+msgid "Toggle Tab"
+msgstr "Alternar pestaña"
+
+#: includes/Elements/Adv_Tabs.php:144
+msgid "Activate the first tab if no tab is selected as the active tab."
+msgstr "Activa la primera pestaña si no se ha seleccionado ninguna pestaña como pestaña activa."
+
+#: includes/Elements/Adv_Tabs.php:142
+msgid "Auto Active?"
+msgstr "¿Activa automáticamente?"
 
 #: includes/Elements/Woo_Product_Gallery.php:444
 msgid "Product Tags"
@@ -544,27 +580,27 @@ msgstr "¿Quieres crear webs más rápido que nunca? ¡Echa un vistazo a Templat
 msgid "Enhance Your Elementor Experience By Unlocking 30+ Advanced PRO Elements"
 msgstr "Mejora tu experiencia con Elementor desbloqueando más de 30 elementos PRO avanzados."
 
-#: includes/Elements/Product_Grid.php:415
+#: includes/Elements/Product_Grid.php:431
 #: includes/Elements/Woo_Product_Carousel.php:813
 msgid "Product Status"
 msgstr "Estado del producto"
 
-#: includes/Elements/Product_Grid.php:3240
+#: includes/Elements/Product_Grid.php:3287
 #: includes/Elements/Woo_Product_Carousel.php:149
 msgid "Schedule"
 msgstr "Horario"
 
-#: includes/Elements/Product_Grid.php:3239
+#: includes/Elements/Product_Grid.php:3286
 #: includes/Elements/Woo_Product_Carousel.php:148
 msgid "Pending Review"
 msgstr "Revisión pendiente"
 
-#: includes/Elements/Product_Grid.php:3238
+#: includes/Elements/Product_Grid.php:3285
 #: includes/Elements/Woo_Product_Carousel.php:147
 msgid "Draft"
 msgstr "Borrador"
 
-#: includes/Elements/Product_Grid.php:3237
+#: includes/Elements/Product_Grid.php:3284
 #: includes/Elements/Woo_Product_Carousel.php:146
 msgid "Publish"
 msgstr "Publicar"
@@ -590,8 +626,8 @@ msgid "is a required field"
 msgstr "es un campo obligatorio"
 
 #: includes/Traits/Helper.php:476
-msgid "<p> <i>📣</i> NEW: Essential Addons 5.7 is here, with new '<a target='_blank' href='%s'>SVG Draw</a>' widget & more! Check out the <a target='_blank' href='%s'>Changelog</a> for more details 🎉</p>"
-msgstr "<p> <i>📣</i> NUEVO: Essential Addons 5.7 ya está aquí, con el nuevo widget '<a target='_blank' href='%s'>SVG Draw</a>' y más! Echa un vistazo al <a target='_blank' href='%s'>registro de cambios</a> para obtener más detalles 🎉</p>"
+msgid "<p> <i>📣</i> NEW: Essential Addons 5.8 is here, with new '<a target='_blank' href='%s'>Wrapper Link</a>' widget & more! Check out the <a target='_blank' href='%s'>Changelog</a> for more details 🎉</p>"
+msgstr "<p> <i>📣</i> NUEVO: Essential Addons 5.8 ya está aquí, con el nuevo widget '<a target='_blank' href='%s'>Wrapper Link</a>' y más! Echa un vistazo al <a target='_blank' href='%s'>registro de cambios</a> para obtener más detalles 🎉</p>"
 
 #: includes/Elements/NFT_Gallery.php:2799
 #: includes/Elements/NFT_Gallery.php:2801
@@ -774,15 +810,15 @@ msgstr "Mostrar términos al pasar el cursos sobre la imagen"
 msgid "Terms Separator"
 msgstr "Separador de términos"
 
-#: includes/Traits/Login_Registration.php:1408
+#: includes/Traits/Login_Registration.php:1387
 msgid "Please enter your phone number."
 msgstr "Por favor, introduce tu número de teléfono."
 
-#: includes/Traits/Login_Registration.php:1401
+#: includes/Traits/Login_Registration.php:1380
 msgid "EA Login | Register Form"
 msgstr "Formulario de acceso / registro de EA"
 
-#: includes/Traits/Login_Registration.php:898
+#: includes/Traits/Login_Registration.php:886
 msgid "Invalid user name found!"
 msgstr "¡Se ha encontrado un nombre de usuario no válido!"
 
@@ -877,7 +913,7 @@ msgstr "Mostrar imagen secundaria al pasar el cursor"
 msgid "Icon Placement"
 msgstr "Ubicación del icono"
 
-#: includes/Elements/Login_Register.php:6153
+#: includes/Elements/Login_Register.php:6156
 msgid "Hey Your password reset link appears to be invalid. Please request a new link."
 msgstr "El enlace para restablecer la contraseña parece que no es válido. Por favor, solicita un nuevo enlace."
 
@@ -902,7 +938,7 @@ msgid "Apply Width on"
 msgstr "Aplicar ancho en"
 
 #: includes/Elements/Login_Register.php:2168
-#: includes/Traits/Login_Registration.php:1313
+#: includes/Traits/Login_Registration.php:1292
 msgid "Click here to reset your password"
 msgstr "Haz clic aquí para restablecer tu contraseña"
 
@@ -948,7 +984,7 @@ msgid "eg. Your password has been reset."
 msgstr "p.ej: Tu contraseña ha sido restablecida."
 
 #: includes/Elements/Login_Register.php:1658
-#: includes/Traits/Login_Registration.php:912
+#: includes/Traits/Login_Registration.php:901
 msgid "Your password has been reset."
 msgstr "Tu contraseña ha sido restablecida."
 
@@ -982,8 +1018,7 @@ msgid "Phone number is missing"
 msgstr "Falta el número de teléfono"
 
 #: includes/Elements/Login_Register.php:1595
-#: includes/Elements/Login_Register.php:5816
-#: includes/Traits/Login_Registration.php:998
+#: includes/Elements/Login_Register.php:5819
 msgid "Your password reset link appears to be invalid. Please request a new link."
 msgstr "El enlace para restablecer la contraseña parece que no es válido. Por favor, solicita un nuevo enlace."
 
@@ -1053,8 +1088,8 @@ msgstr "Marcador de posición para confirmar contraseña"
 #: includes/Elements/Login_Register.php:1093
 #: includes/Elements/Login_Register.php:1119
 #: includes/Elements/Login_Register.php:1120
-#: includes/Elements/Login_Register.php:5846
 #: includes/Elements/Login_Register.php:5849
+#: includes/Elements/Login_Register.php:5852
 msgid "Confirm New Password"
 msgstr "Confirmar la nueva contraseña"
 
@@ -1066,8 +1101,8 @@ msgstr "Confirmar etiqueta de contraseña"
 #: includes/Elements/Login_Register.php:1083
 #: includes/Elements/Login_Register.php:1109
 #: includes/Elements/Login_Register.php:1110
-#: includes/Elements/Login_Register.php:5845
 #: includes/Elements/Login_Register.php:5848
+#: includes/Elements/Login_Register.php:5851
 msgid "New Password"
 msgstr "Nueva contraseña"
 
@@ -1133,7 +1168,7 @@ msgstr "Contraseña olvidada"
 
 #: includes/Elements/Login_Register.php:222
 #: includes/Elements/Login_Register.php:5384
-#: includes/Traits/Login_Registration.php:1405
+#: includes/Traits/Login_Registration.php:1384
 msgid "Phone"
 msgstr "Teléfono"
 
@@ -1162,11 +1197,11 @@ msgstr "Límite de eventos"
 msgid "<strong>Caldera Forms</strong> has been closed as of April 5, 2022 and is not available for download. You can try the other Form plugins instead"
 msgstr "<strong>Caldera Forms</strong> ha cerrado el 5 de abril de 2022 y no está disponible para su descarga. Puedes probar los otros plugins de formularios en su lugar"
 
-#: includes/Elements/Adv_Accordion.php:193 includes/Elements/Adv_Tabs.php:156
+#: includes/Elements/Adv_Accordion.php:193 includes/Elements/Adv_Tabs.php:169
 msgid "Use offset to set the custom ID target scrolling position."
 msgstr "Utiliza el desplazamiento para establecer la posición del scroll del ID personalizado objetivo."
 
-#: includes/Elements/Adv_Accordion.php:192 includes/Elements/Adv_Tabs.php:155
+#: includes/Elements/Adv_Accordion.php:192 includes/Elements/Adv_Tabs.php:168
 msgid "Custom ID offset"
 msgstr "Desplazamiento de ID personalizado"
 
@@ -1397,14 +1432,6 @@ msgstr "Redirigir al enlace del evento"
 msgid "Event Link"
 msgstr "Enlace del evento"
 
-#: includes/Elements/Adv_Tabs.php:144
-msgid "If no tab is selected as default active tab, then we display first tab as active. Turn on/off this default behaviour."
-msgstr "Si no se selecciona ninguna pestaña como pestaña activa por defecto, entonces mostramos la primera pestaña como activa. Activa/desactiva este comportamiento por defecto."
-
-#: includes/Elements/Adv_Tabs.php:142
-msgid "Tab Auto Active?"
-msgstr "¿Activar pestaña automáticamente?"
-
 #: includes/Elements/Adv_Accordion.php:292
 msgid "Closed Tab"
 msgstr "Pestaña cerrada"
@@ -1498,11 +1525,11 @@ msgstr "easy.jobs"
 msgid "Auto Cache Clear"
 msgstr "Vaciado automático de caché"
 
-#: includes/Elements/Product_Grid.php:569
+#: includes/Elements/Product_Grid.php:602
 msgid "<strong>YITH WOOCOMMERCE WISHLIST</strong> is not installed/activated on your site. Please install and activate <a href=\"plugin-install.php?s=yith-woocommerce-wishlist&tab=search&type=term\" target=\"_blank\">YITH WOOCOMMERCE WISHLIST</a> first."
 msgstr "El plugin <strong>YITH WOOCOMMERCE WISHLIST</strong> no está instalado/activado en tu sitio. Por favor, primero instala y activa <a href=\"plugin-install.php?s=yith-woocommerce-wishlist&tab=search&type=term\" target=\"_blank\">YITH WOOCOMMERCE WISHLIST</a>."
 
-#: includes/Elements/Product_Grid.php:558
+#: includes/Elements/Product_Grid.php:591
 msgid "Show Wishlist?"
 msgstr "¿Mostrar la lista de deseos?"
 
@@ -1785,7 +1812,7 @@ msgid "Cross-Domain Copy Paste"
 msgstr "Copiar y pegar entre dominios"
 
 #: includes/templates/admin/elements.php:662
-#: includes/templates/admin/extensions.php:132
+#: includes/templates/admin/extensions.php:139
 msgid "Setting"
 msgstr "Ajuste"
 
@@ -2258,7 +2285,7 @@ msgstr "Establecer la posición del icono antes/después del título de la pesta
 msgid "Icon Alignment"
 msgstr "Alineación del icono"
 
-#: includes/Elements/NFT_Gallery.php:296 includes/Elements/Product_Grid.php:548
+#: includes/Elements/NFT_Gallery.php:296 includes/Elements/Product_Grid.php:581
 #: includes/Elements/Woo_Product_Carousel.php:440
 #: includes/Elements/Woo_Product_Gallery.php:1662
 msgid "Image Clickable?"
@@ -2307,11 +2334,11 @@ msgstr "Redirigir para usuarios conectados"
 msgid "Woo Product Gallery"
 msgstr "Galería de productos Woo"
 
-#: includes/Elements/Adv_Accordion.php:380 includes/Elements/Adv_Tabs.php:320
+#: includes/Elements/Adv_Accordion.php:380 includes/Elements/Adv_Tabs.php:333
 msgid "Custom ID will be added as an anchor tag. For example, if you add ‘test’ as your custom ID, the link will become like the following: https://www.example.com/#test and it will open the respective tab directly."
 msgstr "El ID personalizado se añadirá como una etiqueta de anclaje. Por ejemplo, si añades «prueba» como ID personalizado, el enlace será como el siguiente: https://www.ejemplo.com/#prueba y abrirá directamente la pestaña correspondiente."
 
-#: includes/Elements/Adv_Accordion.php:378 includes/Elements/Adv_Tabs.php:318
+#: includes/Elements/Adv_Accordion.php:378 includes/Elements/Adv_Tabs.php:331
 #: includes/Elements/Filterable_Gallery.php:456
 msgid "Custom ID"
 msgstr "ID personalizado"
@@ -2328,7 +2355,7 @@ msgstr "Dividir (Pro)"
 msgid "Multi Steps (Pro)"
 msgstr "Multi pasos (Pro)"
 
-#: includes/Elements/Product_Grid.php:1402
+#: includes/Elements/Product_Grid.php:1435
 msgid "Sale Badge Style"
 msgstr "Estilo de la insignia de oferta"
 
@@ -2490,7 +2517,7 @@ msgstr "Seleccionar menú"
 msgid "Simple Menu"
 msgstr "Menú simple"
 
-#: includes/Elements/Product_Grid.php:1812
+#: includes/Elements/Product_Grid.php:1852
 #: includes/Elements/Woo_Product_Gallery.php:1610
 msgid "Quick view Title Tag"
 msgstr "Etiqueta del título de vista rápida"
@@ -2639,13 +2666,13 @@ msgstr "Color de reseñas"
 msgid "Use opacity color for overlay design."
 msgstr "Utiliza el color de opacidad para el diseño de la superposición."
 
-#: includes/Elements/Product_Grid.php:1762
+#: includes/Elements/Product_Grid.php:1802
 #: includes/Elements/Woo_Product_Carousel.php:904
 #: includes/Elements/Woo_Product_Gallery.php:1576
 msgid "Stock Out Text"
 msgstr "Texto sin existencias"
 
-#: includes/Elements/Product_Grid.php:1753
+#: includes/Elements/Product_Grid.php:1793
 #: includes/Elements/Woo_Product_Carousel.php:896
 #: includes/Elements/Woo_Product_Gallery.php:1568
 msgid "Sale Text"
@@ -2909,7 +2936,7 @@ msgstr "Campo de los términos y condiciones"
 msgid "Remember Me Field Text"
 msgstr "Texto del campo «Recuérdame»"
 
-#: includes/Elements/Product_Grid.php:519
+#: includes/Elements/Product_Grid.php:552
 #: includes/Elements/Woo_Product_Carousel.php:311
 #: includes/Traits/Controls.php:1119 includes/Traits/Controls.php:1146
 msgid "Expansion Indicator"
@@ -3331,7 +3358,7 @@ msgstr "Buscar por nombre de producto"
 msgid "Enter Product IDs separated by a comma"
 msgstr "Introduce los ID de los productos separados por comas."
 
-#: includes/Elements/Product_Grid.php:541
+#: includes/Elements/Product_Grid.php:574
 #: includes/Traits/Woo_Product_Comparable.php:158
 msgid "Show Product Compare?"
 msgstr "¿Mostrar comparar productos?"
@@ -3474,31 +3501,31 @@ msgstr "Color sólido"
 msgid "Gradient"
 msgstr "Degradado"
 
-#: includes/Elements/Product_Grid.php:2687
+#: includes/Elements/Product_Grid.php:2727
 #: includes/Elements/Woo_Product_Carousel.php:1836
 #: includes/Elements/Woo_Product_Gallery.php:2075
 msgid "Cart Button"
 msgstr "Botón del carrito"
 
-#: includes/Elements/Product_Grid.php:2589
+#: includes/Elements/Product_Grid.php:2629
 #: includes/Elements/Woo_Product_Carousel.php:1739
 msgid "Sale"
 msgstr "Oferta"
 
-#: includes/Elements/Product_Grid.php:2564
+#: includes/Elements/Product_Grid.php:2604
 #: includes/Elements/Woo_Product_Carousel.php:1714
 #: includes/Elements/Woo_Product_Gallery.php:1911
 msgid "Review Link Hover"
 msgstr "Color de enlace de la reseña al pasar por encima"
 
-#: includes/Elements/Product_Grid.php:2553
+#: includes/Elements/Product_Grid.php:2593
 #: includes/Elements/Woo_Product_Carousel.php:1702
 #: includes/Elements/Woo_Product_Gallery.php:1900
 msgid "Review Link Color"
 msgstr "Color de enlace de la reseña"
 
-#: includes/Elements/Product_Grid.php:1252
-#: includes/Elements/Product_Grid.php:2511
+#: includes/Elements/Product_Grid.php:1285
+#: includes/Elements/Product_Grid.php:2551
 #: includes/Elements/Woo_Product_Carousel.php:1185
 #: includes/Elements/Woo_Product_Carousel.php:1648
 #: includes/Elements/Woo_Product_Gallery.php:813
@@ -3506,76 +3533,76 @@ msgstr "Color de enlace de la reseña"
 msgid "Sale Price Color"
 msgstr "Color del precio en oferta"
 
-#: includes/Elements/Product_Grid.php:2443
+#: includes/Elements/Product_Grid.php:2483
 #: includes/Elements/Woo_Product_Carousel.php:1581
 #: includes/Elements/Woo_Product_Gallery.php:1785
 msgid "Popup"
 msgstr "Ventana emergente"
 
-#: includes/Elements/Product_Grid.php:2417
+#: includes/Elements/Product_Grid.php:2457
 msgid "Loader"
 msgstr "Cargador"
 
-#: includes/Elements/Product_Grid.php:2190
+#: includes/Elements/Product_Grid.php:2230
 msgid "→"
 msgstr "→"
 
-#: includes/Elements/Product_Grid.php:2189
+#: includes/Elements/Product_Grid.php:2229
 msgid "Next Label"
 msgstr "Etiqueta siguiente"
 
-#: includes/Elements/Product_Grid.php:2179
+#: includes/Elements/Product_Grid.php:2219
 msgid "←"
 msgstr "←"
 
-#: includes/Elements/Product_Grid.php:2178
+#: includes/Elements/Product_Grid.php:2218
 msgid "Previous Label"
 msgstr "Etiqueta anterior"
 
-#: includes/Elements/Product_Grid.php:2166
+#: includes/Elements/Product_Grid.php:2206
 msgid "Show pagination"
 msgstr "Mostrar paginación"
 
-#: includes/Elements/Product_Grid.php:1915
+#: includes/Elements/Product_Grid.php:1955
 #: includes/Elements/Woo_Product_Carousel.php:1418
 msgid "Icons Size"
 msgstr "Tamaño de icono"
 
-#: includes/Elements/Product_Grid.php:1802
+#: includes/Elements/Product_Grid.php:1842
 #: includes/Elements/Woo_Product_Gallery.php:1595
 msgid "Show Quick view?"
 msgstr "¿Mostrar vista rápida?"
 
-#: includes/Elements/Product_Grid.php:1709
+#: includes/Elements/Product_Grid.php:1745
 #: includes/Elements/Woo_Product_Carousel.php:851
 #: includes/Elements/Woo_Product_Gallery.php:1527
 msgid "Sale / Stock Out Badge"
 msgstr "Insignia de Oferta / Agotado"
 
-#: includes/Elements/Product_Grid.php:1358
+#: includes/Elements/Product_Grid.php:1391
 #: includes/Elements/Woo_Product_Carousel.php:1248
 msgid "Product Description"
 msgstr "Descripción del producto"
 
-#: includes/Elements/Product_Grid.php:1171
+#: includes/Elements/Product_Grid.php:1204
 msgid "Width (%)"
 msgstr "Ancho (%)"
 
-#: includes/Elements/Product_Grid.php:1149
+#: includes/Elements/Product_Grid.php:1182
 msgid "Padding (PX)"
 msgstr "Margen interior (PX)"
 
-#: includes/Elements/Product_Grid.php:1015
+#: includes/Elements/Product_Grid.php:1048
 #: includes/Elements/Woo_Product_Carousel.php:1084
 msgid "Product Details"
 msgstr "Detalles del producto"
 
-#: includes/Elements/Product_Grid.php:995
+#: includes/Elements/Product_Grid.php:1028
 msgid "Image Width(%)"
 msgstr "Ancho de la imagen (%)"
 
-#: includes/Elements/Product_Grid.php:339
-#: includes/Elements/Product_Grid.php:721
+#: includes/Elements/Product_Grid.php:352
+#: includes/Elements/Product_Grid.php:754
 #: includes/Elements/Woo_Product_Carousel.php:916
 #: includes/Elements/Woo_Product_Gallery.php:369
 #: includes/Elements/Woo_Product_Gallery.php:564
@@ -3583,20 +3610,20 @@ msgstr "Ancho de la imagen (%)"
 msgid "Products"
 msgstr "Productos"
 
-#: includes/Elements/Product_Grid.php:494
+#: includes/Elements/Product_Grid.php:527
 #: includes/Elements/Woo_Product_Carousel.php:290
 msgid "Short Description?"
 msgstr "¿Descripción corta?"
 
-#: includes/Elements/Product_Grid.php:482
+#: includes/Elements/Product_Grid.php:515
 #: includes/Elements/Woo_Product_Carousel.php:281
 #: includes/Elements/Woo_Product_Gallery.php:510
 msgid "Show Product Price?"
 msgstr "¿Mostrar el precio del producto?"
 
 #: includes/Elements/Interactive_Circle.php:76
-#: includes/Elements/Product_Grid.php:275
-#: includes/Elements/Product_Grid.php:1722
+#: includes/Elements/Product_Grid.php:276
+#: includes/Elements/Product_Grid.php:1762
 #: includes/Elements/Woo_Product_Carousel.php:865
 #: includes/Elements/Woo_Product_Carousel.php:2177
 #: includes/Elements/Woo_Product_Gallery.php:330
@@ -3608,8 +3635,8 @@ msgstr "Preajuste 4"
 #: includes/Elements/Business_Reviews.php:213
 #: includes/Elements/Business_Reviews.php:230
 #: includes/Elements/Interactive_Circle.php:75
-#: includes/Elements/Product_Grid.php:274
-#: includes/Elements/Product_Grid.php:1721
+#: includes/Elements/Product_Grid.php:275
+#: includes/Elements/Product_Grid.php:1761
 #: includes/Elements/Simple_Menu.php:147
 #: includes/Elements/Woo_Product_Carousel.php:864
 #: includes/Elements/Woo_Product_Carousel.php:2176
@@ -3623,9 +3650,9 @@ msgstr "Preajuste 3"
 #: includes/Elements/Business_Reviews.php:229 includes/Elements/Cta_Box.php:101
 #: includes/Elements/Cta_Box.php:295
 #: includes/Elements/Interactive_Circle.php:74
-#: includes/Elements/NFT_Gallery.php:250 includes/Elements/Product_Grid.php:273
-#: includes/Elements/Product_Grid.php:1720
-#: includes/Elements/Product_Grid.php:1841
+#: includes/Elements/NFT_Gallery.php:250 includes/Elements/Product_Grid.php:274
+#: includes/Elements/Product_Grid.php:1760
+#: includes/Elements/Product_Grid.php:1881
 #: includes/Elements/Simple_Menu.php:146
 #: includes/Elements/Woo_Product_Carousel.php:863
 #: includes/Elements/Woo_Product_Carousel.php:2175
@@ -3639,9 +3666,9 @@ msgstr "Preajuste 2"
 #: includes/Elements/Business_Reviews.php:228 includes/Elements/Cta_Box.php:100
 #: includes/Elements/Cta_Box.php:294
 #: includes/Elements/Interactive_Circle.php:73
-#: includes/Elements/NFT_Gallery.php:249 includes/Elements/Product_Grid.php:272
-#: includes/Elements/Product_Grid.php:1719
-#: includes/Elements/Product_Grid.php:1840
+#: includes/Elements/NFT_Gallery.php:249 includes/Elements/Product_Grid.php:273
+#: includes/Elements/Product_Grid.php:1759
+#: includes/Elements/Product_Grid.php:1880
 #: includes/Elements/Simple_Menu.php:145
 #: includes/Elements/Woo_Product_Carousel.php:862
 #: includes/Elements/Woo_Product_Carousel.php:2174
@@ -3651,27 +3678,27 @@ msgstr "Preajuste 2"
 msgid "Preset 1"
 msgstr "Preajuste 1"
 
-#: includes/Elements/Product_Grid.php:257
+#: includes/Elements/Product_Grid.php:258
 msgid "Preset 8"
 msgstr "Preajuste 8"
 
-#: includes/Elements/Product_Grid.php:256
+#: includes/Elements/Product_Grid.php:257
 msgid "Preset 7"
 msgstr "Preajuste 7"
 
-#: includes/Elements/Product_Grid.php:255
+#: includes/Elements/Product_Grid.php:256
 msgid "Preset 6"
 msgstr "Preajuste 6"
 
-#: includes/Elements/Product_Grid.php:254
-#: includes/Elements/Product_Grid.php:1723
+#: includes/Elements/Product_Grid.php:255
+#: includes/Elements/Product_Grid.php:1763
 #: includes/Elements/Woo_Product_Carousel.php:866
 #: includes/Elements/Woo_Product_Gallery.php:1541
 #: includes/Traits/Controls.php:452
 msgid "Preset 5"
 msgstr "Preajuste 5"
 
-#: includes/Elements/Product_Grid.php:226
+#: includes/Elements/Product_Grid.php:227
 #: includes/Elements/Woo_Product_Gallery.php:161
 msgid "Layouts"
 msgstr "Estructuras"
@@ -3804,23 +3831,23 @@ msgstr "¡El contenido del acordeón de imagen va aquí! Haz clic en el botón E
 msgid "Image Accordion #1"
 msgstr "Imagen de acordeón #1"
 
-#: includes/Elements/Product_Grid.php:657
+#: includes/Elements/Product_Grid.php:690
 msgid "Default Product"
 msgstr "Producto por defecto"
 
-#: includes/Elements/Product_Grid.php:644
+#: includes/Elements/Product_Grid.php:677
 msgid "External Product"
 msgstr "Producto externo"
 
-#: includes/Elements/Product_Grid.php:631
+#: includes/Elements/Product_Grid.php:664
 msgid "Grouped Product"
 msgstr "Producto agrupado"
 
-#: includes/Elements/Product_Grid.php:618
+#: includes/Elements/Product_Grid.php:651
 msgid "Variable Product"
 msgstr "Producto variable"
 
-#: includes/Elements/Product_Grid.php:605
+#: includes/Elements/Product_Grid.php:638
 msgid "Simple Product"
 msgstr "Producto simple"
 
@@ -3829,7 +3856,7 @@ msgid "Template Layout"
 msgstr "Diseño de la plantilla"
 
 #: includes/Elements/Post_Timeline.php:789
-#: includes/Elements/Product_Grid.php:3097
+#: includes/Elements/Product_Grid.php:3137
 #: includes/Elements/Woo_Product_Gallery.php:2470
 msgid "<p class=\"no-posts-found\">No layout found!</p>"
 msgstr "<p class=\"no-posts-found\">¡No se ha encontrado ningún diseño!</p>"
@@ -3850,7 +3877,7 @@ msgstr "Toda la base de conocimiento"
 msgid "Knowledge Bases"
 msgstr "Bases de conocimiento"
 
-#: includes/Elements/Product_Grid.php:349
+#: includes/Elements/Product_Grid.php:362
 #: includes/Elements/Woo_Product_Gallery.php:379
 #: includes/Traits/Controls.php:78
 msgid "This option will only affect in <strong>Archive page of Elementor Theme Builder</strong> dynamically."
@@ -3881,7 +3908,7 @@ msgid "Last Modified Date"
 msgstr "Fecha de la última modificación"
 
 #: includes/Elements/Product_Grid.php:144
-#: includes/Elements/Product_Grid.php:2804
+#: includes/Elements/Product_Grid.php:2844
 #: includes/Elements/Woo_Product_Carousel.php:125
 #: includes/Elements/Woo_Product_Carousel.php:1955
 #: includes/Elements/Woo_Product_Gallery.php:114
@@ -3945,24 +3972,24 @@ msgstr "si el espaciado de la <strong>etiqueta</strong> no funciona, por favor, 
 msgid "Select Accordion Tab Title Tag"
 msgstr "Selecciona la etiqueta de título de la pestaña del acordeón"
 
-#: includes/Elements/Product_Grid.php:635
+#: includes/Elements/Product_Grid.php:668
 msgid "View products"
 msgstr "Ver productos"
 
-#: includes/Elements/Product_Grid.php:622
+#: includes/Elements/Product_Grid.php:655
 msgid "Select options"
 msgstr "Seleccionar opciones"
 
-#: includes/Elements/Product_Grid.php:609
-#: includes/Elements/Product_Grid.php:648
+#: includes/Elements/Product_Grid.php:642
+#: includes/Elements/Product_Grid.php:681
 msgid "Buy Now"
 msgstr "Comprar ahora"
 
-#: includes/Elements/Product_Grid.php:593
+#: includes/Elements/Product_Grid.php:626
 msgid "Show Add to cart custom text"
 msgstr "Mostrar texto personalizado de «Añadir al carrito»"
 
-#: includes/Elements/Product_Grid.php:586
+#: includes/Elements/Product_Grid.php:619
 msgid "Add To Cart"
 msgstr "Añadir al carrito"
 
@@ -4538,21 +4565,21 @@ msgid "%1$sEssential Addons for Elementor%2$s requires %1$sElementor%2$s plugin 
 msgstr "%1$sEssential Addons for Elementor%2$s necesita que el plugin %1$sElementor%2$s esté instalado y activo. Activa Elementor para continuar."
 
 #. translators: %s: Error String
-#: includes/Elements/Login_Register.php:6269
+#: includes/Elements/Login_Register.php:6272
 msgid "Error! It is required to use %s field with %s Field."
 msgstr "¡Error! Es obligatorio usar el campo %s con el campo %s."
 
 #. translators: %s: Error String
-#: includes/Elements/Login_Register.php:6245
+#: includes/Elements/Login_Register.php:6248
 msgid "Error! It is required to use %s field."
 msgstr "¡Error! Es obligatorio usar el campo %s."
 
 #. translators: %s: Error fields
-#: includes/Elements/Login_Register.php:6229
+#: includes/Elements/Login_Register.php:6232
 msgid "Error! you seem to have added %s field in the form more than once."
 msgstr "¡Error! Parece que has añadido el campo %s en el formulario más de una vez."
 
-#: includes/Elements/Login_Register.php:6019
+#: includes/Elements/Login_Register.php:6022
 msgid "Form Logo Image"
 msgstr "Imagen de logo del formulario"
 
@@ -5521,11 +5548,11 @@ msgstr "Selecciona disposición"
 msgid "Layout Options"
 msgstr "Opciones de disposición"
 
-#: includes/Template/Eicon-Woocommerce/default.php:523
+#: includes/Template/Eicon-Woocommerce/default.php:539
 msgid "Out"
 msgstr "Fuera"
 
-#: includes/Template/Eicon-Woocommerce/default.php:523
+#: includes/Template/Eicon-Woocommerce/default.php:539
 msgid "Stock "
 msgstr "Existencias "
 
@@ -5541,19 +5568,19 @@ msgstr "Orientación horizontal"
 msgid "Absolute"
 msgstr "Absoluto"
 
-#: includes/Elements/Product_Grid.php:1464
+#: includes/Elements/Product_Grid.php:1500
 #: includes/Elements/Woo_Product_Carousel.php:1347
 #: includes/Elements/Woo_Product_Gallery.php:955
 msgid "Stock Out Badge Background"
 msgstr "Fondo de la acreditación de sin existencias"
 
-#: includes/Elements/Product_Grid.php:1452
+#: includes/Elements/Product_Grid.php:1488
 #: includes/Elements/Woo_Product_Carousel.php:1335
 #: includes/Elements/Woo_Product_Gallery.php:943
 msgid "Stock Out Badge Color"
 msgstr "Color de la acreditación de sin existencias"
 
-#: includes/Elements/Product_Grid.php:1444
+#: includes/Elements/Product_Grid.php:1480
 #: includes/Elements/Woo_Product_Carousel.php:1327
 #: includes/Elements/Woo_Product_Gallery.php:935
 #: includes/Elements/Woo_Product_Gallery.php:1977
@@ -6053,7 +6080,7 @@ msgstr "Enlace de la tienda"
 msgid "Price Text"
 msgstr "Texto del precio"
 
-#: includes/Controls/Select2.php:32 includes/Elements/Product_Grid.php:2630
+#: includes/Controls/Select2.php:32 includes/Elements/Product_Grid.php:2670
 #: includes/Elements/Woo_Cart.php:199 includes/Elements/Woo_Cart.php:400
 #: includes/Elements/Woo_Cart.php:630 includes/Elements/Woo_Cart.php:645
 #: includes/Elements/Woo_Checkout.php:225
@@ -6240,7 +6267,7 @@ msgstr "Cuenta atrás"
 msgid "weForm"
 msgstr "weForm"
 
-#: includes/Elements/Product_Grid.php:362 includes/Elements/Woo_Cart.php:122
+#: includes/Elements/Product_Grid.php:375 includes/Elements/Woo_Cart.php:122
 #: includes/Elements/Woo_Checkout.php:105
 #: includes/Elements/Woo_Product_Carousel.php:193
 #: includes/Elements/Woo_Product_Gallery.php:99
@@ -6427,7 +6454,7 @@ msgstr "Ninja Tables"
 #: includes/Elements/Filterable_Gallery.php:432
 #: includes/Elements/Flip_Box.php:310 includes/Elements/Flip_Box.php:541
 #: includes/Elements/Image_Accordion.php:164 includes/Elements/Info_Box.php:242
-#: includes/Elements/Product_Grid.php:1825
+#: includes/Elements/Product_Grid.php:1865
 #: includes/Elements/Woo_Product_Carousel.php:252
 #: includes/Elements/Woo_Product_Carousel.php:429
 #: includes/Elements/Woo_Product_Gallery.php:1623
@@ -6443,7 +6470,7 @@ msgstr "Div"
 #: includes/Elements/Filterable_Gallery.php:430
 #: includes/Elements/Flip_Box.php:308 includes/Elements/Flip_Box.php:539
 #: includes/Elements/Image_Accordion.php:162 includes/Elements/Info_Box.php:240
-#: includes/Elements/Product_Grid.php:1823
+#: includes/Elements/Product_Grid.php:1863
 #: includes/Elements/Woo_Product_Carousel.php:250
 #: includes/Elements/Woo_Product_Carousel.php:427
 #: includes/Elements/Woo_Product_Gallery.php:1621
@@ -6637,7 +6664,7 @@ msgid "External Link"
 msgstr "Enlace externo"
 
 #: includes/Elements/Event_Calendar.php:1735
-#: includes/Elements/Product_Grid.php:2891
+#: includes/Elements/Product_Grid.php:2931
 #: includes/Elements/Woo_Product_Carousel.php:2038
 #: includes/Elements/Woo_Product_Gallery.php:2279
 #: includes/Extensions/Table_of_Content.php:755
@@ -6645,7 +6672,7 @@ msgid "Button Size"
 msgstr "Tamaño del botón"
 
 #: includes/Elements/Event_Calendar.php:1700
-#: includes/Elements/Product_Grid.php:2856
+#: includes/Elements/Product_Grid.php:2896
 #: includes/Elements/Woo_Product_Carousel.php:2003
 #: includes/Elements/Woo_Product_Gallery.php:2244
 #: includes/Traits/Woo_Product_Comparable.php:1336
@@ -6980,19 +7007,19 @@ msgstr "Mostrar contador"
 msgid "Counter Value"
 msgstr "Valor del contador"
 
-#: includes/Elements/Product_Grid.php:460
+#: includes/Elements/Product_Grid.php:493
 #: includes/Elements/Progress_Bar.php:146
 #: includes/Elements/Woo_Product_Gallery.php:478
 msgid "p"
 msgstr "p"
 
-#: includes/Elements/Product_Grid.php:459
+#: includes/Elements/Product_Grid.php:492
 #: includes/Elements/Progress_Bar.php:145
 #: includes/Elements/Woo_Product_Gallery.php:477
 msgid "span"
 msgstr "span"
 
-#: includes/Elements/Product_Grid.php:458
+#: includes/Elements/Product_Grid.php:491
 #: includes/Elements/Progress_Bar.php:144
 #: includes/Elements/Woo_Product_Gallery.php:476
 msgid "div"
@@ -7048,8 +7075,8 @@ msgid "Error Border Color"
 msgstr "Color de borde del error"
 
 #: includes/Elements/GravityForms.php:1155
-#: includes/Elements/Product_Grid.php:1240
-#: includes/Elements/Product_Grid.php:2499
+#: includes/Elements/Product_Grid.php:1273
+#: includes/Elements/Product_Grid.php:2539
 #: includes/Elements/Woo_Product_Carousel.php:1636
 #: includes/Elements/Woo_Product_Gallery.php:801
 #: includes/Elements/Woo_Product_Gallery.php:1846
@@ -7093,8 +7120,8 @@ msgid "Transition will applied to ms (ex: 300ms)."
 msgstr "La transición se aplicará en ms (por ejemplo, 300 ms)."
 
 #: includes/Elements/Event_Calendar.php:1687
-#: includes/Elements/Info_Box.php:1472 includes/Elements/Product_Grid.php:2541
-#: includes/Elements/Product_Grid.php:2834
+#: includes/Elements/Info_Box.php:1472 includes/Elements/Product_Grid.php:2581
+#: includes/Elements/Product_Grid.php:2874
 #: includes/Elements/Twitter_Feed.php:815
 #: includes/Elements/Woo_Product_Carousel.php:1678
 #: includes/Elements/Woo_Product_Carousel.php:1982
@@ -7115,7 +7142,7 @@ msgstr "Fondo solo para el contenido"
 msgid "Content Only Margin"
 msgstr "Margen solo para el contenido"
 
-#: includes/Elements/Info_Box.php:1159 includes/Elements/Product_Grid.php:1491
+#: includes/Elements/Info_Box.php:1159 includes/Elements/Product_Grid.php:1527
 msgid "Button Styles"
 msgstr "Estilos de los botones"
 
@@ -7389,45 +7416,45 @@ msgstr "Ninja Forms"
 msgid "<strong>Ninja Forms</strong> is not installed/activated on your site. Please install and activate <strong>Ninja Forms</strong> first."
 msgstr "<strong>Ninja Forms</strong> no está instalado o activado en tu sitio. Por favor, instala y activa <strong>Ninja Forms</strong> primero."
 
-#: includes/Elements/Adv_Tabs.php:933
+#: includes/Elements/Adv_Tabs.php:946
 msgid "Vertical Layout"
 msgstr "Disposición vertical"
 
-#: includes/Elements/Adv_Tabs.php:925
+#: includes/Elements/Adv_Tabs.php:938
 msgid "Responsive Controls"
 msgstr "Controles adaptables"
 
-#: includes/Elements/Adv_Tabs.php:880
+#: includes/Elements/Adv_Tabs.php:893
 msgid "Caret Size"
 msgstr "Tamaño del signo de intercalación"
 
-#: includes/Elements/Adv_Tabs.php:871
+#: includes/Elements/Adv_Tabs.php:884
 msgid "Show Caret on Active Tab"
 msgstr "Mostrar signo de intercalación en la pestaña activa"
 
-#: includes/Elements/Adv_Tabs.php:864
+#: includes/Elements/Adv_Tabs.php:877
 #: includes/Elements/Business_Reviews.php:2073
 #: includes/Elements/Woo_Product_Carousel.php:2627
 msgid "Caret"
 msgstr "Signo de intercalación"
 
-#: includes/Elements/Adv_Tabs.php:622 includes/Elements/Adv_Tabs.php:689
+#: includes/Elements/Adv_Tabs.php:635 includes/Elements/Adv_Tabs.php:702
 msgid "Tab Background Color"
 msgstr "Color de fondo de la pestaña"
 
-#: includes/Elements/Adv_Tabs.php:454
+#: includes/Elements/Adv_Tabs.php:467
 msgid "Title Min Width"
 msgstr "Ancho mínimo del título"
 
-#: includes/Elements/Adv_Tabs.php:333
+#: includes/Elements/Adv_Tabs.php:346
 msgid "Tab Title 3"
 msgstr "Título de la pestaña 3"
 
-#: includes/Elements/Adv_Tabs.php:332
+#: includes/Elements/Adv_Tabs.php:345
 msgid "Tab Title 2"
 msgstr "Título de la pestaña 1"
 
-#: includes/Elements/Adv_Tabs.php:331
+#: includes/Elements/Adv_Tabs.php:344
 msgid "Tab Title 1"
 msgstr "Título de la pestaña 1"
 
@@ -7517,8 +7544,8 @@ msgstr "Todo"
 
 #: includes/Elements/Filterable_Gallery.php:2757
 #: includes/Elements/NFT_Gallery.php:2047
-#: includes/Elements/Product_Grid.php:2066
-#: includes/Elements/Product_Grid.php:2243
+#: includes/Elements/Product_Grid.php:2106
+#: includes/Elements/Product_Grid.php:2283
 #: includes/Elements/Twitter_Feed.php:1171
 #: includes/Elements/Woo_Checkout.php:850
 #: includes/Elements/Woo_Checkout.php:1165
@@ -7774,7 +7801,7 @@ msgid "Lightbox Icon"
 msgstr "Icono de caja de luz"
 
 #: includes/Elements/Filterable_Gallery.php:273
-#: includes/Elements/Product_Grid.php:1775
+#: includes/Elements/Product_Grid.php:1815
 #: includes/Elements/Woo_Product_Gallery.php:1588
 #: includes/Traits/Woo_Product_Comparable.php:879
 msgid "Buttons"
@@ -7822,7 +7849,7 @@ msgstr "Altura de imagen"
 #: includes/Elements/Betterdocs_Category_Grid.php:304
 #: includes/Elements/Business_Reviews.php:199
 #: includes/Elements/Filterable_Gallery.php:146
-#: includes/Elements/NFT_Gallery.php:236 includes/Elements/Product_Grid.php:236
+#: includes/Elements/NFT_Gallery.php:236 includes/Elements/Product_Grid.php:237
 #: includes/Elements/Woo_Product_Gallery.php:314
 #: includes/Traits/Controls.php:564
 msgid "Grid"
@@ -7842,7 +7869,7 @@ msgstr "Elementos a mostrar"
 
 #: includes/Elements/Adv_Accordion.php:959
 #: includes/Elements/Adv_Accordion.php:1007
-#: includes/Elements/Adv_Accordion.php:1053 includes/Elements/Adv_Tabs.php:903
+#: includes/Elements/Adv_Accordion.php:1053 includes/Elements/Adv_Tabs.php:916
 msgid "Caret Color"
 msgstr "Color del signo de intercalación"
 
@@ -7851,11 +7878,11 @@ msgid "Toggle Caret Style"
 msgstr "Alternar el estilo del signo de intercalación"
 
 #: includes/Elements/Adv_Accordion.php:741
-#: includes/Elements/Adv_Accordion.php:1047 includes/Elements/Adv_Tabs.php:685
+#: includes/Elements/Adv_Accordion.php:1047 includes/Elements/Adv_Tabs.php:698
 #: includes/Elements/Event_Calendar.php:1073
 #: includes/Elements/Filterable_Gallery.php:1104
 #: includes/Elements/Interactive_Circle.php:609
-#: includes/Elements/Product_Grid.php:2352
+#: includes/Elements/Product_Grid.php:2392
 #: includes/Elements/Simple_Menu.php:464 includes/Elements/Simple_Menu.php:1099
 #: includes/Elements/Woo_Product_Carousel.php:2394
 #: includes/Elements/Woo_Product_Gallery.php:1410
@@ -7864,7 +7891,7 @@ msgid "Active"
 msgstr "Activo"
 
 #: includes/Elements/Adv_Accordion.php:535
-#: includes/Elements/Adv_Accordion.php:561 includes/Elements/Adv_Tabs.php:504
+#: includes/Elements/Adv_Accordion.php:561 includes/Elements/Adv_Tabs.php:517
 msgid "Icon Gap"
 msgstr "Separación del icono"
 
@@ -7872,14 +7899,14 @@ msgstr "Separación del icono"
 msgid "Tab Style"
 msgstr "Estilo de la pestaña"
 
-#: includes/Elements/Adv_Accordion.php:365 includes/Elements/Adv_Tabs.php:305
+#: includes/Elements/Adv_Accordion.php:365 includes/Elements/Adv_Tabs.php:318
 #: includes/Elements/Interactive_Circle.php:167
 msgid "Tab Content"
 msgstr "Contenido de la pestaña"
 
 #: includes/Elements/Adv_Accordion.php:323
-#: includes/Elements/Adv_Accordion.php:326 includes/Elements/Adv_Tabs.php:246
-#: includes/Elements/Adv_Tabs.php:248 includes/Elements/Adv_Tabs.php:440
+#: includes/Elements/Adv_Accordion.php:326 includes/Elements/Adv_Tabs.php:259
+#: includes/Elements/Adv_Tabs.php:261 includes/Elements/Adv_Tabs.php:453
 msgid "Tab Title"
 msgstr "Titulo de la pestaña"
 
@@ -7887,7 +7914,7 @@ msgstr "Titulo de la pestaña"
 msgid "Enable Tab Icon"
 msgstr "Activar icono en la pestaña"
 
-#: includes/Elements/Adv_Accordion.php:229 includes/Elements/Adv_Tabs.php:181
+#: includes/Elements/Adv_Accordion.php:229 includes/Elements/Adv_Tabs.php:194
 msgid "Active as Default"
 msgstr "Activar por defecto"
 
@@ -7959,8 +7986,8 @@ msgstr "Estilo de la cronología"
 msgid "Column Background Color"
 msgstr "Color de fondo de la columna"
 
-#: includes/Elements/Product_Grid.php:1554
-#: includes/Elements/Product_Grid.php:1634
+#: includes/Elements/Product_Grid.php:1590
+#: includes/Elements/Product_Grid.php:1670
 #: includes/Elements/Woo_Product_Gallery.php:1039
 #: includes/Elements/Woo_Product_Gallery.php:1112
 msgid "Button Color"
@@ -7970,13 +7997,13 @@ msgstr "Color del botón"
 msgid "Add to Cart Button Styles"
 msgstr "Estilo del botón «Añadir al carrito»"
 
-#: includes/Elements/Product_Grid.php:1422
+#: includes/Elements/Product_Grid.php:1458
 #: includes/Elements/Woo_Product_Carousel.php:1305
 #: includes/Elements/Woo_Product_Gallery.php:913
 msgid "Sale Badge Background"
 msgstr "Fondo de la insignia «en oferta»"
 
-#: includes/Elements/Product_Grid.php:1410
+#: includes/Elements/Product_Grid.php:1446
 #: includes/Elements/Woo_Product_Carousel.php:1293
 #: includes/Elements/Woo_Product_Gallery.php:901
 msgid "Sale Badge Color"
@@ -7988,32 +8015,32 @@ msgstr "Color de la insignia «en oferta»"
 msgid "Sale Badge"
 msgstr "Insignia de oferta"
 
-#: includes/Elements/Product_Grid.php:1279
+#: includes/Elements/Product_Grid.php:1312
 #: includes/Elements/Woo_Product_Carousel.php:1213
 #: includes/Elements/Woo_Product_Gallery.php:840
 msgid "Rating Color"
 msgstr "Color de la valoración"
 
-#: includes/Elements/Product_Grid.php:1271
+#: includes/Elements/Product_Grid.php:1304
 #: includes/Elements/Woo_Product_Carousel.php:1205
 #: includes/Elements/Woo_Product_Gallery.php:832
 msgid "Star Rating"
 msgstr "Valoración de estrellas"
 
-#: includes/Elements/Product_Grid.php:1232
+#: includes/Elements/Product_Grid.php:1265
 #: includes/Elements/Woo_Product_Carousel.php:1165
 #: includes/Elements/Woo_Product_Gallery.php:793
 msgid "Product Price"
 msgstr "Precio del producto"
 
-#: includes/Elements/Product_Grid.php:1212
+#: includes/Elements/Product_Grid.php:1245
 #: includes/Elements/Woo_Product_Carousel.php:1145
 #: includes/Elements/Woo_Product_Gallery.php:773
 msgid "Product Title Color"
 msgstr "Color del título del producto"
 
 #: includes/Elements/Product_Grid.php:142
-#: includes/Elements/Product_Grid.php:1204 includes/Elements/Woo_Cart.php:210
+#: includes/Elements/Product_Grid.php:1237 includes/Elements/Woo_Cart.php:210
 #: includes/Elements/Woo_Cart.php:443
 #: includes/Elements/Woo_Product_Carousel.php:123
 #: includes/Elements/Woo_Product_Carousel.php:1137
@@ -8022,22 +8049,22 @@ msgstr "Color del título del producto"
 msgid "Product Title"
 msgstr "Título del producto"
 
-#: includes/Elements/Product_Grid.php:469
+#: includes/Elements/Product_Grid.php:502
 #: includes/Elements/Woo_Product_Carousel.php:272
 #: includes/Elements/Woo_Product_Gallery.php:484
 msgid "Show Product Rating?"
 msgstr "¿Mostrar las valoraciones de los productos?"
 
-#: includes/Elements/Product_Grid.php:252
+#: includes/Elements/Product_Grid.php:253
 msgid "Reveal Style"
 msgstr "Estilo de desvelar"
 
-#: includes/Elements/Product_Grid.php:425
+#: includes/Elements/Product_Grid.php:444
 #: includes/Elements/Woo_Product_Gallery.php:433
 msgid "Product Categories"
 msgstr "Categorías de producto"
 
-#: includes/Elements/Product_Grid.php:398
+#: includes/Elements/Product_Grid.php:411
 #: includes/Elements/Woo_Product_Carousel.php:796
 #: includes/Elements/Woo_Product_Gallery.php:417
 msgid "Products Count"
@@ -8073,13 +8100,13 @@ msgstr "Productos destacados"
 msgid "Recent Products"
 msgstr "Productos recientes"
 
-#: includes/Elements/NFT_Gallery.php:117 includes/Elements/Product_Grid.php:369
+#: includes/Elements/NFT_Gallery.php:117 includes/Elements/Product_Grid.php:382
 #: includes/Elements/Woo_Product_Carousel.php:770
 #: includes/Elements/Woo_Product_Gallery.php:388
 msgid "Filter By"
 msgstr "Filtrar por"
 
-#: includes/Elements/Product_Grid.php:329
+#: includes/Elements/Product_Grid.php:342
 #: includes/Elements/Woo_Product_Gallery.php:359
 msgid "Product Settings"
 msgstr "Ajustes del producto"
@@ -8256,8 +8283,8 @@ msgstr "Cuadrado"
 msgid "Icon Shape"
 msgstr "Forma de icono"
 
-#: includes/Elements/Adv_Tabs.php:257 includes/Elements/Feature_List.php:250
-#: includes/Elements/Product_Grid.php:448
+#: includes/Elements/Adv_Tabs.php:270 includes/Elements/Feature_List.php:250
+#: includes/Elements/Product_Grid.php:481
 #: includes/Elements/Progress_Bar.php:135
 #: includes/Elements/Woo_Product_Gallery.php:466
 msgid "Title HTML Tag"
@@ -8289,7 +8316,7 @@ msgstr "Elemento destacado"
 msgid "https://your-link.com"
 msgstr "https://tu-enlace.com"
 
-#: includes/Elements/Adv_Accordion.php:367 includes/Elements/Adv_Tabs.php:307
+#: includes/Elements/Adv_Accordion.php:367 includes/Elements/Adv_Tabs.php:320
 #: includes/Elements/Feature_List.php:194
 #: includes/Elements/Interactive_Circle.php:169
 msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur."
@@ -8351,7 +8378,7 @@ msgstr "[el-shortcode-va-aqui]"
 #: includes/Elements/Filterable_Gallery.php:431
 #: includes/Elements/Flip_Box.php:309 includes/Elements/Flip_Box.php:540
 #: includes/Elements/Image_Accordion.php:163 includes/Elements/Info_Box.php:241
-#: includes/Elements/Product_Grid.php:1824 includes/Elements/Tooltip.php:169
+#: includes/Elements/Product_Grid.php:1864 includes/Elements/Tooltip.php:169
 #: includes/Elements/Woo_Product_Carousel.php:251
 #: includes/Elements/Woo_Product_Carousel.php:428
 #: includes/Elements/Woo_Product_Gallery.php:1622
@@ -8375,8 +8402,8 @@ msgstr "DIV"
 #: includes/Elements/Filterable_Gallery.php:429
 #: includes/Elements/Flip_Box.php:307 includes/Elements/Flip_Box.php:538
 #: includes/Elements/Image_Accordion.php:161 includes/Elements/Info_Box.php:239
-#: includes/Elements/Product_Grid.php:457
-#: includes/Elements/Product_Grid.php:1822
+#: includes/Elements/Product_Grid.php:490
+#: includes/Elements/Product_Grid.php:1862
 #: includes/Elements/Progress_Bar.php:143 includes/Elements/Tooltip.php:166
 #: includes/Elements/Woo_Product_Carousel.php:249
 #: includes/Elements/Woo_Product_Carousel.php:426
@@ -8395,8 +8422,8 @@ msgstr "H6"
 #: includes/Elements/Filterable_Gallery.php:428
 #: includes/Elements/Flip_Box.php:306 includes/Elements/Flip_Box.php:537
 #: includes/Elements/Image_Accordion.php:160 includes/Elements/Info_Box.php:238
-#: includes/Elements/Product_Grid.php:456
-#: includes/Elements/Product_Grid.php:1821
+#: includes/Elements/Product_Grid.php:489
+#: includes/Elements/Product_Grid.php:1861
 #: includes/Elements/Progress_Bar.php:142 includes/Elements/Tooltip.php:165
 #: includes/Elements/Woo_Product_Carousel.php:248
 #: includes/Elements/Woo_Product_Carousel.php:425
@@ -8415,8 +8442,8 @@ msgstr "H5"
 #: includes/Elements/Filterable_Gallery.php:427
 #: includes/Elements/Flip_Box.php:305 includes/Elements/Flip_Box.php:536
 #: includes/Elements/Image_Accordion.php:159 includes/Elements/Info_Box.php:237
-#: includes/Elements/Product_Grid.php:455
-#: includes/Elements/Product_Grid.php:1820
+#: includes/Elements/Product_Grid.php:488
+#: includes/Elements/Product_Grid.php:1860
 #: includes/Elements/Progress_Bar.php:141 includes/Elements/Tooltip.php:164
 #: includes/Elements/Woo_Product_Carousel.php:247
 #: includes/Elements/Woo_Product_Carousel.php:424
@@ -8435,8 +8462,8 @@ msgstr "H4"
 #: includes/Elements/Filterable_Gallery.php:426
 #: includes/Elements/Flip_Box.php:304 includes/Elements/Flip_Box.php:535
 #: includes/Elements/Image_Accordion.php:158 includes/Elements/Info_Box.php:236
-#: includes/Elements/Product_Grid.php:454
-#: includes/Elements/Product_Grid.php:1819
+#: includes/Elements/Product_Grid.php:487
+#: includes/Elements/Product_Grid.php:1859
 #: includes/Elements/Progress_Bar.php:140 includes/Elements/Tooltip.php:163
 #: includes/Elements/Woo_Product_Carousel.php:246
 #: includes/Elements/Woo_Product_Carousel.php:423
@@ -8455,8 +8482,8 @@ msgstr "H3"
 #: includes/Elements/Filterable_Gallery.php:425
 #: includes/Elements/Flip_Box.php:303 includes/Elements/Flip_Box.php:534
 #: includes/Elements/Image_Accordion.php:157 includes/Elements/Info_Box.php:235
-#: includes/Elements/Product_Grid.php:453
-#: includes/Elements/Product_Grid.php:1818
+#: includes/Elements/Product_Grid.php:486
+#: includes/Elements/Product_Grid.php:1858
 #: includes/Elements/Progress_Bar.php:139 includes/Elements/Tooltip.php:162
 #: includes/Elements/Woo_Product_Carousel.php:245
 #: includes/Elements/Woo_Product_Carousel.php:422
@@ -8475,8 +8502,8 @@ msgstr "H2"
 #: includes/Elements/Filterable_Gallery.php:424
 #: includes/Elements/Flip_Box.php:302 includes/Elements/Flip_Box.php:533
 #: includes/Elements/Image_Accordion.php:156 includes/Elements/Info_Box.php:234
-#: includes/Elements/Product_Grid.php:452
-#: includes/Elements/Product_Grid.php:1817
+#: includes/Elements/Product_Grid.php:485
+#: includes/Elements/Product_Grid.php:1857
 #: includes/Elements/Progress_Bar.php:138 includes/Elements/Tooltip.php:161
 #: includes/Elements/Woo_Product_Carousel.php:244
 #: includes/Elements/Woo_Product_Carousel.php:421
@@ -8882,7 +8909,7 @@ msgstr "Estilo de imagen del miembro del equipo"
 msgid "Set Alignment"
 msgstr "Establecer alineación"
 
-#: includes/Elements/Product_Grid.php:779 includes/Elements/Team_Member.php:385
+#: includes/Elements/Product_Grid.php:812 includes/Elements/Team_Member.php:385
 #: includes/Elements/Woo_Product_Gallery.php:602
 msgid "Content Background Color"
 msgstr "Color de fondo del contenido"
@@ -8893,10 +8920,10 @@ msgstr "Tarjeta de contenido"
 
 #: includes/Elements/Business_Reviews.php:207
 #: includes/Elements/Business_Reviews.php:224
-#: includes/Elements/NFT_Gallery.php:245 includes/Elements/Product_Grid.php:246
-#: includes/Elements/Product_Grid.php:268
-#: includes/Elements/Product_Grid.php:1715
-#: includes/Elements/Product_Grid.php:1836
+#: includes/Elements/NFT_Gallery.php:245 includes/Elements/Product_Grid.php:247
+#: includes/Elements/Product_Grid.php:269
+#: includes/Elements/Product_Grid.php:1755
+#: includes/Elements/Product_Grid.php:1876
 #: includes/Elements/Team_Member.php:280
 #: includes/Elements/Woo_Product_Carousel.php:858
 #: includes/Elements/Woo_Product_Gallery.php:323
@@ -8916,11 +8943,11 @@ msgstr "Estilo circular"
 msgid "Centered Style"
 msgstr "Estilo centrado"
 
-#: includes/Elements/Product_Grid.php:253 includes/Elements/Team_Member.php:270
+#: includes/Elements/Product_Grid.php:254 includes/Elements/Team_Member.php:270
 msgid "Overlay Style"
 msgstr "Estilo superpuesto"
 
-#: includes/Elements/Product_Grid.php:251 includes/Elements/Team_Member.php:269
+#: includes/Elements/Product_Grid.php:252 includes/Elements/Team_Member.php:269
 msgid "Simple Style"
 msgstr "Estilo sencillo"
 
@@ -8977,7 +9004,7 @@ msgid "Button Padding"
 msgstr "Relleno de los botones"
 
 #: includes/Elements/Creative_Button.php:250 includes/Elements/Cta_Box.php:776
-#: includes/Elements/Product_Grid.php:1539
+#: includes/Elements/Product_Grid.php:1575
 #: includes/Elements/Team_Member.php:733 includes/Elements/Testimonial.php:268
 #: includes/Elements/Woo_Product_Gallery.php:1024
 msgid "Use Gradient Background"
@@ -9307,8 +9334,8 @@ msgstr "¿Activar mensaje emergente?"
 
 #: includes/Elements/Adv_Accordion.php:645
 #: includes/Elements/Adv_Accordion.php:706
-#: includes/Elements/Adv_Accordion.php:768 includes/Elements/Adv_Tabs.php:585
-#: includes/Elements/Adv_Tabs.php:652 includes/Elements/Adv_Tabs.php:719
+#: includes/Elements/Adv_Accordion.php:768 includes/Elements/Adv_Tabs.php:598
+#: includes/Elements/Adv_Tabs.php:665 includes/Elements/Adv_Tabs.php:732
 #: includes/Elements/Creative_Button.php:264
 #: includes/Elements/Creative_Button.php:357 includes/Elements/Cta_Box.php:975
 #: includes/Elements/Cta_Box.php:1106 includes/Elements/Data_Table.php:1087
@@ -9403,7 +9430,7 @@ msgstr "99"
 #: includes/Elements/Pricing_Table.php:213
 #: includes/Elements/Pricing_Table.php:220
 #: includes/Elements/Product_Grid.php:143
-#: includes/Elements/Product_Grid.php:2481 includes/Elements/Woo_Cart.php:198
+#: includes/Elements/Product_Grid.php:2521 includes/Elements/Woo_Cart.php:198
 #: includes/Elements/Woo_Cart.php:396 includes/Elements/Woo_Cart.php:559
 #: includes/Elements/Woo_Cart.php:574 includes/Elements/Woo_Checkout.php:242
 #: includes/Elements/Woo_Product_Carousel.php:124
@@ -9539,10 +9566,10 @@ msgstr "Encabezado"
 #: includes/Elements/Event_Calendar.php:1821
 #: includes/Elements/Event_Calendar.php:1895
 #: includes/Elements/Facebook_Feed.php:814
-#: includes/Elements/Product_Grid.php:942
-#: includes/Elements/Product_Grid.php:970
-#: includes/Elements/Product_Grid.php:2963
-#: includes/Elements/Product_Grid.php:2998
+#: includes/Elements/Product_Grid.php:975
+#: includes/Elements/Product_Grid.php:1003
+#: includes/Elements/Product_Grid.php:3003
+#: includes/Elements/Product_Grid.php:3038
 #: includes/Elements/Progress_Bar.php:741
 #: includes/Elements/Twitter_Feed.php:878
 #: includes/Elements/Twitter_Feed.php:1090 includes/Elements/Woo_Cart.php:1327
@@ -9757,8 +9784,8 @@ msgstr "Imagen de la recomendación"
 #: includes/Elements/FluentForm.php:1859 includes/Elements/Formstack.php:1633
 #: includes/Elements/Info_Box.php:1460 includes/Elements/Post_Grid.php:614
 #: includes/Elements/Post_Timeline.php:301
-#: includes/Elements/Product_Grid.php:2468
-#: includes/Elements/Product_Grid.php:2823
+#: includes/Elements/Product_Grid.php:2508
+#: includes/Elements/Product_Grid.php:2863
 #: includes/Elements/Progress_Bar.php:779
 #: includes/Elements/Twitter_Feed.php:805
 #: includes/Elements/Woo_Checkout.php:2410
@@ -9850,7 +9877,7 @@ msgstr "¡La cuenta atrás ha finalizado!"
 msgid "On Expiry Title"
 msgstr "Al caducar el título"
 
-#: includes/Elements/Adv_Accordion.php:340 includes/Elements/Adv_Tabs.php:282
+#: includes/Elements/Adv_Accordion.php:340 includes/Elements/Adv_Tabs.php:295
 #: includes/Elements/Countdown.php:489 includes/Elements/Cta_Box.php:254
 #: includes/Elements/Flip_Box.php:176 includes/Elements/Flip_Box.php:409
 #: includes/Elements/Info_Box.php:253
@@ -10145,7 +10172,7 @@ msgid "Ticker Type"
 msgstr "Tipo de titulares"
 
 #: includes/Elements/Content_Ticker.php:91
-#: includes/Elements/Product_Grid.php:340
+#: includes/Elements/Product_Grid.php:353
 #: includes/Elements/Progress_Bar.php:191
 #: includes/Elements/Woo_Product_Gallery.php:370
 #: includes/Traits/Controls.php:30
@@ -10348,7 +10375,7 @@ msgstr "Exportar"
 msgid "Cell Text"
 msgstr "Texto de celda"
 
-#: includes/Elements/Adv_Accordion.php:350 includes/Elements/Adv_Tabs.php:291
+#: includes/Elements/Adv_Accordion.php:350 includes/Elements/Adv_Tabs.php:304
 #: includes/Elements/Countdown.php:536 includes/Elements/Cta_Box.php:263
 #: includes/Elements/Data_Table.php:339 includes/Elements/Flip_Box.php:185
 #: includes/Elements/Flip_Box.php:418 includes/Elements/Info_Box.php:262
@@ -10368,7 +10395,7 @@ msgstr "Editor"
 msgid "Textarea"
 msgstr "Área de texto"
 
-#: includes/Elements/Adv_Accordion.php:336 includes/Elements/Adv_Tabs.php:278
+#: includes/Elements/Adv_Accordion.php:336 includes/Elements/Adv_Tabs.php:291
 #: includes/Elements/Cta_Box.php:250 includes/Elements/Data_Table.php:294
 #: includes/Elements/Flip_Box.php:172 includes/Elements/Flip_Box.php:405
 #: includes/Elements/Info_Box.php:249 includes/Elements/Tooltip.php:70
@@ -10400,8 +10427,8 @@ msgstr "Fila"
 msgid "Row Type"
 msgstr "Tipo de fila"
 
-#: includes/Elements/Adv_Accordion.php:339 includes/Elements/Adv_Tabs.php:172
-#: includes/Elements/Adv_Tabs.php:281 includes/Elements/Adv_Tabs.php:764
+#: includes/Elements/Adv_Accordion.php:339 includes/Elements/Adv_Tabs.php:185
+#: includes/Elements/Adv_Tabs.php:294 includes/Elements/Adv_Tabs.php:777
 #: includes/Elements/Business_Reviews.php:540
 #: includes/Elements/Business_Reviews.php:1367
 #: includes/Elements/Cta_Box.php:253 includes/Elements/Cta_Box.php:274
@@ -10421,7 +10448,7 @@ msgstr "Tipo de fila"
 #: includes/Elements/Interactive_Circle.php:688
 #: includes/Elements/NFT_Gallery.php:518
 #: includes/Elements/Post_Timeline.php:209
-#: includes/Elements/Product_Grid.php:2523 includes/Elements/Tooltip.php:143
+#: includes/Elements/Product_Grid.php:2563 includes/Elements/Tooltip.php:143
 #: includes/Elements/Tooltip.php:276
 #: includes/Elements/Woo_Product_Carousel.php:1660
 #: includes/Elements/Woo_Product_Gallery.php:1870
@@ -10473,7 +10500,7 @@ msgid "Button Style"
 msgstr "Estilo del botón"
 
 #: includes/Elements/Adv_Accordion.php:512
-#: includes/Elements/Adv_Accordion.php:893 includes/Elements/Adv_Tabs.php:480
+#: includes/Elements/Adv_Accordion.php:893 includes/Elements/Adv_Tabs.php:493
 #: includes/Elements/Creative_Button.php:502 includes/Elements/Cta_Box.php:787
 #: includes/Elements/Data_Table.php:711 includes/Elements/Data_Table.php:1059
 #: includes/Elements/Dual_Color_Header.php:397
@@ -10495,8 +10522,8 @@ msgstr "Estilo del botón"
 #: includes/Elements/Pricing_Table.php:1260
 #: includes/Elements/Pricing_Table.php:1728
 #: includes/Elements/Pricing_Table.php:1902
-#: includes/Elements/Product_Grid.php:1320
-#: includes/Elements/Product_Grid.php:2865
+#: includes/Elements/Product_Grid.php:1353
+#: includes/Elements/Product_Grid.php:2905
 #: includes/Elements/Simple_Menu.php:317 includes/Elements/Simple_Menu.php:941
 #: includes/Elements/Simple_Menu.php:1335 includes/Elements/Team_Member.php:672
 #: includes/Elements/Tooltip.php:114 includes/Elements/Twitter_Feed.php:1282
@@ -10529,7 +10556,7 @@ msgstr "Estilo del icono"
 #: includes/Elements/Info_Box.php:887 includes/Elements/Info_Box.php:1025
 #: includes/Elements/Info_Box.php:1121 includes/Elements/Post_Grid.php:344
 #: includes/Elements/Pricing_Table.php:1009
-#: includes/Elements/Product_Grid.php:1524
+#: includes/Elements/Product_Grid.php:1560
 #: includes/Elements/Woo_Product_Gallery.php:1011
 #: includes/Elements/Woo_Product_Gallery.php:1265
 #: includes/Elements/Woo_Product_Gallery.php:1327
@@ -10632,7 +10659,7 @@ msgstr "Primeros pasos"
 #: includes/Elements/NFT_Gallery.php:468 includes/Elements/NFT_Gallery.php:1810
 #: includes/Elements/Pricing_Table.php:523
 #: includes/Elements/Pricing_Table.php:1870
-#: includes/Elements/Product_Grid.php:1857 includes/Elements/Woo_Cart.php:1812
+#: includes/Elements/Product_Grid.php:1897 includes/Elements/Woo_Cart.php:1812
 #: includes/Elements/Woo_Cart.php:2083 includes/Elements/Woo_Checkout.php:1492
 #: includes/Elements/Woo_Checkout.php:1844
 #: includes/Elements/Woo_Checkout.php:2703
@@ -10662,6 +10689,7 @@ msgstr "Tipo de enlace"
 #: includes/Elements/Sticky_Video.php:188
 #: includes/Elements/Sticky_Video.php:233 includes/Elements/SVG_Draw.php:210
 #: includes/Elements/Team_Member.php:180
+#: includes/Extensions/Wrapper_Link.php:45
 msgid "Link"
 msgstr "Enlace"
 
@@ -10705,7 +10733,7 @@ msgid "Flipbox Image"
 msgstr "Imagen en caja giratoria"
 
 #: includes/Elements/Advanced_Data_Table.php:651
-#: includes/Elements/Adv_Tabs.php:196 includes/Elements/Countdown.php:486
+#: includes/Elements/Adv_Tabs.php:209 includes/Elements/Countdown.php:486
 #: includes/Elements/Data_Table.php:148
 #: includes/Elements/Filterable_Gallery.php:230
 #: includes/Elements/Filterable_Gallery.php:271
@@ -10723,7 +10751,7 @@ msgstr "Imagen en caja giratoria"
 msgid "None"
 msgstr "Ninguno"
 
-#: includes/Elements/Adv_Tabs.php:191 includes/Elements/Feature_List.php:74
+#: includes/Elements/Adv_Tabs.php:204 includes/Elements/Feature_List.php:74
 #: includes/Elements/Flip_Box.php:201 includes/Elements/Flip_Box.php:432
 msgid "Icon Type"
 msgstr "Tamaño de icono"
@@ -10767,7 +10795,7 @@ msgstr "Tipo de caja giratoria"
 #: includes/Elements/Filterable_Gallery.php:2539
 #: includes/Elements/Login_Register.php:4240
 #: includes/Elements/Pricing_Table.php:1829
-#: includes/Elements/Product_Grid.php:2845
+#: includes/Elements/Product_Grid.php:2885
 #: includes/Elements/Twitter_Feed.php:980
 #: includes/Elements/Woo_Product_Carousel.php:1992
 #: includes/Elements/Woo_Product_Gallery.php:2233
@@ -10856,7 +10884,7 @@ msgstr "Cuadrícula de la columna"
 
 #: includes/Elements/Betterdocs_Category_Grid.php:143
 #: includes/Elements/Filterable_Gallery.php:147
-#: includes/Elements/Product_Grid.php:238
+#: includes/Elements/Product_Grid.php:239
 #: includes/Elements/Twitter_Feed.php:190
 #: includes/Elements/Woo_Product_Gallery.php:315
 #: includes/Traits/Controls.php:565
@@ -10867,7 +10895,7 @@ msgstr "Muro"
 #: includes/Elements/Betterdocs_Category_Grid.php:990
 #: includes/Elements/Event_Calendar.php:545
 #: includes/Elements/Feature_List.php:378 includes/Elements/NFT_Gallery.php:237
-#: includes/Elements/Product_Grid.php:237
+#: includes/Elements/Product_Grid.php:238
 #: includes/Elements/Twitter_Feed.php:189
 #: includes/Extensions/Table_of_Content.php:880
 msgid "List"
@@ -10965,7 +10993,7 @@ msgstr "Nombre de la página"
 #: includes/Elements/Dual_Color_Header.php:441
 #: includes/Elements/Facebook_Feed.php:939 includes/Elements/Flip_Box.php:1169
 #: includes/Elements/Image_Accordion.php:479
-#: includes/Elements/Info_Box.php:1336 includes/Elements/Product_Grid.php:1196
+#: includes/Elements/Info_Box.php:1336 includes/Elements/Product_Grid.php:1229
 #: includes/Elements/Team_Member.php:564 includes/Elements/Twitter_Feed.php:893
 #: includes/Elements/Woo_Product_Carousel.php:1129
 #: includes/Elements/Woo_Product_Gallery.php:757
@@ -11021,8 +11049,8 @@ msgstr "Etiqueta"
 #: includes/Elements/Advanced_Data_Table.php:1071
 #: includes/Elements/Facebook_Feed.php:450
 #: includes/Elements/FluentForm.php:1731 includes/Elements/Formstack.php:1593
-#: includes/Elements/Product_Grid.php:2154
-#: includes/Elements/Product_Grid.php:2205
+#: includes/Elements/Product_Grid.php:2194
+#: includes/Elements/Product_Grid.php:2245
 msgid "Pagination"
 msgstr "Paginación"
 
@@ -11058,7 +11086,7 @@ msgid "Content Settings"
 msgstr "Ajustes del contenido"
 
 #: includes/Elements/Facebook_Feed.php:275
-#: includes/Elements/NFT_Gallery.php:270 includes/Elements/Product_Grid.php:295
+#: includes/Elements/NFT_Gallery.php:270 includes/Elements/Product_Grid.php:296
 #: includes/Elements/Woo_Product_Carousel.php:506
 #: includes/Elements/Woo_Product_Gallery.php:347
 #: includes/Traits/Controls.php:550
@@ -11067,7 +11095,7 @@ msgstr "6"
 
 #: includes/Elements/Facebook_Feed.php:274
 #: includes/Elements/Filterable_Gallery.php:602
-#: includes/Elements/NFT_Gallery.php:269 includes/Elements/Product_Grid.php:294
+#: includes/Elements/NFT_Gallery.php:269 includes/Elements/Product_Grid.php:295
 #: includes/Elements/Testimonial.php:199
 #: includes/Elements/Woo_Product_Carousel.php:505
 #: includes/Elements/Woo_Product_Gallery.php:346
@@ -11079,7 +11107,7 @@ msgstr "5"
 #: includes/Elements/Business_Reviews.php:273
 #: includes/Elements/Business_Reviews.php:296
 #: includes/Elements/Facebook_Feed.php:273
-#: includes/Elements/NFT_Gallery.php:268 includes/Elements/Product_Grid.php:293
+#: includes/Elements/NFT_Gallery.php:268 includes/Elements/Product_Grid.php:294
 #: includes/Elements/Testimonial.php:198
 #: includes/Elements/Woo_Product_Carousel.php:504
 #: includes/Elements/Woo_Product_Gallery.php:345
@@ -11091,7 +11119,7 @@ msgstr "4"
 #: includes/Elements/Business_Reviews.php:272
 #: includes/Elements/Business_Reviews.php:295
 #: includes/Elements/Facebook_Feed.php:272
-#: includes/Elements/NFT_Gallery.php:267 includes/Elements/Product_Grid.php:292
+#: includes/Elements/NFT_Gallery.php:267 includes/Elements/Product_Grid.php:293
 #: includes/Elements/Testimonial.php:197
 #: includes/Elements/Woo_Product_Carousel.php:367
 #: includes/Elements/Woo_Product_Carousel.php:503
@@ -11104,8 +11132,8 @@ msgstr "3"
 #: includes/Elements/Business_Reviews.php:271
 #: includes/Elements/Business_Reviews.php:294
 #: includes/Elements/Facebook_Feed.php:271
-#: includes/Elements/NFT_Gallery.php:266 includes/Elements/Product_Grid.php:291
-#: includes/Elements/Product_Grid.php:313 includes/Elements/Testimonial.php:196
+#: includes/Elements/NFT_Gallery.php:266 includes/Elements/Product_Grid.php:292
+#: includes/Elements/Product_Grid.php:314 includes/Elements/Testimonial.php:196
 #: includes/Elements/Woo_Product_Carousel.php:366
 #: includes/Elements/Woo_Product_Carousel.php:502
 #: includes/Elements/Woo_Product_Gallery.php:343
@@ -11117,8 +11145,8 @@ msgstr "2"
 #: includes/Elements/Business_Reviews.php:270
 #: includes/Elements/Business_Reviews.php:293
 #: includes/Elements/Facebook_Feed.php:270
-#: includes/Elements/NFT_Gallery.php:265 includes/Elements/Product_Grid.php:290
-#: includes/Elements/Product_Grid.php:312 includes/Elements/Testimonial.php:195
+#: includes/Elements/NFT_Gallery.php:265 includes/Elements/Product_Grid.php:291
+#: includes/Elements/Product_Grid.php:313 includes/Elements/Testimonial.php:195
 #: includes/Elements/Woo_Product_Carousel.php:365
 #: includes/Elements/Woo_Product_Carousel.php:501
 #: includes/Elements/Woo_Product_Gallery.php:342
@@ -11131,8 +11159,8 @@ msgstr "1"
 #: includes/Elements/Business_Reviews.php:287
 #: includes/Elements/Facebook_Feed.php:266
 #: includes/Elements/Filterable_Gallery.php:123
-#: includes/Elements/NFT_Gallery.php:261 includes/Elements/Product_Grid.php:286
-#: includes/Elements/Product_Grid.php:308
+#: includes/Elements/NFT_Gallery.php:261 includes/Elements/Product_Grid.php:287
+#: includes/Elements/Product_Grid.php:309
 #: includes/Elements/Woo_Product_Gallery.php:338
 #: includes/Traits/Woo_Product_Comparable.php:853
 msgid "Columns"
@@ -11406,15 +11434,15 @@ msgstr "Ancho del borde"
 #: includes/Elements/Pricing_Table.php:1236
 #: includes/Elements/Pricing_Table.php:1418
 #: includes/Elements/Pricing_Table.php:1558
-#: includes/Elements/Product_Grid.php:1370
-#: includes/Elements/Product_Grid.php:1980
-#: includes/Elements/Product_Grid.php:2089
-#: includes/Elements/Product_Grid.php:2426
-#: includes/Elements/Product_Grid.php:2607
-#: includes/Elements/Product_Grid.php:2648
-#: includes/Elements/Product_Grid.php:2709
-#: includes/Elements/Product_Grid.php:2760
-#: includes/Elements/Product_Grid.php:2917
+#: includes/Elements/Product_Grid.php:1403
+#: includes/Elements/Product_Grid.php:2020
+#: includes/Elements/Product_Grid.php:2129
+#: includes/Elements/Product_Grid.php:2466
+#: includes/Elements/Product_Grid.php:2647
+#: includes/Elements/Product_Grid.php:2688
+#: includes/Elements/Product_Grid.php:2749
+#: includes/Elements/Product_Grid.php:2800
+#: includes/Elements/Product_Grid.php:2957
 #: includes/Elements/Progress_Bar.php:467
 #: includes/Elements/Progress_Bar.php:556 includes/Elements/Simple_Menu.php:971
 #: includes/Elements/Simple_Menu.php:1061
@@ -11533,7 +11561,8 @@ msgstr "Estilos personalizados"
 msgid "Radio & Checkbox"
 msgstr "Botón de opción y casilla de verificación"
 
-#: includes/Elements/Adv_Tabs.php:148 includes/Elements/Adv_Tabs.php:936
+#: includes/Elements/Adv_Tabs.php:148 includes/Elements/Adv_Tabs.php:161
+#: includes/Elements/Adv_Tabs.php:949
 #: includes/Elements/Business_Reviews.php:414
 #: includes/Elements/Business_Reviews.php:450
 #: includes/Elements/Business_Reviews.php:465
@@ -11614,7 +11643,8 @@ msgstr "Botón de opción y casilla de verificación"
 msgid "No"
 msgstr "No"
 
-#: includes/Elements/Adv_Tabs.php:147 includes/Elements/Adv_Tabs.php:935
+#: includes/Elements/Adv_Tabs.php:147 includes/Elements/Adv_Tabs.php:160
+#: includes/Elements/Adv_Tabs.php:948
 #: includes/Elements/Business_Reviews.php:413
 #: includes/Elements/Business_Reviews.php:449
 #: includes/Elements/Business_Reviews.php:464
@@ -11862,13 +11892,13 @@ msgstr "Campo de entrada y área de texto"
 #: includes/Elements/Post_Grid.php:666 includes/Elements/Post_Grid.php:878
 #: includes/Elements/Post_Timeline.php:284
 #: includes/Elements/Post_Timeline.php:547
-#: includes/Elements/Product_Grid.php:2460
-#: includes/Elements/Product_Grid.php:2491
-#: includes/Elements/Product_Grid.php:2533
-#: includes/Elements/Product_Grid.php:2599
-#: includes/Elements/Product_Grid.php:2640
-#: includes/Elements/Product_Grid.php:2697
-#: includes/Elements/Product_Grid.php:2814
+#: includes/Elements/Product_Grid.php:2500
+#: includes/Elements/Product_Grid.php:2531
+#: includes/Elements/Product_Grid.php:2573
+#: includes/Elements/Product_Grid.php:2639
+#: includes/Elements/Product_Grid.php:2680
+#: includes/Elements/Product_Grid.php:2737
+#: includes/Elements/Product_Grid.php:2854
 #: includes/Elements/Progress_Bar.php:761 includes/Elements/Simple_Menu.php:871
 #: includes/Elements/Simple_Menu.php:1267
 #: includes/Elements/Twitter_Feed.php:1267 includes/Elements/Woo_Cart.php:1761
@@ -11931,10 +11961,10 @@ msgstr "Tipografía"
 #: includes/Elements/NinjaForms.php:1294 includes/Elements/Post_Grid.php:484
 #: includes/Elements/Post_Grid.php:803 includes/Elements/Post_Grid.php:886
 #: includes/Elements/Post_Timeline.php:481
-#: includes/Elements/Product_Grid.php:729
-#: includes/Elements/Product_Grid.php:1048
-#: includes/Elements/Product_Grid.php:1732
-#: includes/Elements/Product_Grid.php:2217
+#: includes/Elements/Product_Grid.php:762
+#: includes/Elements/Product_Grid.php:1081
+#: includes/Elements/Product_Grid.php:1772
+#: includes/Elements/Product_Grid.php:2257
 #: includes/Elements/Progress_Bar.php:348
 #: includes/Elements/Progress_Bar.php:617 includes/Elements/Simple_Menu.php:369
 #: includes/Elements/Simple_Menu.php:776 includes/Elements/Simple_Menu.php:802
@@ -12108,7 +12138,7 @@ msgstr "Descripción de formulario"
 #: includes/Elements/NinjaForms.php:123 includes/Elements/NinjaForms.php:139
 #: includes/Elements/NinjaForms.php:443 includes/Elements/Post_Grid.php:160
 #: includes/Elements/Pricing_Table.php:154
-#: includes/Elements/Product_Grid.php:2451
+#: includes/Elements/Product_Grid.php:2491
 #: includes/Elements/Progress_Bar.php:122
 #: includes/Elements/Progress_Bar.php:770 includes/Elements/Woo_Cart.php:197
 #: includes/Elements/Woo_Cart.php:441 includes/Elements/Woo_Cart.php:572
@@ -12227,31 +12257,31 @@ msgid " Need Help?"
 msgstr "¿Necesitas ayuda?"
 
 #: includes/templates/admin/elements.php:667
-#: includes/templates/admin/extensions.php:137
+#: includes/templates/admin/extensions.php:144
 msgid "Documentation"
 msgstr "Documentación"
 
 #: includes/templates/admin/elements.php:671
-#: includes/templates/admin/extensions.php:141
+#: includes/templates/admin/extensions.php:148
 msgid "Demo"
 msgstr "Demo"
 
 #: includes/templates/admin/elements.php:637
-#: includes/templates/admin/extensions.php:105
+#: includes/templates/admin/extensions.php:112
 msgid "Disable All"
 msgstr "Desactivar todo"
 
 #: includes/templates/admin/elements.php:636
-#: includes/templates/admin/extensions.php:104
+#: includes/templates/admin/extensions.php:111
 msgid "Enable All"
 msgstr "Activar todo"
 
-#: includes/templates/admin/extensions.php:97
+#: includes/templates/admin/extensions.php:104
 msgid "Use the Toggle Button to Activate or Deactivate all the Extensions of Essential Addons at once."
 msgstr "Usa los botones para activar o desactivar a la vez todas las extensiones de Essential Addons."
 
 #: includes/templates/admin/elements.php:628
-#: includes/templates/admin/extensions.php:96
+#: includes/templates/admin/extensions.php:103
 msgid "Global Control"
 msgstr "Control global"
 
@@ -12675,7 +12705,7 @@ msgid "Select a Contact Form"
 msgstr "Seleccionar un formulario de contacto"
 
 #: includes/Classes/Helper.php:247 includes/Elements/Adv_Accordion.php:416
-#: includes/Elements/Adv_Tabs.php:352 includes/Elements/Contact_Form_7.php:277
+#: includes/Elements/Adv_Tabs.php:365 includes/Elements/Contact_Form_7.php:277
 #: includes/Elements/Content_Ticker.php:313 includes/Elements/Countdown.php:558
 #: includes/Elements/Creative_Button.php:195 includes/Elements/Cta_Box.php:404
 #: includes/Elements/Data_Table.php:489
@@ -12692,7 +12722,7 @@ msgid "Unlock more possibilities"
 msgstr "Desbloquea más posibilidades"
 
 #: includes/Classes/Helper.php:240 includes/Elements/Adv_Accordion.php:409
-#: includes/Elements/Adv_Tabs.php:345 includes/Elements/Contact_Form_7.php:270
+#: includes/Elements/Adv_Tabs.php:358 includes/Elements/Contact_Form_7.php:270
 #: includes/Elements/Content_Ticker.php:306 includes/Elements/Countdown.php:551
 #: includes/Elements/Creative_Button.php:188 includes/Elements/Cta_Box.php:397
 #: includes/Elements/Data_Table.php:482
@@ -12742,16 +12772,16 @@ msgstr "Alineación del botón"
 #: includes/Elements/NFT_Gallery.php:2306 includes/Elements/NinjaForms.php:1067
 #: includes/Elements/NinjaForms.php:1492
 #: includes/Elements/Pricing_Table.php:2058
-#: includes/Elements/Product_Grid.php:815
-#: includes/Elements/Product_Grid.php:955
-#: includes/Elements/Product_Grid.php:1684
-#: includes/Elements/Product_Grid.php:1946
-#: includes/Elements/Product_Grid.php:2128
-#: includes/Elements/Product_Grid.php:2337
-#: includes/Elements/Product_Grid.php:2381
-#: includes/Elements/Product_Grid.php:2576
-#: includes/Elements/Product_Grid.php:2672
-#: includes/Elements/Product_Grid.php:2784
+#: includes/Elements/Product_Grid.php:848
+#: includes/Elements/Product_Grid.php:988
+#: includes/Elements/Product_Grid.php:1720
+#: includes/Elements/Product_Grid.php:1986
+#: includes/Elements/Product_Grid.php:2168
+#: includes/Elements/Product_Grid.php:2377
+#: includes/Elements/Product_Grid.php:2421
+#: includes/Elements/Product_Grid.php:2616
+#: includes/Elements/Product_Grid.php:2712
+#: includes/Elements/Product_Grid.php:2824
 #: includes/Elements/Simple_Menu.php:995 includes/Elements/Simple_Menu.php:1085
 #: includes/Elements/Simple_Menu.php:1177
 #: includes/Elements/Simple_Menu.php:1389
@@ -12809,8 +12839,8 @@ msgstr "Color del borde"
 #: includes/Elements/Advanced_Data_Table.php:1414
 #: includes/Elements/Adv_Accordion.php:975
 #: includes/Elements/Adv_Accordion.php:1022
-#: includes/Elements/Adv_Accordion.php:1069 includes/Elements/Adv_Tabs.php:555
-#: includes/Elements/Adv_Tabs.php:771
+#: includes/Elements/Adv_Accordion.php:1069 includes/Elements/Adv_Tabs.php:568
+#: includes/Elements/Adv_Tabs.php:784
 #: includes/Elements/Business_Reviews.php:809
 #: includes/Elements/Business_Reviews.php:842
 #: includes/Elements/Business_Reviews.php:940
@@ -12913,16 +12943,16 @@ msgstr "Color del borde"
 #: includes/Elements/Pricing_Table.php:1694
 #: includes/Elements/Pricing_Table.php:1961
 #: includes/Elements/Pricing_Table.php:2031
-#: includes/Elements/Product_Grid.php:1885
-#: includes/Elements/Product_Grid.php:1993
-#: includes/Elements/Product_Grid.php:2101
-#: includes/Elements/Product_Grid.php:2287
-#: includes/Elements/Product_Grid.php:2325
-#: includes/Elements/Product_Grid.php:2369
-#: includes/Elements/Product_Grid.php:2617
-#: includes/Elements/Product_Grid.php:2660
-#: includes/Elements/Product_Grid.php:2721
-#: includes/Elements/Product_Grid.php:2772
+#: includes/Elements/Product_Grid.php:1925
+#: includes/Elements/Product_Grid.php:2033
+#: includes/Elements/Product_Grid.php:2141
+#: includes/Elements/Product_Grid.php:2327
+#: includes/Elements/Product_Grid.php:2365
+#: includes/Elements/Product_Grid.php:2409
+#: includes/Elements/Product_Grid.php:2657
+#: includes/Elements/Product_Grid.php:2700
+#: includes/Elements/Product_Grid.php:2761
+#: includes/Elements/Product_Grid.php:2812
 #: includes/Elements/Progress_Bar.php:667 includes/Elements/Simple_Menu.php:305
 #: includes/Elements/Simple_Menu.php:416 includes/Elements/Simple_Menu.php:450
 #: includes/Elements/Simple_Menu.php:484 includes/Elements/Simple_Menu.php:542
@@ -12990,8 +13020,8 @@ msgstr "Color de fondo"
 #: includes/Elements/Advanced_Data_Table.php:1177
 #: includes/Elements/Adv_Accordion.php:456
 #: includes/Elements/Adv_Accordion.php:610
-#: includes/Elements/Adv_Accordion.php:853 includes/Elements/Adv_Tabs.php:395
-#: includes/Elements/Adv_Tabs.php:540 includes/Elements/Adv_Tabs.php:819
+#: includes/Elements/Adv_Accordion.php:853 includes/Elements/Adv_Tabs.php:408
+#: includes/Elements/Adv_Tabs.php:553 includes/Elements/Adv_Tabs.php:832
 #: includes/Elements/Betterdocs_Category_Grid.php:570
 #: includes/Elements/Betterdocs_Category_Grid.php:736
 #: includes/Elements/Business_Reviews.php:759
@@ -13093,7 +13123,7 @@ msgstr "Margen"
 #: includes/Elements/Advanced_Data_Table.php:1267
 #: includes/Elements/Advanced_Data_Table.php:1396
 #: includes/Elements/Adv_Accordion.php:680
-#: includes/Elements/Adv_Accordion.php:1001 includes/Elements/Adv_Tabs.php:618
+#: includes/Elements/Adv_Accordion.php:1001 includes/Elements/Adv_Tabs.php:631
 #: includes/Elements/Betterdocs_Category_Box.php:330
 #: includes/Elements/Betterdocs_Category_Box.php:548
 #: includes/Elements/Betterdocs_Category_Box.php:710
@@ -13138,11 +13168,11 @@ msgstr "Margen"
 #: includes/Elements/NFT_Gallery.php:2263 includes/Elements/NinjaForms.php:1459
 #: includes/Elements/Pricing_Table.php:424
 #: includes/Elements/Pricing_Table.php:2013
-#: includes/Elements/Product_Grid.php:950
-#: includes/Elements/Product_Grid.php:1629
-#: includes/Elements/Product_Grid.php:2084
-#: includes/Elements/Product_Grid.php:2308
-#: includes/Elements/Product_Grid.php:2755
+#: includes/Elements/Product_Grid.php:983
+#: includes/Elements/Product_Grid.php:1665
+#: includes/Elements/Product_Grid.php:2124
+#: includes/Elements/Product_Grid.php:2348
+#: includes/Elements/Product_Grid.php:2795
 #: includes/Elements/Simple_Menu.php:430 includes/Elements/Simple_Menu.php:556
 #: includes/Elements/Simple_Menu.php:1009
 #: includes/Elements/Simple_Menu.php:1403 includes/Elements/Team_Member.php:822
@@ -13183,9 +13213,9 @@ msgstr "Al pasar el cursor"
 #: includes/Elements/Adv_Accordion.php:475
 #: includes/Elements/Adv_Accordion.php:666
 #: includes/Elements/Adv_Accordion.php:727
-#: includes/Elements/Adv_Accordion.php:789 includes/Elements/Adv_Tabs.php:415
-#: includes/Elements/Adv_Tabs.php:608 includes/Elements/Adv_Tabs.php:675
-#: includes/Elements/Adv_Tabs.php:744 includes/Elements/Adv_Tabs.php:838
+#: includes/Elements/Adv_Accordion.php:789 includes/Elements/Adv_Tabs.php:428
+#: includes/Elements/Adv_Tabs.php:621 includes/Elements/Adv_Tabs.php:688
+#: includes/Elements/Adv_Tabs.php:757 includes/Elements/Adv_Tabs.php:851
 #: includes/Elements/Betterdocs_Category_Box.php:308
 #: includes/Elements/Betterdocs_Category_Box.php:376
 #: includes/Elements/Betterdocs_Category_Box.php:497
@@ -13299,12 +13329,12 @@ msgstr "Al pasar el cursor"
 #: includes/Elements/Pricing_Table.php:1592
 #: includes/Elements/Pricing_Table.php:1844
 #: includes/Elements/Pricing_Table.php:1997
-#: includes/Elements/Product_Grid.php:982
-#: includes/Elements/Product_Grid.php:2044
-#: includes/Elements/Product_Grid.php:2400
-#: includes/Elements/Product_Grid.php:2740
-#: includes/Elements/Product_Grid.php:2939
-#: includes/Elements/Product_Grid.php:2971
+#: includes/Elements/Product_Grid.php:1015
+#: includes/Elements/Product_Grid.php:2084
+#: includes/Elements/Product_Grid.php:2440
+#: includes/Elements/Product_Grid.php:2780
+#: includes/Elements/Product_Grid.php:2979
+#: includes/Elements/Product_Grid.php:3011
 #: includes/Elements/Simple_Menu.php:669 includes/Elements/Sticky_Video.php:616
 #: includes/Elements/SVG_Draw.php:444 includes/Elements/Team_Member.php:448
 #: includes/Elements/Team_Member.php:547 includes/Elements/Team_Member.php:798
@@ -13368,9 +13398,9 @@ msgstr "Radio del borde"
 #: includes/Elements/Adv_Accordion.php:865
 #: includes/Elements/Adv_Accordion.php:989
 #: includes/Elements/Adv_Accordion.php:1036
-#: includes/Elements/Adv_Accordion.php:1083 includes/Elements/Adv_Tabs.php:407
-#: includes/Elements/Adv_Tabs.php:601 includes/Elements/Adv_Tabs.php:668
-#: includes/Elements/Adv_Tabs.php:737 includes/Elements/Adv_Tabs.php:831
+#: includes/Elements/Adv_Accordion.php:1083 includes/Elements/Adv_Tabs.php:420
+#: includes/Elements/Adv_Tabs.php:614 includes/Elements/Adv_Tabs.php:681
+#: includes/Elements/Adv_Tabs.php:750 includes/Elements/Adv_Tabs.php:844
 #: includes/Elements/Betterdocs_Category_Box.php:300
 #: includes/Elements/Betterdocs_Category_Box.php:368
 #: includes/Elements/Betterdocs_Category_Box.php:489
@@ -13453,7 +13483,7 @@ msgstr "Radio del borde"
 #: includes/Elements/NinjaForms.php:857 includes/Elements/NinjaForms.php:1400
 #: includes/Elements/Post_Grid.php:303 includes/Elements/Pricing_Table.php:1821
 #: includes/Elements/Pricing_Table.php:1989
-#: includes/Elements/Product_Grid.php:2300
+#: includes/Elements/Product_Grid.php:2340
 #: includes/Elements/Simple_Menu.php:661 includes/Elements/Simple_Menu.php:734
 #: includes/Elements/Team_Member.php:440 includes/Elements/Team_Member.php:528
 #: includes/Elements/Testimonial.php:435 includes/Elements/Tooltip.php:443
@@ -13510,12 +13540,12 @@ msgstr "Borde"
 #: includes/Elements/Pricing_Table.php:1024
 #: includes/Elements/Pricing_Table.php:1976
 #: includes/Elements/Pricing_Table.php:2046
-#: includes/Elements/Product_Grid.php:1571
-#: includes/Elements/Product_Grid.php:1587
-#: includes/Elements/Product_Grid.php:1650
-#: includes/Elements/Product_Grid.php:1665
-#: includes/Elements/Product_Grid.php:2928
-#: includes/Elements/Product_Grid.php:2985
+#: includes/Elements/Product_Grid.php:1607
+#: includes/Elements/Product_Grid.php:1623
+#: includes/Elements/Product_Grid.php:1686
+#: includes/Elements/Product_Grid.php:1701
+#: includes/Elements/Product_Grid.php:2968
+#: includes/Elements/Product_Grid.php:3025
 #: includes/Elements/Progress_Bar.php:376 includes/Elements/Team_Member.php:777
 #: includes/Elements/Team_Member.php:855 includes/Elements/Twitter_Feed.php:616
 #: includes/Elements/Twitter_Feed.php:868 includes/Elements/Woo_Cart.php:1312
@@ -13557,9 +13587,9 @@ msgstr "Fondo"
 #: includes/Elements/Adv_Accordion.php:634
 #: includes/Elements/Adv_Accordion.php:695
 #: includes/Elements/Adv_Accordion.php:756
-#: includes/Elements/Adv_Accordion.php:824 includes/Elements/Adv_Tabs.php:574
-#: includes/Elements/Adv_Tabs.php:641 includes/Elements/Adv_Tabs.php:708
-#: includes/Elements/Adv_Tabs.php:790
+#: includes/Elements/Adv_Accordion.php:824 includes/Elements/Adv_Tabs.php:587
+#: includes/Elements/Adv_Tabs.php:654 includes/Elements/Adv_Tabs.php:721
+#: includes/Elements/Adv_Tabs.php:803
 #: includes/Elements/Business_Reviews.php:1141
 #: includes/Elements/Business_Reviews.php:1209
 #: includes/Elements/Business_Reviews.php:1315
@@ -13658,9 +13688,9 @@ msgstr "Fondo"
 #: includes/Elements/NinjaForms.php:1643
 #: includes/Elements/Pricing_Table.php:1948
 #: includes/Elements/Pricing_Table.php:2018
-#: includes/Elements/Product_Grid.php:2275
-#: includes/Elements/Product_Grid.php:2313
-#: includes/Elements/Product_Grid.php:2357
+#: includes/Elements/Product_Grid.php:2315
+#: includes/Elements/Product_Grid.php:2353
+#: includes/Elements/Product_Grid.php:2397
 #: includes/Elements/Simple_Menu.php:403 includes/Elements/Simple_Menu.php:437
 #: includes/Elements/Simple_Menu.php:471 includes/Elements/Simple_Menu.php:529
 #: includes/Elements/Simple_Menu.php:563 includes/Elements/Simple_Menu.php:889
@@ -13694,7 +13724,7 @@ msgstr "Color de texto"
 #: includes/Elements/Advanced_Data_Table.php:1197
 #: includes/Elements/Advanced_Data_Table.php:1366
 #: includes/Elements/Adv_Accordion.php:621
-#: includes/Elements/Adv_Accordion.php:953 includes/Elements/Adv_Tabs.php:551
+#: includes/Elements/Adv_Accordion.php:953 includes/Elements/Adv_Tabs.php:564
 #: includes/Elements/Betterdocs_Category_Box.php:284
 #: includes/Elements/Betterdocs_Category_Box.php:452
 #: includes/Elements/Betterdocs_Category_Box.php:677
@@ -13751,11 +13781,11 @@ msgstr "Color de texto"
 #: includes/Elements/NFT_Gallery.php:2068 includes/Elements/NinjaForms.php:627
 #: includes/Elements/NinjaForms.php:1020 includes/Elements/NinjaForms.php:1366
 #: includes/Elements/Pricing_Table.php:1943
-#: includes/Elements/Product_Grid.php:900
-#: includes/Elements/Product_Grid.php:1549
-#: includes/Elements/Product_Grid.php:1975
-#: includes/Elements/Product_Grid.php:2270
-#: includes/Elements/Product_Grid.php:2704
+#: includes/Elements/Product_Grid.php:933
+#: includes/Elements/Product_Grid.php:1585
+#: includes/Elements/Product_Grid.php:2015
+#: includes/Elements/Product_Grid.php:2310
+#: includes/Elements/Product_Grid.php:2744
 #: includes/Elements/Team_Member.php:744 includes/Elements/Tooltip.php:406
 #: includes/Elements/Twitter_Feed.php:1192 includes/Elements/WeForms.php:687
 #: includes/Elements/Woo_Cart.php:1831 includes/Elements/Woo_Cart.php:2105
@@ -13830,7 +13860,7 @@ msgstr "Texto del botón"
 msgid "Show Read More Button"
 msgstr "Mostrar botón «Leer más»"
 
-#: includes/Elements/Post_Grid.php:200 includes/Elements/Product_Grid.php:661
+#: includes/Elements/Post_Grid.php:200 includes/Elements/Product_Grid.php:694
 #: includes/Elements/Twitter_Feed.php:314 includes/Traits/Controls.php:1180
 #: includes/Traits/Controls.php:1211 includes/Traits/Twitter_Feed.php:182
 msgid "Read More"
@@ -13844,7 +13874,7 @@ msgstr "Mostrar «Leer más»"
 msgid "..."
 msgstr "..."
 
-#: includes/Elements/Product_Grid.php:506
+#: includes/Elements/Product_Grid.php:539
 #: includes/Elements/Woo_Product_Carousel.php:299
 #: includes/Traits/Controls.php:1106 includes/Traits/Controls.php:1134
 msgid "Excerpt Words"
@@ -13875,8 +13905,8 @@ msgid "Bullet"
 msgstr "Viñeta"
 
 #: includes/Elements/Adv_Accordion.php:274
-#: includes/Elements/Adv_Accordion.php:302 includes/Elements/Adv_Tabs.php:200
-#: includes/Elements/Adv_Tabs.php:215
+#: includes/Elements/Adv_Accordion.php:302 includes/Elements/Adv_Tabs.php:213
+#: includes/Elements/Adv_Tabs.php:228
 #: includes/Elements/Betterdocs_Category_Box.php:407
 #: includes/Elements/Betterdocs_Category_Box.php:441
 #: includes/Elements/Betterdocs_Category_Grid.php:441
@@ -13911,8 +13941,8 @@ msgstr "Viñeta"
 msgid "Icon"
 msgstr "Icono"
 
-#: includes/Controls/Select2.php:29 includes/Elements/Adv_Tabs.php:204
-#: includes/Elements/Adv_Tabs.php:231 includes/Elements/Data_Table.php:156
+#: includes/Controls/Select2.php:29 includes/Elements/Adv_Tabs.php:217
+#: includes/Elements/Adv_Tabs.php:244 includes/Elements/Data_Table.php:156
 #: includes/Elements/Data_Table.php:188 includes/Elements/Feature_List.php:82
 #: includes/Elements/Feature_List.php:168
 #: includes/Elements/Filterable_Gallery.php:647
@@ -13938,8 +13968,8 @@ msgstr "Mostrar imagen"
 
 #: includes/Elements/Facebook_Feed.php:480
 #: includes/Elements/Filterable_Gallery.php:776
-#: includes/Elements/NFT_Gallery.php:619 includes/Elements/Product_Grid.php:674
-#: includes/Elements/Product_Grid.php:707
+#: includes/Elements/NFT_Gallery.php:619 includes/Elements/Product_Grid.php:707
+#: includes/Elements/Product_Grid.php:740
 #: includes/Elements/Twitter_Feed.php:419
 #: includes/Elements/Woo_Product_Gallery.php:535
 #: includes/Elements/Woo_Product_Gallery.php:551
@@ -13947,7 +13977,7 @@ msgstr "Mostrar imagen"
 msgid "Load More"
 msgstr "Cargar más"
 
-#: includes/Elements/Product_Grid.php:704
+#: includes/Elements/Product_Grid.php:737
 #: includes/Elements/Woo_Product_Gallery.php:548
 #: includes/Traits/Controls.php:701 includes/Traits/Controls.php:1176
 msgid "Label Text"
@@ -14021,10 +14051,11 @@ msgstr "Texto de la etiqueta"
 #: includes/Elements/Post_Timeline.php:121
 #: includes/Elements/Pricing_Table.php:533
 #: includes/Elements/Pricing_Table.php:1683
-#: includes/Elements/Product_Grid.php:596
-#: includes/Elements/Product_Grid.php:698
-#: includes/Elements/Product_Grid.php:1542
-#: includes/Elements/Product_Grid.php:2169
+#: includes/Elements/Product_Grid.php:330
+#: includes/Elements/Product_Grid.php:629
+#: includes/Elements/Product_Grid.php:731
+#: includes/Elements/Product_Grid.php:1578
+#: includes/Elements/Product_Grid.php:2209
 #: includes/Elements/Testimonial.php:271 includes/Elements/Twitter_Feed.php:607
 #: includes/Elements/Woo_Cart.php:431 includes/Elements/Woo_Cart.php:479
 #: includes/Elements/Woo_Cart.php:549 includes/Elements/Woo_Cart.php:561
@@ -14123,10 +14154,11 @@ msgstr "Ocultar"
 #: includes/Elements/Post_Timeline.php:120
 #: includes/Elements/Pricing_Table.php:532
 #: includes/Elements/Pricing_Table.php:1682
-#: includes/Elements/Product_Grid.php:595
-#: includes/Elements/Product_Grid.php:697
-#: includes/Elements/Product_Grid.php:1541
-#: includes/Elements/Product_Grid.php:2168
+#: includes/Elements/Product_Grid.php:329
+#: includes/Elements/Product_Grid.php:628
+#: includes/Elements/Product_Grid.php:730
+#: includes/Elements/Product_Grid.php:1577
+#: includes/Elements/Product_Grid.php:2208
 #: includes/Elements/Testimonial.php:270 includes/Elements/Twitter_Feed.php:606
 #: includes/Elements/Woo_Cart.php:430 includes/Elements/Woo_Cart.php:478
 #: includes/Elements/Woo_Cart.php:548 includes/Elements/Woo_Cart.php:560
@@ -14159,7 +14191,7 @@ msgid "Show"
 msgstr "Mostrar"
 
 #: includes/Elements/Facebook_Feed.php:458
-#: includes/Elements/NFT_Gallery.php:593 includes/Elements/Product_Grid.php:695
+#: includes/Elements/NFT_Gallery.php:593 includes/Elements/Product_Grid.php:728
 #: includes/Elements/Twitter_Feed.php:393
 #: includes/Elements/Woo_Product_Gallery.php:539
 #: includes/Traits/Controls.php:689
@@ -14240,10 +14272,10 @@ msgstr "Posición de la fecha"
 #: includes/Elements/Pricing_Table.php:697
 #: includes/Elements/Pricing_Table.php:839
 #: includes/Elements/Pricing_Table.php:864
-#: includes/Elements/Product_Grid.php:733
-#: includes/Elements/Product_Grid.php:1052
-#: includes/Elements/Product_Grid.php:1736
-#: includes/Elements/Product_Grid.php:2221
+#: includes/Elements/Product_Grid.php:766
+#: includes/Elements/Product_Grid.php:1085
+#: includes/Elements/Product_Grid.php:1776
+#: includes/Elements/Product_Grid.php:2261
 #: includes/Elements/Progress_Bar.php:352
 #: includes/Elements/Progress_Bar.php:621 includes/Elements/Simple_Menu.php:195
 #: includes/Elements/Simple_Menu.php:373 includes/Elements/Simple_Menu.php:780
@@ -14332,9 +14364,9 @@ msgstr "Izquierda"
 #: includes/Elements/Post_Timeline.php:381
 #: includes/Elements/Pricing_Table.php:843
 #: includes/Elements/Pricing_Table.php:868
-#: includes/Elements/Product_Grid.php:737
-#: includes/Elements/Product_Grid.php:1056
-#: includes/Elements/Product_Grid.php:2225
+#: includes/Elements/Product_Grid.php:770
+#: includes/Elements/Product_Grid.php:1089
+#: includes/Elements/Product_Grid.php:2265
 #: includes/Elements/Progress_Bar.php:356
 #: includes/Elements/Progress_Bar.php:625 includes/Elements/Simple_Menu.php:199
 #: includes/Elements/Simple_Menu.php:377 includes/Elements/Simple_Menu.php:784
@@ -14419,10 +14451,10 @@ msgstr "Centro"
 #: includes/Elements/Pricing_Table.php:701
 #: includes/Elements/Pricing_Table.php:847
 #: includes/Elements/Pricing_Table.php:872
-#: includes/Elements/Product_Grid.php:741
-#: includes/Elements/Product_Grid.php:1060
-#: includes/Elements/Product_Grid.php:1740
-#: includes/Elements/Product_Grid.php:2229
+#: includes/Elements/Product_Grid.php:774
+#: includes/Elements/Product_Grid.php:1093
+#: includes/Elements/Product_Grid.php:1780
+#: includes/Elements/Product_Grid.php:2269
 #: includes/Elements/Progress_Bar.php:360
 #: includes/Elements/Progress_Bar.php:629 includes/Elements/Simple_Menu.php:203
 #: includes/Elements/Simple_Menu.php:381 includes/Elements/Simple_Menu.php:788
@@ -14458,8 +14490,8 @@ msgstr "Derecha"
 #: includes/Elements/Adv_Tabs.php:80 includes/Elements/Business_Reviews.php:187
 #: includes/Elements/Countdown.php:232 includes/Elements/Facebook_Feed.php:253
 #: includes/Elements/Filterable_Gallery.php:170
-#: includes/Elements/NFT_Gallery.php:225 includes/Elements/Product_Grid.php:232
-#: includes/Elements/Product_Grid.php:438 includes/Elements/Progress_Bar.php:75
+#: includes/Elements/NFT_Gallery.php:225 includes/Elements/Product_Grid.php:233
+#: includes/Elements/Product_Grid.php:471 includes/Elements/Progress_Bar.php:75
 #: includes/Elements/Progress_Bar.php:101 includes/Elements/Simple_Menu.php:155
 #: includes/Elements/Woo_Cart.php:146 includes/Elements/Woo_Checkout.php:128
 #: includes/Elements/Woo_Product_Carousel.php:218
@@ -14506,7 +14538,7 @@ msgstr "Cubrir"
 #: includes/Elements/NinjaForms.php:278 includes/Elements/Post_Grid.php:254
 #: includes/Elements/Pricing_Table.php:87
 #: includes/Elements/Pricing_Table.php:484
-#: includes/Elements/Product_Grid.php:250 includes/Elements/Simple_Menu.php:396
+#: includes/Elements/Product_Grid.php:251 includes/Elements/Simple_Menu.php:396
 #: includes/Elements/Simple_Menu.php:522 includes/Elements/Simple_Menu.php:882
 #: includes/Elements/Simple_Menu.php:1278
 #: includes/Elements/Sticky_Video.php:377 includes/Elements/Team_Member.php:403
@@ -14515,7 +14547,7 @@ msgstr "Cubrir"
 #: includes/Elements/WeForms.php:631 includes/Elements/Woo_Checkout.php:133
 #: includes/Elements/WpForms.php:267 includes/Traits/Controls.php:580
 #: includes/Traits/Controls.php:2013
-#: includes/Traits/Login_Registration.php:1148
+#: includes/Traits/Login_Registration.php:1127
 #: includes/Traits/Woo_Product_Comparable.php:419
 #: includes/Traits/Woo_Product_Comparable.php:533
 #: includes/Traits/Woo_Product_Comparable.php:624
@@ -14595,8 +14627,8 @@ msgstr "Ancho"
 #: includes/Elements/Advanced_Data_Table.php:1476
 #: includes/Elements/Adv_Accordion.php:445
 #: includes/Elements/Adv_Accordion.php:599
-#: includes/Elements/Adv_Accordion.php:842 includes/Elements/Adv_Tabs.php:384
-#: includes/Elements/Adv_Tabs.php:529 includes/Elements/Adv_Tabs.php:808
+#: includes/Elements/Adv_Accordion.php:842 includes/Elements/Adv_Tabs.php:397
+#: includes/Elements/Adv_Tabs.php:542 includes/Elements/Adv_Tabs.php:821
 #: includes/Elements/Betterdocs_Category_Box.php:512
 #: includes/Elements/Betterdocs_Category_Grid.php:558
 #: includes/Elements/Betterdocs_Category_Grid.php:722
@@ -14690,9 +14722,9 @@ msgstr "Ancho"
 #: includes/Elements/Pricing_Table.php:770
 #: includes/Elements/Pricing_Table.php:1570
 #: includes/Elements/Pricing_Table.php:1878
-#: includes/Elements/Product_Grid.php:845
-#: includes/Elements/Product_Grid.php:1096
-#: includes/Elements/Product_Grid.php:1508
+#: includes/Elements/Product_Grid.php:878
+#: includes/Elements/Product_Grid.php:1129
+#: includes/Elements/Product_Grid.php:1544
 #: includes/Elements/Progress_Bar.php:814 includes/Elements/Simple_Menu.php:348
 #: includes/Elements/Simple_Menu.php:508 includes/Elements/Simple_Menu.php:681
 #: includes/Elements/Simple_Menu.php:1230 includes/Elements/SVG_Draw.php:456
@@ -14734,7 +14766,7 @@ msgstr "Ancho"
 msgid "Padding"
 msgstr "Relleno"
 
-#: includes/Elements/NFT_Gallery.php:183 includes/Elements/Product_Grid.php:387
+#: includes/Elements/NFT_Gallery.php:183 includes/Elements/Product_Grid.php:400
 #: includes/Elements/Woo_Product_Carousel.php:785
 #: includes/Elements/Woo_Product_Gallery.php:406
 #: includes/Traits/Controls.php:210 includes/Traits/Controls.php:345
@@ -14742,7 +14774,7 @@ msgstr "Relleno"
 msgid "Order"
 msgstr "Orden"
 
-#: includes/Elements/Product_Grid.php:379
+#: includes/Elements/Product_Grid.php:392
 #: includes/Elements/Woo_Product_Carousel.php:777
 #: includes/Elements/Woo_Product_Gallery.php:398
 #: includes/Traits/Controls.php:199 includes/Traits/Controls.php:326
@@ -14750,7 +14782,7 @@ msgstr "Orden"
 msgid "Order By"
 msgstr "Ordenar por"
 
-#: includes/Elements/Product_Grid.php:407
+#: includes/Elements/Product_Grid.php:420
 #: includes/Elements/Woo_Product_Carousel.php:805
 #: includes/Elements/Woo_Product_Gallery.php:426
 #: includes/Traits/Controls.php:187 includes/Traits/Controls.php:317
@@ -14780,7 +14812,7 @@ msgstr "Buscar y seleccionar"
 #: includes/Elements/Business_Reviews.php:99
 #: includes/Elements/Event_Calendar.php:93
 #: includes/Elements/Facebook_Feed.php:120 includes/Elements/NFT_Gallery.php:78
-#: includes/Elements/Product_Grid.php:335
+#: includes/Elements/Product_Grid.php:348
 #: includes/Elements/Sticky_Video.php:144 includes/Elements/SVG_Draw.php:81
 #: includes/Elements/Woo_Product_Gallery.php:365
 #: includes/Traits/Controls.php:67
@@ -14797,7 +14829,7 @@ msgstr "Consulta"
 msgid "Dynamic Content Settings"
 msgstr "Ajustes del contenido dinámico"
 
-#: includes/Traits/Controls.php:27
+#: includes/Elements/Product_Grid.php:161 includes/Traits/Controls.php:27
 msgid "Manual Selection"
 msgstr "Selección manual"
 
@@ -14846,7 +14878,7 @@ msgstr "Extensiones"
 msgid "Elements"
 msgstr "Elementos"
 
-#: includes/Elements/Adv_Tabs.php:376 includes/Elements/Business_Reviews.php:92
+#: includes/Elements/Adv_Tabs.php:389 includes/Elements/Business_Reviews.php:92
 #: includes/Elements/Event_Calendar.php:141
 #: includes/Elements/Filterable_Gallery.php:910
 #: includes/Elements/Image_Accordion.php:61
@@ -14864,8 +14896,8 @@ msgstr "General"
 
 #: includes/templates/admin/elements.php:640
 #: includes/templates/admin/elements.php:701
-#: includes/templates/admin/extensions.php:108
-#: includes/templates/admin/extensions.php:163
+#: includes/templates/admin/extensions.php:115
+#: includes/templates/admin/extensions.php:170
 #: includes/templates/admin/tools.php:71
 msgid "Save Settings"
 msgstr "Guardar los ajustes"
@@ -14911,7 +14943,7 @@ msgstr "¡Oferta!"
 #: includes/Elements/Betterdocs_Category_Grid.php:1654
 #: includes/Elements/Betterdocs_Category_Grid.php:1687
 #: includes/Elements/Post_Grid.php:1110 includes/Elements/Post_Timeline.php:785
-#: includes/Elements/Product_Grid.php:3093
+#: includes/Elements/Product_Grid.php:3133
 #: includes/Elements/Woo_Product_Gallery.php:2467
 #: includes/Traits/Ajax_Handler.php:263
 msgid "<p class=\"no-posts-found\">No posts found!</p>"

@@ -1125,3 +1125,34 @@ function wfu_prepare_consent_block($params, $additional_params, $occurrence_inde
 
 	return $consent_item;
 }
+
+/**
+ * Prepare the Upload Form Contents Post Processor.
+ *
+ * This function post-processes the inner HTML of the container element, before
+ * they are echoed.
+ *
+ * @since 4.21.0
+ *
+ * @redeclarable
+ *
+ * @param array $params The uploader shortcode attributes.
+ * @param array $additional_params A list of additional parameters passed to the
+ *        function.
+ * @param integer $occurrence_index The occurrence index of this element inside
+ *        the upload form.
+ *
+ * @return array The properties of the post-processed contents .
+ */
+function wfu_prepare_contents_block($params, $additional_params, $occurrence_index) {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	//prepare data for template
+	$data["ID"] = $params["uploadid"];
+	$data["params"] = $params;
+	$data["contents"] = $additional_params["contents"];
+	
+	//read html output from template
+	$contents_item = wfu_read_template_output("contents", $data);
+
+	return $contents_item;
+}

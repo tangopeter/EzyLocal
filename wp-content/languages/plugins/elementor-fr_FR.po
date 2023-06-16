@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Elementor Website Builder &#8211; More than Just a Page Builder - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-29 08:13:20+0000\n"
+"PO-Revision-Date: 2023-06-08 13:01:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,9 +11,48 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: Plugins - Elementor Website Builder &#8211; More than Just a Page Builder - Stable (latest release)\n"
 
+#: includes/template-library/sources/local.php:518
+msgid "Invalid template type."
+msgstr "Type de modèle invalide."
+
+#: includes/user.php:258
+msgid "You do not have permissions to install plugins on this site."
+msgstr "Vous n’avez pas les droits suffisants pour installer les extensions de ce site."
+
 #: core/admin/admin.php:355
 msgid "Get Elementor Pro"
 msgstr "Obtenir Elementor Pro"
+
+#. translators: 1: Link open tag, 2: Link close tag.
+#: includes/widgets/image-carousel.php:324
+#: includes/widgets/image-gallery.php:146 includes/widgets/image.php:223
+msgid "Manage your site’s lightbox settings in the %1$sLightbox panel%2$s."
+msgstr "Gérer les réglages de la visionneuse du site dans le %1$spanneau visionneuse%2$s."
+
+#: includes/editor-templates/panel-elements.php:11
+msgid "Globals"
+msgstr "Globales"
+
+#: includes/controls/groups/grid-container.php:71
+msgid "Rows"
+msgstr "Lignes"
+
+#: includes/controls/groups/grid-container.php:31
+msgid "Grid Outline"
+msgstr "Grille filaire"
+
+#: includes/controls/gaps.php:60
+#: includes/controls/groups/grid-container.php:113
+msgid "Row"
+msgstr "Ligne"
+
+#: includes/controls/gallery.php:85
+msgid "Remove gallery"
+msgstr "Retirer la galerie"
+
+#: includes/controls/base-units.php:130
+msgid "Switch units"
+msgstr "Changer d’unités"
 
 #: includes/widgets/icon-list.php:578
 msgid "Adjust Vertical Position"
@@ -3861,6 +3900,10 @@ msgstr "Permuter de méthode de chargeur d’éditeur"
 msgid "Integrations"
 msgstr "Intégrations"
 
+#: core/kits/documents/tabs/settings-layout.php:121
+msgid "Sets the default space between widgets (Default: 20px)"
+msgstr "Définit l’espace par défaut entre les widgets (par défaut : 20px)"
+
 #: includes/rollback.php:165 includes/settings/tools.php:150
 #: includes/settings/tools.php:323 assets/js/admin.js:1680
 msgid "Rollback to Previous Version"
@@ -4442,6 +4485,10 @@ msgstr "Saisissez le sélecteur de l’élément parent auquel s’étendront le
 #: core/kits/documents/tabs/settings-layout.php:148
 msgid "Stretched Section Fit To"
 msgstr "Section étirée ajustée à"
+
+#: core/kits/documents/tabs/settings-layout.php:74
+msgid "Sets the default width of the content area (Default: 1140px)"
+msgstr "Définit la largeur par défaut de la zone de contenu (par défaut : 1140px)"
 
 #: includes/elements/section.php:494
 msgid "Stretch the section to the full width of the page using JS."

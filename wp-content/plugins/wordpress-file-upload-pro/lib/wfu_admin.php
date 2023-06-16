@@ -92,6 +92,7 @@ function wordpress_file_upload_admin_init() {
 		//don't load datepicker js if $ret_data exclude_datepicker flag is true
 		if ( !isset($ret_data["exclude_datepicker"]) || $ret_data["exclude_datepicker"] != "true" )
 			wp_register_script('jquery-ui-datepicker', false, array('jquery'));
+		wp_register_script('wp-color-picker-alpha', WPFILEUPLOAD_DIR.'vendor/wp-color-picker-alpha/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), false, true);
 		wp_register_script('wordpress_file_upload_admin_script', WPFILEUPLOAD_DIR.'js/wordpress_file_upload_adminfunctions.js', array( 'wp-color-picker' ), false, true);
 		/**
 		 * Let Scripts Register Custom Dashboard Styles and Scripts.
@@ -279,6 +280,7 @@ function wfu_enqueue_admin_scripts() {
 		//don't load datepicker js if $ret_data exclude_datepicker flag is true
 		if ( !isset($ret_data["exclude_datepicker"]) || $ret_data["exclude_datepicker"] != "true" )
 			wp_enqueue_script('jquery-ui-datepicker');
+		wp_enqueue_script( 'wp-color-picker-alpha' );
 		wp_enqueue_script('wordpress_file_upload_admin_script');
 		/**
 		 * Let Scripts Enqueue Custom Dashboard Styles and Scripts.
@@ -876,9 +878,7 @@ function wordpress_file_upload_manage_dashboard() {
  * Process Dashboard Requests for Non-Admin Users.
  *
  * This function processes Dashboard requests and shows the shortcode composer
- * to users that are not admins but who can edit posts or pages. It also lets
- * extensions implement their own actions when receiving Dashboard requests by
- * non-admin users.
+ * to users that are not admins but who can edit posts or pages.
  *
  * @since 4.11.0
  */

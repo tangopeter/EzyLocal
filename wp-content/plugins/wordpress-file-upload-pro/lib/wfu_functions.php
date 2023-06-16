@@ -540,6 +540,22 @@ function wfu_sanitize_colors($code) {
 }
 
 /**
+ * Sanitize an RGBA Color Value.
+ *
+ * This function sanitizes an RGBA color value. An RGBA color value is in the
+ * form 'rgba(redvalue, greenvalue, bluevalue, transparency).
+ *
+ * @since 4.21.0
+ *
+ * @param string $code The color value to sanitize.
+ *
+ * @return string The sanitized color value.
+ */
+function wfu_sanitize_colors_rgba($code) {
+	return preg_replace("/[^A-Fa-fgr0-9#(),. ]/", "", $code);
+}
+
+/**
  * Sanitize a Tag.
  *
  * This function sanitizes a tag. A tag must only contain latin characters,
@@ -755,6 +771,9 @@ function wfu_sanitize_shortcode_array($attrs, $shortcode_tag) {
 					break;
 				case "colors":
 					$new_value = wfu_sanitize_colors($value);
+					break;
+				case "rgbacolors":
+					$new_value = wfu_sanitize_colors_rgba($value);
 					break;
 				case "css":
 					$new_value = wp_strip_all_tags($value);
@@ -6042,7 +6061,7 @@ function wfu_add_div() {
  * @return array An array holding the output of element. The item 'css' of the
  *         array holds CSS code of the element. The item 'js' holds Javascript
  *         code of the element. Items 'line1', 'line2' and so on hold the lines
- *         of the HTML code of the element.
+ *         of the HTML code of the element. The item 'raw' holds raw HTML.
  */
 function wfu_read_template_output($blockname, $data) {
 	$output = array();
@@ -6054,6 +6073,12 @@ function wfu_read_template_output($blockname, $data) {
 	call_user_func(array($template, $func), $data);
 	$str_output = ob_get_clean();
 	
+	//if output starts with <!--RAW--> then do not extract styles, scripts and
+	//lines but return the raw output
+	if ( substr($str_output, 0, 10) == '<!--RAW-->' ) {
+		$output['raw'] = substr($str_output, 10);
+		return $output;
+	}
 	$str_output = str_replace('$ID', $sid, $str_output);
 	//extract css, javascript and HTML from output
 	$match = array();
@@ -6099,22 +6124,25 @@ function wfu_template_to_HTML($blockname, $params, $additional_params, $occurren
 		$ID = $params["browserid"];
 		$WF = "WFUB";
 	}
-	$css = $block["css"];
-	if ( $block["js"] != "" ) {
-		$js = 'var '.$WF.'_JS_'.$ID.'_'.$blockname.' = function() {';
+	$css = ( isset($block["css"]) ? $block["css"] : '' );
+	$js = '';
+	if ( isset($block["js"]) && $block["js"] != "" ) {
+		$js .= 'var '.$WF.'_JS_'.$ID.'_'.$blockname.' = function() {';
 		$js .= "\n".$block["js"];
 		$js .= "\n".'}';
 		$js .= "\n".'wfu_run_js("window", "'.$WF.'_JS_'.$ID.'_'.$blockname.'");';
 	}
 	//relax css rules if this option is enabled
 	if ( $plugin_options['relaxcss'] == '1' ) $css = preg_replace('#.*?/\*relax\*/\s*#', '', $css);
-	$echo_str = wfu_css_to_HTML($css);
-	$echo_str .= "\n".wfu_js_to_HTML($js);
+	$echo_str = '';
+	if ( trim($css) != "" ) $echo_str .= "\n".wfu_css_to_HTML($css);
+	if ( trim($js) != "" ) $echo_str .= "\n".wfu_js_to_HTML($js);
 	$k = 1;
 	while ( isset($block["line".$k]) ) {
 		if ( $block["line".$k] != "" ) $echo_str .= "\n".$block["line".$k];
 		$k++;
 	}
+	if ( isset($block["raw"]) ) $echo_str .= $block["raw"];
 
 	return $echo_str;
 }

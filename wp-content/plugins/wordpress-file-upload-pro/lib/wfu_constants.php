@@ -296,6 +296,12 @@ $GLOBALS["WFU_GLOBALS"] = array(
 	"WFU_REDIRECTLINK" => array( "Default Redirect URL", "string", "", "The default redirect URL of the uploader shortcode." ),
 	"WFU_ADMINMESSAGES" => array( "Default State for Admin Messages", "string", "false", "The default state of displaying or not admin messages of the uploader shortcode. It can be 'true' or 'false'." ),
 	"WFU_BLOCKCOMPATIBILITY" => array( "Default Block Themes Compatibility Mode", "string", "off", "The default state of block themes compatibility mode. It can be 'auto', 'on' or 'off'." ),
+	"WFU_MATERIALUI" => array( "Default Material UI State", "string", "false", "The default Material UI state of the uploader shortcode. It can be 'true' or 'false'." ),
+	"WFU_MUIPRIMARYCOLOR" => array( "Default Material UI Primary Color", "string", "#556CD6", "The default Material UI theme primary color." ),
+	"WFU_MUITEXTCOLOR" => array( "Default Material UI Text Color", "string", "rgba(0, 0, 0, 0.87)", "The default Material UI theme text color." ),
+	"WFU_MUIERRORCOLOR" => array( "Default Material UI Error Color", "string", "#FF1744", "The default Material UI theme error color." ),
+	"WFU_MUIDARKMODE" => array( "Default Material UI Dark Mode", "string", "false", "The default Material UI theme dark mode. It can be 'true' or 'false'." ),
+	"WFU_MUIOVERRIDECSSMETHOD" => array( "Default Material UI Override CSS Method", "string", "shadow-dom", "The default Material UI override CSS method. It can be 'strongstyles-selected', 'strongstyles-all', 'layers' or 'shadow-dom'." ),
 	"WFU_SUCCESSMESSAGECOLORS" => array( "Default Colors for Success Message", "string", "#006600,#EEFFEE,#006666", "The default color triplet (text, background and border colors) of success message of the uploader shortcode." ),
 	"WFU_WARNINGMESSAGECOLORS" => array( "Default Colors for Warning Message", "string", "#F88017,#FEF2E7,#633309", "The default color triplet (text, background and border colors) of warning message of the uploader shortcode." ),
 	"WFU_FAILMESSAGECOLORS" => array( "Default Colors for Fail Message", "string", "#660000,#FFEEEE,#666600", "The default color triplet (text, background and border colors) of fail message of the uploader shortcode." ),
@@ -328,7 +334,7 @@ $GLOBALS["WFU_GLOBALS"] = array(
 	"WFU_NOTREMEMBERCONSENT" => array( "Default Do Not Remember Consent Answer State", "string", "false", "The default state about remembering or not user's answer on consent question. The default value is true." ),
 	"WFU_CONSENTREJECTUPLOAD" => array( "Default Reject Upload on Consent Denial State", "string", "false", "The default state of continuing or rejecting the upload depending on consent answer. The default value is true." ),
 	"WFU_CONSENTFORMAT" => array( "Default Consent Format", "string", "radio", "The default format of consent question. The default value is 'checkbox'." ),
-	"WFU_CONSENTPRESELECT" => array( "Default Consent Preselect State", "string", "none", "The default preselect state of consent question when checkbox format is active. The default value is false." )
+	"WFU_CONSENTPRESELECT" => array( "Default Consent Preselect State", "string", "none", "The default preselect state of consent question when checkbox format is active. The default value is false." ),
 );
 //additional plugin default values
 $GLOBALS["WFU_GLOBALS"] += array(
@@ -478,6 +484,7 @@ $GLOBALS["WFU_GLOBALS"] += array(
 	"WFU_ADMINNOTIFICATIONS_TABLE_MAXROWS" => array( "Admin Notifications Rows Per Page", "integer", 25, "The number of rows per page of the admin notifications. A value equal to zero or less denotes no pagination." ),
 	"WFU_NOTIFICATIONS_BARMENU" => array( "Notifications Toolbar Menu State", "string", "true", "Defines whether the Notifications Toolbar (Admin Bar) menu item will be shown or not. It can be 'true' or 'false'." ),
 	"WFU_NOTIFICATIONS_NR_THRESHOLD" => array( "Notifications Non-Repeating Threshold", "integer", 3600, "Defines the time in seconds, after which a non-repeating notification can be added again." ),
+	"WFU_MUIHTMLFONTSIZE" => array( "Material UI HTML Font Size", "string", "adjust", "Defines the HTML font size, based on which the Material UI components' rem value is calculated. It can be 'adjust' (React will try to adjust the HTML font size so that it is always 16px), 'initial' (React will do no change) or a font size in pixels." ),
 );
 //additional other plugin values
 $GLOBALS["WFU_GLOBALS"] += array(
@@ -579,6 +586,10 @@ DEFINE("WFU_IPTANUS_SERVER_UNREACHABLE_ARTICLE", 'https://www.iptanus.com/iptanu
 //alternative insecure server
 DEFINE("WFU_SERVICES_SERVER_ALT_URL", 'http://services.iptanus.com');
 DEFINE("WFU_VERSION_SERVER_ALT_URL", WFU_SERVICES_SERVER_ALT_URL.'/wp-admin/admin-ajax.php');
+//materialUI
+DEFINE("WFU_MUI_REACTVER", '18.2.0');
+DEFINE("WFU_MUI_MUIVER", '5.13.0');
+DEFINE("WFU_MUI_BABELVER", '6.26.0');
 DEFINE("WFU_IPTANUS_ACCOUNT_URL", 'https://www.iptanus.com/my-account/');
 DEFINE("WFU_CAPTCHA_SERVER_URL", WFU_SERVICES_SERVER_URL.'/wp-admin/admin-ajax.php');
 DEFINE("WFU_MODULES_PHP50600", 'vendor/modules/php5.6/');
