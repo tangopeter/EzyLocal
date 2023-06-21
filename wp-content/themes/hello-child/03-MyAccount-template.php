@@ -56,15 +56,19 @@ get_header();
         if (isset($_POST['button1'])) {
             increaseOrderNumber();
             echo get_option('ORDER_NUMBER');
-            // wp_redirect('https://ezylocal:8890/?page_id=54');
-            unset($_POST['button2']);
-            exit;
+        ?>
+            <script>
+                window.location.href = 'https://ezylocal:8890/?page_id=54';
+            </script>
+        <?php
         }
         if (isset($_POST['button2'])) {
             decreaseOrderNumber();
-            // echo get_option('ORDER_NUMBER');
-            unset($_POST['button2']);
-            exit;
+        ?>
+            <script>
+                window.location.href = 'https://ezylocal:8890/?page_id=54';
+            </script>
+        <?php
         }
         ?>
         <div class="myDiv2">

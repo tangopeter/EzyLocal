@@ -57,6 +57,8 @@ if ( !is_admin() ) {
 add_action( 'wp_before_admin_bar_render', 'wfu_admin_toolbar_new_uploads', 999 );
 //add admin bar menu item of admin notifications
 add_action( 'wp_before_admin_bar_render', 'wfu_admin_toolbar_admin_notifications', 999 );
+//filter comments so that WFU admin notifications are not shown
+add_action( 'parse_comment_query', 'wfu_exclude_notifications_from_comments', 10, 1 );
 //general ajax actions
 add_action('wp_ajax_wfu_ajax_action', 'wfu_ajax_action_callback');
 add_action('wp_ajax_nopriv_wfu_ajax_action', 'wfu_ajax_action_callback');

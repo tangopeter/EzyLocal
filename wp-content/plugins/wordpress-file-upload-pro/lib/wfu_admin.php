@@ -1743,3 +1743,26 @@ function wfu_media_editor_properties() {
 	}
 	echo $echo_str;
 }
+
+/**
+ * Hide Admin Notifications From Comments.
+ *
+ * This function hides the plugin's admin notifications (which are comments of
+ * custom type) from Comments Dashboard page and any other place, except the
+ * plugin's Notifications page.
+ *
+ * @since 4.21.6
+ *
+ * $param WP_Comment_Query $query The comment query object.
+ */
+function wfu_exclude_notifications_from_comments( &$query ) {
+	// if "wfunotification" is in "type" or in "type__in" then we do not exclude
+	// it from the query
+	if ( $query->query_vars["type"] != null && ( ( !is_array($query->query_vars["type"]) && $query->query_vars["type"] == "wfunotification" ) || ( is_array($query->query_vars["type"]) && in_array("wfunotification", $query->query_vars["type"]) ) ) ) return;
+	if ( is_array($query->query_vars["type__in"]) && in_array("wfunotification", $query->query_vars["type__in"]) ) return;
+	if ( $query->query_vars["type__not_in"] == null )
+		$query->query_vars["type__not_in"] = array();
+	// exclude "wfunotification" from the comment query
+	if ( !in_array("wfunotification", $query->query_vars["type__not_in"]) )
+		array_push($query->query_vars["type__not_in"], "wfunotification");
+}

@@ -17,8 +17,10 @@ function existingOrder($ORDER_NUMBER)
       echo '<p>' . 'Order number ' . $order . ' already exists' . '</p>';
     }
     if (!$existing) {
-      completeTheOrder($ORDER_NUMBER);
-    }
+      return false;
+    } else {
+      return true;
+    };
   }
 }
 
@@ -27,8 +29,14 @@ function completeTheOrder($ORDER_NUMBER)
 {
   $current_user = wp_get_current_user();
   $thisItem1 = array();
+
   global $wpdb;
   $wpdb->show_errors();
+
+  // does this order exist allready?
+  $existing = existingOrder($ORDER_NUMBER);
+  echo $existing;
+  //   die();
 
   $orders = $wpdb->get_results(
     $wpdb->prepare(
@@ -41,18 +49,7 @@ function completeTheOrder($ORDER_NUMBER)
   );
 
   foreach ($orders as $key => $order) {
-    // Items
-    $uploads = json_decode($order->uploads);
 
-    $thisItem = array(
-      'file_name' => $uploads->file_name,
-      'qty' => $uploads->qty,
-      'size' => $uploads->size,
-      'finish' => $uploads->finish,
-      'print_cost' => $uploads->total_price
-    );
-    // $thisItem = json_encode($thisItem, JSON_PRETTY_PRINT);
-    array_push($thisItem1, $thisItem);
 
     if ($order === end($orders)) {
       // echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
@@ -84,14 +81,30 @@ function completeTheOrder($ORDER_NUMBER)
         'gst' => get_field('gst', $current_user),
         'total' => get_field('total', $current_user)
       );
-      $upload1 = json_encode($costs, JSON_PRETTY_PRINT);
-      // echo '<pre> Costs:' . $upload1 . '</pre>';
+      $costs = json_encode($costs, JSON_PRETTY_PRINT);
+      // echo '<pre> upload1:' . $upload1 . '</pre>';
     }
-    if ($order === end($orders)) {
-      // $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
-      break;
-    }
+    // Items
+    $uploads = json_decode($order->uploads);
+
+    $thisItem = array(
+      'file_name' => $uploads->file_name,
+      'qty' => $uploads->qty,
+      'size' => $uploads->size,
+      'finish' => $uploads->finish,
+      'print_cost' => $uploads->total_price
+    );
+
+    array_push($thisItem1, $uploads->file_name);
+    array_push($thisItem1, $uploads->qty,);
+    array_push($thisItem1, $uploads->size,);
+    array_push($thisItem1, $uploads->finish,);
+    array_push($thisItem1, $uploads->total_price,);
   };
+
+  $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
+  // echo '<pre> $thisItem1:' . $thisItem1 . '</pre>';
+
   // Add all to DB
   $wpdb->insert(
     $wpdb->prefix . 'ezy_orders', // name of the table
@@ -101,7 +114,7 @@ function completeTheOrder($ORDER_NUMBER)
       'date' => date('Y-m-d H:i:s'),
       'order_status' => "tbp",
       'user_details' => $thisUser,
-      'costs' => $upload1,
+      'costs' => $costs,
       'items' => $thisItem1
     ),
     array(

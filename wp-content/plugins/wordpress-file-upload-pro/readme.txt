@@ -146,7 +146,11 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
-= 4.21.0 =
+= 4.21.6 =
+* improved webcam operation on iOS devices
+* code modifications to hide WFU admin notifications from Comments Dashboard menu page
+
+= 4.21.5 =
 * added Themes tab in upload form visual editor to select a theme
 * added MaterialUI theme in upload form
 * added upload form attributes to define basic colors and dark mode in Material UI theme
@@ -1075,7 +1079,10 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Upgrade Notice ==
 
-= 4.21.0 =
+= 4.21.6 =
+Regular update to introduce some code improvements.
+
+= 4.21.5 =
 Important update to introduce some new features.
 
 = 4.20.0 =

@@ -16,7 +16,7 @@ function drawOrderTable($ORDER_NUMBER)
   );
 
   echo '<div class="myDiv1">';
-  echo '<h5>Order#: ', $ORDER_NUMBER . '</h5>';
+  echo '<h5>This order: ', $ORDER_NUMBER . '</h5>';
   echo '<table>';
   echo '<thead>';
   echo '<tr class="wfu_browser_tr wfu_included wfu_visible wfu_row-1 wfu_browser-1">';

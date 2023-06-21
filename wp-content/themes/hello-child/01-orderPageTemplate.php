@@ -29,7 +29,7 @@
 		echo '<li>' . 'Please select your files to upload' . '</li>';
 		echo '<li>' . 'You may upload as many images as required,' . '<strong>' . ' but they must be the same settings/Quanity' . '</strong> ' . 'for each upload.' . '</li>';
 		echo '<li>' . 'Repeat upload for each different setting' . '</li>';
-		echo '<li>' . 'Click "Complete order" to confirm your details' . '</li>';
+		echo '<li>' . 'Click "Complete this order" to confirm your details' . '</li>';
 		echo '</ul>';
 
 
@@ -40,17 +40,22 @@
 		<?php drawOrderTable($ORDER_NUMBER); ?>
 		<?php
 		echo '<div class="myDiv2">';
-		echo "<input type='button' class='completeOrder' value='Complete Order' onclick='completeOrder()'>";
 
-		echo "<script>
-			function completeOrder() {
-				window.location.href = 'https://ezylocal:8890/?page_id=2782';
-			}
-		</script>";
-
+		if (isset($_POST['btn-complete1'])) {
+			completeTheOrder($ORDER_NUMBER);
 		?>
+
+			<script>
+				window.location.href = 'https://ezylocal:8890/?page_id=2782';
+			</script>
+		<?php
+		}
+		?>
+		<form method="post">
+			<input type="submit" name="btn-complete1" value="Complete this order">
+		</form><!--  -->
+
 	</div>
-</main>
 </main>
 </div>
 <div class="myFooter">

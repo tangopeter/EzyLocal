@@ -4114,10 +4114,12 @@ this.initCallback = function() {
  *  @return void
  */
 this.initButtons = function(mode) {
-	wfu_webcam_init_svginjector();
 	if (document.getElementById("webcam_$ID_btns_converted").value != "1") {
+		wfu_webcam_init_svginjector();
 		SVGInjector(document.getElementById("webcam_$ID_btns"));
 		document.getElementById("webcam_$ID_btns_converted").value = "1";
+		//fix for iOS devices to correctly load svgs
+		setTimeout(()=> this.updateButtonStatus("redefine"), 1000);
 	}
 	if (mode == "capture video") this.updateButtonStatus("idle_only_video");
 	else if (mode == "take photos") this.updateButtonStatus("idle_only_pictures");
@@ -4183,6 +4185,9 @@ this.updateButtonStatus = function(status) {
 	var tim = document.getElementById("webcam_$ID_btn_time");
 	var pic = document.getElementById("webcam_$ID_btn_picture");
 	var screenshot = document.getElementById("webcam_$ID_screenshot");
+	var bar = pos.querySelector(".wfu_file_webcam_btn_bar");
+	var pointer = document.getElementById("webcam_$ID_btn_pointer");
+	var webcamOff = document.getElementById("webcam_$ID_webcamoff");
 	
 	onoff.style.display = "block";
 	//buttons are hidden
@@ -4313,6 +4318,22 @@ this.updateButtonStatus = function(status) {
 		tim.style.visibility = "visible";
 		pic.style.display = "none";
 		screenshot.style.display = "none";
+	}
+	//redefine innerHTML for svgs, this is a fix for iOS devices to correctly
+	//load svgs
+	else if (status == "redefine") {
+		onoff.innerHTML = onoff.innerHTML;
+		vid.innerHTML = vid.innerHTML;
+		rec.innerHTML = rec.innerHTML;
+		play.innerHTML = play.innerHTML;
+		stop.innerHTML = stop.innerHTML;
+		pause.innerHTML = pause.innerHTML;
+		back.innerHTML = back.innerHTML;
+		fwd.innerHTML = fwd.innerHTML;
+		pic.innerHTML = pic.innerHTML;
+		bar.innerHTML = bar.innerHTML;
+		pointer.innerHTML = pointer.innerHTML;
+		webcamOff.innerHTML = webcamOff.innerHTML;
 	}
 	//idle status, waiting for video recording or screenshot capture
 	else {
@@ -4527,7 +4548,7 @@ this.ended = function() {
 		<svg viewBox="0 0 8 8" id="webcam_$ID_btn_onoff" class="wfu_file_webcam_btn wfu_file_webcam_btn_onoff" onclick="wfu_webcam_onoff($ID);" style="display:none;"><use xlink:href="#power-standby"></use><rect width="8" height="8" fill="transparent"><title><?php echo WFU_WEBCAM_TURNONOFF_BTN; ?></title></rect></svg>
 		<img id="webcam_$ID_screenshot" style="display:none; position:absolute; width:100%; height:100%;" />
 		<canvas id="webcam_$ID_canvas" style="display:none;"></canvas>
-		<video autoplay="true" id="webcam_$ID_box" class="wfu_file_webcam_box"><?php echo WFU_ERROR_WEBCAM_NOTSUPPORTED; ?></video>
+		<video playsinline autoplay="true" id="webcam_$ID_box" class="wfu_file_webcam_box"><?php echo WFU_ERROR_WEBCAM_NOTSUPPORTED; ?></video>
 		<div class="wfu_file_webcam_nav_container">
 			<div id="webcam_$ID_nav" class="wfu_file_webcam_nav wfu_rec_ready" style="display:none;">
 				<input id="webcam_$ID_btns_converted" type="hidden" value="" />
