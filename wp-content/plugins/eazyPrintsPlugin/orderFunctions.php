@@ -16,27 +16,30 @@ function existingOrder($ORDER_NUMBER)
     } else {
       echo '<p>' . 'Order number ' . $order . ' already exists' . '</p>';
     }
-    if (!$existing) {
-      return false;
-    } else {
-      return true;
-    };
   }
+  if (!$existing) {
+    return false;
+  } else {
+    return true;
+  };
 }
 
 
 function completeTheOrder($ORDER_NUMBER)
 {
+  // does this order exist allready?
+  $existing = existingOrder($ORDER_NUMBER);
+  echo $existing;
+  die();
+
+
+
   $current_user = wp_get_current_user();
   $thisItem1 = array();
 
   global $wpdb;
   $wpdb->show_errors();
 
-  // does this order exist allready?
-  $existing = existingOrder($ORDER_NUMBER);
-  echo $existing;
-  //   die();
 
   $orders = $wpdb->get_results(
     $wpdb->prepare(

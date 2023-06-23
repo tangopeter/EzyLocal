@@ -53,7 +53,7 @@
 		?>
 		<form method="post">
 			<input type="submit" name="btn-complete1" value="Complete this order">
-		</form><!--  -->
+		</form>
 
 	</div>
 </main>

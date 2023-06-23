@@ -51,15 +51,21 @@ $ORDER_NUMBER = get_option('ORDER_NUMBER');
   </div>
   <?php
   echo '<div class="myDiv2">';
-  echo "<input type='button' class='completeOrder' value='Finalize the Order' onclick='finalizeOrder()'>";
 
-  echo "<script>
-      function finalizeOrder() {
-        window.location.href = 'https://ezylocal:8890/?page_id=2572';
-      }
-    </script>";
-  echo '</div>';
+  if (isset($_POST['btn-complete2'])) {
+    completeTheOrder($ORDER_NUMBER);
   ?>
+    <script>
+      window.location.href = 'https://ezylocal:8890/?page_id=2572';
+    </script>
+  <?php
+  }
+  ?>
+  <form method="post">
+    <input type="submit" name="btn-complete2" value="Finalize this order">
+  </form>
+
+  </div>
   <div class="myFooter">
     <?php get_footer(); ?>
   </div>
