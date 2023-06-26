@@ -13,6 +13,7 @@
 <?php get_header(); ?>
 <?php
 $ORDER_NUMBER = get_option('ORDER_NUMBER');
+$current_user_ID = get_current_user_id();
 ?>
 
 <main id=" content" <?php post_class('site-main'); ?> role="main">

@@ -34,7 +34,7 @@ get_header();
             </div>
         </div>
 
-        <?php existingOrder($ORDER_NUMBER) ?>
+
 
 
 
