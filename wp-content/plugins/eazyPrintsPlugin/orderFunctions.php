@@ -15,7 +15,10 @@ function doesThisOrderExist($ORDER_NUMBER)
     )
   );
   if ($existingOrders) {
-    echo "order " . $ORDER_NUMBER . " Exists";
+    echo '<script>
+        swal({title: "This order allready exists",icon: "error" });
+        </script>';
+
     die();
   } else {
     return true;
@@ -25,13 +28,13 @@ function doesThisOrderExist($ORDER_NUMBER)
 
 function completeTheOrder($ORDER_NUMBER)
 {
-  $current_user_ID = get_current_user_id();
-  // does this order exist allready?
-  $existing = doesThisOrderExist($ORDER_NUMBER);
+  $current_user = wp_get_current_user();
+  // // does this order number exist?
+  // $existing = doesThisOrderExist($ORDER_NUMBER);
 
-  if (!$existing) {
-    return;
-  }
+  // if (!$existing) {
+  //   return;
+  // }
 
 
 
@@ -47,7 +50,6 @@ function completeTheOrder($ORDER_NUMBER)
         WHERE order_number = %s",
       $ORDER_NUMBER
     )
-
   );
 
   foreach ($orders as $key => $order) {
@@ -56,31 +58,32 @@ function completeTheOrder($ORDER_NUMBER)
       // echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
       // User and Delivery details
       $thisUser = array(
-        'first_name' => get_field('first_name', $current_user_ID),
-        'last_name' => get_field('last_name', $current_user_ID),
-        'email' => get_field('email', $current_user_ID),
-        'address' => get_field('address', $current_user_ID),
-        'suburb' => get_field('suburb', $current_user_ID),
-        'city' => get_field('city', $current_user_ID),
-        'postcode' => get_field('postcode', $current_user_ID),
-        'phone' => get_field('phone', $current_user_ID),
 
-        'delivery_details' => get_field('delivery_method_and_details', $current_user_ID),
-        'rural_delivery' => get_field('rural_delivery', $current_user_ID),
-        'saturday_delivery' => get_field('saturday_delivery', $current_user_ID),
-        'deliver_to_postal_address' => get_field('deliver_to_postal_address', $current_user_ID),
-        'postal_address' => get_field('postal_address', $current_user_ID),
-        'additional_instructions' => get_field('additional_instructions', $current_user_ID)
+        'first_name' => get_field('first_name', $current_user),
+        'last_name' => get_field('last_name', $current_user),
+        'email' => get_field('email', $current_user),
+        'address' => get_field('address', $current_user),
+        'suburb' => get_field('suburb', $current_user),
+        'city' => get_field('city', $current_user),
+        'postcode' => get_field('postcode', $current_user),
+        'phone' => get_field('phone', $current_user),
+
+        'delivery_details' => get_field('delivery_method_and_details', $current_user),
+        'rural_delivery' => get_field('rural_delivery', $current_user),
+        'saturday_delivery' => get_field('saturday_delivery', $current_user),
+        'deliver_to_postal_address' => get_field('deliver_to_postal_address', $current_user),
+        'postal_address' => get_field('postal_address', $current_user),
+        'additional_instructions' => get_field('additional_instructions', $current_user)
       );
       $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
       // echo '<pre> User:' . $thisUser  . '</pre>';
 
       // Costs
       $costs = array(
-        'delivery_cost' => get_field('delivery_cost', $current_user_ID),
-        'subtotal' => get_field('subtotal', $current_user_ID),
-        'gst' => get_field('gst', $current_user_ID),
-        'total' => get_field('total', $current_user_ID)
+        'delivery_cost' => get_field('delivery_cost', $current_user),
+        'subtotal' => get_field('subtotal', $current_user),
+        'gst' => get_field('gst', $current_user),
+        'total' => get_field('total', $current_user)
       );
       $costs = json_encode($costs, JSON_PRETTY_PRINT);
       // echo '<pre> upload1:' . $upload1 . '</pre>';

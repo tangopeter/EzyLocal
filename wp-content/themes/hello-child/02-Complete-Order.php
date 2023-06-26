@@ -9,6 +9,12 @@
  */
 
 ?>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+  </script>
+</head>
+
 <?php acf_form_head(); ?>
 <?php get_header(); ?>
 <?php
@@ -27,24 +33,26 @@ $current_user_ID = get_current_user_id();
 
   <div class="page-content">
     <?php echo '<p> Order number: ' . get_option('ORDER_NUMBER') . '</p>' ?>
+    <div class="completeOrderPage">
 
-    <div class="details">
       <div class="completeTheOrder completeTheOrder1">
-        <h3>Costs:</h3>
-        <?php showCostDetails(); ?>
-      </div>
-
-      <div class="completeTheOrder completeTheOrder2">
         <h3>Delivery:</h3>
         <div id="deliveryCosts">
           <?php showDeliveryDetails(); ?>
         </div>
-
       </div>
+
+
+      <div class="completeTheOrder completeTheOrder2">
+        <h3>Costs:</h3>
+        <?php showCostDetails(); ?>
+      </div>
+
       <div class="completeTheOrder completeTheOrder3">
         <h3>My Details:</h3>
         <?php showUserDetails(); ?>
       </div>
+
     </div>
   </div>
   <div class="page-content">
@@ -67,6 +75,7 @@ $current_user_ID = get_current_user_id();
   </form>
 
   </div>
+
   <div class="myFooter">
     <?php get_footer(); ?>
   </div>

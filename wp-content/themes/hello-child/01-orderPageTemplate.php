@@ -11,6 +11,11 @@
 
 <?php get_header(); ?>
 
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+	</script>
+</head>
+
 <main id="content" <?php post_class('site-main'); ?> role="main">
 	<?php if (apply_filters('hello_elementor_page_title', true)) : ?>
 		<header class="page-header">
@@ -56,6 +61,7 @@
 		</form>
 
 	</div>
+
 </main>
 </div>
 <div class="myFooter">

@@ -752,15 +752,11 @@ tfoot .wfu_browser_td.wfu_col-9.wfu_browser-1 {
   display: none;
 }
 
-/* .completeTheOrder {
-  background: lemonchiffon;
-  min-height: 100px;
-  max-width: 1140px;
-  margin: 10px 5% 10px 0;
-  padding: 10px;
-  width: 45%;
-  float: left;
-} */
+.completeOrderPage {
+  display: flex;
+
+
+}
 
 .completeTheOrder {
   background: #fcf9df;
@@ -769,26 +765,34 @@ tfoot .wfu_browser_td.wfu_col-9.wfu_browser-1 {
   margin: 10px 3.3% 10px 0;
   padding: 10px;
   width: 100%;
-  float: left;
+  /* float: left; */
   border: 1px solid #f4e02c;
   border-radius: 5px;
 }
 
 .completeTheOrder1 {
-  max-width: 20% !important;
+  max-width: 30% !important;
   margin: 10px 2% 10px 0 !important;
+  order: 0;
 }
 
 .completeTheOrder2 {
-  max-width: 28% !important;
+  max-width: 25% !important;
   margin: 10px 2% 10px 0 !important;
+  order: 2;
+}
+
+.completeTheOrder3 {
+  max-width: 45% !important;
+  margin: 10px 2% 10px 0 !important;
+  order: 3;
 }
 
 .completeTheOrder h3 {
   margin: 0;
 }
 
-.completeTheOrder3 .acf-field .acf-label {
+.completeTheOrder2 .acf-field .acf-label {
   vertical-align: top;
   margin: 7px 0px 10px !important;
   font-size: 15px;

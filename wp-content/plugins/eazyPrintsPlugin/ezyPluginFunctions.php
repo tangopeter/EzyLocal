@@ -7,11 +7,14 @@ function doSomethingElse()
   // echo '</div>';
 }
 
-function function_alert($ORDER_NUMBER)
+function function_alert($message)
 {
-  // echo '<script>' .
-  //   'confirm("$ORDER_NUMBER");' .
-  //   '</script>';
+  // Display the alert box 
+  echo  '<script>
+    swal(  title: $message,
+ 
+    );
+  </script>';
 }
 
 function showUserDetails()
