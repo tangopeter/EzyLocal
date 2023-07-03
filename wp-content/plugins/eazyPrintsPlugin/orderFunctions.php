@@ -35,8 +35,13 @@ function completeTheOrder($ORDER_NUMBER)
   // if (!$existing) {
   //   return;
   // }
+  // $post_id = get_field('field_640d5fdec5c14', false, false);
+  // $values = get_fields($post_id);
 
-
+  $header_selection_id = get_field("field_640d5fdec5c14");
+  $post = get_post($header_selection_id);
+  global $post;
+  echo $post->ID;
 
   $thisItem1 = array();
 
@@ -80,6 +85,7 @@ function completeTheOrder($ORDER_NUMBER)
 
       // Costs
       $costs = array(
+        'print_cost' => get_field('print_cost', $current_user),
         'delivery_cost' => get_field('delivery_cost', $current_user),
         'subtotal' => get_field('subtotal', $current_user),
         'gst' => get_field('gst', $current_user),
@@ -116,7 +122,7 @@ function completeTheOrder($ORDER_NUMBER)
       'order_number' => $ORDER_NUMBER,
       'user' => get_current_user_id(),
       'date' => date('Y-m-d H:i:s'),
-      'order_status' => "tbp",
+      'order_status' => $post->ID,
       'user_details' => $thisUser,
       'costs' => $costs,
       'items' => $thisItem1

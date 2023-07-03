@@ -223,6 +223,22 @@ div.file_filelist {
   min-width: 70px;
 }
 
+#printCostTotalPrice,
+#deliveryCostPrice,
+#subtotalCostPrice,
+#gstCostPrice,
+#costsTotalPrice {
+  background: #d4fcfa;
+  text-align: right !important;
+  padding: 0 5px 0 5px !important;
+  font-size: 16px;
+  width: 70px !important;
+  min-width: 70px;
+  float: right;
+  font-weight: bold;
+}
+
+
 .acf-field.acf-field-select.acf-field-640d61d5084e4 {
   min-height: 115px;
 }

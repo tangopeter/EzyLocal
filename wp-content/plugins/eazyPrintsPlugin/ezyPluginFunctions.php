@@ -9,12 +9,6 @@ function doSomethingElse()
 
 function function_alert($message)
 {
-  // Display the alert box 
-  echo  '<script>
-    swal(  title: $message,
- 
-    );
-  </script>';
 }
 
 function showUserDetails()
@@ -28,22 +22,28 @@ function showUserDetails()
     'field_groups' => array(2786),
     'fields' => array('first_name', 'last_name', 'email', 'address', 'suburb', 'city', 'country', 'postcode', 'phone'),
     'return' => add_query_arg('updated', 'true', get_permalink()),
-    'submit_value'  => __('Update Profile')
+    'submit_value'  => __('Update your profile')
   ));
 }
 
 function showCostDetails()
-{
-  $current_user = wp_get_current_user();
-  acf_form(array(
-    'post_id' => $current_user,
-    'form' => true,
-    'form_attributes' => array(),
-    'post_title'    => false,
-    'field_groups' => array(2816),
-    'fields' => array('print_cost', 'delivery_cost', 'subtotal', 'gst', 'total', 'complete_order',),
-    // 'submit_value'  => __('Update meta')
-  ));
+{ ?>
+  <p>Print Cost:
+    <span class="printCostTotalPrice">0.00</span>
+  </p>
+  <p>Delivery Price:
+    <span class="deliveryCostPrice">0.00</span>
+  </p>
+  <p>Subtotal:
+    <span class="subtotalCostPrice">0.00</span>
+  </p>
+  <p>+GST:
+    <span class="gstCostPrice">0.00</span>
+  </p>
+  <p>Total Cost:
+    <span class="costsTotalPrice">0.00</span>
+  </p>
+<?php
 }
 
 function showDeliveryDetails()
@@ -57,6 +57,6 @@ function showDeliveryDetails()
     'field_groups' => array(2823),
     'fields' => array('delivery_method_and_details', 'rural_delivery', 'saturday_delivery', 'deliver_to_postal_address', 'postal_address', 'additional_instructions'),
     'return' => add_query_arg('updated', 'true', get_permalink()),
-    'submit_value'  => __('Update Delivery Details')
+    'submit_value'  => __('Update your delivery details')
   ));
 }

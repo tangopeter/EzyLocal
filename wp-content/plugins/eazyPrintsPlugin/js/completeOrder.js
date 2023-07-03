@@ -15,11 +15,31 @@ export function completeMyOrder() {
   let sd = (Number(0.00)).toFixed(2);
   let total = (Number(0.00)).toFixed(2);
 
+  let printCostTotal = (Number(0.00)).toFixed(2);
+  let deliveryCost = (Number(0.00)).toFixed(2);
+  let subtotalCost = (Number(0.00)).toFixed(2);
+  let gstCost = (Number(0.00)).toFixed(2);
+  let totalCost = (Number(0.00)).toFixed(2);
+
+
+
+
   const deliveryMethod = document.getElementById("acf-field_640d61d5084e4");
   const rural = document.getElementById("acf-field_640d61d5084ec");
   const saturday = document.getElementById("acf-field_640d61d508503");
   const toPostal = document.getElementById("acf-field_640d61d50850d");
 
+  const printPriceCost = document.getElementsByClassName("printCostTotalPrice");
+  const deliveryCostPrice = document.getElementsByClassName("deliveryCostPrice");
+  const subtotalCostPrice = document.getElementsByClassName("subtotalCostPrice");
+  const gstCostPrice = document.getElementsByClassName("gstCostPrice");
+  const costsTotalPrice = document.getElementsByClassName("costsTotalPrice");
+  
+  printPriceCost.textContent = printCostTotal;
+  deliveryCostPrice.textContent = deliveryCost;
+  subtotalCostPrice.textContent = subtotalCost;
+  gstCostPrice.textContent = gstCost;
+  costsTotalPrice.textContent = totalCost;
 
   deliveryMethod.addEventListener('change', getDeliveryMethod);
   rural.addEventListener('change', checkRuralDelivery);
@@ -30,7 +50,9 @@ export function completeMyOrder() {
   const ruralPrice = document.createElement("p");
   const saturdayPrice = document.createElement("p");
 
-  // Add a Delivery method Cost field
+
+
+    // Add a Delivery method Cost field
   deliveryMethodPrice.textContent = dm;
   deliveryMethodPrice.classList.add('delPriceMethod');
   deliveryMethod.insertAdjacentElement('afterEnd', deliveryMethodPrice);
@@ -47,10 +69,11 @@ export function completeMyOrder() {
   // get the print cost total and update 
   const printPrice = document.getElementById("totalPrintPrice");
   var pp = printPrice.textContent;
-  pp = (Number(pp).toFixed(2));
+  console.log(pp);
+  // pp = (Number(pp).toFixed(2));
   // printPriceCost.textContent = pp;
-  const printCost = document.getElementById("acf-field_640d5fdec5c14");
-  printCost.value = pp;
+  // const printCost = document.getElementById("printCostTotalPrice");
+  printPriceCost.value = (Number(printPrice).toFixed(2));
   updateOrderValue();
 
   // get the delivery method cost and update 
@@ -98,17 +121,18 @@ export function completeMyOrder() {
 }
 function updateOrderValue() {
   // Print Cost:
-  const printPrice = document.getElementById("totalPrintPrice");
+  const printPrice = document.getElementsByClassName("totalPrintPrice");
   var pp = printPrice.textContent;
   pp = (Number(pp).toFixed(2));
-  const printCost = document.getElementById("acf-field_640d5fdec5c14");
-  printCost.value = pp;
-  // var totalPrintCost = pp
+  console.log("pp: ", pp)
+  const printCostTotalPrice = document.getElementsByClassName("printCostTotalPrice");
+  // printCost.value = pp;
+  printCostTotalPrice.value = pp;
   // console.log('Print Cost: ', printCost.value);
 
-  const parentDOM = document.getElementById("deliveryCosts");
-  const deliveryMethodPrice = parentDOM.getElementsByClassName("delPriceMethod")[0].innerText;
-  // console.log('deliveryMethodPrice: ', deliveryMethodPrice);
+  const parentDOM = document.getElementsByClassName("deliveryCosts");
+  const deliveryMethodPrice = document.getElementsByClassName("delPriceMethod")[0].innerText;
+  console.log('deliveryMethodPrice: ', deliveryMethodPrice);
 
   const ruralPrice = parentDOM.getElementsByClassName("ruralPrice")[0].innerText;
   // console.log('Rural Cost: ', ruralPrice);
@@ -121,25 +145,26 @@ function updateOrderValue() {
     Number(ruralPrice) +
     Number(satPrice);
 
-  const totalDeliveryCost = acf.getField('field_640d604cc5c15');
-  totalDeliveryCost.val(deliveryTotal.toFixed(2));
+  const totalDeliveryCost = document.getElementById("deliveryCostPrice");
+  console.log('totalDeliveryCost: ', totalDeliveryCost);
+  totalDeliveryCost.value(deliveryTotal.toFixed(2));
   
   // console.log('printCost: ', typeof printCost.value);
-  // console.log('deliveryTotal: ', deliveryTotal);
+  console.log('deliveryTotal: ', deliveryTotal);
   // console.log('ruralPrice: ', ruralPrice);
   // console.log('satPrice: ', satPrice);
 
-  var pc = Number(printCost.value);
+  var pp = Number(pp);
   var dt = Number(deliveryTotal);
   var rp = Number(ruralPrice);
   var sp = Number(satPrice);
-  console.log('printCost: ', typeof pc, pc);
+  console.log('printCost: ', typeof pp, pp);
   console.log('deliveryTotal: ', typeof dt, dt);
   console.log('ruralPrice: ', typeof rp, rp);
   console.log('satPrice: ', typeof sp, sp);
 
   var orderSubTotal = 
-    pc + dt;
+    pp + dt;
   console.log('subTotal: ', Number(orderSubTotal).toFixed(2) );
   const orderSubTotalCost = acf.getField('field_641d71ff02321');
   orderSubTotalCost.val(orderSubTotal.toFixed(2));
