@@ -146,6 +146,23 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
+= 4.22.0 =
+* fixed warnings shown when opening the front-end file viewer's visual editor
+* added webcamselfile attribute in upload form shortcode so that webcam can work in parallel with file selection
+* added webcamswitch attribute in upload form shortcode to enable/disable camera switch button in webcam
+* added WFU_WEBCAMSWITCHMODE advanced variable attribute that defines the camera switch mode, 'side' for switching between front and rear cameras, 'device' for switching between available video devices
+* added WFU_MEDIARECORDER_MIMETYPE advanced variable attribute that defines a specific MIME type for webcam MediaRecorder
+* added webcambg attribute that defines the background color of the webcam capture box
+* webcam video width and height changed so that they correspond to ideal resolution of the camera
+* webcam capture feature improved so that screenshots have the camera's resolution
+* webcam playback of recorded video is now working on iOS devices
+* added extended support of webcam feature for mobile devices
+* several other code improvements in webcam feature
+* correction of bugs related to wfuca_update_option() function in alternative Iptanus server
+
+= 4.21.7 =
+* fixed bug in wfu_exclude_notifications_from_comments() which crashes the website when Woocommerce is present
+
 = 4.21.6 =
 * improved webcam operation on iOS devices
 * code modifications to hide WFU admin notifications from Comments Dashboard menu page
@@ -1078,6 +1095,12 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.22.0 =
+Regular update to introduce new features, code improvements and fix some bugs.
+
+= 4.21.7 =
+Urgent update to address some bugs.
 
 = 4.21.6 =
 Regular update to introduce some code improvements.

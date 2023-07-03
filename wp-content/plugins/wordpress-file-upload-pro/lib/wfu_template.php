@@ -3850,6 +3850,33 @@ div.wfu_file_webcam_off svg {
 	margin: 0;
 }
 
+div.wfu_file_webcam_wrapper {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: <?php echo $params["webcambg"] ?>;
+}
+
+div.wfu_file_webcam_image {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: <?php echo $params["webcambg"] ?>;
+}
+
+img.wfu_file_webcam_screenshot {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 div.wfu_file_webcam_nav_container {
 	position: relative;
 	border: none;
@@ -3889,6 +3916,11 @@ div.wfu_file_webcam_inner:hover div.wfu_stream_ready {
 	display: block;
 }
 
+svg.wfu_file_webcam_btn {
+	width: 22px;
+	height: 22px;
+}
+
 svg.wfu_file_webcam_btn, svg.wfu_file_webcam_btn_disabled {
 	float: left;
 	height: 100%;
@@ -3912,6 +3944,22 @@ svg.wfu_file_webcam_btn_onoff {
 }
 
 div.wfu_file_webcam_inner:hover svg.wfu_file_webcam_btn_onoff {
+	display: block;
+}
+
+svg.wfu_file_webcam_btn_switchcam {
+	fill: white;
+	position: absolute;
+	display: none;
+	height: 22px;
+	width: 22px;
+	top: 2px;
+	left: 2px;
+	padding: 0;
+	z-index: 1;
+}
+
+div.wfu_file_webcam_inner:hover svg.wfu_file_webcam_btn_switchcam {
 	display: block;
 }
 
@@ -4075,6 +4123,7 @@ svg.wfu_file_webcam_btn_picture {
  *  @method setVideoProperties sets various properties of the video element
  *  @method videoSize gets width and height of video
  *  @method readyState gets the ready state of the video element
+ *  @method updateImage updates the capture box image
  *  @method screenshot gets a screenshot of the video stream and saves it
  *  @method play runs when play button is pressed
  *  @method pause runs when pause button is pressed
@@ -4136,11 +4185,12 @@ this.initButtons = function(mode) {
  */
 this.updateStatus = function(status) {
 	var container = document.getElementById("webcam_$ID_inner");
+	var wrapper = document.getElementById("webcam_$ID_wrapper");
 	var video = document.getElementById("webcam_$ID_box");
 	var webcamoff = document.getElementById("webcam_$ID_webcamoff");
 	if (status == "idle") {
 		webcamoff.style.display = "none";
-		video.style.display = "block";
+		wrapper.style.display = "flex";
 		video.muted = true;
 	}
 	else if (status == "off") {
@@ -4155,8 +4205,7 @@ this.updateStatus = function(status) {
 		video.onerror = null;
 		video.load();
 		this.updateButtonStatus("hidden");
-		video.style.display = "none";
-		document.getElementById("webcam_$ID_screenshot").src = "";
+		wrapper.style.display = "none";
 		webcamoff.style.display = "block";
 	}
 	else if (status == "video_notsupported") {
@@ -4172,6 +4221,7 @@ this.updateStatus = function(status) {
  *  @return void
  */
 this.updateButtonStatus = function(status) {
+	var switchcam = document.getElementById("webcam_$ID_btn_switchcam");
 	var onoff = document.getElementById("webcam_$ID_btn_onoff");
 	var nav = document.getElementById("webcam_$ID_nav");
 	var vid = document.getElementById("webcam_$ID_btn_video");
@@ -4184,15 +4234,18 @@ this.updateButtonStatus = function(status) {
 	var fwd = document.getElementById("webcam_$ID_btn_fwd");
 	var tim = document.getElementById("webcam_$ID_btn_time");
 	var pic = document.getElementById("webcam_$ID_btn_picture");
+	var image = document.getElementById("webcam_$ID_image");
 	var screenshot = document.getElementById("webcam_$ID_screenshot");
 	var bar = pos.querySelector(".wfu_file_webcam_btn_bar");
 	var pointer = document.getElementById("webcam_$ID_btn_pointer");
 	var webcamOff = document.getElementById("webcam_$ID_webcamoff");
 	
+	if (switchcam) switchcam.style.display = "block";
 	onoff.style.display = "block";
 	//buttons are hidden
 	if (status == "hidden") {
 		nav.style.display = "none";
+		if (switchcam) switchcam.style.display = "none";
 	}
 	//video recording on progress
 	else if (status == "recording") {
@@ -4217,7 +4270,7 @@ this.updateButtonStatus = function(status) {
 		tim.style.display = "block";
 		tim.style.visibility = "visible";
 		pic.style.display = "none";
-		screenshot.style.display = "none";
+		image.style.display = "none";
 	}
 	//video recording finished
 	else if (status == "after_recording") {
@@ -4241,7 +4294,7 @@ this.updateButtonStatus = function(status) {
 		tim.style.display = "block";
 		tim.style.visibility = "hidden";
 		pic.style.display = "none";
-		screenshot.style.display = "block";
+		image.style.display = "flex";
 	}
 	//video is available for playback
 	else if (status == "ready_playback") {
@@ -4267,7 +4320,7 @@ this.updateButtonStatus = function(status) {
 		tim.style.display = "block";
 		tim.style.visibility = "visible";
 		pic.style.display = "none";
-		screenshot.style.display = "none";
+		image.style.display = "none";
 	}
 	//a screenshot has been captured
 	else if (status == "after_screenshot") {
@@ -4291,7 +4344,7 @@ this.updateButtonStatus = function(status) {
 		tim.style.display = "block";
 		tim.style.visibility = "hidden";
 		pic.style.display = "none";
-		screenshot.style.display = "block";
+		image.style.display = "flex";
 	}
 	//video playback on progress
 	else if (status == "playing") {
@@ -4317,23 +4370,24 @@ this.updateButtonStatus = function(status) {
 		tim.style.display = "block";
 		tim.style.visibility = "visible";
 		pic.style.display = "none";
-		screenshot.style.display = "none";
+		image.style.display = "none";
 	}
 	//redefine innerHTML for svgs, this is a fix for iOS devices to correctly
 	//load svgs
 	else if (status == "redefine") {
-		onoff.innerHTML = onoff.innerHTML;
-		vid.innerHTML = vid.innerHTML;
-		rec.innerHTML = rec.innerHTML;
-		play.innerHTML = play.innerHTML;
-		stop.innerHTML = stop.innerHTML;
-		pause.innerHTML = pause.innerHTML;
-		back.innerHTML = back.innerHTML;
-		fwd.innerHTML = fwd.innerHTML;
-		pic.innerHTML = pic.innerHTML;
-		bar.innerHTML = bar.innerHTML;
-		pointer.innerHTML = pointer.innerHTML;
-		webcamOff.innerHTML = webcamOff.innerHTML;
+		if (switchcam) switchcam.innerHTML = switchcam.innerHTML;
+		if (onoff) onoff.innerHTML = onoff.innerHTML;
+		if (vid) vid.innerHTML = vid.innerHTML;
+		if (rec) rec.innerHTML = rec.innerHTML;
+		if (play) play.innerHTML = play.innerHTML;
+		if (stop) stop.innerHTML = stop.innerHTML;
+		if (pause) pause.innerHTML = pause.innerHTML;
+		if (back) back.innerHTML = back.innerHTML;
+		if (fwd) fwd.innerHTML = fwd.innerHTML;
+		if (pic) pic.innerHTML = pic.innerHTML;
+		if (bar) bar.innerHTML = bar.innerHTML;
+		if (pointer) pointer.innerHTML = pointer.innerHTML;
+		if (webcamOff) webcamOff.innerHTML = webcamOff.innerHTML;
 	}
 	//idle status, waiting for video recording or screenshot capture
 	else {
@@ -4349,7 +4403,7 @@ this.updateButtonStatus = function(status) {
 		fwd.style.display = "none";
 		tim.style.display = "none";
 		pic.style.display = "none";
-		screenshot.style.display = "none";
+		image.style.display = "none";
 		if (status == "idle_only_video" || status == "idle_video_and_pictures") {
 			rec.style.display = "block";
 			rec.setAttribute("class", "wfu_file_webcam_btn wfu_file_webcam_btn_record");
@@ -4445,6 +4499,25 @@ this.readyState = function() {
 }
 
 /**
+ *  updates the image in the capture box
+ *  
+ *  This function updates the image in the capture box based on the file
+ *  parameter. If the file is not an image then it shows live feed.
+ *  
+ *  @return void
+ */
+this.updateImage = function(file) {
+	var screenshot = document.getElementById("webcam_$ID_screenshot");
+	var reader = new FileReader();
+	var obj = this;
+	reader.onload = function(e) {
+		screenshot.src = e.target.result;
+		obj.updateButtonStatus("after_screenshot");
+	}
+	reader.readAsDataURL(file);
+}
+
+/**
  *  gets a screenshot of the video stream and saves it
  *  
  *  This function gets a screenshot image of the current video stream and saves
@@ -4459,10 +4532,10 @@ this.screenshot = function(savefunc, image_type) {
 	var video = document.getElementById("webcam_$ID_box");
 	var canvas = document.getElementById("webcam_$ID_canvas");
 	var screenshot = document.getElementById("webcam_$ID_screenshot");
-	canvas.width = video.clientWidth;
-	canvas.height = video.clientHeight;
+	canvas.width = video.videoWidth;
+	canvas.height = video.videoHeight;
 	var ctx = canvas.getContext('2d');
-	ctx.drawImage(video, 0, 0, video.clientWidth, video.clientHeight);
+	ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
 	screenshot.src = canvas.toDataURL('image/webp');
 	if (savefunc != null) {
 		//the following commands will initialize toBlob function in case that it
@@ -4545,10 +4618,17 @@ this.ended = function() {
 	<div id="webcam_$ID_inner" class="wfu_file_webcam_inner">
 		<label id="webcam_$ID_notsupported" class="wfu_webcam_notsupported_label" style="display:none;"><?php echo WFU_ERROR_WEBCAM_NOTSUPPORTED; ?></label>
 		<img id="webcam_$ID_btns" src="<?php echo WFU_IMAGE_MEDIA_BUTTONS; ?>" style="display:none;" />
+<?php if ( $params["webcamswitch"] == "true" ): ?>
+		<svg viewBox="0 0 8 8" id="webcam_$ID_btn_switchcam" class="wfu_file_webcam_btn wfu_file_webcam_btn_switchcam" onclick="wfu_webcam_switch<?php echo ( WFU_VAR("WFU_WEBCAMSWITCHMODE") == "side" ? "" : "_devices" ) ?>($ID);" style="display:none;"><use xlink:href="#loop-circular"></use><rect width="8" height="8" fill="transparent"><title><?php echo WFU_WEBCAM_SWITCHCAM_BTN; ?></title></rect></svg>
+<?php endif ?>
 		<svg viewBox="0 0 8 8" id="webcam_$ID_btn_onoff" class="wfu_file_webcam_btn wfu_file_webcam_btn_onoff" onclick="wfu_webcam_onoff($ID);" style="display:none;"><use xlink:href="#power-standby"></use><rect width="8" height="8" fill="transparent"><title><?php echo WFU_WEBCAM_TURNONOFF_BTN; ?></title></rect></svg>
-		<img id="webcam_$ID_screenshot" style="display:none; position:absolute; width:100%; height:100%;" />
-		<canvas id="webcam_$ID_canvas" style="display:none;"></canvas>
-		<video playsinline autoplay="true" id="webcam_$ID_box" class="wfu_file_webcam_box"><?php echo WFU_ERROR_WEBCAM_NOTSUPPORTED; ?></video>
+		<div id="webcam_$ID_wrapper" class="wfu_file_webcam_wrapper">
+			<div id="webcam_$ID_image" class="wfu_file_webcam_image" style="display:none;">
+				<img id="webcam_$ID_screenshot" class="wfu_file_webcam_screenshot" onerror="wfu_webcam_screenshot_error($ID);" />
+				<canvas id="webcam_$ID_canvas" style="display:none;"></canvas>
+			</div>
+			<video playsinline autoplay="true" id="webcam_$ID_box" class="wfu_file_webcam_box"><?php echo WFU_ERROR_WEBCAM_NOTSUPPORTED; ?></video>
+		</div>
 		<div class="wfu_file_webcam_nav_container">
 			<div id="webcam_$ID_nav" class="wfu_file_webcam_nav wfu_rec_ready" style="display:none;">
 				<input id="webcam_$ID_btns_converted" type="hidden" value="" />

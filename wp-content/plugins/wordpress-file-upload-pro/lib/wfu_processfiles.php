@@ -188,11 +188,11 @@ function wfu_process_files($params, $method) {
 	}
 
 	/* if webcam uploads are enabled, then correct the filename */
-	if ( strpos($params["placements"], "webcam") !== false && $params["webcam"] == "true" ) {
+	if ( strpos($params["placements"], "webcam") !== false && $params["webcam"] == "true" && isset($_POST[$uploadedfile.'_isblob']) && $_POST[$uploadedfile.'_isblob'] == "1" ) {
 		$initial_file_name = $_FILES[$uploadedfile]['name'][0];
 		$dotfileext = wfu_fileext($initial_file_name, true);
 		$file_name = wfu_filename($initial_file_name);
-		if ( $file_name == "video" ) $file_name = $params["videoname"];
+		if ( $file_name == "videostream" ) $file_name = $params["videoname"];
 		else $file_name = $params["imagename"];
 		$search = array ('/%userid%/', '/%username%/', '/%blogid%/', '/%pageid%/', '/%pagetitle%/');	
 		$replace = array ($user_id, $user_login, $params['blogid'], $params['pageid'], sanitize_text_field(get_the_title($params['pageid'])));
@@ -205,7 +205,7 @@ function wfu_process_files($params, $method) {
 		//avoid directory traversal by using wfu_basename
 		$file_name = wfu_basename($file_name);
 		$_FILES[$uploadedfile]['name'][0] = $file_name.$dotfileext;
-	}	
+	}
 	
 	for ($i = 0; $i < $files_count; $i++) {
 		$chunk_data_ok = false;

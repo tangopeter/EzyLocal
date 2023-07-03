@@ -123,6 +123,7 @@ function wfu_component_definitions() {
 	);
 	
 	wfu_array_remove_nulls($components);
+	$components = array_values($components);
 
 	return $components;
 }
@@ -2066,9 +2067,24 @@ function wfu_attribute_definitions() {
 			"category"	=> "webcam",
 			"subcategory"	=> "Capture from Webcam (experimental)",
 			"parent"	=> "",
-			"dependencies"	=> array("webcammode", "audiocapture", "videowidth", "videoheight", "videoaspectratio", "videoframerate", "camerafacing", "maxrecordtime", "uploadmediabutton", "videoname", "imagename"),
+			"dependencies"	=> array("webcamselfile", "webcammode", "audiocapture", "videowidth", "videoheight", "videoaspectratio", "videoframerate", "camerafacing", "webcamswitch", "maxrecordtime", "uploadmediabutton", "videoname", "imagename", "webcambg"),
 			"variables"	=> null,
 			"help"		=> "This enables capturing of video or still pictures from the computer's webcam. It is experimental because it is not supported by all browsers yet."
+		),
+		array(
+			"name"		=> "Allow File Selection",
+			"attribute"	=> "webcamselfile",
+			"type"		=> "onoff",
+			"validator"	=> "onoff",
+			"listitems"	=> null,
+			"value"		=> WFU_VAR("WFU_WEBCAMSELFILE"),
+			"mode"		=> "free",
+			"category"	=> "webcam",
+			"subcategory"	=> "Capture from Webcam (experimental)",
+			"parent"	=> "webcam",
+			"dependencies"	=> null,
+			"variables"	=> null,
+			"help"		=> "When webcam mode is enabled, the user can only capture video or images from the webcam. If this attribute is enabled, the user can also select an image file using the Select File button. The selected file will be previewed in the capture box."
 		),
 		array(
 			"name"		=> "Capture Mode",
@@ -2176,6 +2192,21 @@ function wfu_attribute_definitions() {
 			"help"		=> "It defines if the front or back camera will be preferred (for mobile devices with 2 cameras). The plugin will try to match this setting depending on webcam capabilities."
 		),
 		array(
+			"name"		=> "Switch Camera Button",
+			"attribute"	=> "webcamswitch",
+			"type"		=> "onoff",
+			"validator"	=> "onoff",
+			"listitems"	=> null,
+			"value"		=> WFU_VAR("WFU_WEBCAMSWITCH"),
+			"mode"		=> "free",
+			"category"	=> "webcam",
+			"subcategory"	=> "Capture from Webcam (experimental)",
+			"parent"	=> "webcam",
+			"dependencies"	=> null,
+			"variables"	=> null,
+			"help"		=> "If enabled a button will show up at the top-left corner of the capture box, for switching between front and back camera."
+		),
+		array(
 			"name"		=> "Max Record Time",
 			"attribute"	=> "maxrecordtime",
 			"type"		=> "integer",
@@ -2189,6 +2220,21 @@ function wfu_attribute_definitions() {
 			"dependencies"	=> null,
 			"variables"	=> null,
 			"help"		=> "It defines the maximum time of video recording (in seconds). If it is set to -1, then there is no time limit."
+		),
+		array(
+			"name"		=> "Background Color",
+			"attribute"	=> "webcambg",
+			"type"		=> "color",
+			"validator"	=> "colors",
+			"listitems"	=> null,
+			"value"		=> WFU_VAR("WFU_WEBCAMBG"),
+			"mode"		=> "free",
+			"category"	=> "webcam",
+			"subcategory"	=> "Capture from Webcam (experimental)",
+			"parent"	=> "webcam",
+			"dependencies"	=> null,
+			"variables"	=> null,
+			"help"		=> "It defines the background color of the webcam capture box."
 		),
 		array(
 			"name"		=> "Custom CSS Editor",
@@ -2209,6 +2255,7 @@ function wfu_attribute_definitions() {
 	);
 	
 	wfu_array_remove_nulls($defs);
+	$defs = array_values($defs);
 	
 	/**
 	 * Customise List of Uploader Form Attributes.
@@ -2934,6 +2981,7 @@ function wfu_browser_attribute_definitions() {
 	);
 
 	wfu_array_remove_nulls($defs);
+	$defs = array_values($defs);
 
 	/**
 	 * Customise List of Front-End File Browser Attributes.

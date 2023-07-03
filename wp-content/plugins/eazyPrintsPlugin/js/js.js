@@ -27,7 +27,7 @@ switch (document.title)
     console.log("5 " + document.title);
     break;
   case 'Complete Order – Ezy Prints':
-    console.log("6 " + document.title);
+    // console.log("6 " + document.title);
     completeMyOrder();
     break;
   case 'My account – Ezy Prints':

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wordpress File Upload\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 20:18+0300\n"
-"PO-Revision-Date: 2023-05-28 20:18+0300\n"
+"POT-Creation-Date: 2023-07-03 11:57+0300\n"
+"PO-Revision-Date: 2023-07-03 11:57+0300\n"
 "Last-Translator: nickboss <info@iptanus.com>\n"
 "Language-Team: Iptanus Team <info@iptanus.com>\n"
 "Language: sv\n"
@@ -1178,82 +1178,86 @@ msgid "turn webcam on/off"
 msgstr "vända webcam på/av"
 
 #: lib/wfu_constants.php:266
+msgid "switch camera"
+msgstr ""
+
+#: lib/wfu_constants.php:267
 msgid "go live again"
 msgstr "gå live igen"
 
-#: lib/wfu_constants.php:267
+#: lib/wfu_constants.php:268
 msgid "end recording"
 msgstr "avsluta inspelning"
 
-#: lib/wfu_constants.php:268
+#: lib/wfu_constants.php:269
 msgid "play"
 msgstr "Spela"
 
-#: lib/wfu_constants.php:269
+#: lib/wfu_constants.php:270
 msgid "pause"
 msgstr "Paus"
 
-#: lib/wfu_constants.php:270
+#: lib/wfu_constants.php:271
 msgid "go to the beginning"
 msgstr "Gå till början"
 
-#: lib/wfu_constants.php:271
+#: lib/wfu_constants.php:272
 msgid "go to the end"
 msgstr "Gå till slutet"
 
-#: lib/wfu_constants.php:273
+#: lib/wfu_constants.php:274
 msgid "Wordpress File Upload Form"
 msgstr "WordPress filöverföringsformuläret"
 
-#: lib/wfu_constants.php:274
+#: lib/wfu_constants.php:275
 msgid "Wordpress File Upload plugin uploader for sidebars"
 msgstr "WordPress-fil ladda upp plugin uploader för sidofält"
 
-#: lib/wfu_constants.php:275
+#: lib/wfu_constants.php:276
 msgid "Upload Files"
 msgstr "Ladda upp filer"
 
-#: lib/wfu_functions.php:8236
+#: lib/wfu_functions.php:8264
 #, fuzzy
 #| msgid "Wordpress File Upload Form"
 msgid "Wordpress File Upload Consent Status"
 msgstr "WordPress filöverföringsformuläret"
 
-#: lib/wfu_functions.php:8239
+#: lib/wfu_functions.php:8267
 msgid "Consent Status"
 msgstr ""
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have given your consent to store personal data."
 msgstr ""
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have denied to store personal data."
 msgstr ""
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 #, fuzzy
 #| msgid "You are not allowed to download this file!"
 msgid "You have not answered to consent yet."
 msgstr "Du har inte tillgång till den här filen."
 
-#: lib/wfu_functions.php:8247
+#: lib/wfu_functions.php:8275
 msgid "Change status to"
 msgstr ""
 
-#: lib/wfu_functions.php:8249
+#: lib/wfu_functions.php:8277
 msgid "No change"
 msgstr ""
 
-#: lib/wfu_functions.php:8251 lib/wfu_functions.php:8259
+#: lib/wfu_functions.php:8279 lib/wfu_functions.php:8287
 msgid "Revoke Consent"
 msgstr ""
 
-#: lib/wfu_functions.php:8252 lib/wfu_functions.php:8256
+#: lib/wfu_functions.php:8280 lib/wfu_functions.php:8284
 msgid "Clear Consent"
 msgstr ""
 
-#: lib/wfu_functions.php:8255 lib/wfu_functions.php:8260
+#: lib/wfu_functions.php:8283 lib/wfu_functions.php:8288
 msgid "Give Consent"
 msgstr ""
 

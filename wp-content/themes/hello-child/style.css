@@ -223,11 +223,11 @@ div.file_filelist {
   min-width: 70px;
 }
 
-#printCostTotalPrice,
-#deliveryCostPrice,
-#subtotalCostPrice,
-#gstCostPrice,
-#costsTotalPrice {
+#printCostTotalPriceID,
+#deliveryCostPriceID,
+#subtotalCostPriceID,
+#gstCostPriceID,
+#costsTotalPriceID {
   background: #d4fcfa;
   text-align: right !important;
   padding: 0 5px 0 5px !important;

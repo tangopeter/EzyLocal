@@ -295,26 +295,20 @@ function wfu_enqueue_materialui_frontpage_scripts() {
 			// rule, and this way we can assign the css file to a layer.
 			if ( $shortcodeAtts['muioverridecssmethod'] == 'layers' ) {
 				$styles = $wp_styles->registered;
+				$layers = '@layer normal-styles, react-reset-styles, react-styles;';
 				foreach ( $styles as $key => $style ) {
-					if ( substr($styles[$key]->src, -4) == '.css' ) {
-						// notice that we do not close the layer block so that
-						// any other styles added by the theme can be included
-						$code = '@layer normal-styles, react-reset-styles, react-styles; @import url("'.$style->src.'") layer(normal-styles); @layer normal-styles { ';
-						$after = $wp_styles->get_data( $style->handle, 'after' );
-						if ( ! $after ) $after = array();
-						array_unshift($after , $code);
-						//array_push($after , ' } @layer normal-styles { ');
-						$wp_styles->add_data( $style->handle, 'after', $after );
-						$styles[$key]->src = WPFILEUPLOAD_DIR.'css/wordpress_file_upload_reset.css';
-					}
-					else {
-						$code = '@layer normal-styles, react-reset-styles, react-styles; @layer normal-styles { ';
-						$after = $wp_styles->get_data( $style->handle, 'after' );
-						if ( ! $after ) $after = array();
-						array_unshift($after , $code);
-						//array_push($after , ' }');
-						$wp_styles->add_data( $style->handle, 'after', $after );
-					}
+					$src_exists = is_string($styles[$key]->src);
+					// notice that we do not close the layer block so that
+					// any other styles added by the theme can be included
+					$code = $layers.' ';
+					if ( $src_exists ) $code .= '@import url("'.$style->src.'") layer(normal-styles); ';
+					$code .= '@layer normal-styles { ';
+					$after = $wp_styles->get_data( $style->handle, 'after' );
+					if ( ! $after ) $after = array();
+					array_unshift($after , $code);
+					//array_push($after , ' } @layer normal-styles { ');
+					$wp_styles->add_data( $style->handle, 'after', $after );
+					if ( $src_exists ) $styles[$key]->src = "";
 				}
 			}
 			// load React and Material UI libraries
@@ -662,14 +656,23 @@ function wordpress_file_upload_function($incomingfromhandler) {
 //		$params["singlebutton"] = "false";
 	}
 
+	/* in case of no-AJAX uploads webcam is not supported */
+	if ( $params['forceclassic'] == "true" ) {
+		$params["placements"] = wfu_placements_remove_item($params["placements"], "webcam");
+	}
 	/* in case that webcam is activated, then some elements related to file
 	   selection need to be removed */
-	if ( strpos($params["placements"], "webcam") !== false && $params["webcam"] == "true" ) {
+	if ( strpos($params["placements"], "webcam") !== false && $params["webcam"] == "true" && $params["webcamselfile"] == "false" ) {
 		$params["placements"] = wfu_placements_remove_item($params["placements"], "filename");
 		$params["placements"] = wfu_placements_remove_item($params["placements"], "selectbutton");
 		$params["singlebutton"] = "false";
 		$params["placements"] = wfu_placements_remove_item($params["placements"], "filelist");
 		$params["dragdrop"] = false;
+		$params["uploadbutton"] = $params["uploadmediabutton"];
+	}
+	elseif ( strpos($params["placements"], "webcam") !== false && $params["webcam"] == "true" && $params["webcamselfile"] == "true" ) {
+		$params["singlebutton"] = "false";
+		$params["multiple"] = "false";
 		$params["uploadbutton"] = $params["uploadmediabutton"];
 	}
 

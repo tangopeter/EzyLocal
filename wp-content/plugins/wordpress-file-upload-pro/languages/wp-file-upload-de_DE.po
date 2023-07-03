@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wordpress File Upload\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 20:13+0300\n"
-"PO-Revision-Date: 2023-05-28 20:13+0300\n"
+"POT-Creation-Date: 2023-07-03 11:50+0300\n"
+"PO-Revision-Date: 2023-07-03 11:50+0300\n"
 "Last-Translator: nickboss <info@iptanus.com>\n"
 "Language-Team: Iptanus Team <info@iptanus.com>\n"
 "Language: de_DE\n"
@@ -1162,79 +1162,83 @@ msgid "turn webcam on/off"
 msgstr ""
 
 #: lib/wfu_constants.php:266
-msgid "go live again"
+msgid "switch camera"
 msgstr ""
 
 #: lib/wfu_constants.php:267
-msgid "end recording"
+msgid "go live again"
 msgstr ""
 
 #: lib/wfu_constants.php:268
-msgid "play"
+msgid "end recording"
 msgstr ""
 
 #: lib/wfu_constants.php:269
-msgid "pause"
+msgid "play"
 msgstr ""
 
 #: lib/wfu_constants.php:270
-msgid "go to the beginning"
+msgid "pause"
 msgstr ""
 
 #: lib/wfu_constants.php:271
+msgid "go to the beginning"
+msgstr ""
+
+#: lib/wfu_constants.php:272
 msgid "go to the end"
 msgstr ""
 
-#: lib/wfu_constants.php:273
+#: lib/wfu_constants.php:274
 msgid "Wordpress File Upload Form"
 msgstr "Wordpress Datei Upload Formular"
 
-#: lib/wfu_constants.php:274
+#: lib/wfu_constants.php:275
 msgid "Wordpress File Upload plugin uploader for sidebars"
 msgstr "Wordpress Datei Upload Plugin Uploader für Seitenleisten"
 
-#: lib/wfu_constants.php:275
+#: lib/wfu_constants.php:276
 msgid "Upload Files"
 msgstr "Dateien hochladen"
 
-#: lib/wfu_functions.php:8236
+#: lib/wfu_functions.php:8264
 msgid "Wordpress File Upload Consent Status"
 msgstr "Wordpress File Upload Zustimmungsstatus"
 
-#: lib/wfu_functions.php:8239
+#: lib/wfu_functions.php:8267
 msgid "Consent Status"
 msgstr ""
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have given your consent to store personal data."
 msgstr ""
 "Sie haben Ihre Einwilligung zur Speicherung personenbezogener Daten erteilt."
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have denied to store personal data."
 msgstr "Sie haben die Speicherung personenbezogener Daten verweigert."
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have not answered to consent yet."
 msgstr "Sie haben noch nicht auf die Einwilligung geantwortet."
 
-#: lib/wfu_functions.php:8247
+#: lib/wfu_functions.php:8275
 msgid "Change status to"
 msgstr ""
 
-#: lib/wfu_functions.php:8249
+#: lib/wfu_functions.php:8277
 msgid "No change"
 msgstr ""
 
-#: lib/wfu_functions.php:8251 lib/wfu_functions.php:8259
+#: lib/wfu_functions.php:8279 lib/wfu_functions.php:8287
 msgid "Revoke Consent"
 msgstr ""
 
-#: lib/wfu_functions.php:8252 lib/wfu_functions.php:8256
+#: lib/wfu_functions.php:8280 lib/wfu_functions.php:8284
 msgid "Clear Consent"
 msgstr ""
 
-#: lib/wfu_functions.php:8255 lib/wfu_functions.php:8260
+#: lib/wfu_functions.php:8283 lib/wfu_functions.php:8288
 msgid "Give Consent"
 msgstr ""
 

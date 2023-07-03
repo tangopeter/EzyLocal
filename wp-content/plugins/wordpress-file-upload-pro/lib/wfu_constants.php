@@ -254,6 +254,7 @@ function wfu_initialize_i18n_strings() {
 	DEFINE("WFU_WEBCAM_RECVIDEO_BTN", __('record video', 'wp-file-upload'));
 	DEFINE("WFU_WEBCAM_TAKEPIC_BTN", __('take a picture', 'wp-file-upload'));
 	DEFINE("WFU_WEBCAM_TURNONOFF_BTN", __('turn webcam on/off', 'wp-file-upload'));
+	DEFINE("WFU_WEBCAM_SWITCHCAM_BTN", __('switch camera', 'wp-file-upload'));
 	DEFINE("WFU_WEBCAM_GOLIVE_BTN", __('go live again', 'wp-file-upload'));
 	DEFINE("WFU_WEBCAM_STOPREC_BTN", __('end recording', 'wp-file-upload'));
 	DEFINE("WFU_WEBCAM_PLAY_BTN", __('play', 'wp-file-upload'));
@@ -321,6 +322,7 @@ $GLOBALS["WFU_GLOBALS"] = array(
 	"WFU_MEDIALINK" => array( "Default Add to Media State", "string", "false", "The default state for adding files to Media of the uploader shortcode. It can be 'true' or 'false'." ),
 	"WFU_POSTLINK" => array( "Default Attachment to Post State", "string", "false", "The default state for attaching files to current post of the uploader shortcode. It can be 'true' or 'false'." ),
 	"WFU_WEBCAM" => array( "Default Webcam State", "string", "false", "The default state for webcam capture. It can be 'true' or 'false'." ),
+	"WFU_WEBCAMSELFILE" => array( "Default Allow File Selection", "string", "false", "The default state for allowing file selection when webcam is active. It can be 'true' or 'false'." ),
 	"WFU_AUDIOCAPTURE" => array( "Default Capture Audio State", "string", "false", "The default state of audio capture. If it is set to 'true' then audio will be captured, together with video from the webcam. It can be 'true' or 'false'." ),
 	"WFU_WEBCAMMODE" => array( "Default Webcam Mode", "string", "capture video", "The default webcam capture mode. It can be 'capture video', 'take photos' or 'both'." ),
 	"WFU_VIDEOWIDTH" => array( "Default Video Width", "string", "", "The default preferable video width for webcam capture. It can be any positive integer in pixels." ),
@@ -328,7 +330,9 @@ $GLOBALS["WFU_GLOBALS"] = array(
 	"WFU_VIDEOASPECTRATIO" => array( "Default Video Aspect Ratio", "string", "", "The default preferable video aspect ratio for webcam video capture. It can be any positive value." ),
 	"WFU_VIDEOFRAMERATE" => array( "Default Video Frame Rate", "string", "", "The default preferable video frame rate for webcam video capture. It can be any positive value in frames/sec." ),
 	"WFU_CAMERAFACING" => array( "Default Camera Facing Mode", "string", "any", "The default preferable camera to be used for video/screenshot capture. It can be 'any', 'front' or 'back'." ),
+	"WFU_WEBCAMSWITCH" => array( "Default Switch Camera Button State", "string", "false", "The default state of the switch camera button. It can be 'true' or 'false'." ),
 	"WFU_MAXRECORDTIME" => array( "Default Maximum Record Time", "string", "10", "The default maximum video recording time in seconds. The default value is 10 seconds." ),
+	"WFU_WEBCAMBG" => array( "Default Webcam Background Color", "string", "#000000", "The default webcam capture box background color. The default is black." ),
 	"WFU_ASKCONSENT" => array( "Default Ask Consent State", "string", "false", "The default state of personal data consent request. The default value is false." ),
 	"WFU_PERSONALDATATYPES" => array( "Default Personal Data Types", "string", "userdata", "The default personal data types. The default value is 'userdata'." ),
 	"WFU_NOTREMEMBERCONSENT" => array( "Default Do Not Remember Consent Answer State", "string", "false", "The default state about remembering or not user's answer on consent question. The default value is true." ),
@@ -485,6 +489,8 @@ $GLOBALS["WFU_GLOBALS"] += array(
 	"WFU_NOTIFICATIONS_BARMENU" => array( "Notifications Toolbar Menu State", "string", "true", "Defines whether the Notifications Toolbar (Admin Bar) menu item will be shown or not. It can be 'true' or 'false'." ),
 	"WFU_NOTIFICATIONS_NR_THRESHOLD" => array( "Notifications Non-Repeating Threshold", "integer", 3600, "Defines the time in seconds, after which a non-repeating notification can be added again." ),
 	"WFU_MUIHTMLFONTSIZE" => array( "Material UI HTML Font Size", "string", "adjust", "Defines the HTML font size, based on which the Material UI components' rem value is calculated. It can be 'adjust' (React will try to adjust the HTML font size so that it is always 16px), 'initial' (React will do no change) or a font size in pixels." ),
+	"WFU_WEBCAMSWITCHMODE" => array( "Webcam Switch Camera Mode", "string", "side", "Defines the switch camera mode. It can be 'side' (switch between front and rear camera) or 'device' (switch between available video devices)." ),
+	"WFU_MEDIARECORDER_MIMETYPE" => array( "Webcam MediaRecorder MIME Type", "string", "", "Defines the webcam MediaRecorder MIME Type. If it is empty then it will be auto-selected." ),
 );
 //additional other plugin values
 $GLOBALS["WFU_GLOBALS"] += array(
@@ -686,7 +692,8 @@ function wfu_set_javascript_constants() {
 		"wfu_pageexit_prompt" => WFU_PAGEEXIT_PROMPT,
 		"wfu_subdir_typedir" => WFU_SUBDIR_TYPEDIR,
 		"wfu_uploadprogress_mode" => WFU_VAR("WFU_UPLOADPROGRESS_MODE"),
-		"wfu_consent_notcompleted" => WFU_WARNING_CONSENT_NOTCOMPLETED
+		"wfu_consent_notcompleted" => WFU_WARNING_CONSENT_NOTCOMPLETED,
+		"wfu_mediarecorder_mimetype" => WFU_VAR("WFU_MEDIARECORDER_MIMETYPE")
 	);
 	$consts_additional = array(
 		"captchamessage_nochallenge" => WFU_ERROR_CAPTCHA_NOCHALLENGE,

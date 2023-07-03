@@ -29,19 +29,19 @@ function showUserDetails()
 function showCostDetails()
 { ?>
   <p>Print Cost:
-    <span class="printCostTotalPrice">0.00</span>
+    <span id="printCostTotalPriceID">0.00</span>
   </p>
   <p>Delivery Price:
-    <span class="deliveryCostPrice">0.00</span>
+    <span id="deliveryCostPriceID">0.00</span>
   </p>
   <p>Subtotal:
-    <span class="subtotalCostPrice">0.00</span>
+    <span id="subtotalCostPriceID">0.00</span>
   </p>
   <p>+GST:
-    <span class="gstCostPrice">0.00</span>
+    <span id="gstCostPriceID">0.00</span>
   </p>
   <p>Total Cost:
-    <span class="costsTotalPrice">0.00</span>
+    <span id="costsTotalPriceID">0.00</span>
   </p>
 <?php
 }

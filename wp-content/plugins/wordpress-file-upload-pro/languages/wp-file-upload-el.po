@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wordpress File Upload\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 20:14+0300\n"
-"PO-Revision-Date: 2023-05-28 20:15+0300\n"
+"POT-Creation-Date: 2023-07-03 11:52+0300\n"
+"PO-Revision-Date: 2023-07-03 11:53+0300\n"
 "Last-Translator: nickboss <info@iptanus.com>\n"
 "Language-Team: Iptanus Team <info@iptanus.com>\n"
 "Language: el\n"
@@ -1195,78 +1195,82 @@ msgid "turn webcam on/off"
 msgstr "ενεργοποίηση/απενεργοποίηση κάμερας"
 
 #: lib/wfu_constants.php:266
+msgid "switch camera"
+msgstr "αλλαγή κάμερας"
+
+#: lib/wfu_constants.php:267
 msgid "go live again"
 msgstr "επιστροφή σε ζωντανή λήψη"
 
-#: lib/wfu_constants.php:267
+#: lib/wfu_constants.php:268
 msgid "end recording"
 msgstr "τέλος εγγραφής"
 
-#: lib/wfu_constants.php:268
+#: lib/wfu_constants.php:269
 msgid "play"
 msgstr "αναπαραγωγή"
 
-#: lib/wfu_constants.php:269
+#: lib/wfu_constants.php:270
 msgid "pause"
 msgstr "παύση"
 
-#: lib/wfu_constants.php:270
+#: lib/wfu_constants.php:271
 msgid "go to the beginning"
 msgstr "μετάβαση στην αρχή"
 
-#: lib/wfu_constants.php:271
+#: lib/wfu_constants.php:272
 msgid "go to the end"
 msgstr "μετάβαση στο τέλος"
 
-#: lib/wfu_constants.php:273
+#: lib/wfu_constants.php:274
 msgid "Wordpress File Upload Form"
 msgstr "Φόρμα του Wordpress File Upload"
 
-#: lib/wfu_constants.php:274
+#: lib/wfu_constants.php:275
 msgid "Wordpress File Upload plugin uploader for sidebars"
 msgstr "Αποστολή αρχείων με το Wordpress File Upload plugin για sidebars"
 
-#: lib/wfu_constants.php:275
+#: lib/wfu_constants.php:276
 msgid "Upload Files"
 msgstr "Αποστολή αρχείων"
 
-#: lib/wfu_functions.php:8236
+#: lib/wfu_functions.php:8264
 msgid "Wordpress File Upload Consent Status"
 msgstr "Κατάσταση Συναίνεσης του Wordpress File Upload"
 
-#: lib/wfu_functions.php:8239
+#: lib/wfu_functions.php:8267
 msgid "Consent Status"
 msgstr "Κατάσταση Συναίνεσης"
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have given your consent to store personal data."
 msgstr "Δώσατε τη συναίνεσή σας για αποθήκευση προσωπικών δεδομένων."
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have denied to store personal data."
 msgstr "Δε συμφωνήσατε στην αποθήκευση προσωπικών δεδομένων."
 
-#: lib/wfu_functions.php:8241
+#: lib/wfu_functions.php:8269
 msgid "You have not answered to consent yet."
 msgstr "Δεν έχετε απαντήσει στην ερώτηση συναίνεσης ακόμα."
 
-#: lib/wfu_functions.php:8247
+#: lib/wfu_functions.php:8275
 msgid "Change status to"
 msgstr "Αλλαγή κατάστασης σε"
 
-#: lib/wfu_functions.php:8249
+#: lib/wfu_functions.php:8277
 msgid "No change"
 msgstr "Καμία αλλαγή"
 
-#: lib/wfu_functions.php:8251 lib/wfu_functions.php:8259
+#: lib/wfu_functions.php:8279 lib/wfu_functions.php:8287
 msgid "Revoke Consent"
 msgstr "Ακύρωση Συναίνεσης"
 
-#: lib/wfu_functions.php:8252 lib/wfu_functions.php:8256
+#: lib/wfu_functions.php:8280 lib/wfu_functions.php:8284
 msgid "Clear Consent"
 msgstr "Καθαρισμός Συναίνεσης"
 
-#: lib/wfu_functions.php:8255 lib/wfu_functions.php:8260
+#: lib/wfu_functions.php:8283 lib/wfu_functions.php:8288
 msgid "Give Consent"
 msgstr "Παροχή Συναίνεσης"
 
