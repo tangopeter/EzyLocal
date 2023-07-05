@@ -85,11 +85,11 @@ function completeTheOrder($ORDER_NUMBER)
 
       // Costs
       $costs = array(
-        'print_cost' => get_field('print_cost', $current_user),
-        'delivery_cost' => get_field('delivery_cost', $current_user),
-        'subtotal' => get_field('subtotal', $current_user),
-        'gst' => get_field('gst', $current_user),
-        'total' => get_field('total', $current_user)
+        // 'print_cost' => get_field('print_cost', $current_user),
+        // 'delivery_cost' => get_field('delivery_cost', $current_user),
+        // 'subtotal' => get_field('subtotal', $current_user),
+        // 'gst' => get_field('gst', $current_user),
+        // 'total' => get_field('total', $current_user)
       );
       $costs = json_encode($costs, JSON_PRETTY_PRINT);
       // echo '<pre> upload1:' . $upload1 . '</pre>';
