@@ -65,7 +65,7 @@ $current_user_ID = get_current_user_id();
     completeTheOrder($ORDER_NUMBER);
   ?>
     <script>
-      window.location.href = 'https://ezylocal:8890/?page_id=2572';
+      // window.location.href = 'https://ezylocal:8890/?page_id=2572';
     </script>
   <?php
   }
