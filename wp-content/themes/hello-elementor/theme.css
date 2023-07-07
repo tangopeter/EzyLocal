@@ -325,8 +325,8 @@
   flex-direction: column;
   padding-block-start: 30px;
   padding-block-end: 30px;
-  padding-inline-start: 0;
-  padding-inline-end: 60px;
+  padding-inline-start: 60px;
+  padding-inline-end: 0;
   border-block-end: 1px solid #cccccc;
 }
 #comments .comment .avatar,
@@ -336,7 +336,8 @@
   border-radius: 50%;
   margin-inline-end: 10px;
 }
-body.rtl #comments .comment .avatar,
+html[dir=rtl] #comments .comment .avatar, body.rtl #comments .comment .avatar,
+html[dir=rtl] #comments .pingback .avatar,
 body.rtl #comments .pingback .avatar {
   left: auto;
   right: 0;
@@ -372,7 +373,7 @@ body.rtl #comments .pingback .avatar {
   left: 0;
   width: auto;
 }
-body.rtl #comments ol.comment-list .children:before {
+html[dir=rtl] #comments ol.comment-list .children:before, body.rtl #comments ol.comment-list .children:before {
   content: "↩";
   left: auto;
   right: 0;
@@ -395,7 +396,7 @@ body.rtl #comments ol.comment-list .children:before {
     position: inherit;
     float: left;
   }
-  body.rtl #comments .comment .avatar {
+  html[dir=rtl] #comments .comment .avatar, body.rtl #comments .comment .avatar {
     float: right;
   }
 }

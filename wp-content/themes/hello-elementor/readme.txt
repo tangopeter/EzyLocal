@@ -3,8 +3,8 @@
 Contributors: elemntor, KingYes, ariel.k, jzaltzberg, mati1000, bainternet
 Requires at least: 5.9
 Tested up to: 6.2
-Stable tag: 2.8.0
-Version: 2.8.0
+Stable tag: 2.8.1
+Version: 2.8.1
 Requires PHP: 7.0
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,10 @@ License: CC0 1.0 Universal (CC0 1.0)
 Source: https://stocksnap.io/photo/4B83RD7BV9
 
 == Changelog ==
+
+= 2.8.1 - 2023-07-05 =
+* Tweak: Added additional CSS selectors to apply RTL on comments
+* Fix: Comment area style regression
 
 = 2.8.0 - 2023-07-04 =
 * Tweak: Update `Requires PHP 7.0`
