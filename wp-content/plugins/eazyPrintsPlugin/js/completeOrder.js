@@ -29,10 +29,10 @@ export function completeMyOrder() {
   const printPrice = document.getElementById("totalPrintPrice");
 
 
-  const deliveryCostPrice = document.getElementsByClassName("deliveryCostPrice");
-  const subtotalCostPrice = document.getElementsByClassName("subtotalCostPrice");
-  const gstCostPrice = document.getElementsByClassName("gstCostPrice");
-  const costsTotalPrice = document.getElementsByClassName("costsTotalPrice");
+  // const deliveryCostPrice = document.getElementsByClassName("deliveryCostPrice");
+  // const subtotalCostPrice = document.getElementsByClassName("subtotalCostPrice");
+  // const gstCostPrice = document.getElementsByClassName("gstCostPrice");
+  // const costsTotalPrice = document.getElementsByClassName("costsTotalPrice");
 
 
 
@@ -116,18 +116,19 @@ function updateOrderValue() {
   // !Print Cost:
 
   const printPrice = document.getElementById("totalPrintPrice").textContent;
-  const printCostTotalPrice = document.getElementById("printCostTotalPriceID");
   console.log("print Price: ", printPrice);
-  console.log(printCostTotalPrice.textContent);
+
+  const printCostTotalPrice = document.getElementById("printCostTotalPriceID");
+  // console.log(printCostTotalPrice);
   updateNumberWFUField1(printCostTotalPrice, printPrice);
 
-  const deliveryMethodPrice = document.getElementsByClassName("delPriceMethod")[0].innerText;
+  const deliveryMethodPrice = document.getElementsByClassName("delPriceMethod")[0].textContent;
   console.log('deliveryMethodPrice: ', deliveryMethodPrice);
 
-  const ruralPrice = document.getElementsByClassName("ruralPrice")[0].innerText;
+  const ruralPrice = document.getElementsByClassName("ruralPrice")[0].textContent;
   // console.log('Rural Cost: ', ruralPrice);
 
-  const satPrice = document.getElementsByClassName("satPrice")[0].innerText;
+  const satPrice = document.getElementsByClassName("satPrice")[0].textContent;
   // console.log('Sat Cost: ', satPrice);
 
   var deliveryTotal =
@@ -136,7 +137,7 @@ function updateOrderValue() {
     Number(satPrice);
 
   const totalDeliveryCost = document.getElementById("deliveryCostPriceID");
-  console.log('totalDeliveryCost: ', totalDeliveryCost);
+  // console.log('totalDeliveryCost: ', totalDeliveryCost);
   deliveryTotal = deliveryTotal.toFixed(2);
   updateNumberWFUField1(deliveryCostPriceID, deliveryTotal)
 

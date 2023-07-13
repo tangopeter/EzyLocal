@@ -8,21 +8,24 @@
  **/
 ?>
 <?php
+wp_enqueue_script('jquery');
+
 include_once 'ezyUpdateDB.php';
 include_once 'orderFunctions.php';
 include_once 'ezyDrawTables.php';
 include_once 'ezyPluginFunctions.php';
 include_once 'ezyDBfunctions.php';
 include_once 'ajax.php';
+include_once 'completeOrder.php';
 
 // Custom script with no dependencies, enqueued in the header 
 // https://developer.wordpress.org/reference/functions/plugin_dir_url/
 function my_scripts()
 {
-  wp_register_script('acf', plugin_dir_url(__FILE__) . '/assets/build/js/acf-input.js', array('acf-input'));
-  wp_enqueue_script('acf');
   wp_register_script('start', plugin_dir_url(__FILE__) . '/js/js.js', array('jquery'), null, true);
   wp_enqueue_script('start');
+  wp_register_script('acf', plugin_dir_url(__FILE__) . '/assets/build/js/acf-input.js', array('acf-input'));
+  wp_enqueue_script('acf');
 }
 add_action('wp_enqueue_scripts', 'my_scripts');
 

@@ -28,38 +28,9 @@ function doesThisOrderExist($ORDER_NUMBER)
 
 function completeTheOrder($ORDER_NUMBER)
 {
+  echo "completeTheOrder($ORDER_NUMBER)";
 ?>
-  <script type="text/javascript">
-    const printPrice = document.getElementById("totalPrintPrice").textContent;
-    const printCostTotalPrice = document.getElementById('printCostTotalPriceID');
-    console.log("print Price: ", printPrice);
-    console.log("printCostTotalPrice: ", printCostTotalPrice.textContent);
-    const subtotalCostPrice = document.getElementById("subtotalCostPriceID").textContent;
-    const gstCostPrice = document.getElementById("gstCostPriceID").textContent;
-    const costsTotalPrice = document.getElementById("costsTotalPriceID").textContent;
 
-    const costsArray = [printPrice, deliveryCostPrice, subtotalCostPrice, gstCostPrice, costsTotalPrice];
-    console.log(costsArray);
-
-    jQuery(document).ready(function($) {
-      // var test = '75'
-      // // console.log(test)
-
-      $.ajax({
-        url: "https://ezylocal:8890/wp-admin/admin-ajax.php",
-        data: {
-          'action': 'php_tutorial',
-          'printPrice': printPrice,
-          'deliveryCostPrice': deliveryCostPrice
-
-        },
-        success: function(data) {
-          console.log("happy")
-        }
-      });
-
-    });
-  </script>
 
 
 

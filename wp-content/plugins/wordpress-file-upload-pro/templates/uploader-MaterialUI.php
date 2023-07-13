@@ -1030,7 +1030,7 @@ this.isLocked = function() {
  */
 this.core = function() {
 	var noAccount = this.type.endsWith("(no account)");
-	var dom = (<?php echo ( $params["muioverridecssmethod"] == 'shadow-dom' ? 'true' : 'false' ); ?> && noAccount ? document.getElementById('wordpress_file_upload_block_$ID').dom : document);
+	var dom = (<?php echo ( $params["muioverridecssmethod"] == 'shadow-dom' ? 'false' : 'true' ); ?> || !noAccount ? document : document.getElementById('wordpress_file_upload_block_$ID').dom);
 	if (this.type == "RecaptchaV1") return dom.getElementById("recaptcha_$ID_div");
 	else if (this.type == "RecaptchaV1 (no account)") return dom.getElementById("captcha_$ID_frame");
 	else if (this.type == "RecaptchaV2") return dom.getElementById("recaptcha_$ID_div");

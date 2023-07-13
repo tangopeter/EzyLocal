@@ -146,6 +146,10 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
+= 4.22.1 =
+* fixed bug in WFU.captcha.core() function that was breaking upload form in block themes when Material UI was activated
+* fixed bug in wfu_webcam_update_preview() function that was breaking upload form when uploadid was greater than 1
+
 = 4.22.0 =
 * fixed warnings shown when opening the front-end file viewer's visual editor
 * added webcamselfile attribute in upload form shortcode so that webcam can work in parallel with file selection
@@ -1095,6 +1099,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.22.1 =
+Regular update to fix some bugs.
 
 = 4.22.0 =
 Regular update to introduce new features, code improvements and fix some bugs.

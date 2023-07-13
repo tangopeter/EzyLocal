@@ -27,23 +27,7 @@ function showUserDetails()
 }
 
 function showCostDetails()
-{ ?>
-  <p>Print Cost:
-    <span id="printCostTotalPriceID"></span>
-  </p>
-  <p>Delivery Price:
-    <span id="deliveryCostPriceID"></span>
-  </p>
-  <p>Subtotal:
-    <span id="subtotalCostPriceID"></span>
-  </p>
-  <p>+GST:
-    <span id="gstCostPriceID"></span>
-  </p>
-  <p>Total Cost:
-    <span id="costsTotalPriceID"></span>
-  </p>
-<?php
+{
 }
 
 function showDeliveryDetails()

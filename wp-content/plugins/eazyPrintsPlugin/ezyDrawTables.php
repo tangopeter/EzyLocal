@@ -106,12 +106,8 @@ function drawAccountOrderTable($ORDER_NUMBER)
     $thisUser = $user->user_details;
     $thisUser = json_decode($user->user_details);
 
-
-
-
     $items = $user->items;
     // $items = json_decode($user->items);
-
 
     // foreach ($items as $item) :
     //   'File: <strong>' . $item->file_name . '</strong><br/>' .

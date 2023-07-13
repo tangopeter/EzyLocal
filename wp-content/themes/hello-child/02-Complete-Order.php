@@ -8,6 +8,7 @@
  * Template Post Type: page
  */
 
+
 ?>
 
 <head>
@@ -20,6 +21,7 @@
 <?php
 $ORDER_NUMBER = get_option('ORDER_NUMBER');
 $current_user_ID = get_current_user_id();
+
 ?>
 
 <main id=" content" <?php post_class('site-main'); ?> role="main">
@@ -45,7 +47,22 @@ $current_user_ID = get_current_user_id();
 
       <div class="completeTheOrder completeTheOrder2">
         <h3>Costs:</h3>
-        <?php showCostDetails(); ?>
+        <p>Print Cost:
+          <span id="printCostTotalPriceID">$0.00</span>
+        </p>
+        <p>Delivery Price:
+          <span id="deliveryCostPriceID">0</span>
+        </p>
+        <p>Subtotal:
+          <span id="subtotalCostPriceID">0</span>
+        </p>
+        <p>+GST:
+          <span id="gstCostPriceID">0</span>
+        </p>
+        <p>Total Cost:
+          <span id="costsTotalPriceID">0</span>
+        </p>
+
       </div>
 
       <div class="completeTheOrder completeTheOrder3">
@@ -61,21 +78,28 @@ $current_user_ID = get_current_user_id();
   <?php
   echo '<div class="myDiv2">';
 
-  if (isset($_POST['btn-complete2'])) {
-    completeTheOrder($ORDER_NUMBER);
   ?>
-    <script>
-      // window.location.href = 'https://ezylocal:8890/?page_id=2572';
-    </script>
-  <?php
-  }
-  ?>
-  <form method="post">
-    <input type="submit" name="btn-complete2" value="Finalize this order">
-  </form>
+  <button onclick="welcome()"> Finalize this order xx</button>
 
-  </div>
+  <script>
+    function welcome() {
+      $.ajax({
+        url: "completeOrder.php", //containing a php function
+        type: "get",
+        dataType: 'html',
+        success: function(result) {
+          alert(result);
+        }
+      });
+    }
+  </script>
+  }
+  <!--// completeTheOrder($ORDER_NUMBER);
+  // window.location.href = 'https://ezylocal:8890/?page_id=2572';-->
+
 
   <div class="myFooter">
     <?php get_footer(); ?>
   </div>
+
+  <?php

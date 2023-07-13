@@ -1,10 +1,3 @@
 <!--  -->
-<!--  --><span><strong>Version 4.22.0</strong> is a regular update that introduces many improvements of the <strong>webcam</strong> feature. The most important ones are:
-<ul style="list-style: disc; padding: 0 3em;">
-	<li>Better support of devices, especially mobile phones and tablets.</li>
-	<li>It can operate together with the selection of files by activating the new shortcode attribute <strong>Allow File Selection</strong>. If the selected file is an image, it will be shown inside the webcam capture box.</li>
-	<li>A camera switch button can be added on the capture box by activating the new shortcode attribute <strong> Switch Camera Button</strong>. With this button the user can switch between the front and rear camera of their device.</li>
-	<li>Better adjustment of the video window and captured screenshot inside the capture box.</li>
-</ul>
-Furthermore, this version has corrected some bugs in the <strong>Alternative Iptanus Server</strong>, which caused problems with <strong>RecaptchaV2 (no account)</strong> captcha option and plugin <strong>auto-updates</strong> when <strong>Use Alternative Iptanus Server</strong> in plugin's <strong>Settings</strong> was enabled.<br /><br />
+<!--  --><span><strong>Version 4.22.1</strong> is a regular update that introduces some bug fixes in the upload form that appeared after the previous release.<br /><br />
 For more details about this version's changes please visit the <strong>Release Notes</strong> of the plugin's </span><a href="http://www.iptanus.com/wordpress-plugins/wordpress-file-upload/">support page</a><span>.</span><!--  -->
