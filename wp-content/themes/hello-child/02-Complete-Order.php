@@ -62,7 +62,6 @@ $current_user_ID = get_current_user_id();
         <p>Total Cost:
           <span id="costsTotalPriceID">0</span>
         </p>
-
       </div>
 
       <div class="completeTheOrder completeTheOrder3">
@@ -75,31 +74,22 @@ $current_user_ID = get_current_user_id();
   <div class="page-content">
     <?php drawOrderTable($ORDER_NUMBER); ?>
   </div>
-  <?php
-  echo '<div class="myDiv2">';
 
-  ?>
-  <button onclick="welcome()"> Finalize this order xx</button>
+  <div class="myDiv2">
 
-  <script>
-    function welcome() {
-      $.ajax({
-        url: "completeOrder.php", //containing a php function
-        type: "get",
-        dataType: 'html',
-        success: function(result) {
-          alert(result);
-        }
-      });
-    }
-  </script>
-  }
-  <!--// completeTheOrder($ORDER_NUMBER);
-  // window.location.href = 'https://ezylocal:8890/?page_id=2572';-->
-
-
-  <div class="myFooter">
-    <?php get_footer(); ?>
+    <form method="post">
+      <input type="submit" name="btn-complete2" value="Finalize this order">
+    </form>
+    <?php
+    if (isset($_POST['btn-complete2'])) {
+    ?>
+      <script>
+        window.location.href = 'https://ezylocal:8890/?page_id=2572';
+      </script>
+    <?php  }
+    ?>
+    <div class="myFooter">
+      <?php get_footer(); ?>
+    </div>
   </div>
-
-  <?php
+</main>

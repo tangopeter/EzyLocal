@@ -59,17 +59,17 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.269.6",
-            "version_normalized": "3.269.6.0",
+            "version": "3.277.4",
+            "version_normalized": "3.277.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "343f7088f246d4667172e69d5f2bf440496bb708"
+                "reference": "9f36e76a3e1f8c7eba8cacbfa1d5f1257cd04241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/343f7088f246d4667172e69d5f2bf440496bb708",
-                "reference": "343f7088f246d4667172e69d5f2bf440496bb708",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9f36e76a3e1f8c7eba8cacbfa1d5f1257cd04241",
+                "reference": "9f36e76a3e1f8c7eba8cacbfa1d5f1257cd04241",
                 "shasum": ""
             },
             "require": {
@@ -110,14 +110,14 @@
                 "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
                 "ext-sockets": "To use client-side monitoring"
             },
-            "time": "2023-05-04T18:22:48+00:00",
+            "time": "2023-07-28T22:10:53+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/functions.php"
@@ -151,7 +151,7 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.269.6"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.277.4"
             },
             "install-path": "../aws/aws-sdk-php"
         },
@@ -242,7 +242,7 @@
             },
             "time": "2021-11-08T20:18:51+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Firebase\\JWT\\": "src"
@@ -278,17 +278,17 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.13.2",
-            "version_normalized": "2.13.2.0",
+            "version": "v2.14.0",
+            "version_normalized": "2.14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "53c3168fd1836ec21d28a768f78a8c0e44046ec4"
+                "reference": "789c8b07cad97f420ac0467c782036f955a2ad89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/53c3168fd1836ec21d28a768f78a8c0e44046ec4",
-                "reference": "53c3168fd1836ec21d28a768f78a8c0e44046ec4",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/789c8b07cad97f420ac0467c782036f955a2ad89",
+                "reference": "789c8b07cad97f420ac0467c782036f955a2ad89",
                 "shasum": ""
             },
             "require": {
@@ -315,14 +315,14 @@
             "suggest": {
                 "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
             },
-            "time": "2023-04-06T14:59:47+00:00",
+            "time": "2023-05-11T21:54:55+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-main": "2.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/aliases.php"
@@ -345,23 +345,23 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client/issues",
-                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.13.2"
+                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.14.0"
             },
             "install-path": "../google/apiclient"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.298.0",
-            "version_normalized": "0.298.0.0",
+            "version": "v0.302.0",
+            "version_normalized": "0.302.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "68710abd2b921f5df4ae99412fc05bac268acddc"
+                "reference": "ac872f59a7b4631b12628fe990c167d18a71c783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/68710abd2b921f5df4ae99412fc05bac268acddc",
-                "reference": "68710abd2b921f5df4ae99412fc05bac268acddc",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/ac872f59a7b4631b12628fe990c167d18a71c783",
+                "reference": "ac872f59a7b4631b12628fe990c167d18a71c783",
                 "shasum": ""
             },
             "require": {
@@ -370,9 +370,9 @@
             "require-dev": {
                 "phpunit/phpunit": "^5.7||^8.5.13"
             },
-            "time": "2023-05-01T01:06:14+00:00",
+            "time": "2023-05-16T01:08:12+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "autoload.php"
@@ -392,7 +392,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.298.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.302.0"
             },
             "install-path": "../google/apiclient-services"
         },
@@ -577,17 +577,17 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.5.2",
-            "version_normalized": "1.5.2.0",
+            "version": "1.5.3",
+            "version_normalized": "1.5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598"
+                "reference": "67ab6e18aaa14d753cc148911d273f6e6cb6721e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/b94b2807d85443f9719887892882d0329d1e2598",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/67ab6e18aaa14d753cc148911d273f6e6cb6721e",
+                "reference": "67ab6e18aaa14d753cc148911d273f6e6cb6721e",
                 "shasum": ""
             },
             "require": {
@@ -596,14 +596,9 @@
             "require-dev": {
                 "symfony/phpunit-bridge": "^4.4 || ^5.1"
             },
-            "time": "2022-08-28T14:55:35+00:00",
+            "time": "2023-05-21T12:31:43+00:00",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/functions_include.php"
@@ -644,7 +639,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.5.2"
+                "source": "https://github.com/guzzle/promises/tree/1.5.3"
             },
             "funding": [
                 {
@@ -926,7 +921,7 @@
             },
             "time": "2022-06-09T08:53:42+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
@@ -999,7 +994,7 @@
                     "dev-master": "2.6-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/JmesPath.php"
@@ -1089,17 +1084,17 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.42",
-            "version_normalized": "2.0.42.0",
+            "version": "2.0.44",
+            "version_normalized": "2.0.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "665d289f59e646a259ebf13f29be7f6f54cab24b"
+                "reference": "149f608243f8133c61926aae26ce67d2b22b37e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/665d289f59e646a259ebf13f29be7f6f54cab24b",
-                "reference": "665d289f59e646a259ebf13f29be7f6f54cab24b",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/149f608243f8133c61926aae26ce67d2b22b37e5",
+                "reference": "149f608243f8133c61926aae26ce67d2b22b37e5",
                 "shasum": ""
             },
             "require": {
@@ -1117,9 +1112,9 @@
                 "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations.",
                 "ext-xml": "Install the XML extension to load XML formatted public keys."
             },
-            "time": "2023-03-06T12:45:53+00:00",
+            "time": "2023-06-13T08:41:47+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "phpseclib/bootstrap.php"
@@ -1182,7 +1177,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.42"
+                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.44"
             },
             "funding": [
                 {
@@ -1225,7 +1220,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Cache\\": "src/"
@@ -1247,6 +1242,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "install-path": "../psr/cache"
         },
         {
@@ -1327,7 +1325,7 @@
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Log\\": "Psr/Log/"
@@ -1350,6 +1348,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
             "install-path": "../psr/log"
         },
         {
@@ -1571,14 +1572,14 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1602,6 +1603,23 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.19.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "install-path": "../symfony/polyfill-mbstring"
         },

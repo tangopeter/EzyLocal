@@ -45,14 +45,14 @@
 		<?php drawOrderTable($ORDER_NUMBER); ?>
 		<?php
 		echo '<div class="myDiv2">';
-		echo '<p>liuqeryowie</p>';
+
 
 		if (isset($_POST['btn-complete1'])) {
 			completeTheOrder($ORDER_NUMBER);
 		?>
 
 			<script>
-				window.location.href = 'https://vinesonline.co.nz/order-prints/complete-order/';
+				window.location.href = 'https://ezylocal:8890/?page_id=2782';
 			</script>
 		<?php
 		}
@@ -60,7 +60,6 @@
 		<form method="post">
 			<input type="submit" name="btn-complete1" value="Complete this order">
 		</form>
-
 	</div>
 
 </main>

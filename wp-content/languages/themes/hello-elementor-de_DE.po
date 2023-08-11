@@ -2,190 +2,219 @@
 # This file is distributed under the same license as the Themes - Hello Elementor package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-14 02:39:49+0000\n"
+"PO-Revision-Date: 2023-08-02 15:41:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"X-Generator: GlotPress/4.0.0-alpha.6\n"
 "Language: de\n"
 "Project-Id-Version: Themes - Hello Elementor\n"
-
-#. Description of the theme
-#, gp-priority: high
-msgid "A plain-vanilla & lightweight theme for Elementor page builder"
-msgstr "Ein einfaches und leichtes Starter-Theme, perfekt für den Elementor Page Builder."
 
 #. Theme Name of the theme
 #, gp-priority: high
 msgid "Hello Elementor"
 msgstr "Hello Elementor"
 
+#: includes/settings/settings-footer.php:495
+#: includes/settings/settings-header.php:518
+msgid "Upgrade"
+msgstr "Upgrade"
+
 #: includes/customizer/elementor-upsell.php:78
 msgid "Activate Now"
 msgstr "Jetzt aktivieren"
 
-#: includes/settings/settings-footer.php:490
-#: includes/settings/settings-header.php:509
-msgid "Upgrade"
-msgstr "Upgrade"
-
-#: header.php:28
+#: header.php:31
 msgid "Skip to content"
 msgstr "Zum Inhalt wechseln"
 
-#: includes/settings/settings-header.php:412
-msgid "Horizontal"
-msgstr "Horizontal"
-
-#: includes/settings/settings-header.php:408
-msgid "Menu Layout"
-msgstr "Menü-Layout"
-
-#: includes/settings/settings-footer.php:506
-msgid "Create Footer"
-msgstr "Footer erstellen"
-
-#. translators: %d: Breakpoint number.
-#: includes/settings/settings-header.php:429
-msgid "Mobile (< %dpx)"
-msgstr "Mobil (< %dpx)"
-
-#. translators: %d: Breakpoint number.
-#: includes/settings/settings-header.php:431
-msgid "Tablet (< %dpx)"
-msgstr "Tablet (< %dpx)"
-
-#: includes/settings/settings-header.php:432
-msgid "None"
-msgstr "Keines"
-
-#: includes/settings/settings-header.php:525
+#: includes/settings/settings-header.php:534
 msgid "Create Header"
 msgstr "Header erstellen"
 
-#: includes/settings/settings-header.php:458
+#: includes/settings/settings-header.php:532
+msgid "Create a custom header with the new Theme Builder"
+msgstr "Erstelle einen benutzerdefinierten Header mit dem neuen Theme Builder"
+
+#: includes/settings/settings-header.php:516
+msgid "Create a custom header with multiple options"
+msgstr "Erstelle einen benutzerdefinierten Header mit verschiedenen Optionen"
+
+#: includes/settings/settings-header.php:467
 msgid "Toggle Color"
 msgstr "Farbe umschalten"
 
-#: includes/settings/settings-footer.php:209
-#: includes/settings/settings-header.php:212
-msgid "Logo"
-msgstr "Logo"
+#: includes/settings/settings-header.php:441
+msgid "None"
+msgstr "Keines"
 
-#: includes/settings/settings-footer.php:210
-#: includes/settings/settings-header.php:213
-msgid "Title"
-msgstr "Titel"
+#. translators: %d: Breakpoint number.
+#: includes/settings/settings-header.php:440
+msgid "Tablet (< %dpx)"
+msgstr "Tablet (< %dpx)"
 
-#: includes/settings/settings-footer.php:183
-#: includes/settings/settings-header.php:179
-msgid "Background"
-msgstr "Hintergrund"
+#. translators: %d: Breakpoint number.
+#: includes/settings/settings-header.php:438
+msgid "Mobile (< %dpx)"
+msgstr "Mobil (< %dpx)"
 
-#: includes/settings/settings-footer.php:116
-#: includes/settings/settings-header.php:102
-msgid "Full Width"
-msgstr "Gesamte Breite"
+#: includes/settings/settings-header.php:433
+msgid "Breakpoint"
+msgstr "Haltepunkt"
 
-#: includes/settings/settings-footer.php:102
-#: includes/settings/settings-header.php:88
-msgid "Centered"
-msgstr "Zentriert"
+#: includes/settings/settings-header.php:422
+msgid "Dropdown"
+msgstr "Aufklappmenü"
 
-#: includes/settings/settings-footer.php:113
-#: includes/settings/settings-header.php:99
-msgid "Width"
-msgstr "Breite"
+#: includes/settings/settings-header.php:421
+msgid "Horizontal"
+msgstr "Horizontal"
 
-#: includes/settings/settings-footer.php:101
-#: includes/settings/settings-header.php:87
-msgid "Inverted"
-msgstr "Invertiert"
+#: includes/settings/settings-header.php:417
+msgid "Menu Layout"
+msgstr "Menü-Layout"
 
-#: includes/settings/settings-footer.php:74
-#: includes/settings/settings-footer.php:343
-#: includes/settings/settings-footer.php:371
-#: includes/settings/settings-header.php:73
-#: includes/settings/settings-header.php:353
-#: includes/settings/settings-header.php:388
-msgid "Menu"
-msgstr "Menü"
+#: includes/settings/settings-footer.php:511
+msgid "Create Footer"
+msgstr "Footer erstellen"
 
-#: includes/settings/settings-footer.php:100
-#: includes/settings/settings-header.php:86
-msgid "Default"
-msgstr "Standard"
+#: includes/settings/settings-footer.php:510
+#: includes/settings/settings-header.php:533
+msgid "With the new Theme Builder you can jump directly into each part of your site"
+msgstr "Mit dem neuen Theme Builder kannst du direkt in jeden Teil deiner Webseite wechseln"
 
-#: functions.php:37 includes/settings/settings-footer.php:21
-#: includes/settings/settings-footer.php:42
-msgid "Footer"
-msgstr "Footer"
+#: includes/settings/settings-footer.php:509
+msgid "Create a custom footer with the new Theme Builder"
+msgstr "Benutzerdefinierten Footer erstellen, mit dem neuen Theme Builder"
 
-#: functions.php:36 includes/settings/settings-header.php:23
-#: includes/settings/settings-header.php:43
-msgid "Header"
-msgstr "Header"
+#: includes/settings/settings-footer.php:494
+#: includes/settings/settings-header.php:517
+msgid "Upgrade to Elementor Pro and enjoy free design and many more features"
+msgstr "Upgrade zu Elementor Pro und genieße freies Design und viele andere Features."
 
-#: includes/settings/settings-footer.php:352
-#: includes/settings/settings-header.php:369
-msgid "— Select a Menu —"
-msgstr "— Wähle ein Menü —"
+#: includes/settings/settings-footer.php:493
+msgid "Create a custom footer with multiple options"
+msgstr "Erstelle einen benutzerdefinierten Footer mit verschiedenen Optionen"
 
-#: includes/settings/settings-footer.php:266
-#: includes/settings/settings-footer.php:320
-#: includes/settings/settings-footer.php:403
-#: includes/settings/settings-footer.php:455
-#: includes/settings/settings-header.php:269
-#: includes/settings/settings-header.php:330
-#: includes/settings/settings-header.php:473
-msgid "Typography"
-msgstr "Typografie"
-
-#: includes/settings/settings-footer.php:220
-#: includes/settings/settings-header.php:223
-msgid "Logo Width"
-msgstr "Logo-Breite"
-
-#: includes/settings/settings-footer.php:391
-#: includes/settings/settings-header.php:444
-msgid "Color"
-msgstr "Farbe"
-
-#: includes/settings/settings-footer.php:383
-#: includes/settings/settings-header.php:400
-msgid "Changes will be reflected in the preview only after the page reloads."
-msgstr "Änderungen werden erst in der Vorschau angezeigt, nachdem die Seite neu geladen wurde."
-
-#: includes/settings/settings-footer.php:433
+#: includes/settings/settings-footer.php:438
 msgid "All rights reserved"
 msgstr "Alle Rechte vorbehalten"
 
-#: includes/customizer/elementor-upsell.php:67
-#: includes/customizer/elementor-upsell.php:70
-msgid "Update Elementor"
-msgstr "Elementor aktualisieren"
+#: includes/settings/settings-footer.php:396
+#: includes/settings/settings-header.php:453
+msgid "Color"
+msgstr "Farbe"
 
-#: includes/settings/settings-footer.php:50
-#: includes/settings/settings-footer.php:195
-#: includes/settings/settings-header.php:51
-#: includes/settings/settings-header.php:191
-msgid "Site Logo"
-msgstr "Website-Logo"
+#: includes/settings/settings-footer.php:388
+#: includes/settings/settings-header.php:409
+msgid "Changes will be reflected in the preview only after the page reloads."
+msgstr "Änderungen werden erst in der Vorschau angezeigt, nachdem die Seite neu geladen wurde."
+
+#: includes/settings/settings-footer.php:367
+#: includes/settings/settings-header.php:388
+msgid "There are no menus in your site."
+msgstr "Es gibt keine Menüs auf deiner Website."
+
+#: includes/settings/settings-footer.php:357
+#: includes/settings/settings-header.php:378
+msgid "— Select a Menu —"
+msgstr "— Wähle ein Menü —"
+
+#. translators: %s: Link that opens Elementor's "Site Identity" panel.
+#: includes/settings/settings-footer.php:335
+#: includes/settings/settings-header.php:349
+msgid "Go to <a href=\"%s\">Site Identity</a> to manage your site's tagline"
+msgstr "Gehe zu <a href=\"%s\">Website-Identität</a> um den Titel und Slogan deiner Seite zu verwalten."
+
+#: includes/settings/settings-footer.php:263
+#: includes/settings/settings-footer.php:321
+#: includes/settings/settings-footer.php:408
+#: includes/settings/settings-footer.php:460
+#: includes/settings/settings-header.php:266
+#: includes/settings/settings-header.php:335
+#: includes/settings/settings-header.php:482
+msgid "Typography"
+msgstr "Typografie"
+
+#: includes/settings/settings-footer.php:247
+#: includes/settings/settings-footer.php:306
+#: includes/settings/settings-footer.php:445
+#: includes/settings/settings-header.php:250
+#: includes/settings/settings-header.php:320
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#. translators: %s: Link that opens Elementor's "Site Identity" panel.
+#: includes/settings/settings-footer.php:219
+#: includes/settings/settings-header.php:222
+msgid "Go to <a href=\"%s\">Site Identity</a> to manage your site's logo"
+msgstr "Gehe zu <a href=\"%s\">Website-Identität</a> um das Logo deiner Seite zu verwalten."
+
+#: includes/settings/settings-footer.php:216
+#: includes/settings/settings-header.php:219
+msgid "Logo Width"
+msgstr "Logo-Breite"
+
+#: includes/settings/settings-footer.php:206
+#: includes/settings/settings-header.php:209
+msgid "Title"
+msgstr "Titel"
+
+#: includes/settings/settings-footer.php:205
+#: includes/settings/settings-header.php:208
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/settings/settings-footer.php:201
+#: includes/settings/settings-header.php:204
+msgid "Type"
+msgstr "Typ"
+
+#: includes/settings/settings-footer.php:179
+#: includes/settings/settings-header.php:175
+msgid "Background"
+msgstr "Hintergrund"
+
+#: includes/settings/settings-footer.php:153
+#: includes/settings/settings-header.php:139
+msgid "Gap"
+msgstr "Zwischenabstand"
 
 #: includes/settings/settings-footer.php:127
 #: includes/settings/settings-header.php:113
 msgid "Content Width"
 msgstr "Inhaltsbreite"
 
-#: includes/settings/settings-footer.php:205
-#: includes/settings/settings-header.php:208
-msgid "Type"
-msgstr "Typ"
+#: includes/settings/settings-footer.php:116
+#: includes/settings/settings-header.php:102
+msgid "Full Width"
+msgstr "Gesamte Breite"
 
-#: includes/settings/settings-header.php:413
-msgid "Dropdown"
-msgstr "Aufklappmenü"
+#: includes/settings/settings-footer.php:115
+#: includes/settings/settings-header.php:101
+msgid "Boxed"
+msgstr "Box"
+
+#: includes/settings/settings-footer.php:113
+#: includes/settings/settings-header.php:99
+msgid "Width"
+msgstr "Breite"
+
+#: includes/settings/settings-footer.php:102
+#: includes/settings/settings-header.php:88
+msgid "Centered"
+msgstr "Zentriert"
+
+#: includes/settings/settings-footer.php:101
+#: includes/settings/settings-header.php:87
+msgid "Inverted"
+msgstr "Invertiert"
+
+#: includes/settings/settings-footer.php:100
+#: includes/settings/settings-header.php:86
+msgid "Default"
+msgstr "Standard"
 
 #: includes/settings/settings-footer.php:98
 #: includes/settings/settings-header.php:84
@@ -193,25 +222,26 @@ msgid "Layout"
 msgstr "Gestaltung"
 
 #: includes/settings/settings-footer.php:86
-#: includes/settings/settings-footer.php:415
+#: includes/settings/settings-footer.php:420
 msgid "Copyright"
 msgstr "Urheberrecht"
 
-#: includes/settings/settings-footer.php:250
-#: includes/settings/settings-footer.php:305
-#: includes/settings/settings-footer.php:440
-#: includes/settings/settings-header.php:253
-#: includes/settings/settings-header.php:315
-msgid "Text Color"
-msgstr "Textfarbe"
+#: includes/settings/settings-footer.php:74
+#: includes/settings/settings-footer.php:348
+#: includes/settings/settings-footer.php:376
+#: includes/settings/settings-header.php:73
+#: includes/settings/settings-header.php:362
+#: includes/settings/settings-header.php:397
+#: template-parts/dynamic-header.php:59
+msgid "Menu"
+msgstr "Menü"
 
-#: includes/customizer-functions.php:19
-msgid "Header &amp; Footer"
-msgstr "Header und Footer"
-
-#: includes/customizer/elementor-upsell.php:54
-msgid "Install &amp; Activate"
-msgstr "Installieren und Aktivieren"
+#: includes/settings/settings-footer.php:62
+#: includes/settings/settings-footer.php:296
+#: includes/settings/settings-header.php:62
+#: includes/settings/settings-header.php:303
+msgid "Tagline"
+msgstr "Untertitel"
 
 #: includes/settings/settings-footer.php:53
 #: includes/settings/settings-footer.php:65
@@ -233,38 +263,70 @@ msgstr "Ausblenden"
 msgid "Show"
 msgstr "Einblenden"
 
-#: includes/settings/settings-footer.php:62
-#: includes/settings/settings-footer.php:295
-#: includes/settings/settings-header.php:62
-#: includes/settings/settings-header.php:298
-msgid "Tagline"
-msgstr "Untertitel"
+#: includes/settings/settings-footer.php:50
+#: includes/settings/settings-footer.php:191
+#: includes/settings/settings-header.php:51
+#: includes/settings/settings-header.php:187
+msgid "Site Logo"
+msgstr "Website-Logo"
 
-#: includes/admin-functions.php:136
+#: includes/elementor-functions.php:208
+msgid "Use this experiment to design header and footer using Elementor Site Settings. <a href=\"%s\" target=\"_blank\">Learn More</a>"
+msgstr "Benutze dieses Experiment um Header und Footer mit Elementor Site Settings zu gestalten. <a href=\"%s\" target=\"_blank\">Mehr erfahren</a>"
+
+#: includes/elementor-functions.php:207
+msgid "Hello Theme Header & Footer"
+msgstr "Hello Theme Header & Footer"
+
+#: includes/customizer/elementor-upsell.php:86
+msgid "Start Here"
+msgstr "Hier beginnen"
+
+#: includes/customizer/elementor-upsell.php:75
+#: includes/customizer/elementor-upsell.php:83
+msgid "Set Your Header &amp; Footer"
+msgstr "Setze deinen Header &amp; Footer"
+
+#: includes/customizer/elementor-upsell.php:68
+msgid "You need Elementor version 3.1.0 or above to create a cross-site Header and Footer."
+msgstr "Du benötigst Elementor Version 3.1.0 oder höher um seitenübergreifende Header und Footer zu erstellen."
+
+#: includes/customizer/elementor-upsell.php:67
+#: includes/customizer/elementor-upsell.php:70
+msgid "Update Elementor"
+msgstr "Elementor aktualisieren"
+
+#: includes/customizer/elementor-upsell.php:54
+msgid "Install &amp; Activate"
+msgstr "Installieren und Aktivieren"
+
+#: includes/customizer/elementor-upsell.php:43
+#: includes/customizer/elementor-upsell.php:60
+#: includes/customizer/elementor-upsell.php:76
+#: includes/customizer/elementor-upsell.php:84
+msgid "Create a cross-site Header and Footer using Elementor & Hello theme."
+msgstr "Erstelle einen seitenübergreifenden Header und Footer mit Elementor & Hello Theme"
+
+#: includes/customizer-functions.php:19
+msgid "Header &amp; Footer"
+msgstr "Header und Footer"
+
+#: includes/admin-functions.php:133
 msgid "Get Elementor"
 msgstr "Elementor erhalten"
 
-#: includes/settings/settings-footer.php:362
-#: includes/settings/settings-header.php:379
-msgid "There are no menus in your site."
-msgstr "Es gibt keine Menüs auf deiner Website."
+#: functions.php:31 includes/settings/settings-footer.php:21
+#: includes/settings/settings-footer.php:42
+msgid "Footer"
+msgstr "Footer"
 
-#: includes/settings/settings-footer.php:115
-#: includes/settings/settings-header.php:101
-msgid "Boxed"
-msgstr "Box"
+#: functions.php:30 includes/settings/settings-header.php:23
+#: includes/settings/settings-header.php:43
+msgid "Header"
+msgstr "Header"
 
-#: includes/settings/settings-footer.php:155
-#: includes/settings/settings-header.php:141
-msgid "Gap"
-msgstr "Zwischenabstand"
-
-#: includes/admin-functions.php:47
-msgid "Hello theme is a lightweight starter theme. We recommend you use it together with Elementor Page Builder plugin, they work perfectly together!"
-msgstr "Hello Theme ist ein leichtgewichtiges Starter-Theme. Wir empfehlen dir, es zusammen mit dem Elementor Page Builder Plugin zu verwenden, denn zusammen funktionieren beide perfekt!"
-
-#: includes/admin-functions.php:140
-msgid "Thanks for installing Hello Theme!"
+#: includes/admin-functions.php:137
+msgid "Thanks for installing the Hello Theme!"
 msgstr "Danke, dass du das Hello Theme installiert hast!"
 
 #: includes/admin-functions.php:49 includes/customizer/elementor-upsell.php:42
@@ -276,46 +338,34 @@ msgstr "Elementor installieren"
 msgid "Activate Elementor"
 msgstr "Elementor aktivieren"
 
-#: includes/admin-functions.php:142
-msgid "Learn more about Elementor"
-msgstr "Mehr über Elementor erfahren"
-
-#: includes/admin-functions.php:38
-msgid "Hello theme is a lightweight starter theme designed to work perfectly with Elementor Page Builder plugin."
-msgstr "Das Hello-Theme ist ein leichtgewichtiges Starter-Theme, welches perfekt mit dem Elementor Page Builder zusammenarbeitet."
-
-#: comments.php:67
-msgid "Comments are closed."
-msgstr "Kommentare sind geschlossen."
-
 #. translators: 1: number of comments
-#: comments.php:31
+#: comments.php:39
 msgctxt "comments title"
 msgid "%1$s Response"
 msgid_plural "%1$s Responses"
 msgstr[0] "%1$s Antwort"
 msgstr[1] "%1$s Antworten"
 
-#: comments.php:27
+#: comments.php:35
 msgctxt "comments title"
 msgid "One Response"
 msgstr "Eine Antwort"
 
 #. Translators: HTML arrow
-#: template-parts/archive.php:48 template-parts/search.php:46
+#: template-parts/archive.php:51 template-parts/search.php:57
 msgid "newer %s"
 msgstr "Weiter %s"
 
 #. Translators: HTML arrow
-#: template-parts/archive.php:46 template-parts/search.php:44
+#: template-parts/archive.php:49 template-parts/search.php:55
 msgid "%s older"
 msgstr "%s Zurück"
 
-#: template-parts/search.php:32
+#: template-parts/search.php:43
 msgid "It seems we can't find what you're looking for."
 msgstr "Es wurden keine gesuchten Inhalte gefunden."
 
-#: template-parts/search.php:16
+#: template-parts/search.php:17
 msgid "Search results for: "
 msgstr "Suchergebnisse für:"
 
@@ -324,15 +374,15 @@ msgstr "Suchergebnisse für:"
 msgid "Home"
 msgstr "Startseite"
 
-#: template-parts/single.php:25
+#: template-parts/single.php:27
 msgid "Tagged "
 msgstr "Verschlagwortet mit"
 
-#: template-parts/404.php:19
+#: template-parts/404.php:21
 msgid "It looks like nothing was found at this location."
 msgstr "An diesem Ort konnte nichts gefunden werden."
 
-#: template-parts/404.php:15
+#: template-parts/404.php:16
 msgid "The page can&rsquo;t be found."
 msgstr "Diese Seite konnte nicht gefunden werden."
 

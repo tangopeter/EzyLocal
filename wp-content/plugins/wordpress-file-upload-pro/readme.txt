@@ -146,6 +146,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
+= 4.22.2 =
+* updated vendor libraries
+
 = 4.22.1 =
 * fixed bug in WFU.captcha.core() function that was breaking upload form in block themes when Material UI was activated
 * fixed bug in wfu_webcam_update_preview() function that was breaking upload form when uploadid was greater than 1
@@ -1099,6 +1102,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.22.2 =
+Regular update to update vendor libraries.
 
 = 4.22.1 =
 Regular update to fix some bugs.
