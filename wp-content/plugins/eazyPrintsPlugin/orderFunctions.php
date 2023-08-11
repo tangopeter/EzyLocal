@@ -31,16 +31,6 @@ function completeTheOrder($ORDER_NUMBER)
   echo "completeTheOrder($ORDER_NUMBER)";
 ?>
 
-
-
-
-
-
-
-
-
-
-
 <?php
   $current_user = wp_get_current_user();
   // // does this order number exist?
@@ -57,8 +47,6 @@ function completeTheOrder($ORDER_NUMBER)
   global $post;
   echo $post->ID;
 
-  $thisItem1 = array();
-
   global $wpdb;
   $wpdb->show_errors();
 
@@ -71,7 +59,10 @@ function completeTheOrder($ORDER_NUMBER)
     )
   );
 
+
   foreach ($orders as $key => $order) {
+
+
 
     if ($order === end($orders)) {
       // echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
@@ -99,11 +90,11 @@ function completeTheOrder($ORDER_NUMBER)
 
       // Costs
       $costs = array(
-        // 'print_cost' => get_field('print_cost', $current_user),
-        // 'delivery_cost' => get_field('delivery_cost', $current_user),
-        // 'subtotal' => get_field('subtotal', $current_user),
-        // 'gst' => get_field('gst', $current_user),
-        // 'total' => get_field('total', $current_user)
+        'print_cost' => get_field('print_cost', $current_user),
+        'delivery_cost' => get_field('delivery_cost', $current_user),
+        'subtotal' => get_field('subtotal', $current_user),
+        'gst' => get_field('gst', $current_user),
+        'total' => get_field('total', $current_user)
       );
       $costs = json_encode($costs, JSON_PRETTY_PRINT);
       // echo '<pre> upload1:' . $upload1 . '</pre>';
@@ -139,7 +130,7 @@ function completeTheOrder($ORDER_NUMBER)
       'order_status' => $post->ID,
       'user_details' => $thisUser,
       'costs' => $costs,
-      'items' => $thisItem1
+      'items' => $thisItem
     ),
     array(
       "%d", // $ORDER_NUMBER,

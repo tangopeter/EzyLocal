@@ -5,6 +5,7 @@ function drawOrderTable($ORDER_NUMBER)
   global $wpdb;
   $wpdb->show_errors();
   $totalPrice = 0;
+  $items =  array();
 
   $orders = $wpdb->get_results(
     $wpdb->prepare(
@@ -79,18 +80,19 @@ function drawOrderTable($ORDER_NUMBER)
 
 function drawAccountOrderTable($ORDER_NUMBER)
 {
-  echo "completedTable++++++++++++++++++++++++++++++++++++++++++++";
+  echo "completedTable ++++++++++++++++++++++++++++++++++++++++++++";
   echo '<div class="completedTable">';
   $USER = get_current_user_id();
   global $wpdb;
   $wpdb->show_errors();
   $totalPrice = 0;
 
+
   $users = $wpdb->get_results(
     $wpdb->prepare(
       "SELECT ID,order_number,user, date, order_status, costs, user_details, items
-  FROM wp_ezy_orders
-  WHERE user = %s",
+        FROM wp_ezy_orders
+        WHERE user = %s",
       $USER
     )
   );
@@ -100,13 +102,19 @@ function drawAccountOrderTable($ORDER_NUMBER)
   //     echo $key . " : " . $order . "<br>";
   foreach ($users as $key => $user) :
 
-    $totalPrice = 0;
 
+    $totalPrice = 0;
 
     $thisUser = $user->user_details;
     $thisUser = json_decode($user->user_details);
 
     $items = $user->items;
+
+
+
+
+    $costs = $user->costs;
+    // echo '<h5>Order#: ', $user->order_number . ' ' . $key . '</h5>';
     // $items = json_decode($user->items);
 
     // foreach ($items as $item) :
@@ -121,7 +129,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
 
     // echo '<pre> User:' . $thisUser  . '</pre>';
     // $thisUser = json_encode($thisUser, JSON_PRETTY_PRINT);
-    echo '<h5>Order#: ', $user->order_number . ' ' . $key . '</h5>';
+
 
     echo '<table>';
     echo '<thead>';
@@ -145,6 +153,7 @@ function drawAccountOrderTable($ORDER_NUMBER)
     echo '<td class="wfu_browser_td wfu_col-3 wfu_browser-2">' . $user->date . '</td>';
     echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-2">' . $user->order_status . '</td>';
 
+    // * user details
     echo '<td class="wfu_browser_td wfu_col-5 wfu_browser-2">' .
       'User: <strong>' . $thisUser->first_name . " " . $thisUser->last_name . '</strong><br/>' .
       'email: <strong>' . $thisUser->email . '</strong><br/>' .
@@ -154,7 +163,8 @@ function drawAccountOrderTable($ORDER_NUMBER)
       'Phone: <strong>' . $thisUser->phone . '<br/>' .
 
       '</td>';
-    // todo - update to yes/no
+
+    // * Delivery
     echo '<td class="wfu_browser_td wfu_col-6 wfu_browser-2">' .
       'Delivery: <strong>' . $thisUser->delivery_details . '</strong><br/>' .
       'Rural: <strong>' . $thisUser->rural_delivery . '</strong><br/>' .
@@ -164,26 +174,42 @@ function drawAccountOrderTable($ORDER_NUMBER)
       'Additional Instructions:  <strong>' . '<br/>' . $thisUser->additional_instructions . '</strong><br/>' .
       '</td>';
 
-    echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-2">' .
-      'File: <strong>' . $items->file_name . '</strong><br/>' .
-      'Qty: <strong>' . $items->qty . '</strong><br/>' .
-      'Size: <strong>' . $items->size . '</strong><br/>' .
-      'Finish: <strong> ' . $items->finish . '</strong><br/>' .
-      'Cost: <strong>' . $items->print_cost . '</strong><br/>' .
-      $items .
+    // * items
+    echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-2">';
+    echo $items;
+    // echo count($items);
+    // foreach ($items as $item) {
+    //   echo $item;
+    // }
+
+    // $items = is_array($items) ? $items : array();
+    // foreach ($items as $item) {
+    //   echo $item;
+    // }
+    // unset($item);
+
+    // 'File: <strong>' . $items->file_name . '</strong><br/>' .
+    // 'Qty: <strong>' . $items->qty . '</strong><br/>' .
+    // 'Size: <strong>' . $items->size . '</strong><br/>' .
+    // 'Finish: <strong> ' . $items->finish . '</strong><br/>' .
+
+    '<br/>' . '</td>';
+
+    // * Costs
+    echo '<td class="wfu_browser_td wfu_col-8 wfu_browser-2">' .
+
+      'Print Cost: $<strong>' . $costs->print_cost . '</strong><br/>' .
+      'Delivery Cost: $<strong>'  . $costs->delivery_cost . '</strong><br/>' .
+      'Subtotal: $<strong>'  . $costs->subtotal . '</strong><br/>' .
+      '+ GST:  $<strong>'  .  $costs->gst . '</strong><br/>' .
+      'Total:  $<strong>'  .  $costs->total . '</strong><br/>' .
       '<br/>' . '</td>';
 
-    // echo '<td class="wfu_browser_td wfu_col-8 wfu_browser-2">' .
-    //   'Print Cost: $<strong>' . $costs->print_cost . '</strong><br/>' .
-    //   'Delivery Cost: $<strong>'  . $costs->delivery_cost . '</strong><br/>' .
-    //   'Subtotal: $<strong>'  . $costs->subtotal . '</strong><br/>' .
-    //   '+ GST:  $<strong>'  .  $costs->gst . '</strong><br/>' .
-    //   'Total:  $<strong>'  .  $costs->total . '</strong><br/>' .
-    //   '<br/>' . '</td>';
-    // echo '<td class="wfu_browser_td wfu_col-9 wfu_browser-2">' . '<a href="#">' . 'edit' . '</a>' . '</td>';
+    // todo - update to yes/no
+    echo '<td class="wfu_browser_td wfu_col-9 wfu_browser-2">' . '<a href="#">' . 'edit' . '</a>' . '</td>';
     // echo '<td class="wfu_browser_td wfu_col-4 wfu_browser-1">' . '</td>';
     echo '</tr>';
-    // $totalPrice = $totalPrice + $costs->total;
+    $totalPrice = $totalPrice + $costs->total;
 
     echo '</tbody>';
     echo '<tfoot>';

@@ -50,10 +50,6 @@ get_header();
         drawAccountOrderTable($ORDER_NUMBER);
         ?>
 
-        <!-- <div class="myDiv2">
-            <input type="button" name="btn-newOrder" id="btn-newOrder" value='New order'>
-        </div> -->
-
         <?php echo get_option('ORDER_NUMBER'); ?>
 
         <?php
