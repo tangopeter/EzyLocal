@@ -84,9 +84,39 @@ $current_user_ID = get_current_user_id();
     if (isset($_POST['btn-complete2'])) {
     ?>
       <script>
-        window.location.href = 'https://ezylocal:8890/?page_id=2572';
+        console.log("send")
+
+        jQuery(document).ready(function($) {
+          if (typeof acf !== 'undefined') {
+            console.log('ACF is defined', acf);
+          } else {
+            console.log('ACF not defined', acf);
+          }
+        });
+        // window.location.href = 'https://ezylocal:8890/?page_id=2572';
       </script>
-    <?php  }
+    <?php
+      // HTML String
+      // $htmlString = "<html><body><p id='totalPrintPrice'>lsf;kjvsd;flkvksdf;lkjfds;g...</p></body></html>";
+
+      // DOM Parser Object
+      $dom = new DOMDocument();
+      $dom->validateOnParse = true;
+      $dom->loadHTML($html);
+
+      $dom->preserveWhiteSpace = false;
+      $be - $dom->getElementById("totalPrintPrice");
+      echo $be->nodeValue;
+    }
+
+
+
+
+
+
+
+
+
     ?>
     <div class="myFooter">
       <?php get_footer(); ?>

@@ -87,7 +87,6 @@ function drawAccountOrderTable($ORDER_NUMBER)
   $wpdb->show_errors();
   $totalPrice = 0;
 
-
   $users = $wpdb->get_results(
     $wpdb->prepare(
       "SELECT ID,order_number,user, date, order_status, costs, user_details, items
@@ -108,22 +107,11 @@ function drawAccountOrderTable($ORDER_NUMBER)
     $thisUser = $user->user_details;
     $thisUser = json_decode($user->user_details);
 
-    $items = $user->items;
-
-
-
-
     $costs = $user->costs;
     // echo '<h5>Order#: ', $user->order_number . ' ' . $key . '</h5>';
     // $items = json_decode($user->items);
 
-    // foreach ($items as $item) :
-    //   'File: <strong>' . $item->file_name . '</strong><br/>' .
-    //     'Qty: <strong>' . $item->qty . '</strong><br/>' .
-    //     'Size: <strong>' . $item->size . '</strong><br/>' .
-    //     'Finish: <strong>' . $item->finish . '</strong><br/>' .
-    //     'Cost: <strong>' . $item->print_cost . '</strong><br/>';
-    // endforeach;
+
     // $items = json_decode($items);
 
 
@@ -176,23 +164,15 @@ function drawAccountOrderTable($ORDER_NUMBER)
 
     // * items
     echo '<td class="wfu_browser_td wfu_col-7 wfu_browser-2">';
-    echo $items;
-    // echo count($items);
-    // foreach ($items as $item) {
-    //   echo $item;
-    // }
+    $items = json_decode($user->items);
+    foreach ($items as $item) :
+      echo 'File Name: <strong>' . $item->file_name . '</strong><br/>' .
+        'Qty: <strong>' . $item->qty . '</strong><br/>' .
+        'Size: <strong>' . $item->size . '</strong><br/>' .
+        'Finish: <strong>' . $item->finish . '</strong><br/>' .
+        'Cost: <strong>' . $item->print_cost . '</strong><br/><hr>';
 
-    // $items = is_array($items) ? $items : array();
-    // foreach ($items as $item) {
-    //   echo $item;
-    // }
-    // unset($item);
-
-    // 'File: <strong>' . $items->file_name . '</strong><br/>' .
-    // 'Qty: <strong>' . $items->qty . '</strong><br/>' .
-    // 'Size: <strong>' . $items->size . '</strong><br/>' .
-    // 'Finish: <strong> ' . $items->finish . '</strong><br/>' .
-
+    endforeach;
     '<br/>' . '</td>';
 
     // * Costs

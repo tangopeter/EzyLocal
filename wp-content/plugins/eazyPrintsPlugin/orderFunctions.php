@@ -58,17 +58,22 @@ function completeTheOrder($ORDER_NUMBER)
       $ORDER_NUMBER
     )
   );
-
+  $items = array();
 
   foreach ($orders as $key => $order) {
+    // Items
+    $uploads = json_decode($order->uploads);
 
-
+    array_push($items, array(
+      'file_name' => $uploads->file_name,
+      'qty' => $uploads->qty,
+      'size' => $uploads->size,
+      'finish' => $uploads->finish,
+      'print_cost' => $uploads->total_price
+    ));
 
     if ($order === end($orders)) {
-      // echo '<pre> This Item1: ' . $thisItem1 . '</pre>';
-      // User and Delivery details
       $thisUser = array(
-
         'first_name' => get_field('first_name', $current_user),
         'last_name' => get_field('last_name', $current_user),
         'email' => get_field('email', $current_user),
@@ -99,25 +104,9 @@ function completeTheOrder($ORDER_NUMBER)
       $costs = json_encode($costs, JSON_PRETTY_PRINT);
       // echo '<pre> upload1:' . $upload1 . '</pre>';
     }
-    // Items
-    $uploads = json_decode($order->uploads);
-
-    $thisItem = array(
-      'file_name' => $uploads->file_name,
-      'qty' => $uploads->qty,
-      'size' => $uploads->size,
-      'finish' => $uploads->finish,
-      'print_cost' => $uploads->total_price
-    );
-
-    array_push($thisItem1, $uploads->file_name);
-    array_push($thisItem1, $uploads->qty,);
-    array_push($thisItem1, $uploads->size,);
-    array_push($thisItem1, $uploads->finish,);
-    array_push($thisItem1, $uploads->total_price,);
   };
 
-  $thisItem1 = json_encode($thisItem1, JSON_PRETTY_PRINT);
+  $items = json_encode($items, JSON_PRETTY_PRINT);
   // echo '<pre> $thisItem1:' . $thisItem1 . '</pre>';
 
   // Add all to DB
@@ -130,7 +119,7 @@ function completeTheOrder($ORDER_NUMBER)
       'order_status' => $post->ID,
       'user_details' => $thisUser,
       'costs' => $costs,
-      'items' => $thisItem
+      'items' => $items
     ),
     array(
       "%d", // $ORDER_NUMBER,

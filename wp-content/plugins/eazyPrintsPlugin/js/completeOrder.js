@@ -172,6 +172,9 @@ function updateOrderValue() {
   console.log('----------------------------------');
   console.log('finalCost: ', finalCost.toFixed(2));
   console.log('>=================================');
+
+
+  
 }
 
 function updateNumberWFUField1(fieldName, newValue) {
