@@ -1,7 +1,7 @@
 <?php
 
 //require_once ABSWPFILEUPLOAD_DIR.'vendor/dropbox/autoload.php';
-require_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+require_once WFU_DROPBOX_ABSDIR . 'vendor/autoload.php';
 //use \Dropbox as dbx;
 use Kunnu\Dropbox\Dropbox;
 use Kunnu\Dropbox\DropboxApp;
@@ -9,7 +9,7 @@ use Kunnu\Dropbox\DropboxFile;
 use Kunnu\Dropbox\Exceptions\DropboxClientException;
 
 function wfu_dropbox_get_Dropbox($app) {
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/base_classes/WFUDropbox.php'; 
+	include_once WFU_DROPBOX_ABSDIR.'base_classes/WFUDropbox.php'; 
 	$config = array();
 	$http_client_config = array();
 	//include proxy support

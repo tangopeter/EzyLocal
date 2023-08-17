@@ -18,7 +18,7 @@ function wfu_ajax_action_onedrive_authorize_app_start() {
 	$unsupported = ( $ret['status'] && $ret['result'] == 'lower' );
 	if ( $unsupported ) die();
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'_wfu_onedrive.php'; 
 	wfu_onedrive_authorize_app_start();
 }
 
@@ -30,7 +30,7 @@ function wfu_ajax_action_onedrive_authorize_app_finish() {
 	check_ajax_referer( 'wfu-onedrive-authorize-app', 'token' );
 	
 	$authCode = sanitize_text_field($_POST['authcode']);
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'_wfu_onedrive.php'; 
 	wfu_onedrive_authorize_app_finish($authCode);
 }
 

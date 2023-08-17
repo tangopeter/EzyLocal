@@ -7,7 +7,7 @@ function wfu_amazons3_schedule_file_transfer($fileid, $target_path, $userdata_fi
 	if ( $params["amazons3"] == "true" ) {
 		// notify admin if Amazon S3 is not activated
 		if ( !wfu_amazons3_service_active() ) {
-			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_amazons3/_wfu_amazons3.php';
+			include_once WFU_AMAZONS3_ABSDIR.'_wfu_amazons3.php';
 			wfu_add_amazons3activation_notification();
 		}
 		$user = wp_get_current_user();
@@ -120,13 +120,13 @@ function wfu_amazons3_transfer_file($filepath, $destination, $params) {
 		return $ret;
 	}
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_amazons3/_wfu_amazons3.php'; 
+	include_once WFU_AMAZONS3_ABSDIR.'_wfu_amazons3.php'; 
 	
 	wfu_amazons3_upload_file($filepath, $bucket, $destination, $params);
 }
 
 function wfu_amazons3_check_transfer($fileid, $jobid) {
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_amazons3/_wfu_amazons3.php'; 
+	include_once WFU_AMAZONS3_ABSDIR.'_wfu_amazons3.php'; 
 
 	wfu_amazons3_check_upload($fileid, $jobid);
 }

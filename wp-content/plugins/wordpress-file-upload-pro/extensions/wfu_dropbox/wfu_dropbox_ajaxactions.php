@@ -18,7 +18,7 @@ function wfu_ajax_action_dropbox_authorize_app_start() {
 	$unsupported = ( $ret['status'] && $ret['result'] == 'lower' );
 	if ( $unsupported ) die();
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php'; 
+	include_once WFU_DROPBOX_ABSDIR.'_wfu_dropbox.php'; 
 	wfu_dropbox_authorize_app_start();
 }
 
@@ -30,7 +30,7 @@ function wfu_ajax_action_dropbox_authorize_app_finish() {
 	check_ajax_referer( 'wfu-dropbox-authorize-app', 'token' );
 	
 	$authCode = sanitize_text_field($_POST['authcode']);
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php'; 
+	include_once WFU_DROPBOX_ABSDIR.'_wfu_dropbox.php'; 
 	wfu_dropbox_authorize_app_finish($authCode);
 }
 

@@ -113,8 +113,8 @@ function wfu_contents_template($data) {?>
 		// to load the file icons css
 		const stylesTemplate = document.getElementById('r_wfu_styles_template_' + sid);
 		if (stylesTemplate) container.dom.prepend(stylesTemplate.content);
-		container.prepend(pre_template.content);
-		container.appendChild(post_template.content);
+		container.dom.prepend(pre_template.content);
+		container.dom.appendChild(post_template.content);
 	})();
 </script>
 <?php }

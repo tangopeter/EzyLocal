@@ -81,14 +81,14 @@ Header
 
 /* Login form
 */
-.eael-login-form-wrapper.eael-lr-form-wrapper.style-2,
+/* .eael-login-form-wrapper.eael-lr-form-wrapper.style-2,
 .elementor-2683 .elementor-element.elementor-element-d9f479a .lr-form-wrapper form {
   width: 100%;
   background-color: #0000;
   display: flex;
   justify-content: flex-end !important;
-}
-
+} */
+/* 
 .elementor-2683 .elementor-element.elementor-element-d9f479a .lr-form-wrapper {
   width: 100%;
 }
@@ -99,7 +99,7 @@ Header
 
 .eael-lr-form-wrapper .eael-lr-password-wrapper button {
   padding: 5px !important;
-}
+} */
 
 /* main Navigation */
 .hfe-menu-item {
@@ -110,6 +110,22 @@ Header
 .current-menu-item {
   border-bottom: 3px solid #A3A1A1;
 }
+
+.elementor-2683 .elementor-element.elementor-element-65953d8 .lr-form-wrapper {
+  width: 50%;
+  padding: 0;
+}
+
+.eael-login-form-wrapper.eael-lr-form-wrapper.style-2 {
+  justify-content: flex-end;
+}
+
+#eael-login-form {
+  background: #fff;
+  display: flex;
+  padding: 5px 10px;
+}
+
 
 /* footer */
 .hfe-menu-item:hover,

@@ -248,7 +248,7 @@ class wfu_plugin_auto_updater {
 				set_transient( $this->transient_prefix . '_upgrade_' . $this->slug, $remote, 43200 );
 			}
 		}
-		if ( !is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && !empty( $remote['body'] ) ) {
+		if ( $transient !== null && !is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && !empty( $remote['body'] ) ) {
 			$remote = json_decode( $remote['body'] );
 			if ( $remote && version_compare($current_version, $remote->version, '<') ) {
 				$obj = new stdClass();

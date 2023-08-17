@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Essential Addons for Elementor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-10 06:41:12+0000\n"
+"PO-Revision-Date: 2023-08-12 21:47:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,219 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.7\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Essential Addons for Elementor - Stable (latest release)\n"
+
+#: includes/Traits/Login_Registration.php:1592
+msgid "Above, input the %s of the attachment."
+msgstr "Arriba, introduce el %s del adjunto."
+
+#: includes/Traits/Login_Registration.php:379
+msgid "Filename length exceeded. Maximum length is "
+msgstr "Se ha superado la longitud del nombre de archivo. La longitud máxima es "
+
+#: includes/Traits/Login_Registration.php:371
+msgid "File size exceeded. Maximum size is "
+msgstr "Se ha superado el tamaño del archivo. El tamaño máximo es "
+
+#: includes/Traits/Login_Registration.php:359
+msgid "Sorry, you are not allowed to upload this file type."
+msgstr "Lo siento, no tienes permisos para subir este tipo de archivo."
+
+#: includes/Traits/Controls.php:1241
+msgid "Slides to Scroll"
+msgstr "Diapositivas a desplazar"
+
+#: includes/Traits/Controls.php:1222
+msgid "Angle Double"
+msgstr "Ángulo doble"
+
+#: includes/Traits/Controls.php:1216
+msgid "Arrow Type"
+msgstr "Tipo de flecha"
+
+#: includes/Traits/Controls.php:1204
+msgid "Scrollbar"
+msgstr "Barra de desplazamiento"
+
+#: includes/Traits/Controls.php:1200
+msgid "Navigation Type"
+msgstr "Tipo de navegación"
+
+#: includes/templates/admin/popup.php:252
+msgid "File Type Fields:"
+msgstr "Campos de tipo archivo:"
+
+#: includes/templates/admin/popup.php:246
+msgid "Text Type Fields:"
+msgstr "Campos de tipo texto:"
+
+#: includes/Elements/Woo_Product_Gallery.php:503
+msgid "Show Stock Out Products?"
+msgstr "¿Mostrar productos agotados?"
+
+#: includes/Elements/Woo_Cart.php:931
+msgid "Note: By Enabling this the cart is automatically updated when quantity will updated."
+msgstr "Nota: Al activar esta opción, el carrito se actualiza automáticamente cuando se actualiza la cantidad."
+
+#: includes/Elements/Woo_Cart.php:918
+msgid "Automatically Cart Update"
+msgstr "Actualización automática del carrito"
+
+#: includes/Elements/Login_Register.php:2348
+msgid "<strong>Note:</strong> You can use dynamic content in the email body like [fieldname]. For example [username] will be replaced by user-typed username. Available tags are: [username], [email], [firstname],[lastname], [website], [loginurl] and [sitetitle]. <br>For custom profile fields use slug of the field name e.x. [my_custom_field_1]"
+msgstr "<strong>Nota:</strong> Puedes utilizar contenido dinámico en el cuerpo del correo electrónico como [fieldname]. Por ejemplo, [username] se sustituirá por el nombre de usuario introducido por el usuario. Las etiquetas disponibles son: [username], [email], [firstname],[lastname], [website], [loginurl] y [sitetitle]. <br>Para los campos de perfil personalizados, utiliza el slug del nombre del campo, por ejemplo [mi_campo_personalizado_1]."
+
+#: includes/Elements/Login_Register.php:2239
+msgid "<strong>Note:</strong> You can use dynamic content in the email body like [fieldname]. For example [username] will be replaced by user-typed username. Available tags are: [password], [username], [email], [firstname],[lastname], [website], [loginurl], [password_reset_link], [eael_phone_number] and [sitetitle]. <br>For custom profile fields use slug of the field name e.x. [my_custom_field_1]"
+msgstr "<strong>Nota:</strong> Puedes utilizar contenido dinámico en el cuerpo del correo electrónico como [fieldname]. Por ejemplo, [username] se sustituirá por el nombre de usuario introducido por el usuario. Las etiquetas disponibles son: [password], [username], [email], [firstname],[lastname], [website], [loginurl], [password_reset_link], [eael_phone_number] y [sitetitle]. <br>Para los campos de perfil personalizados, utiliza el slug del nombre del campo, por ejemplo [mi_campo_personalizado_1]."
+
+#: includes/Elements/Login_Register.php:1946
+msgid "Set max file size up to 512 MB."
+msgstr "Establece el tamaño máximo de archivo hasta 512 MB."
+
+#: includes/Elements/Login_Register.php:1945
+msgid "Max File Size (MB)"
+msgstr "Tamaño máximo de archivo (MB)"
+
+#: includes/Elements/Login_Register.php:1930
+msgid "Max Filename Length"
+msgstr "Longitud máxima del nombre de archivo"
+
+#: includes/Elements/Login_Register.php:1915
+msgid "Only extensions that is permitted on WordPress."
+msgstr "Sólo extensiones permitidas en WordPress."
+
+#: includes/Elements/Login_Register.php:1914
+msgid "File Extensions"
+msgstr "Extensiones de archivo"
+
+#: includes/Elements/Login_Register.php:1894
+msgid "File upload will not work if AJAX submission is enabled."
+msgstr "La carga de archivos no funcionará si el envío AJAX está activado."
+
+#: includes/Elements/Login_Register.php:1497
+msgid "Redirect Based On User Roles"
+msgstr "Redirecció basada en roles de usuario"
+
+#: includes/Elements/Login_Register.php:418
+msgid "You are already logged in as [username]. ([logout_link])"
+msgstr "Ya estás conectado como [username]. ([logout_link])"
+
+#: includes/Elements/Login_Register.php:412
+msgid "Logout Link Text"
+msgstr "Texto del enlace de cierre de sesión"
+
+#: includes/Elements/Interactive_Circle.php:355
+msgid "Interval (Miliseconds)"
+msgstr "Intervalo (Milisegundos)"
+
+#: includes/Elements/Event_Calendar.php:1588
+msgid "See More Text"
+msgstr "Texto de ver más"
+
+#: includes/Elements/Event_Calendar.php:1535
+msgid "Row Odd"
+msgstr "Fila impar"
+
+#: includes/Elements/Event_Calendar.php:1505
+msgid "Row Even"
+msgstr "Fila par"
+
+#: includes/Elements/Event_Calendar.php:1265
+msgid "Search Input"
+msgstr "Campo de búsqueda"
+
+#: includes/Elements/Event_Calendar.php:1190
+msgid "Item Per Page"
+msgstr "Elementos por página"
+
+#: includes/Elements/Event_Calendar.php:1167
+msgid "-"
+msgstr "-"
+
+#: includes/Elements/Event_Calendar.php:1165
+msgid "Event Time Separator"
+msgstr "Separador de tiempo de eventos"
+
+#: includes/Elements/Event_Calendar.php:1154
+msgid ", "
+msgstr ", "
+
+#: includes/Elements/Event_Calendar.php:1152
+msgid "Date Time Separator"
+msgstr "Separador de fecha y hora"
+
+#: includes/Elements/Event_Calendar.php:1139
+#: includes/Elements/Event_Calendar.php:1140
+msgid " (24 Hours)"
+msgstr " (24 horas)"
+
+#: includes/Elements/Event_Calendar.php:1130
+msgid "Time Format"
+msgstr "Formato de hora"
+
+#: includes/Elements/Event_Calendar.php:1100
+msgid "Date Format"
+msgstr "Formato de fecha"
+
+#: includes/Elements/Event_Calendar.php:1089
+msgid "Only Time"
+msgstr "Solo hora"
+
+#: includes/Elements/Event_Calendar.php:1088
+msgid "Only Date"
+msgstr "Solo fecha"
+
+#: includes/Elements/Event_Calendar.php:1087
+msgid "Time Date"
+msgstr "Hora fecha"
+
+#: includes/Elements/Event_Calendar.php:1086
+msgid "Date Time"
+msgstr "Fecha hora"
+
+#: includes/Elements/Event_Calendar.php:1082
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: includes/Elements/Event_Calendar.php:1044
+msgid "By clicking on the expansion indicator will redirect to the event details link."
+msgstr "Al hacer clic en el indicador de expansión se redirigirá al enlace de los detalles del evento."
+
+#: includes/Elements/Event_Calendar.php:1040
+msgid "Linkable"
+msgstr "Enlazable"
+
+#: includes/Elements/Event_Calendar.php:1030
+msgid "... see more"
+msgstr "... ver más"
+
+#: includes/Elements/Event_Calendar.php:1014
+msgid "Word Count"
+msgstr "Número de palabras"
+
+#: includes/Elements/Event_Calendar.php:972
+msgid "Open in new Window"
+msgstr "Abrir en una nueva ventana"
+
+#: includes/Elements/Event_Calendar.php:957
+msgid "Event Details Link"
+msgstr "Enlace a los detalles del evento"
+
+#: includes/Elements/Event_Calendar.php:848
+msgid "Current Day"
+msgstr "Día actual"
+
+#: includes/Elements/Data_Table.php:1178
+msgid "Responsive styles working till this screen size."
+msgstr "Los estilos adaptables funcionan hasta este tamaño de pantalla."
+
+#: includes/Elements/Data_Table.php:1174
+msgid "Custom Breakpoint"
+msgstr "Punto de ruptura personalizado"
+
+#: includes/Controls/Select2.php:40
+msgid "Query String"
+msgstr "Cadena de consulta"
 
 #: includes/Elements/Woo_Checkout.php:633
 msgid "If there is some conditional fields. you can defined where the fields will appear."

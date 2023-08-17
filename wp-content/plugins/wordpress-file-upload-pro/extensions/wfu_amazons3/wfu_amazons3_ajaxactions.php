@@ -13,7 +13,7 @@ function wfu_ajax_action_amazons3_authorize_app_finish() {
 	
 	$publickey = sanitize_text_field($_POST['publickey']);
 	$privatekey = sanitize_text_field($_POST['privatekey']);
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_amazons3/_wfu_amazons3.php';
+	include_once WFU_AMAZONS3_ABSDIR.'_wfu_amazons3.php';
 	$result = wfu_amazons3_authorize_app_finish($publickey, $privatekey);
 	die("wfu_amazons3_authorize_app_finish:".$result);
 }

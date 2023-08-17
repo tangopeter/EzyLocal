@@ -1,6 +1,6 @@
 <?php
 
-require_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+require_once WFU_ONEDRIVE_ABSDIR . 'vendor/autoload.php';
 use Microsoft\Graph\Graph;
 
 function wfu_onedrive_authorize_app_start() {
@@ -168,9 +168,9 @@ function wfu_onedrive_getGraph() {
 	$accessToken = wfu_onedrive_get_accessToken();
 	if ( $accessToken == "" ) return null;
 	
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/base_classes/WFUGraph.php'; 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/base_classes/WFUGraphRequest.php'; 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/base_classes/WFUGraphSessionFile.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'base_classes/WFUGraph.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'base_classes/WFUGraphRequest.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'base_classes/WFUGraphSessionFile.php'; 
 	$Graph = new WFU\WFUGraph();
 	$Graph->setAccessToken($accessToken);
 	

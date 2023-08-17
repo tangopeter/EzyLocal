@@ -32,7 +32,14 @@ function wfu_manage_extensions($error_message = "") {
 	$siteurl = site_url();
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	
-	$plugin_extensions = apply_filters("_wfu_plugin_extensions", array());
+	$extension_headers = array(
+		'plugin'      => 'Plugin',
+		'code'        => 'Slug',
+		'name'        => 'Name',
+		'version'     => 'Version',
+		'description' => 'Description'
+	);	
+	$plugin_extensions = apply_filters("_wfu_plugin_extensions", array(), $extension_headers);
 	$plugin_extension_statuses = ( isset($WFU_PLUGIN_EXTENSIONS) ? $WFU_PLUGIN_EXTENSIONS : array() );
 
 	$echo_str = "";
@@ -54,10 +61,14 @@ function wfu_manage_extensions($error_message = "") {
 	$echo_str .= "\n\t\t\t".'<table class="wp-list-table widefat fixed striped">';
 	$echo_str .= "\n\t\t\t\t".'<thead>';
 	$echo_str .= "\n\t\t\t\t\t".'<tr>';
-	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="30%" class="manage-column column-primary">';
+	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="25%" class="manage-column column-primary">';
 	$echo_str .= "\n\t\t\t\t\t\t\t".'<label>Extension</label>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
-	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="50%" class="manage-column">';
+	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="10%" class="manage-column">';
+	$echo_str .= "\n\t\t\t\t\t\t\t".'<label>Version</label>';
+	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
+	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
+	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="45%" class="manage-column">';
 	$echo_str .= "\n\t\t\t\t\t\t\t".'<label>Description</label>';
 	$echo_str .= "\n\t\t\t\t\t\t".'</th>';
 	$echo_str .= "\n\t\t\t\t\t\t".'<th scope="col" width="20%" class="manage-column">';
@@ -76,12 +87,16 @@ function wfu_manage_extensions($error_message = "") {
 	else {
 		$ii = 1;
 		foreach( $plugin_extensions as $key => $extension ) {
+			if ( isset($extension["data"]) ) wfu_debug_log_obj($extension["data"]);
 			$code = $extension["code"];
 			$active = ( !array_key_exists($code, $plugin_extension_statuses) || $plugin_extension_statuses[$code] !== "0" );
 			$echo_str .= "\n\t\t\t\t\t".'<tr class="extension-row tr-'.$code.' '.( $active ? "active" : "inactive" ).'">';
 			$echo_str .= "\n\t\t\t\t\t\t".'<td class="column-primary" data-colname="Extension">';
 			$echo_str .= "\n\t\t\t\t\t\t\t".'<span>'.$extension["name"].'</span>';
 			$echo_str .= "\n\t\t\t\t\t\t\t".'<button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button>';
+			$echo_str .= "\n\t\t\t\t\t\t".'</td>';
+			$echo_str .= "\n\t\t\t\t\t\t".'<td data-colname="Version">';
+			$echo_str .= "\n\t\t\t\t\t\t\t".'<span>'.$extension["version"].'</span>';
 			$echo_str .= "\n\t\t\t\t\t\t".'</td>';
 			$echo_str .= "\n\t\t\t\t\t\t".'<td data-colname="Description">';
 			$echo_str .= "\n\t\t\t\t\t\t\t".'<span>'.$extension["description"].'</span>';

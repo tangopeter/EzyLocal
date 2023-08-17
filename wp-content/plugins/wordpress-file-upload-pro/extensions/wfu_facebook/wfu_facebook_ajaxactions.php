@@ -17,7 +17,7 @@ function wfu_ajax_action_facebook_authorize_app_start() {
 	$unsupported = ( $ret['status'] && $ret['result'] == 'lower' );
 	if ( $unsupported ) die();
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_facebook/_wfu_facebook.php'; 
+	include_once WFU_FACEBOOK_ABSDIR.'_wfu_facebook.php'; 
 	wfu_facebook_authorize_app_start();
 }
 
@@ -28,7 +28,7 @@ function wfu_ajax_action_facebook_authorize_app_finish() {
 	
 	check_ajax_referer( 'wfu-facebook-authorize-app', 'token' );
 	
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_facebook/_wfu_facebook.php'; 
+	include_once WFU_FACEBOOK_ABSDIR.'_wfu_facebook.php'; 
 	wfu_facebook_authorize_app_finish();
 }
 

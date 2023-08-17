@@ -7,7 +7,7 @@ function wfu_dropbox_schedule_file_transfer($fileid, $target_path, $userdata_fie
 	if ( $params["dropbox"] == "true" ) {
 		// notify admin if Dropbox is not activated
 		if ( !wfu_dropbox_service_active() ) {
-			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php';
+			include_once WFU_DROPBOX_ABSDIR.'_wfu_dropbox.php';
 			wfu_add_dropboxactivation_notification();
 		}
 		$user = wp_get_current_user();
@@ -96,14 +96,14 @@ function wfu_dropbox_transfer_file($filepath, $destination, $params) {
 		$params["share_file"] = $additional_params["share_file"];
 	}
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php'; 
+	include_once WFU_DROPBOX_ABSDIR.'_wfu_dropbox.php'; 
 	
 	$use_old_API = ( WFU_VAR("WFU_DROPBOX_USE_V1_API") == "true" );
 	wfu_dropbox_upload_file($filepath, $destination, $use_old_API, $params);
 }
 
 function wfu_dropbox_check_transfer($fileid, $jobid) {
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_dropbox/_wfu_dropbox.php'; 
+	include_once WFU_DROPBOX_ABSDIR.'_wfu_dropbox.php'; 
 
 	$use_old_API = ( WFU_VAR("WFU_DROPBOX_USE_V1_API") == "true" );
 	wfu_dropbox_check_upload($fileid, $jobid, $use_old_API);

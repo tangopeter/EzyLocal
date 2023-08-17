@@ -99,7 +99,7 @@ function wfu_facebook_send_message($message) {
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	if ( $plugin_options['facebook_userpsid'] == "" || $plugin_options['facebook_pageaccesstoken'] == "" ) return null;
 
-	include_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+	include_once WFU_FACEBOOK_ABSDIR . 'vendor/autoload.php';
 	
 	$data = [
 		'messaging_type' => 'RESPONSE',
@@ -120,7 +120,7 @@ function wfu_facebook_send_attachment($message) {
 	$plugin_options = wfu_decode_plugin_options(get_option( "wordpress_file_upload_options" ));
 	if ( $plugin_options['facebook_userpsid'] == "" || $plugin_options['facebook_pageaccesstoken'] == "" ) return null;
 
-	include_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+	include_once WFU_FACEBOOK_ABSDIR . 'vendor/autoload.php';
 
 	$data = [
 		'messaging_type' => 'RESPONSE',

@@ -19,7 +19,7 @@ function wfu_ajax_action_gdrive_authorize_app_start() {
 	$unsupported = ( $ret['status'] && $ret['result'] == 'lower' );
 	if ( $unsupported ) die();
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php'; 
 	wfu_gdrive_authorize_app_start();
 }
 
@@ -32,7 +32,7 @@ function wfu_ajax_action_gdrive_authorize_app_finish() {
 	
 	$authCode = sanitize_text_field($_POST['authcode']);
 	$state = wfu_sanitize_code($_POST["state"]);
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php'; 
 	wfu_gdrive_authorize_app_finish($state, $authCode);
 }
 
@@ -43,7 +43,7 @@ function wfu_ajax_action_gdrive_authorize_app_reset() {
 	
 	check_ajax_referer( 'wfu-gdrive-authorize-app', 'token' );
 	
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php'; 
 	wfu_gdrive_revoke_authorization();
 
 	die("wfu_gdrive_authorize_app_reset:success:");

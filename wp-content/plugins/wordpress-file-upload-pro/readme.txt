@@ -3,7 +3,7 @@ Contributors: nickboss
 Donate link: http://www.iptanus.com/support/wordpress-file-upload
 Tags: file, upload, ajax, form, page, post, sidebar, responsive, widget, webcam, ftp
 Requires at least: 2.9.2
-Tested up to: 6.2.2
+Tested up to: 6.3
 Stable tag: "trunk"
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -145,6 +145,13 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 8. A screenshot of the file browser.
 
 == Changelog ==
+
+= 4.23.0 =
+* external libraries of extensions moved inside the extensions, so that they are completely separated by the core plugin, as a preparation step for forecoming version 5
+* added Home Domain information in Main tab of Dashboard area of the plugin
+* corrected bug where <shadowdom_pre> and <shadowdom_post> templates were not placed correctly inside the shadow DOM
+* added _wfu_file_upload_output_inner filter for customizing inner upload form HTML before it is processed by the templating system
+* code improvements in auto-updater to avoid errors when $transient is null
 
 = 4.22.2 =
 * updated vendor libraries
@@ -1102,6 +1109,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.23.0 =
+Regular update to introduce new features, code improvements and fix some bugs.
 
 = 4.22.2 =
 Regular update to update vendor libraries.

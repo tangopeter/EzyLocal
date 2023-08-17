@@ -7,7 +7,7 @@ function wfu_gdrive_schedule_file_transfer($fileid, $target_path, $userdata_fiel
 	if ( $params["gdrive"] == "true" ) {
 		// notify admin if Google Drive is not activated
 		if ( !wfu_gdrive_service_active() ) {
-			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php';
+			include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php';
 			wfu_add_gdriveactivation_notification();
 		}
 		$user = wp_get_current_user();
@@ -108,13 +108,13 @@ function wfu_gdrive_transfer_file($filepath, $destination, $params) {
 		$params["share_file"] = $additional_params["share_file"];
 	}
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php'; 
 	
 	wfu_gdrive_upload_file($filepath, $destination, $params);
 }
 
 function wfu_gdrive_check_transfer($fileid, $jobid) {
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_gdrive/_wfu_gdrive.php'; 
+	include_once WFU_GDRIVE_ABSDIR.'_wfu_gdrive.php'; 
 
 	wfu_gdrive_check_upload($fileid, $jobid);
 }

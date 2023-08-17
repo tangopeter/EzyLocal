@@ -7,7 +7,7 @@ function wfu_onedrive_schedule_file_transfer($fileid, $target_path, $userdata_fi
 	if ( $params["onedrive"] == "true" ) {
 		// notify admin if Microsoft OneDrive is not activated
 		if ( !wfu_onedrive_service_active() ) {
-			include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php';
+			include_once WFU_ONEDRIVE_ABSDIR.'_wfu_onedrive.php';
 			wfu_add_onedriveactivation_notification();
 		}
 		$user = wp_get_current_user();
@@ -107,13 +107,13 @@ function wfu_onedrive_transfer_file($filepath, $destination, $params) {
 		$params["conflict_policy"] = $additional_params["conflict_policy"];
 	}
 
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'_wfu_onedrive.php'; 
 	
 	wfu_onedrive_upload_file($filepath, $destination, $params);
 }
 
 function wfu_onedrive_check_transfer($fileid, $jobid) {
-	include_once ABSWPFILEUPLOAD_DIR.'extensions/wfu_onedrive/_wfu_onedrive.php'; 
+	include_once WFU_ONEDRIVE_ABSDIR.'_wfu_onedrive.php'; 
 
 	wfu_onedrive_check_upload($fileid, $jobid);
 }

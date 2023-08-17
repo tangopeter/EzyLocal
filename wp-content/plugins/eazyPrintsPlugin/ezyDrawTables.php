@@ -76,7 +76,20 @@ function drawOrderTable($ORDER_NUMBER)
   echo '</tr>';
   echo '</tfoot>';
   echo '</table';
+
+
+  // DOM Parser Object
+  // echo '<p>' . "fred" . '</p>';
+  // $dom = new DOMDocument();
+  // $dom->validateOnParse = true;
+  // $dom->loadHTML($totalPrice);
+
+  // $dom->preserveWhiteSpace = false;
+  // $totalPrice - $dom->getElementById("totalPrintPrice2");
+  // echo '<p>' . $totalPrice->nodeValue . '</p>';
+  // echo '<p>' . $totalPrice . '</p>';
 }
+
 
 function drawAccountOrderTable($ORDER_NUMBER)
 {
@@ -215,6 +228,4 @@ function drawAccountOrderTable($ORDER_NUMBER)
 
   endforeach;
   echo '</div>';
-  // echo '</div>';
-  // echo '</div>';
 }

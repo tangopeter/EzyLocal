@@ -17,37 +17,48 @@
       <!-- <?php the_title('<h1 class="entry-title">', '</h1>'); ?> -->
     </header>
   <?php endif; ?>
+
+
   <div class="page-content">
-
-    <h1>Select your files to upload</h1>
     <?php
-    $current_user = wp_get_current_user();
-    $user = $current_user->user_login;
-    echo '<h4>' . 'Welcome ' . $user . '</h4>';
-    echo '<ul>';
-    echo '<li>' . 'Please select your files to upload' . '</li>';
-    echo '<li>' . 'You may upload as many images as required,' . '<strong>' . ' but they must be the same settings/Quanity' . '</strong> ' . 'for each upload.' . '</li>';
-    echo '<li>' . 'You can also drag files or folders' . '</li>';
-    echo '<li>' . 'Repeat upload for each different setting' . '</li>';
-    echo '<li>' . 'Click "Complete order" to confirm your details' . '</li>';
-    echo '</ul>';
+    echo 'testing';
+    function our_tutorial()
+    {
 
-    $ORDER_NUMBER = get_option('ORDER_NUMBER');
+      if (isset($_REQUEST)) {
+        $testing = $_REQUEST['php_test'];
+
+        echo 'This is our JS var: ' . $testing;
+      }
+      die();
+    }
+    add_action('wp_ajax_php_tutorial', 'our_tutorial');
     ?>
 
-    <?php the_content(); ?>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        var test = '75'
+        console.log(test)
+
+        $.ajax({
+          url: '/wp-admin/admin-ajax.php',
+          data: {
+            'action': 'php_test',
+            'php_test': test
+          },
+          success: function(data) {
+            console.log("happy");
+          },
+        });
+      });
+    </script>
+
+
+
+
+
     <?php
 
-    echo '<form method="POST" action="myPage.php">
-		<input type=" submit" class="button1" name="btn-comp" value="Complete Order"/>
-  </form>';
-
-    // echo '<form method="POST" action="https://ezylocal:8890/?page_id=2782">
-    // 	<input type=" submit" class="button1" name="btn-comp" value="Complete Order">
-    // </form>'
-    ?>
-    <?php
-    drawOrderTable($ORDER_NUMBER);
     ?>
     <?php get_footer(); ?>
 </main>

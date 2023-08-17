@@ -7,11 +7,11 @@ add_action('_wfu_enqueue_uploadedfiles_admin_scripts', 'wfu_gdrive_enqueue_uploa
 add_filter('_wfu_dashboard_actions', 'wfu_gdrive_dashboard_actions', 10, 2);
 
 function wfu_gdrive_register_admin_scripts() {
-	wp_register_script('wordpress_file_upload_gdrive_admin_script', WPFILEUPLOAD_DIR.'extensions/wfu_gdrive/js/wfu_gdrive_adminfunctions.js');
+	wp_register_script('wordpress_file_upload_gdrive_admin_script', WFU_GDRIVE_DIR.'js/wfu_gdrive_adminfunctions.js');
 }
 
 function wfu_gdrive_register_uploadedfiles_admin_scripts() {
-	wp_register_style('wordpress_file_upload_gdrive_admin_style', WPFILEUPLOAD_DIR.'extensions/wfu_gdrive/css/wfu_gdrive_uploadedfiles_style.css');
+	wp_register_style('wordpress_file_upload_gdrive_admin_style', WFU_GDRIVE_DIR.'css/wfu_gdrive_uploadedfiles_style.css');
 }
 
 function wfu_gdrive_enqueue_admin_scripts() {

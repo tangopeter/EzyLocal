@@ -7,11 +7,11 @@ add_action('_wfu_enqueue_uploadedfiles_admin_scripts', 'wfu_dropbox_enqueue_uplo
 add_filter('_wfu_dashboard_actions', 'wfu_dropbox_dashboard_actions', 10, 2);
 
 function wfu_dropbox_register_admin_scripts() {
-	wp_register_script('wordpress_file_upload_dropbox_admin_script', WPFILEUPLOAD_DIR.'extensions/wfu_dropbox/js/wfu_dropbox_adminfunctions.js');
+	wp_register_script('wordpress_file_upload_dropbox_admin_script', WFU_DROPBOX_DIR.'js/wfu_dropbox_adminfunctions.js');
 }
 
 function wfu_dropbox_register_uploadedfiles_admin_scripts() {
-	wp_register_style('wordpress_file_upload_dropbox_admin_style', WPFILEUPLOAD_DIR.'extensions/wfu_dropbox/css/wfu_dropbox_uploadedfiles_style.css');
+	wp_register_style('wordpress_file_upload_dropbox_admin_style', WFU_DROPBOX_DIR.'css/wfu_dropbox_uploadedfiles_style.css');
 }
 
 function wfu_dropbox_enqueue_admin_scripts() {

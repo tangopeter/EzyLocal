@@ -1664,6 +1664,23 @@ function wfu_ajaxurl() {
 }
 
 /**
+ * Get Home Domain.
+ *
+ * This function gets the home domain, which is the home URL without the http or
+ * https protocol.
+ *
+ * @since 4.23.0
+ *
+ * @redeclarable
+ *
+ * @return string The home domain.
+ */
+function wfu_home_domain() {
+	$a = func_get_args(); $a = WFU_FUNCTION_HOOK(__FUNCTION__, $a, $out); if (isset($out['vars'])) foreach($out['vars'] as $p => $v) $$p = $v; switch($a) { case 'R': return $out['output']; break; case 'D': die($out['output']); }
+	return preg_replace("/^https?:\/\//", "", home_url());
+}
+
+/**
  * Get Plugin Environment Variable Value.
  *
  * This function gets the value of a plugin's environment variable.

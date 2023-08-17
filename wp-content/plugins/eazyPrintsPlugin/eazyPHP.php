@@ -51,17 +51,8 @@ function add_module_to_my_script($tag, $handle, $src)
   return $tag;
 }
 
-function our_tutorial()
-{
 
-  if (isset($_REQUEST)) {
-    $testing = $_REQUEST['printPrice'];
 
-    echo 'This is our var: ' . $testing;
-  }
-  die();
-}
-add_action('wp_ajax_php_tutorial', 'our_tutorial');
 
 
 

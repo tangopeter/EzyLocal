@@ -1,6 +1,6 @@
 <?php
 
-require_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+require_once WFU_FACEBOOK_ABSDIR . 'vendor/autoload.php';
 
 function wfu_facebook_authorize_app_start() {
 	WFU_USVAR_store('wfu_Facebook_UID', "");

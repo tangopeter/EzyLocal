@@ -1,6 +1,6 @@
 <?php
 
-require_once ABSWPFILEUPLOAD_DIR . WFU_AUTOLOADER_PHP50600;
+require_once WFU_GDRIVE_ABSDIR . 'vendor/autoload.php';
 
 function wfu_gdrive_authorize_app_start() {
 	WFU_USVAR_store('wfu_GDrive_Client', null);

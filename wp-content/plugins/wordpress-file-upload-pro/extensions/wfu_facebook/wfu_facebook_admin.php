@@ -23,11 +23,11 @@ function wfu_facebook_monitor_requests() {
 }
 
 function wfu_facebook_register_admin_scripts() {
-	wp_register_script('wordpress_file_upload_facebook_admin_script', WPFILEUPLOAD_DIR.'extensions/wfu_facebook/js/wfu_facebook_adminfunctions.js');
+	wp_register_script('wordpress_file_upload_facebook_admin_script', WFU_FACEBOOK_DIR.'js/wfu_facebook_adminfunctions.js');
 }
 
 function wfu_facebook_register_uploadedfiles_admin_scripts() {
-	wp_register_style('wordpress_file_upload_facebook_admin_style', WPFILEUPLOAD_DIR.'extensions/wfu_facebook/css/wfu_facebook_adminstyle.css');
+	wp_register_style('wordpress_file_upload_facebook_admin_style', WFU_FACEBOOK_DIR.'css/wfu_facebook_adminstyle.css');
 }
 
 function wfu_facebook_enqueue_admin_scripts() {
