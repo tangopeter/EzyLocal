@@ -20,36 +20,26 @@
 
 
   <div class="page-content">
-    <?php
-    echo 'testing';
-    function our_tutorial()
-    {
 
-      if (isset($_REQUEST)) {
-        $testing = $_REQUEST['php_test'];
 
-        echo 'This is our JS var: ' . $testing;
-      }
-      die();
-    }
-    add_action('wp_ajax_php_tutorial', 'our_tutorial');
-    ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script type="text/javascript">
       jQuery(document).ready(function($) {
-        var test = '75'
-        console.log(test)
+        var test = '667'
+        //console.log(test)
 
         $.ajax({
           url: '/wp-admin/admin-ajax.php',
           data: {
-            'action': 'php_test',
+            'action': 'php_tutorial',
             'php_test': test
           },
           success: function(data) {
-            console.log("happy");
-          },
+            console.log("Happy")
+          }
         });
+
       });
     </script>
 
@@ -57,9 +47,8 @@
 
 
 
-    <?php
 
-    ?>
+
     <?php get_footer(); ?>
 </main>
 </div>

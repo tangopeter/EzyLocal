@@ -1770,6 +1770,9 @@ function wfu_exclude_notifications_from_comments( &$query ) {
 	if ( is_array($query->query_vars["type__in"]) && in_array("wfunotification", $query->query_vars["type__in"]) ) return;
 	if ( $query->query_vars["type__not_in"] == null )
 		$query->query_vars["type__not_in"] = array();
+	// fix for when 'type__not_in' is a string
+	elseif ( is_string($query->query_vars["type__not_in"]) )
+		$query->query_vars["type__not_in"] = array( $query->query_vars["type__not_in"] );
 	// exclude "wfunotification" from the comment query
 	if ( !in_array("wfunotification", $query->query_vars["type__not_in"]) )
 		array_push($query->query_vars["type__not_in"], "wfunotification");

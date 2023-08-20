@@ -146,6 +146,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 
 == Changelog ==
 
+= 4.23.1 =
+* corrected compatibility issue with Divi Theme Builder
+
 = 4.23.0 =
 * external libraries of extensions moved inside the extensions, so that they are completely separated by the core plugin, as a preparation step for forecoming version 5
 * added Home Domain information in Main tab of Dashboard area of the plugin
@@ -1109,6 +1112,9 @@ There is an option in plugin's settings in Dashboard to relax the CSS rules, so 
 * Several bug fixes.
 
 == Upgrade Notice ==
+
+= 4.23.1 =
+Regular update to fix some bugs.
 
 = 4.23.0 =
 Regular update to introduce new features, code improvements and fix some bugs.

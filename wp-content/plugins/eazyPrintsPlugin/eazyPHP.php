@@ -51,11 +51,24 @@ function add_module_to_my_script($tag, $handle, $src)
   return $tag;
 }
 
+function our_tutorial()
+{
+  if (isset($_REQUEST)) {
+    $testing = $_REQUEST['php_test'];
 
+    echo 'This is our JS Variable :' . $testing;
 
-
-
-
+    // global $wpdb;
+    // $wpdb->insert(
+    //   $wpdb->prefix . 'lms_enroll',
+    //   [
+    //     'ID' => $testing
+    //   ]
+    // );
+  }
+  die();
+}
+add_action('wp_ajax_php_tutorial', 'our_tutorial');
 
 
 

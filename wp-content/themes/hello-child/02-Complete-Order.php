@@ -76,20 +76,22 @@ $current_user_ID = get_current_user_id();
   </div>
 
   <div class="myDiv2">
-
-    <form method="post">
-      <input type="submit" name="btn-complete2" value="Finalize this order">
+    <form method="get" name="form" action="02-Complete-Order.php">
+      <input type="text" placeholder="Enter Data" name="data">
+      <input type="submit" value="Submit">
     </form>
+
+
+
+
     <?php
-    if (isset($_POST['btn-complete2'])) {
+    $result = "";
+    $result = $_GET['data'];
+    echo $result;
     ?>
-      <script>
-        console.log("send");
 
-        // window.location.href = 'https://ezylocal:8890/?page_id=2572';
-      </script>
 
-    <?php } ?>
+
     <div class="myFooter">
       <?php get_footer(); ?>
     </div>
