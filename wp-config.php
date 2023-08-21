@@ -46,16 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',          '3Ci$=yx)AcB=2*Ssr&>a&~K0hsQ%=L@ b,Q0}V/q7eCAvE^=8mWSMlJKZt=A.E8I');
-define('SECURE_AUTH_KEY',   ')U8e*.5?1sx]`6V?:(>R4mEpA_h(@n@gr<zSB-b`bl~=Xftyd^WkAXN]2Huu<dVw');
-define('LOGGED_IN_KEY',     '!!,NRNVZ6y`YPTZ la$JS9r(V(3_chLnywug?;sl{;hE3|h9ms2{ij!&rZfS#xbc');
-define('NONCE_KEY',         'f^x%GKp#{fjI^Jk]?nJ-ceH,n`ajrE>}}IiD${`oAV^EsO%i!?1#aQBGZ8e0hvz{');
-define('AUTH_SALT',         'l#L)tO]>z^WH)n{V5k?e*F%(HG$YJTR]Y1TT,-`>6!_T;4}apG$FBrul7cPZnB>@');
-define('SECURE_AUTH_SALT',  't;q5-TUT}0TxGn^mZ<:=Soxs]ZKPo9xNZJ)o=usVKq>rU/z3u_*QpX2~DA!2ps-j');
-define('LOGGED_IN_SALT',    'o{)18YL5j$H]h,KExKjR_:G@!HfT>qQiI9z 4s;Z_>;<dqIdK919^_Yl`XU|{r;A');
-define('NONCE_SALT',        'Aw!YD3,h-vhM<xsSmsuZH^T[NM**?o$op$M/b>1t>SdiFae ]h UzL~kFxU{LiJ&');
-define('WP_CACHE_KEY_SALT', 'tEZjBdGsg+Lu>lx(Obs7ow_}mTW#xl9&Xa-`.aW/N-1kEpz5 8sH1fW   6@QiR,');
-
+define('AUTH_KEY',         'Nk$[rd:S0#:26:,Fb<Z4^r/>VYy[_Xu=t 6wZ#zS1WAgP$UyP9),UslC&1/_.c><');
+define('SECURE_AUTH_KEY',  'ElY):a+e^/-xqoxGV)ymGn/Z|P!nB-[Uh;U7Uwi9})#]#<U8O,$EfrD3(,B$7)Wn');
+define('LOGGED_IN_KEY',    '3BC1{7~g(p|+zBttibxosqY[(B8:/R6jb4n+rwP#)|Eq?Q;wx|b,)wg@`?%8#`<D');
+define('NONCE_KEY',        ')Z+$IPt,/2*-~b^8}K@`-^E7@}ThRx-Jabcz|lzZw%M94&}|wjnF~yC5]Gkf96ir');
+define('AUTH_SALT',        'O|~A-&[+)TV$RR#7PK1ey-Z:|+|?W3kS0eb|q#.+l[ykO}z<={m;f]KU>A#?k[l+');
+define('SECURE_AUTH_SALT', '%{MSw-#C7P%`Ystv8c7m4GsT!,O#z/)-L$h2db,*<G?)M+%LN_ ;|:&*O^{y< H-');
+define('LOGGED_IN_SALT',   '?9b4Ddc,mR(EdtS :[{X^yrWE,UT~g_x020GJ+tDoO4ygY oR&--)tvE;GcnPH7p');
+define('NONCE_SALT',       '$rA9=_@ki3{~o$`tGu9u[AM#0:_|_./|]2+F4X+CT.wdTC?s GEpA{TXASD#+0;d');
 
 /**#@-*/
 
@@ -67,10 +65,7 @@ define('WP_CACHE_KEY_SALT', 'tEZjBdGsg+Lu>lx(Obs7ow_}mTW#xl9&Xa-`.aW/N-1kEpz5 8s
  */
 $table_prefix = 'wp_';
 
-
 /* Add any custom values between this line and the "stop editing" line. */
-
-
 
 /**
  * For developers: WordPress debugging mode.
@@ -90,6 +85,15 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', false);
 define('SCRIPT_DEBUG', false);
 
+define('FORCE_SSL_ADMIN', true);
+
+// in some setups HTTP_X_FORWARDED_PROTO might contain 
+// a comma-separated list e.g. http,https
+// so check for https existence
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+       $_SERVER['HTTPS']='on'; 
+define('WP_HOME','https://ezylocal:8890/');
+define('WP_SITEURL','https://ezylocal:8890/');
 
 /* That's all, stop editing! Happy publishing. */
 /** Absolute path to the WordPress directory. */

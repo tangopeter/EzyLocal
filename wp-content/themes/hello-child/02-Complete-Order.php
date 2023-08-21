@@ -51,7 +51,7 @@ $current_user_ID = get_current_user_id();
           <span id="printCostTotalPriceID">0</span>
         </p>
         <p>Delivery Price:
-          <span id="deliveryCostPriceID">0</span>
+        <div id="deliveryCostPriceID">0</div>
         </p>
         <p>Subtotal:
           <span id="subtotalCostPriceID">0</span>
@@ -75,25 +75,13 @@ $current_user_ID = get_current_user_id();
     <?php drawOrderTable($ORDER_NUMBER); ?>
   </div>
 
-  <div class="myDiv2">
-    <form method="get" name="form" action="02-Complete-Order.php">
-      <input type="text" placeholder="Enter Data" name="data">
-      <input type="submit" value="Submit">
-    </form>
+  <?php
+  $myArray = json_decode($_POST['kvcArray']);
+  echo "array";
+  echo $myArray;
+  ?>
 
-
-
-
-    <?php
-    $result = "";
-    $result = $_GET['data'];
-    echo $result;
-    ?>
-
-
-
-    <div class="myFooter">
-      <?php get_footer(); ?>
-    </div>
+  <div class="myFooter">
+    <?php get_footer(); ?> </div>
   </div>
 </main>

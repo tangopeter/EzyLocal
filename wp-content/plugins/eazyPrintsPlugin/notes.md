@@ -17,6 +17,10 @@ https://code.tutsplus.com/tutorials/how-to-pass-php-data-and-strings-to-javascri
 
 https://www.youtube.com/watch?v=DXK9XDN9puY Pass JavaScript Variable to PHP in Wordpress
 
+  https://sebhastian.com/pass-javascript-variables-to-php/
+
+  https://www.wikihow.com/Pass-Variables-from-Javascript-to-PHP
+
 https://www.advancedcustomfields.com/resources/acf_form/  
 
 https://www.advancedcustomfields.com/resources/javascript-api/

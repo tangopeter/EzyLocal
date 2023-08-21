@@ -173,9 +173,18 @@ function updateOrderValue() {
   console.log('finalCost: ', finalCost.toFixed(2));
   console.log('>=================================');
 
+  let arrayfromjs = ["Apple", "Orange", "Plum"];
 
 
-
+  var myJSONText = JSON.stringify(arrayfromjs);
+  $.ajax({
+    type: "POST",
+    url: "https://ezylocal:8890/?page_id=2782",
+    data: { kvcArray: myJSONText },
+    success: function () {
+      alert("Success");
+    }
+  }); 
   
 }
 
